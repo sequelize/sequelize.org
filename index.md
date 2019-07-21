@@ -10,9 +10,9 @@ $ npm install --save sequelize
 If you have any security issue to report, contact project maintainers privately. You can find contact information in [CONTACT.md](https://github.com/sequelize/sequelize/blob/master/CONTACT.md)
 
 ## Documentation
-- [v5 Documentation](http://docs.sequelizejs.com)
-- [v4 Documentation](https://sequelize.github.io/v4/)
-- [v3 Documentation](https://sequelize.github.io/v3/index.html)
+- [v5 Documentation](https://sequelize.org/master)
+- [v4 Documentation](https://sequelize.org/v4/)
+- [v3 Documentation](https://sequelize.org/v3)
 
 ## Resources
 - [Changelog](https://github.com/sequelize/sequelize/releases)
