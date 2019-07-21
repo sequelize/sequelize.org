@@ -23,5 +23,5 @@ git clone $CLONE_URL
 cd $REPO_NAME
 
 build_branch master
-#build_branch v4
-#build_branch v3
+build_branch v4
+build_branch v3
