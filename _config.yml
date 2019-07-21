@@ -1,1 +1,5 @@
-theme: jekyll-theme-minimal
+title: Sequelize ORM
+
+github_username: sequelize
+
+theme: minima

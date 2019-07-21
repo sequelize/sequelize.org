@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+## Sequelize
 
-You can use the [editor on GitHub](https://github.com/sequelize/sequelize.org/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Sequelize is a promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server. It features solid transaction support, relations, eager and lazy loading, read replication and more.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+$ npm install --save sequelize
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Security
+If you have any security issue to report, contact project maintainers privately. You can find contact information in [CONTACT.md](https://github.com/sequelize/sequelize/blob/master/CONTACT.md)
 
-### Jekyll Themes
+## Documentation
+- [v5 Documentation](http://docs.sequelizejs.com)
+- [v4 Documentation](https://sequelize.github.io/v4/)
+- [v3 Documentation](https://sequelize.github.io/v3/index.html)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sequelize/sequelize.org/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Resources
+- [Changelog](https://github.com/sequelize/sequelize/releases)
+- [Slack](http://sequelize-slack.herokuapp.com/)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sequelize.js)
