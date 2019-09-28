@@ -7,7 +7,7 @@ $ npm install --save sequelize
 ```
 
 ## Security
-If you have any security issue to report, contact project maintainers privately. You can find contact information in [CONTACT.md](https://github.com/sequelize/sequelize/blob/master/CONTACT.md)
+Please follow responsible disclosure guidelines from [SECURITY.md](https://github.com/sequelize/sequelize/blob/master/SECURITY.md)
 
 ## Documentation
 - [v5 Documentation](https://sequelize.org/master)
