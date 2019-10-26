@@ -7,6 +7,7 @@ $ npm install --save sequelize
 ```
 
 ## Security
+
 Please follow responsible disclosure guidelines from [SECURITY.md](https://github.com/sequelize/sequelize/blob/master/SECURITY.md)
 
 ## Documentation
@@ -15,6 +16,7 @@ Please follow responsible disclosure guidelines from [SECURITY.md](https://githu
 - [v3 Documentation](https://sequelize.org/v3)
 
 ## Resources
+- [GitHub](https://github.com/sequelize/sequelize/)
 - [Changelog](https://github.com/sequelize/sequelize/releases)
 - [Slack](http://sequelize-slack.herokuapp.com/)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sequelize.js)
