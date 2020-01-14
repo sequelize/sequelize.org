@@ -7,6 +7,7 @@ build_branch () {
 
     npm install
     npm run docs
+    git stash
 
     rm -rf ../$1
     if [ $1 == "v3" ];then
