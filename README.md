@@ -1,7 +1,11 @@
 ## sequelize.org
 
-### v5 docs:
+
+### v6 docs:
 https://sequelize.org/master
+
+### v5 docs:
+https://sequelize.org/v5
 
 ### v4 docs:
 https://sequelize.org/v4
