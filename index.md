@@ -11,8 +11,9 @@ $ npm install --save sequelize
 Please follow responsible disclosure guidelines from [SECURITY.md](https://github.com/sequelize/sequelize/blob/master/SECURITY.md)
 
 ## Documentation
+- [v6 Documentation](https://sequelize.org/master)
 - [v5 Documentation](https://sequelize.org/v5)
-- [v4 Documentation](https://sequelize.org/v4/)
+- [v4 Documentation](https://sequelize.org/v4)
 - [v3 Documentation](https://sequelize.org/v3)
 
 ## Resources
