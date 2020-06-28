@@ -14,7 +14,7 @@ build_branch () {
         mkdocs build --clean
         mv ./site ../$BUILD_DIR/$1
     else
-        if [ $1 === "v6" ]; then
+        if [ $1 == "v6" ]; then
           mv ./esdoc ../$BUILD_DIR/master
         else
           mv ./esdoc ../$BUILD_DIR/$1
