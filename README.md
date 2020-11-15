@@ -1,5 +1,6 @@
 ## sequelize.org
 
+*NOTE: Do not send pull requests to this repository. Send them to the [main repository](https://github.com/sequelize/sequelize) instead.*
 
 ### v6 docs:
 https://sequelize.org/master
