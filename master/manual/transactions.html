@@ -646,7 +646,7 @@ try {
 </code></pre>
 <p>Note that <code>t.commit()</code> and <code>t.rollback()</code> were not called directly (which is correct).</p>
 <h3 id="throw-errors-to-rollback">Throw errors to rollback</h3><p>When using the managed transaction you should <em>never</em> commit or rollback the transaction manually. If all queries are successful (in the sense of not throwing any error), but you still want to rollback the transaction, you should throw an error yourself:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">await sequelize.transaction(t =&gt; {
+<pre><code class="lang-js"><code class="source-code prettyprint">await sequelize.transaction(async (t) =&gt; {
   const user = await User.create({
     firstName: &apos;Abraham&apos;,
     lastName: &apos;Lincoln&apos;
