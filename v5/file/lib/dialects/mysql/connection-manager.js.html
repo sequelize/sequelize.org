@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,16 +112,16 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mysql/connection-manager.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const AbstractConnectionManager = require(&apos;../abstract/connection-manager&apos;);
-const SequelizeErrors = require(&apos;../../errors&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
-const DataTypes = require(&apos;../../data-types&apos;).mysql;
-const momentTz = require(&apos;moment-timezone&apos;);
-const debug = logger.debugContext(&apos;connection:mysql&apos;);
-const parserStore = require(&apos;../parserStore&apos;)(&apos;mysql&apos;);
+const AbstractConnectionManager = require('../abstract/connection-manager');
+const SequelizeErrors = require('../../errors');
+const Promise = require('../../promise');
+const { logger } = require('../../utils/logger');
+const DataTypes = require('../../data-types').mysql;
+const momentTz = require('moment-timezone');
+const debug = logger.debugContext('connection:mysql');
+const parserStore = require('../parserStore')('mysql');
 
 /**
  * MySQL Connection Manager
@@ -139,7 +139,7 @@ class ConnectionManager extends AbstractConnectionManager {
   constructor(dialect, sequelize) {
     sequelize.config.port = sequelize.config.port || 3306;
     super(dialect, sequelize);
-    this.lib = this._loadDialectModule(&apos;mysql2&apos;);
+    this.lib = this._loadDialectModule('mysql2');
     this.refreshTypeParser(DataTypes);
   }
 
@@ -172,7 +172,7 @@ class ConnectionManager extends AbstractConnectionManager {
       host: config.host,
       port: config.port,
       user: config.username,
-      flags: &apos;-FOUND_ROWS&apos;,
+      flags: '-FOUND_ROWS',
       password: config.password,
       database: config.database,
       timezone: this.sequelize.options.timezone,
@@ -186,32 +186,32 @@ class ConnectionManager extends AbstractConnectionManager {
 
       const errorHandler = e =&gt; {
         // clean up connect &amp; error event if there is error
-        connection.removeListener(&apos;connect&apos;, connectHandler);
-        connection.removeListener(&apos;error&apos;, connectHandler);
+        connection.removeListener('connect', connectHandler);
+        connection.removeListener('error', connectHandler);
         reject(e);
       };
 
       const connectHandler = () =&gt; {
         // clean up error event if connected
-        connection.removeListener(&apos;error&apos;, errorHandler);
+        connection.removeListener('error', errorHandler);
         resolve(connection);
       };
 
-      // don&apos;t use connection.once for error event handling here
+      // don't use connection.once for error event handling here
       // mysql2 emit error two times in case handshake was failed
       // first error is protocol_lost and second is timeout
       // if we will use `once.error` node process will crash on 2nd error emit
-      connection.on(&apos;error&apos;, errorHandler);
-      connection.once(&apos;connect&apos;, connectHandler);
+      connection.on('error', errorHandler);
+      connection.once('connect', connectHandler);
     })
-      .tap(() =&gt; { debug(&apos;connection acquired&apos;); })
+      .tap(() =&gt; { debug('connection acquired'); })
       .then(connection =&gt; {
-        connection.on(&apos;error&apos;, error =&gt; {
+        connection.on('error', error =&gt; {
           switch (error.code) {
-            case &apos;ESOCKET&apos;:
-            case &apos;ECONNRESET&apos;:
-            case &apos;EPIPE&apos;:
-            case &apos;PROTOCOL_CONNECTION_LOST&apos;:
+            case 'ESOCKET':
+            case 'ECONNRESET':
+            case 'EPIPE':
+            case 'PROTOCOL_CONNECTION_LOST':
               this.pool.destroy(connection);
           }
         });
@@ -221,8 +221,8 @@ class ConnectionManager extends AbstractConnectionManager {
             // set timezone for this connection
             // but named timezone are not directly supported in mysql, so get its offset first
             let tzOffset = this.sequelize.options.timezone;
-            tzOffset = /\//.test(tzOffset) ? momentTz.tz(tzOffset).format(&apos;Z&apos;) : tzOffset;
-            return connection.query(`SET time_zone = &apos;${tzOffset}&apos;`, err =&gt; {
+            tzOffset = /\//.test(tzOffset) ? momentTz.tz(tzOffset).format('Z') : tzOffset;
+            return connection.query(`SET time_zone = '${tzOffset}'`, err =&gt; {
               if (err) { reject(err); } else { resolve(connection); }
             });
           }
@@ -233,15 +233,15 @@ class ConnectionManager extends AbstractConnectionManager {
       })
       .catch(err =&gt; {
         switch (err.code) {
-          case &apos;ECONNREFUSED&apos;:
+          case 'ECONNREFUSED':
             throw new SequelizeErrors.ConnectionRefusedError(err);
-          case &apos;ER_ACCESS_DENIED_ERROR&apos;:
+          case 'ER_ACCESS_DENIED_ERROR':
             throw new SequelizeErrors.AccessDeniedError(err);
-          case &apos;ENOTFOUND&apos;:
+          case 'ENOTFOUND':
             throw new SequelizeErrors.HostNotFoundError(err);
-          case &apos;EHOSTUNREACH&apos;:
+          case 'EHOSTUNREACH':
             throw new SequelizeErrors.HostNotReachableError(err);
-          case &apos;EINVAL&apos;:
+          case 'EINVAL':
             throw new SequelizeErrors.InvalidConnectionError(err);
           default:
             throw new SequelizeErrors.ConnectionError(err);
@@ -250,9 +250,9 @@ class ConnectionManager extends AbstractConnectionManager {
   }
 
   disconnect(connection) {
-    // Don&apos;t disconnect connections with CLOSED state
+    // Don't disconnect connections with CLOSED state
     if (connection._closing) {
-      debug(&apos;connection tried to disconnect but was already at CLOSED state&apos;);
+      debug('connection tried to disconnect but was already at CLOSED state');
       return Promise.resolve();
     }
 

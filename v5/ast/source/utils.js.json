@@ -387,7 +387,7 @@
               "name": "uuidv1"
             },
             "init": {
-              "type": "CallExpression",
+              "type": "MemberExpression",
               "start": 145,
               "end": 163,
               "loc": {
@@ -400,10 +400,10 @@
                   "column": 33
                 }
               },
-              "callee": {
-                "type": "Identifier",
+              "object": {
+                "type": "CallExpression",
                 "start": 145,
-                "end": 152,
+                "end": 160,
                 "loc": {
                   "start": {
                     "line": 6,
@@ -411,34 +411,67 @@
                   },
                   "end": {
                     "line": 6,
-                    "column": 22
-                  },
-                  "identifierName": "require"
+                    "column": 30
+                  }
                 },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 153,
-                  "end": 162,
+                "callee": {
+                  "type": "Identifier",
+                  "start": 145,
+                  "end": 152,
                   "loc": {
                     "start": {
                       "line": 6,
-                      "column": 23
+                      "column": 15
                     },
                     "end": {
                       "line": 6,
-                      "column": 32
-                    }
+                      "column": 22
+                    },
+                    "identifierName": "require"
                   },
-                  "extra": {
-                    "rawValue": "uuid/v1",
-                    "raw": "'uuid/v1'"
+                  "name": "require"
+                },
+                "arguments": [
+                  {
+                    "type": "StringLiteral",
+                    "start": 153,
+                    "end": 159,
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 23
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 29
+                      }
+                    },
+                    "extra": {
+                      "rawValue": "uuid",
+                      "raw": "'uuid'"
+                    },
+                    "value": "uuid"
+                  }
+                ]
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 161,
+                "end": 163,
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 31
                   },
-                  "value": "uuid/v1"
-                }
-              ]
+                  "end": {
+                    "line": 6,
+                    "column": 33
+                  },
+                  "identifierName": "v1"
+                },
+                "name": "v1"
+              },
+              "computed": false
             }
           }
         ],
@@ -491,7 +524,7 @@
               "name": "uuidv4"
             },
             "init": {
-              "type": "CallExpression",
+              "type": "MemberExpression",
               "start": 180,
               "end": 198,
               "loc": {
@@ -504,10 +537,10 @@
                   "column": 33
                 }
               },
-              "callee": {
-                "type": "Identifier",
+              "object": {
+                "type": "CallExpression",
                 "start": 180,
-                "end": 187,
+                "end": 195,
                 "loc": {
                   "start": {
                     "line": 7,
@@ -515,34 +548,67 @@
                   },
                   "end": {
                     "line": 7,
-                    "column": 22
-                  },
-                  "identifierName": "require"
+                    "column": 30
+                  }
                 },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 188,
-                  "end": 197,
+                "callee": {
+                  "type": "Identifier",
+                  "start": 180,
+                  "end": 187,
                   "loc": {
                     "start": {
                       "line": 7,
-                      "column": 23
+                      "column": 15
                     },
                     "end": {
                       "line": 7,
-                      "column": 32
-                    }
+                      "column": 22
+                    },
+                    "identifierName": "require"
                   },
-                  "extra": {
-                    "rawValue": "uuid/v4",
-                    "raw": "'uuid/v4'"
+                  "name": "require"
+                },
+                "arguments": [
+                  {
+                    "type": "StringLiteral",
+                    "start": 188,
+                    "end": 194,
+                    "loc": {
+                      "start": {
+                        "line": 7,
+                        "column": 23
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 29
+                      }
+                    },
+                    "extra": {
+                      "rawValue": "uuid",
+                      "raw": "'uuid'"
+                    },
+                    "value": "uuid"
+                  }
+                ]
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 196,
+                "end": 198,
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 31
                   },
-                  "value": "uuid/v4"
-                }
-              ]
+                  "end": {
+                    "line": 7,
+                    "column": 33
+                  },
+                  "identifierName": "v4"
+                },
+                "name": "v4"
+              },
+              "computed": false
             }
           }
         ],
@@ -37462,9 +37528,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "uuid/v1",
+      "value": "uuid",
       "start": 153,
-      "end": 162,
+      "end": 159,
       "loc": {
         "start": {
           "line": 6,
@@ -37472,7 +37538,7 @@
         },
         "end": {
           "line": 6,
-          "column": 32
+          "column": 29
         }
       }
     },
@@ -37488,12 +37554,64 @@
         "postfix": false,
         "binop": null
       },
-      "start": 162,
+      "start": 159,
+      "end": 160,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 29
+        },
+        "end": {
+          "line": 6,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 160,
+      "end": 161,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 30
+        },
+        "end": {
+          "line": 6,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "v1",
+      "start": 161,
       "end": 163,
       "loc": {
         "start": {
           "line": 6,
-          "column": 32
+          "column": 31
         },
         "end": {
           "line": 6,
@@ -37672,9 +37790,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "uuid/v4",
+      "value": "uuid",
       "start": 188,
-      "end": 197,
+      "end": 194,
       "loc": {
         "start": {
           "line": 7,
@@ -37682,7 +37800,7 @@
         },
         "end": {
           "line": 7,
-          "column": 32
+          "column": 29
         }
       }
     },
@@ -37698,12 +37816,64 @@
         "postfix": false,
         "binop": null
       },
-      "start": 197,
+      "start": 194,
+      "end": 195,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 29
+        },
+        "end": {
+          "line": 7,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 195,
+      "end": 196,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 30
+        },
+        "end": {
+          "line": 7,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "v4",
+      "start": 196,
       "end": 198,
       "loc": {
         "start": {
           "line": 7,
-          "column": 32
+          "column": 31
         },
         "end": {
           "line": 7,

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,20 +112,20 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mariadb/query.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const AbstractQuery = require(&apos;../abstract/query&apos;);
-const sequelizeErrors = require(&apos;../../errors&apos;);
-const _ = require(&apos;lodash&apos;);
-const DataTypes = require(&apos;../../data-types&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
+const AbstractQuery = require('../abstract/query');
+const sequelizeErrors = require('../../errors');
+const _ = require('lodash');
+const DataTypes = require('../../data-types');
+const Promise = require('../../promise');
+const { logger } = require('../../utils/logger');
 
 const ER_DUP_ENTRY = 1062;
 const ER_ROW_IS_REFERENCED = 1451;
 const ER_NO_REFERENCED_ROW = 1452;
 
-const debug = logger.debugContext(&apos;sql:mariadb&apos;);
+const debug = logger.debugContext('sql:mariadb');
 
 class Query extends AbstractQuery {
   constructor(connection, sequelize, options) {
@@ -137,7 +137,7 @@ class Query extends AbstractQuery {
     const replacementFunc = (match, key, val) =&gt; {
       if (val[key] !== undefined) {
         bindParam.push(val[key]);
-        return &apos;?&apos;;
+        return '?';
       }
       return undefined;
     };
@@ -156,14 +156,14 @@ class Query extends AbstractQuery {
     const complete = this._logQuery(sql, debug, parameters);
 
     if (parameters) {
-      debug(&apos;parameters(%j)&apos;, parameters);
+      debug('parameters(%j)', parameters);
     }
     return Promise.resolve(
       connection.query(this.sql, parameters)
         .then(results =&gt; {
           complete();
 
-          // Log warnings if we&apos;ve got them.
+          // Log warnings if we've got them.
           if (showWarnings &amp;&amp; results &amp;&amp; results.warningStatus &gt; 0) {
             return this.logWarnings(results);
           }
@@ -172,7 +172,7 @@ class Query extends AbstractQuery {
         .catch(err =&gt; {
           // MariaDB automatically rolls-back transactions in the event of a deadlock
           if (options.transaction &amp;&amp; err.errno === 1213) {
-            options.transaction.finished = &apos;rollback&apos;;
+            options.transaction.finished = 'rollback';
           }
 
           complete();
@@ -182,7 +182,7 @@ class Query extends AbstractQuery {
           throw this.formatError(err);
         })
     )
-      // Log warnings if we&apos;ve got them.
+      // Log warnings if we've got them.
       .then(results =&gt; {
         if (showWarnings &amp;&amp; results &amp;&amp; results.warningStatus &gt; 0) {
           return this.logWarnings(results);
@@ -201,9 +201,9 @@ class Query extends AbstractQuery {
    *  query.formatResults([
    *    {
    *      id: 1,              // this is from the main table
-   *      attr2: &apos;snafu&apos;,     // this is from the main table
+   *      attr2: 'snafu',     // this is from the main table
    *      Tasks.id: 1,        // this is from the associated table
-   *      Tasks.title: &apos;task&apos; // this is from the associated table
+   *      Tasks.title: 'task' // this is from the associated table
    *    }
    *  ])
    *
@@ -228,7 +228,7 @@ class Query extends AbstractQuery {
           &amp;&amp; this.model.rawAttributes[this.model.primaryKeyAttribute]
         ) {
           //ONLY TRUE IF @auto_increment_increment is set to 1 !!
-          //Doesn&apos;t work with GALERA =&gt; each node will reserve increment (x for first server, x+1 for next node ...
+          //Doesn't work with GALERA =&gt; each node will reserve increment (x for first server, x+1 for next node ...
           const startId = data[this.getInsertIdField()];
           result = new Array(data.affectedRows);
           const pkField = this.model.rawAttributes[this.model.primaryKeyAttribute].field;
@@ -270,13 +270,13 @@ class Query extends AbstractQuery {
 
       for (const _result of data) {
         result[_result.Field] = {
-          type: _result.Type.toLowerCase().startsWith(&apos;enum&apos;) ? _result.Type.replace(/^enum/i,
-            &apos;ENUM&apos;) : _result.Type.toUpperCase(),
-          allowNull: _result.Null === &apos;YES&apos;,
+          type: _result.Type.toLowerCase().startsWith('enum') ? _result.Type.replace(/^enum/i,
+            'ENUM') : _result.Type.toUpperCase(),
+          allowNull: _result.Null === 'YES',
           defaultValue: _result.Default,
-          primaryKey: _result.Key === &apos;PRI&apos;,
-          autoIncrement: Object.prototype.hasOwnProperty.call(_result, &apos;Extra&apos;)
-            &amp;&amp; _result.Extra.toLowerCase() === &apos;auto_increment&apos;,
+          primaryKey: _result.Key === 'PRI',
+          autoIncrement: Object.prototype.hasOwnProperty.call(_result, 'Extra')
+            &amp;&amp; _result.Extra.toLowerCase() === 'auto_increment',
           comment: _result.Comment ? _result.Comment : null
         };
       }
@@ -311,28 +311,28 @@ class Query extends AbstractQuery {
   }
 
   logWarnings(results) {
-    return this.run(&apos;SHOW WARNINGS&apos;).then(warningResults =&gt; {
+    return this.run('SHOW WARNINGS').then(warningResults =&gt; {
       const warningMessage = `MariaDB Warnings (${this.connection.uuid
-      || &apos;default&apos;}): `;
+      || 'default'}): `;
       const messages = [];
       for (const _warningRow of warningResults) {
         if (_warningRow === undefined || typeof _warningRow[Symbol.iterator]
-          !== &apos;function&apos;) {
+          !== 'function') {
           continue;
         }
         for (const _warningResult of _warningRow) {
-          if (Object.prototype.hasOwnProperty.call(_warningResult, &apos;Message&apos;)) {
+          if (Object.prototype.hasOwnProperty.call(_warningResult, 'Message')) {
             messages.push(_warningResult.Message);
           } else {
             for (const _objectKey of _warningResult.keys()) {
               messages.push(
-                [_objectKey, _warningResult[_objectKey]].join(&apos;: &apos;));
+                [_objectKey, _warningResult[_objectKey]].join(': '));
             }
           }
         }
       }
 
-      this.sequelize.log(warningMessage + messages.join(&apos;; &apos;), this.options);
+      this.sequelize.log(warningMessage + messages.join('; '), this.options);
 
       return results;
     });
@@ -342,11 +342,11 @@ class Query extends AbstractQuery {
     switch (err.errno) {
       case ER_DUP_ENTRY: {
         const match = err.message.match(
-          /Duplicate entry &apos;([\s\S]*)&apos; for key &apos;?((.|\s)*?)&apos;?\s.*$/);
+          /Duplicate entry '([\s\S]*)' for key '?((.|\s)*?)'?\s.*$/);
 
         let fields = {};
-        let message = &apos;Validation error&apos;;
-        const values = match ? match[1].split(&apos;-&apos;) : undefined;
+        let message = 'Validation error';
+        const values = match ? match[1].split('-') : undefined;
         const fieldKey = match ? match[2] : undefined;
         const fieldVal = match ? match[1] : undefined;
         const uniqueKey = this.model &amp;&amp; this.model.uniqueKeys[fieldKey];
@@ -364,11 +364,11 @@ class Query extends AbstractQuery {
         _.forOwn(fields, (value, field) =&gt; {
           errors.push(new sequelizeErrors.ValidationErrorItem(
             this.getUniqueConstraintErrorMessage(field),
-            &apos;unique violation&apos;, // sequelizeErrors.ValidationErrorItem.Origins.DB,
+            'unique violation', // sequelizeErrors.ValidationErrorItem.Origins.DB,
             field,
             value,
             this.instance,
-            &apos;not_unique&apos;
+            'not_unique'
           ));
         });
 
@@ -380,12 +380,12 @@ class Query extends AbstractQuery {
       case ER_NO_REFERENCED_ROW: {
         // e.g. CONSTRAINT `example_constraint_name` FOREIGN KEY (`example_id`) REFERENCES `examples` (`id`)
         const match = err.message.match(
-          /CONSTRAINT ([`&quot;])(.*)\1 FOREIGN KEY \(\1(.*)\1\) REFERENCES \1(.*)\1 \(\1(.*)\1\)/);
-        const quoteChar = match ? match[1] : &apos;`&apos;;
+          /CONSTRAINT ([`"])(.*)\1 FOREIGN KEY \(\1(.*)\1\) REFERENCES \1(.*)\1 \(\1(.*)\1\)/);
+        const quoteChar = match ? match[1] : '`';
         const fields = match ? match[3].split(
           new RegExp(`${quoteChar}, *${quoteChar}`)) : undefined;
         return new sequelizeErrors.ForeignKeyConstraintError({
-          reltype: err.errno === 1451 ? &apos;parent&apos; : &apos;child&apos;,
+          reltype: err.errno === 1451 ? 'parent' : 'child',
           table: match ? match[4] : undefined,
           fields,
           value: fields &amp;&amp; fields.length &amp;&amp; this.instance
@@ -415,7 +415,7 @@ class Query extends AbstractQuery {
     data.forEach(item =&gt; {
       if (!currItem || currItem.name !== item.Key_name) {
         currItem = {
-          primary: item.Key_name === &apos;PRIMARY&apos;,
+          primary: item.Key_name === 'PRIMARY',
           fields: [],
           name: item.Key_name,
           tableName: item.Table,
@@ -428,7 +428,7 @@ class Query extends AbstractQuery {
       currItem.fields[item.Seq_in_index - 1] = {
         attribute: item.Column_name,
         length: item.Sub_part || undefined,
-        order: item.Collation === &apos;A&apos; ? &apos;ASC&apos; : undefined
+        order: item.Collation === 'A' ? 'ASC' : undefined
       };
     });
 

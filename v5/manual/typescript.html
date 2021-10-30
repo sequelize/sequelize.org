@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -395,7 +395,7 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="typescript">TypeScript</h1><p>Since v5, Sequelize provides its own TypeScript definitions. Please note that only TS &gt;= 3.1 is supported.</p>
-<p>As Sequelize heavily relies on runtime property assignments, TypeScript won&apos;t be very useful out of the box. A decent amount of manual type declarations are needed to make models workable.</p>
+<p>As Sequelize heavily relies on runtime property assignments, TypeScript won't be very useful out of the box. A decent amount of manual type declarations are needed to make models workable.</p>
 <h2 id="installation">Installation</h2><p>In order to avoid installation bloat for non TS users, you must install the following typing packages manually:</p>
 <ul>
 <li><code>@types/node</code> (this is universally required)</li>
@@ -403,8 +403,8 @@
 <li><code>@types/bluebird</code></li>
 </ul>
 <h2 id="usage">Usage</h2><p>Example of a minimal TypeScript project:</p>
-<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes, BuildOptions } from &apos;sequelize&apos;;
-import { HasManyGetAssociationsMixin, HasManyAddAssociationMixin, HasManyHasAssociationMixin, Association, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin } from &apos;sequelize&apos;;
+<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes, BuildOptions } from 'sequelize';
+import { HasManyGetAssociationsMixin, HasManyAddAssociationMixin, HasManyHasAssociationMixin, Association, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin } from 'sequelize';
 
 class User extends Model {
   public id!: number; // Note that the `null assertion` `!` is required in strict mode.
@@ -427,14 +427,14 @@ class User extends Model {
 
   // You can also pre-declare possible inclusions, these will only be populated if you
   // actively include a relation.
-  public readonly projects?: Project[]; // Note this is optional since it&apos;s only populated when explicitly requested in code
+  public readonly projects?: Project[]; // Note this is optional since it's only populated when explicitly requested in code
 
   public static associations: {
     projects: Association&lt;User, Project&gt;;
   };
 }
 
-const sequelize = new Sequelize(&apos;mysql://root:asd123@localhost:3306/mydb&apos;);
+const sequelize = new Sequelize('mysql://root:asd123@localhost:3306/mydb');
 
 class Project extends Model {
   public id!: number;
@@ -469,7 +469,7 @@ Project.init({
   }
 }, {
   sequelize,
-  tableName: &apos;projects&apos;,
+  tableName: 'projects',
 });
 
 User.init({
@@ -487,7 +487,7 @@ User.init({
     allowNull: true
   }
 }, {
-  tableName: &apos;users&apos;,
+  tableName: 'users',
   sequelize: sequelize, // this bit is important
 });
 
@@ -500,42 +500,42 @@ Address.init({
     allowNull: false,
   }
 }, {
-  tableName: &apos;address&apos;,
+  tableName: 'address',
   sequelize: sequelize, // this bit is important
 });
 
 // Here we associate which actually populates out pre-declared `association` static and other methods.
 User.hasMany(Project, {
-  sourceKey: &apos;id&apos;,
-  foreignKey: &apos;ownerId&apos;,
-  as: &apos;projects&apos; // this determines the name in `associations`!
+  sourceKey: 'id',
+  foreignKey: 'ownerId',
+  as: 'projects' // this determines the name in `associations`!
 });
 
-Address.belongsTo(User, {targetKey: &apos;id&apos;});
-User.hasOne(Address,{sourceKey: &apos;id&apos;});
+Address.belongsTo(User, {targetKey: 'id'});
+User.hasOne(Address,{sourceKey: 'id'});
 
 async function stuff() {
   // Please note that when using async/await you lose the `bluebird` promise context
   // and you fall back to native
   const newUser = await User.create({
-    name: &apos;Johnny&apos;,
-    preferredName: &apos;John&apos;,
+    name: 'Johnny',
+    preferredName: 'John',
   });
   console.log(newUser.id, newUser.name, newUser.preferredName);
 
   const project = await newUser.createProject({
-    name: &apos;first!&apos;,
+    name: 'first!',
   });
 
   const ourUser = await User.findByPk(1, {
     include: [User.associations.projects],
     rejectOnEmpty: true, // Specifying true here removes `null` from the return type!
   });
-  console.log(ourUser.projects![0].name); // Note the `!` null assertion since TS can&apos;t know if we included
+  console.log(ourUser.projects![0].name); // Note the `!` null assertion since TS can't know if we included
                                           // the model or not
 }</code>
 </code></pre>
-<h2 id="usage-of--code-sequelize-define--code-">Usage of <code>sequelize.define</code></h2><p>TypeScript doesn&apos;t know how to generate a <code>class</code> definition when we use the <code>sequelize.define</code> method to define a Model. Therefore, we need to do some manual work and declare an interface and a type, and eventually cast the result of <code>.define</code> to the <em>static</em> type.</p>
+<h2 id="usage-of--code-sequelize-define--code-">Usage of <code>sequelize.define</code></h2><p>TypeScript doesn't know how to generate a <code>class</code> definition when we use the <code>sequelize.define</code> method to define a Model. Therefore, we need to do some manual work and declare an interface and a type, and eventually cast the result of <code>.define</code> to the <em>static</em> type.</p>
 <pre><code class="lang-ts"><code class="source-code prettyprint">// We need to declare an interface for our model that is basically what our class would be
 interface MyModel extends Model {
   readonly id: number;
@@ -546,8 +546,8 @@ type MyModelStatic = typeof Model &amp; {
   new (values?: object, options?: BuildOptions): MyModel;
 }
 
-// TS can&apos;t derive a proper class definition from a `.define` call, therefor we need to cast here.
-const MyDefineModel = &lt;MyModelStatic&gt;sequelize.define(&apos;MyDefineModel&apos;, {
+// TS can't derive a proper class definition from a `.define` call, therefor we need to cast here.
+const MyDefineModel = &lt;MyModelStatic&gt;sequelize.define('MyDefineModel', {
   id: {
     primaryKey: true,
     type: DataTypes.INTEGER.UNSIGNED,

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -407,10 +407,10 @@
 <h3 id="typescript-support">Typescript Support</h3><p>Sequelize now ship official typings <a href="https://github.com/sequelize/sequelize/pull/10287">#10287</a>. You can consider migrating away from external typings which may get out of sync.</p>
 <h3 id="pooling">Pooling</h3><p>With v5 Sequelize now use <code>sequelize-pool</code> which is a modernized fork of <code>generic-pool@2.5</code>. You no longer need to call <code>sequelize.close</code> to shutdown pool, this helps with lambda executions. <a href="https://github.com/sequelize/sequelize/issues/8468">#8468</a></p>
 <h3 id="model">Model</h3><p><strong>Validators</strong></p>
-<p>Custom validators defined per attribute (as opposed to the custom validators defined in the model&apos;s options) now run when the attribute&apos;s value is <code>null</code> and <code>allowNull</code> is <code>true</code> (while previously they didn&apos;t run and the validation succeeded immediately). To avoid problems when upgrading, please check all your custom validators defined per attribute, where <code>allowNull</code> is <code>true</code>, and make sure all these validators behave correctly when the value is <code>null</code>. See <a href="https://github.com/sequelize/sequelize/issues/9143">#9143</a>.</p>
+<p>Custom validators defined per attribute (as opposed to the custom validators defined in the model's options) now run when the attribute's value is <code>null</code> and <code>allowNull</code> is <code>true</code> (while previously they didn't run and the validation succeeded immediately). To avoid problems when upgrading, please check all your custom validators defined per attribute, where <code>allowNull</code> is <code>true</code>, and make sure all these validators behave correctly when the value is <code>null</code>. See <a href="https://github.com/sequelize/sequelize/issues/9143">#9143</a>.</p>
 <p><strong>Attributes</strong></p>
 <p><code>Model.attributes</code> now removed, use <code>Model.rawAttributes</code>. <a href="https://github.com/sequelize/sequelize/issues/5320">#5320</a></p>
-<p><strong>Note</strong>: <em>Please don&apos;t confuse this with <code>options.attributes</code>, they are still valid</em></p>
+<p><strong>Note</strong>: <em>Please don't confuse this with <code>options.attributes</code>, they are still valid</em></p>
 <p><strong>Paranoid Mode</strong></p>
 <p>With v5 if <code>deletedAt</code> is set, record will be considered as deleted. <code>paranoid</code> option will only use <code>deletedAt</code> as flag. <a href="https://github.com/sequelize/sequelize/issues/8496">#8496</a></p>
 <p><strong>Model.bulkCreate</strong></p>
@@ -546,8 +546,8 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="lang-js"><code class="source-code prettyprint">import Sequelize from &apos;sequelize&apos;;
-const sequelize = new Sequelize(&apos;postgres://user:password@127.0.0.1:mydb&apos;);
+<pre><code class="lang-js"><code class="source-code prettyprint">import Sequelize from 'sequelize';
+const sequelize = new Sequelize('postgres://user:password@127.0.0.1:mydb');
 
 /**
  * In v4 you can do this
@@ -559,7 +559,7 @@ Model.findAll({
   where: {
     [sequelize.Op.and]: [ // Using sequelize.Op or Sequelize.Op interchangeably
       {
-        name: &quot;Abc&quot;
+        name: "Abc"
       },
       {
         age: {
@@ -569,7 +569,7 @@ Model.findAll({
     ]
   }
 }).catch(sequelize.ConnectionError, () =&gt; {
-  console.error(&apos;Something wrong with connection?&apos;);
+  console.error('Something wrong with connection?');
 });
 
 /**
@@ -579,9 +579,9 @@ Model.findAll({
 
 Model.findAll({
   where: {
-    [Sequelize.Op.and]: [ // Don&apos;t use sequelize.Op, use Sequelize.Op instead
+    [Sequelize.Op.and]: [ // Don't use sequelize.Op, use Sequelize.Op instead
       {
-        name: &quot;Abc&quot;
+        name: "Abc"
       },
       {
         age: {
@@ -591,7 +591,7 @@ Model.findAll({
     ]
   }
 }).catch(Sequelize.ConnectionError, () =&gt; {
-  console.error(&apos;Something wrong with connection?&apos;);
+  console.error('Something wrong with connection?');
 });</code>
 </code></pre>
 <h3 id="query-interface">Query Interface</h3><ul>
@@ -614,12 +614,12 @@ Model.findAll({
 </ul>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">dialectOptions: {
   authentication: {
-    domain: &apos;my-domain&apos;
+    domain: 'my-domain'
   },
   options: {
     requestTimeout: 60000,
     cryptoCredentialsDetails: {
-      ciphers: &quot;RC4-MD5&quot;
+      ciphers: "RC4-MD5"
     }
   }
 }</code>
@@ -628,7 +628,7 @@ Model.findAll({
 <li>Requires <code>mysql2 &gt;= 1.5.2</code> for prepared statements</li>
 </ul>
 <h4 id="mariadb">MariaDB</h4><ul>
-<li><code>dialect: &apos;mariadb&apos;</code> is now <a href="https://github.com/sequelize/sequelize/pull/10192">supported</a> with <code>mariadb</code> package</li>
+<li><code>dialect: 'mariadb'</code> is now <a href="https://github.com/sequelize/sequelize/pull/10192">supported</a> with <code>mariadb</code> package</li>
 </ul>
 <h3 id="packages">Packages</h3><ul>
 <li>removed: terraformer-wkt-parser <a href="https://github.com/sequelize/sequelize/pull/9545">#9545</a></li>
@@ -643,7 +643,7 @@ Model.findAll({
 <li>fix(query-interface): reject with error for describeTable <a href="https://github.com/sequelize/sequelize/pull/10528">#10528</a></li>
 <li>fix(model): throw for invalid include type <a href="https://github.com/sequelize/sequelize/pull/10527">#10527</a></li>
 <li>fix(types): additional options for db.query and add missing retry <a href="https://github.com/sequelize/sequelize/pull/10512">#10512</a></li>
-<li>fix(query): don&apos;t prepare options &amp; sql for every retry <a href="https://github.com/sequelize/sequelize/pull/10498">#10498</a></li>
+<li>fix(query): don't prepare options &amp; sql for every retry <a href="https://github.com/sequelize/sequelize/pull/10498">#10498</a></li>
 <li>feat: expose Sequelize.BaseError</li>
 <li>feat: upgrade to <code>tedious@6.0.0</code> <a href="https://github.com/sequelize/sequelize/pull/10494">#10494</a></li>
 <li>feat(sqlite/query-generator): support restart identity for truncate-table <a href="https://github.com/sequelize/sequelize/pull/10522">#10522</a></li>
@@ -664,7 +664,7 @@ Model.findAll({
 <li>fix(mysql): match with newlines in error message <a href="https://github.com/sequelize/sequelize/pull/10320">#10320</a></li>
 <li>fix(update): skips update when nothing to update <a href="https://github.com/sequelize/sequelize/pull/10248">#10248</a></li>
 <li>fix(utils): flattenObject for null values <a href="https://github.com/sequelize/sequelize/pull/10293">#10293</a></li>
-<li>fix(instance-validator): don&apos;t skip custom validators on null <a href="https://github.com/sequelize/sequelize/pull/9143">#9143</a></li>
+<li>fix(instance-validator): don't skip custom validators on null <a href="https://github.com/sequelize/sequelize/pull/9143">#9143</a></li>
 <li>docs(transaction): after save example <a href="https://github.com/sequelize/sequelize/pull/10280">#10280</a></li>
 <li>docs(query-generator): typo <a href="https://github.com/sequelize/sequelize/pull/10277">#10277</a></li>
 <li>refactor(errors): restructure <a href="https://github.com/sequelize/sequelize/pull/10355">#10355</a></li>
@@ -758,10 +758,10 @@ Model.findAll({
 <li>fix(count): duplicate mapping of fields break scopes <a href="https://github.com/sequelize/sequelize/pull/9788">#9788</a></li>
 <li>fix(model): bulkCreate should populate dataValues directly <a href="https://github.com/sequelize/sequelize/pull/9797">#9797</a></li>
 <li>fix(mysql): improve unique key violation handling <a href="https://github.com/sequelize/sequelize/pull/9724">#9724</a></li>
-<li>fix(separate): don&apos;t propagate group to separated queries <a href="https://github.com/sequelize/sequelize/pull/9754">#9754</a></li>
+<li>fix(separate): don't propagate group to separated queries <a href="https://github.com/sequelize/sequelize/pull/9754">#9754</a></li>
 <li>fix(scope): incorrect query generated when sequelize.fn used with scopes <a href="https://github.com/sequelize/sequelize/pull/9730">#9730</a></li>
 <li>fix(json): access included data with attributes <a href="https://github.com/sequelize/sequelize/pull/9662">#9662</a></li>
-<li>(fix): pass offset in UNION&apos;ed queries <a href="https://github.com/sequelize/sequelize/pull/9577">#9577</a></li>
+<li>(fix): pass offset in UNION'ed queries <a href="https://github.com/sequelize/sequelize/pull/9577">#9577</a></li>
 <li>fix(destroy): attributes updated in a beforeDestroy hook are now persisted on soft delete <a href="https://github.com/sequelize/sequelize/pull/9319">#9319</a></li>
 <li>fix(addScope): only throw when defaultScope is defined <a href="https://github.com/sequelize/sequelize/pull/9703">#9703</a></li>
 </ul>
@@ -792,7 +792,7 @@ Model.findAll({
 <li>performance: remove terraformer-wkt-parser dependency <a href="https://github.com/sequelize/sequelize/pull/9545">#9545</a></li>
 <li>fix(constructor): set username, password, database via options in addition to connection string<a href="https://github.com/sequelize/sequelize/pull/9517">#9517</a></li>
 <li>fix(associations/belongs-to-many): catch EmptyResultError in set/add helpers <a href="https://github.com/sequelize/sequelize/pull/9535">#9535</a></li>
-<li>fix: sync with alter:true doesn&apos;t use field name <a href="https://github.com/sequelize/sequelize/pull/9529">#9529</a></li>
+<li>fix: sync with alter:true doesn't use field name <a href="https://github.com/sequelize/sequelize/pull/9529">#9529</a></li>
 <li>fix(UnknownConstraintError): improper handling of error options <a href="https://github.com/sequelize/sequelize/pull/9547">#9547</a></li>
 </ul>
 <h3 id="5-0-0-beta-7">5.0.0-beta.7</h3><ul>
@@ -832,7 +832,7 @@ Model.findAll({
 </ul>
 <h3 id="5-0-0-beta-2">5.0.0-beta.2</h3><ul>
 <li>change(operators): Symbol operators now enabled by default, removed deprecation warning</li>
-<li>fix(model): don&apos;t add LIMIT in findOne() queries on unique key <a href="https://github.com/sequelize/sequelize/pull/9248">#9248</a></li>
+<li>fix(model): don't add LIMIT in findOne() queries on unique key <a href="https://github.com/sequelize/sequelize/pull/9248">#9248</a></li>
 <li>fix(model): use schema when generating foreign keys <a href="https://github.com/sequelize/sequelize/issues/9029">#9029</a></li>
 </ul>
 <h3 id="5-0-0-beta-1">5.0.0-beta.1</h3><ul>

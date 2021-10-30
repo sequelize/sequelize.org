@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,14 +112,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/associations/helpers.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
 function checkNamingCollision(association) {
   if (Object.prototype.hasOwnProperty.call(association.source.rawAttributes, association.as)) {
     throw new Error(
-      `Naming collision between attribute &apos;${association.as}&apos;` +
-      ` and association &apos;${association.as}&apos; on model ${association.source.name}` +
-      &apos;. To remedy this, change either foreignKey or as in your association definition&apos;
+      `Naming collision between attribute '${association.as}'` +
+      ` and association '${association.as}' on model ${association.source.name}` +
+      '. To remedy this, change either foreignKey or as in your association definition'
     );
   }
 }
@@ -170,7 +170,7 @@ function mixinMethods(association, obj, methods, aliases) {
   aliases = aliases || {};
 
   for (const method of methods) {
-    // don&apos;t override custom methods
+    // don't override custom methods
     if (!Object.prototype.hasOwnProperty.call(obj, association.accessors[method])) {
       const realMethod = aliases[method] || method;
 

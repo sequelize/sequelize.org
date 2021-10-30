@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,12 +112,12 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/postgres/query-interface.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const DataTypes = require(&apos;../../data-types&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const QueryTypes = require(&apos;../../query-types&apos;);
-const _ = require(&apos;lodash&apos;);
+const DataTypes = require('../../data-types');
+const Promise = require('../../promise');
+const QueryTypes = require('../../query-types');
+const _ = require('lodash');
 
 
 /**
@@ -144,7 +144,7 @@ function ensureEnums(qi, tableName, attributes, options, model) {
   const keys = Object.keys(attributes);
   const keyLen = keys.length;
 
-  let sql = &apos;&apos;;
+  let sql = '';
   let promises = [];
   let i = 0;
 
@@ -169,16 +169,16 @@ function ensureEnums(qi, tableName, attributes, options, model) {
     let enumIdx = 0;
 
     // This little function allows us to re-use the same code that prepends or appends new value to enum array
-    const addEnumValue = (field, value, relativeValue, position = &apos;before&apos;, spliceStart = promises.length) =&gt; {
+    const addEnumValue = (field, value, relativeValue, position = 'before', spliceStart = promises.length) =&gt; {
       const valueOptions = _.clone(options);
       valueOptions.before = null;
       valueOptions.after = null;
 
       switch (position) {
-        case &apos;after&apos;:
+        case 'after':
           valueOptions.after = relativeValue;
           break;
-        case &apos;before&apos;:
+        case 'before':
         default:
           valueOptions.before = relativeValue;
           break;
@@ -201,7 +201,7 @@ function ensureEnums(qi, tableName, attributes, options, model) {
         type instanceof DataTypes.ENUM ||
         type instanceof DataTypes.ARRAY &amp;&amp; enumType instanceof DataTypes.ENUM //ARRAY sub type is ENUM
       ) {
-        // If the enum type doesn&apos;t exist then create it
+        // If the enum type doesn't exist then create it
         if (!results[enumIdx]) {
           promises.push(() =&gt; {
             return qi.sequelize.query(qi.QueryGenerator.pgEnum(tableName, field, enumType, options), Object.assign({}, options, { raw: true }));
@@ -211,7 +211,7 @@ function ensureEnums(qi, tableName, attributes, options, model) {
           const vals = enumType.values;
 
           // Going through already existing values allows us to make queries that depend on those values
-          // We will prepend all new values between the old ones, but keep in mind - we can&apos;t change order of already existing values
+          // We will prepend all new values between the old ones, but keep in mind - we can't change order of already existing values
           // Then we append the rest of new values AFTER the latest already existing value
           // E.g.: [1,2] -&gt; [0,2,1] ==&gt; [1,0,2]
           // E.g.: [1,2,3] -&gt; [2,1,3,4] ==&gt; [1,2,3,4]
@@ -235,10 +235,10 @@ function ensureEnums(qi, tableName, attributes, options, model) {
                 break;
               }
 
-              addEnumValue(field, newValuesBefore[reverseIdx], lastOldEnumValue, &apos;before&apos;, promisesLength);
+              addEnumValue(field, newValuesBefore[reverseIdx], lastOldEnumValue, 'before', promisesLength);
             }
 
-            // we detect the most &apos;right&apos; position of old value in new enum array so we can append new values to it
+            // we detect the most 'right' position of old value in new enum array so we can append new values to it
             if (newIdx &gt; rightestPosition) {
               rightestPosition = newIdx;
             }
@@ -247,7 +247,7 @@ function ensureEnums(qi, tableName, attributes, options, model) {
           if (lastOldEnumValue &amp;&amp; rightestPosition &lt; vals.length - 1) {
             const remainingEnumValues = vals.slice(rightestPosition + 1);
             for (let reverseIdx = remainingEnumValues.length - 1; reverseIdx &gt;= 0; reverseIdx--) {
-              addEnumValue(field, remainingEnumValues[reverseIdx], lastOldEnumValue, &apos;after&apos;);
+              addEnumValue(field, remainingEnumValues[reverseIdx], lastOldEnumValue, 'after');
             }
           }
 

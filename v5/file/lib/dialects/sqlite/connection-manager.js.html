@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,28 +112,28 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/sqlite/connection-manager.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const AbstractConnectionManager = require(&apos;../abstract/connection-manager&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
-const debug = logger.debugContext(&apos;connection:sqlite&apos;);
-const dataTypes = require(&apos;../../data-types&apos;).sqlite;
-const sequelizeErrors = require(&apos;../../errors&apos;);
-const parserStore = require(&apos;../parserStore&apos;)(&apos;sqlite&apos;);
+const AbstractConnectionManager = require('../abstract/connection-manager');
+const Promise = require('../../promise');
+const { logger } = require('../../utils/logger');
+const debug = logger.debugContext('connection:sqlite');
+const dataTypes = require('../../data-types').sqlite;
+const sequelizeErrors = require('../../errors');
+const parserStore = require('../parserStore')('sqlite');
 
 class ConnectionManager extends AbstractConnectionManager {
   constructor(dialect, sequelize) {
     super(dialect, sequelize);
 
     // We attempt to parse file location from a connection uri
-    // but we shouldn&apos;t match sequelize default host.
-    if (this.sequelize.options.host === &apos;localhost&apos;) {
+    // but we shouldn't match sequelize default host.
+    if (this.sequelize.options.host === 'localhost') {
       delete this.sequelize.options.host;
     }
 
     this.connections = {};
-    this.lib = this._loadDialectModule(&apos;sqlite3&apos;).verbose();
+    this.lib = this._loadDialectModule('sqlite3').verbose();
     this.refreshTypeParser(dataTypes);
   }
 
@@ -157,8 +157,8 @@ class ConnectionManager extends AbstractConnectionManager {
 
   getConnection(options) {
     options = options || {};
-    options.uuid = options.uuid || &apos;default&apos;;
-    options.inMemory = (this.sequelize.options.storage || this.sequelize.options.host || &apos;:memory:&apos;) === &apos;:memory:&apos; ? 1 : 0;
+    options.uuid = options.uuid || 'default';
+    options.inMemory = (this.sequelize.options.storage || this.sequelize.options.host || ':memory:') === ':memory:' ? 1 : 0;
 
     const dialectOptions = this.sequelize.options.dialectOptions;
     options.readWriteMode = dialectOptions &amp;&amp; dialectOptions.mode;
@@ -169,7 +169,7 @@ class ConnectionManager extends AbstractConnectionManager {
 
     return new Promise((resolve, reject) =&gt; {
       this.connections[options.inMemory || options.uuid] = new this.lib.Database(
-        this.sequelize.options.storage || this.sequelize.options.host || &apos;:memory:&apos;,
+        this.sequelize.options.storage || this.sequelize.options.host || ':memory:',
         options.readWriteMode || this.lib.OPEN_READWRITE | this.lib.OPEN_CREATE, // default mode
         err =&gt; {
           if (err) return reject(new sequelizeErrors.ConnectionError(err));
@@ -184,14 +184,14 @@ class ConnectionManager extends AbstractConnectionManager {
       }
       if (this.sequelize.options.foreignKeys !== false) {
         // Make it possible to define and use foreign key constraints unless
-        // explicitly disallowed. It&apos;s still opt-in per relation
-        connection.run(&apos;PRAGMA FOREIGN_KEYS=ON&apos;);
+        // explicitly disallowed. It's still opt-in per relation
+        connection.run('PRAGMA FOREIGN_KEYS=ON');
       }
     });
   }
 
   releaseConnection(connection, force) {
-    if (connection.filename === &apos;:memory:&apos; &amp;&amp; force !== true) return;
+    if (connection.filename === ':memory:' &amp;&amp; force !== true) return;
 
     if (connection.uuid) {
       connection.close();

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -398,7 +398,7 @@
 <h2 id="installing">Installing</h2><p>Sequelize is available via <a href="https://www.npmjs.com/package/sequelize">npm</a> (or <a href="https://yarnpkg.com/package/sequelize">yarn</a>).</p>
 <pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save sequelize</code>
 </code></pre>
-<p>You&apos;ll also have to manually install the driver for your database of choice:</p>
+<p>You'll also have to manually install the driver for your database of choice:</p>
 <pre><code class="lang-sh"><code class="source-code prettyprint"># One of the following:
 $ npm install --save pg pg-hstore # Postgres
 $ npm install --save mysql2
@@ -407,25 +407,25 @@ $ npm install --save sqlite3
 $ npm install --save tedious # Microsoft SQL Server</code>
 </code></pre>
 <h2 id="setting-up-a-connection">Setting up a connection</h2><p>To connect to the database, you must create a Sequelize instance. This can be done by either passing the connection parameters separately to the Sequelize constructor or by passing a single connection URI:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const Sequelize = require(&apos;sequelize&apos;);
+<pre><code class="lang-js"><code class="source-code prettyprint">const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
-  host: &apos;localhost&apos;,
-  dialect: /* one of &apos;mysql&apos; | &apos;mariadb&apos; | &apos;postgres&apos; | &apos;mssql&apos; */
+const sequelize = new Sequelize('database', 'username', 'password', {
+  host: 'localhost',
+  dialect: /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
 });
 
 // Option 2: Passing a connection URI
-const sequelize = new Sequelize(&apos;postgres://user:pass@example.com:5432/dbname&apos;);</code>
+const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');</code>
 </code></pre>
 <p>The Sequelize constructor takes a whole slew of options that are documented in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference for the Sequelize constructor</a>.</p>
-<h3 id="note--setting-up-sqlite">Note: setting up SQLite</h3><p>If you&apos;re using SQLite, you should use the following instead:</p>
+<h3 id="note--setting-up-sqlite">Note: setting up SQLite</h3><p>If you're using SQLite, you should use the following instead:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize({
-  dialect: &apos;sqlite&apos;,
-  storage: &apos;path/to/database.sqlite&apos;
+  dialect: 'sqlite',
+  storage: 'path/to/database.sqlite'
 });</code>
 </code></pre>
-<h3 id="note--connection-pool--production-">Note: connection pool (production)</h3><p>If you&apos;re connecting to the database from a single process, you should create only one Sequelize instance. Sequelize will set up a connection pool on initialization. This connection pool can be configured through the constructor&apos;s <code>options</code> parameter (using <code>options.pool</code>), as is shown in the following example:</p>
+<h3 id="note--connection-pool--production-">Note: connection pool (production)</h3><p>If you're connecting to the database from a single process, you should create only one Sequelize instance. Sequelize will set up a connection pool on initialization. This connection pool can be configured through the constructor's <code>options</code> parameter (using <code>options.pool</code>), as is shown in the following example:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(/* ... */, {
   // ...
   pool: {
@@ -436,15 +436,15 @@ const sequelize = new Sequelize(&apos;postgres://user:pass@example.com:5432/dbna
   }
 });</code>
 </code></pre>
-<p>Learn more in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference for the Sequelize constructor</a>. If you&apos;re connecting to the database from multiple processes, you&apos;ll have to create one instance per process, but each instance should have a maximum connection pool size of such that the total maximum size is respected. For example, if you want a max connection pool size of 90 and you have three processes, the Sequelize instance of each process should have a max connection pool size of 30.</p>
+<p>Learn more in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference for the Sequelize constructor</a>. If you're connecting to the database from multiple processes, you'll have to create one instance per process, but each instance should have a maximum connection pool size of such that the total maximum size is respected. For example, if you want a max connection pool size of 90 and you have three processes, the Sequelize instance of each process should have a max connection pool size of 30.</p>
 <h3 id="testing-the-connection">Testing the connection</h3><p>You can use the <code>.authenticate()</code> function to test if the connection is OK:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">sequelize
   .authenticate()
   .then(() =&gt; {
-    console.log(&apos;Connection has been established successfully.&apos;);
+    console.log('Connection has been established successfully.');
   })
   .catch(err =&gt; {
-    console.error(&apos;Unable to connect to the database:&apos;, err);
+    console.error('Unable to connect to the database:', err);
   });</code>
 </code></pre>
 <h3 id="closing-the-connection">Closing the connection</h3><p>Sequelize will keep the connection open by default, and use the same connection for all queries. If you need to close the connection, call <code>sequelize.close()</code> (which is asynchronous and returns a Promise).</p>
@@ -463,12 +463,12 @@ User.init({
   }
 }, {
   sequelize,
-  modelName: &apos;user&apos;
+  modelName: 'user'
   // options
 });</code>
 </code></pre>
 <p>Alternatively, using <code>sequelize.define</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define(&apos;user&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define('user', {
   // attributes
   firstName: {
     type: Sequelize.STRING,
@@ -508,8 +508,8 @@ Bar.init({ /* ... */ }, { sequelize, timestamps: true });</code>
 User.sync({ force: true }).then(() =&gt; {
   // Now the `users` table in the database corresponds to the model definition
   return User.create({
-    firstName: &apos;John&apos;,
-    lastName: &apos;Hancock&apos;
+    firstName: 'John',
+    lastName: 'Hancock'
   });
 });</code>
 </code></pre>
@@ -518,30 +518,30 @@ User.sync({ force: true }).then(() =&gt; {
 <h2 id="querying">Querying</h2><p>A few simple queries are shown below:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// Find all users
 User.findAll().then(users =&gt; {
-  console.log(&quot;All users:&quot;, JSON.stringify(users, null, 4));
+  console.log("All users:", JSON.stringify(users, null, 4));
 });
 
 // Create a new user
-User.create({ firstName: &quot;Jane&quot;, lastName: &quot;Doe&quot; }).then(jane =&gt; {
-  console.log(&quot;Jane&apos;s auto-generated ID:&quot;, jane.id);
+User.create({ firstName: "Jane", lastName: "Doe" }).then(jane =&gt; {
+  console.log("Jane's auto-generated ID:", jane.id);
 });
 
-// Delete everyone named &quot;Jane&quot;
+// Delete everyone named "Jane"
 User.destroy({
   where: {
-    firstName: &quot;Jane&quot;
+    firstName: "Jane"
   }
 }).then(() =&gt; {
-  console.log(&quot;Done&quot;);
+  console.log("Done");
 });
 
-// Change everyone without a last name to &quot;Doe&quot;
-User.update({ lastName: &quot;Doe&quot; }, {
+// Change everyone without a last name to "Doe"
+User.update({ lastName: "Doe" }, {
   where: {
     lastName: null
   }
 }).then(() =&gt; {
-  console.log(&quot;Done&quot;);
+  console.log("Done");
 });</code>
 </code></pre>
 <p>Sequelize has a lot of options for querying. You will learn more about those in the next tutorials. It is also possible to make raw SQL queries, if you really need them.</p>

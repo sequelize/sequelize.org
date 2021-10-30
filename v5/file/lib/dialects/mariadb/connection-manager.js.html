@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,16 +112,16 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mariadb/connection-manager.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const AbstractConnectionManager = require(&apos;../abstract/connection-manager&apos;);
-const SequelizeErrors = require(&apos;../../errors&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
-const DataTypes = require(&apos;../../data-types&apos;).mariadb;
-const momentTz = require(&apos;moment-timezone&apos;);
-const debug = logger.debugContext(&apos;connection:mariadb&apos;);
-const parserStore = require(&apos;../parserStore&apos;)(&apos;mariadb&apos;);
+const AbstractConnectionManager = require('../abstract/connection-manager');
+const SequelizeErrors = require('../../errors');
+const Promise = require('../../promise');
+const { logger } = require('../../utils/logger');
+const DataTypes = require('../../data-types').mariadb;
+const momentTz = require('moment-timezone');
+const debug = logger.debugContext('connection:mariadb');
+const parserStore = require('../parserStore')('mariadb');
 
 /**
  * MariaDB Connection Manager
@@ -139,7 +139,7 @@ class ConnectionManager extends AbstractConnectionManager {
   constructor(dialect, sequelize) {
     sequelize.config.port = sequelize.config.port || 3306;
     super(dialect, sequelize);
-    this.lib = this._loadDialectModule(&apos;mariadb&apos;);
+    this.lib = this._loadDialectModule('mariadb');
     this.refreshTypeParser(DataTypes);
   }
 
@@ -170,7 +170,7 @@ class ConnectionManager extends AbstractConnectionManager {
   connect(config) {
     // Named timezone is not supported in mariadb, convert to offset
     let tzOffset = this.sequelize.options.timezone;
-    tzOffset = /\//.test(tzOffset) ? momentTz.tz(tzOffset).format(&apos;Z&apos;)
+    tzOffset = /\//.test(tzOffset) ? momentTz.tz(tzOffset).format('Z')
       : tzOffset;
 
     const connectionConfig = {
@@ -197,22 +197,22 @@ class ConnectionManager extends AbstractConnectionManager {
           connectionConfig.initSql)) {
           connectionConfig.initSql = [connectionConfig.initSql];
         }
-        connectionConfig.initSql.push(`SET time_zone = &apos;${tzOffset}&apos;`);
+        connectionConfig.initSql.push(`SET time_zone = '${tzOffset}'`);
       } else {
-        connectionConfig.initSql = `SET time_zone = &apos;${tzOffset}&apos;`;
+        connectionConfig.initSql = `SET time_zone = '${tzOffset}'`;
       }
     }
 
     return this.lib.createConnection(connectionConfig)
       .then(connection =&gt; {
         this.sequelize.options.databaseVersion = connection.serverVersion();
-        debug(&apos;connection acquired&apos;);
-        connection.on(&apos;error&apos;, error =&gt; {
+        debug('connection acquired');
+        connection.on('error', error =&gt; {
           switch (error.code) {
-            case &apos;ESOCKET&apos;:
-            case &apos;ECONNRESET&apos;:
-            case &apos;EPIPE&apos;:
-            case &apos;PROTOCOL_CONNECTION_LOST&apos;:
+            case 'ESOCKET':
+            case 'ECONNRESET':
+            case 'EPIPE':
+            case 'PROTOCOL_CONNECTION_LOST':
               this.pool.destroy(connection);
           }
         });
@@ -220,18 +220,18 @@ class ConnectionManager extends AbstractConnectionManager {
       })
       .catch(err =&gt; {
         switch (err.code) {
-          case &apos;ECONNREFUSED&apos;:
+          case 'ECONNREFUSED':
             throw new SequelizeErrors.ConnectionRefusedError(err);
-          case &apos;ER_ACCESS_DENIED_ERROR&apos;:
-          case &apos;ER_ACCESS_DENIED_NO_PASSWORD_ERROR&apos;:
+          case 'ER_ACCESS_DENIED_ERROR':
+          case 'ER_ACCESS_DENIED_NO_PASSWORD_ERROR':
             throw new SequelizeErrors.AccessDeniedError(err);
-          case &apos;ENOTFOUND&apos;:
+          case 'ENOTFOUND':
             throw new SequelizeErrors.HostNotFoundError(err);
-          case &apos;EHOSTUNREACH&apos;:
-          case &apos;ENETUNREACH&apos;:
-          case &apos;EADDRNOTAVAIL&apos;:
+          case 'EHOSTUNREACH':
+          case 'ENETUNREACH':
+          case 'EADDRNOTAVAIL':
             throw new SequelizeErrors.HostNotReachableError(err);
-          case &apos;EINVAL&apos;:
+          case 'EINVAL':
             throw new SequelizeErrors.InvalidConnectionError(err);
           default:
             throw new SequelizeErrors.ConnectionError(err);
@@ -240,9 +240,9 @@ class ConnectionManager extends AbstractConnectionManager {
   }
 
   disconnect(connection) {
-    // Don&apos;t disconnect connections with CLOSED state
+    // Don't disconnect connections with CLOSED state
     if (!connection.isValid()) {
-      debug(&apos;connection tried to disconnect but was already at CLOSED state&apos;);
+      debug('connection tried to disconnect but was already at CLOSED state');
       return Promise.resolve();
     }
     //wrap native Promise into bluebird

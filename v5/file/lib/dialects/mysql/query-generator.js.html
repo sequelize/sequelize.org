@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,40 +112,40 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mysql/query-generator.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const Utils = require(&apos;../../utils&apos;);
-const AbstractQueryGenerator = require(&apos;../abstract/query-generator&apos;);
-const util = require(&apos;util&apos;);
-const Op = require(&apos;../../operators&apos;);
+const _ = require('lodash');
+const Utils = require('../../utils');
+const AbstractQueryGenerator = require('../abstract/query-generator');
+const util = require('util');
+const Op = require('../../operators');
 
 
 const jsonFunctionRegex = /^\s*((?:[a-z]+_){0,2}jsonb?(?:_[a-z]+){0,2})\([^)]*\)/i;
 const jsonOperatorRegex = /^\s*(-&gt;&gt;?|@&gt;|&lt;@|\?[|&amp;]?|\|{2}|#-)/i;
-const tokenCaptureRegex = /^\s*((?:([`&quot;&apos;])(?:(?!\2).|\2{2})*\2)|[\w\d\s]+|[().,;+-])/i;
-const foreignKeyFields = &apos;CONSTRAINT_NAME as constraint_name,&apos;
-  + &apos;CONSTRAINT_NAME as constraintName,&apos;
-  + &apos;CONSTRAINT_SCHEMA as constraintSchema,&apos;
-  + &apos;CONSTRAINT_SCHEMA as constraintCatalog,&apos;
-  + &apos;TABLE_NAME as tableName,&apos;
-  + &apos;TABLE_SCHEMA as tableSchema,&apos;
-  + &apos;TABLE_SCHEMA as tableCatalog,&apos;
-  + &apos;COLUMN_NAME as columnName,&apos;
-  + &apos;REFERENCED_TABLE_SCHEMA as referencedTableSchema,&apos;
-  + &apos;REFERENCED_TABLE_SCHEMA as referencedTableCatalog,&apos;
-  + &apos;REFERENCED_TABLE_NAME as referencedTableName,&apos;
-  + &apos;REFERENCED_COLUMN_NAME as referencedColumnName&apos;;
+const tokenCaptureRegex = /^\s*((?:([`"'])(?:(?!\2).|\2{2})*\2)|[\w\d\s]+|[().,;+-])/i;
+const foreignKeyFields = 'CONSTRAINT_NAME as constraint_name,'
+  + 'CONSTRAINT_NAME as constraintName,'
+  + 'CONSTRAINT_SCHEMA as constraintSchema,'
+  + 'CONSTRAINT_SCHEMA as constraintCatalog,'
+  + 'TABLE_NAME as tableName,'
+  + 'TABLE_SCHEMA as tableSchema,'
+  + 'TABLE_SCHEMA as tableCatalog,'
+  + 'COLUMN_NAME as columnName,'
+  + 'REFERENCED_TABLE_SCHEMA as referencedTableSchema,'
+  + 'REFERENCED_TABLE_SCHEMA as referencedTableCatalog,'
+  + 'REFERENCED_TABLE_NAME as referencedTableName,'
+  + 'REFERENCED_COLUMN_NAME as referencedColumnName';
 
-const typeWithoutDefault = new Set([&apos;BLOB&apos;, &apos;TEXT&apos;, &apos;GEOMETRY&apos;, &apos;JSON&apos;]);
+const typeWithoutDefault = new Set(['BLOB', 'TEXT', 'GEOMETRY', 'JSON']);
 
 class MySQLQueryGenerator extends AbstractQueryGenerator {
   constructor(options) {
     super(options);
 
     this.OperatorMap = Object.assign({}, this.OperatorMap, {
-      [Op.regexp]: &apos;REGEXP&apos;,
-      [Op.notRegexp]: &apos;NOT REGEXP&apos;
+      [Op.regexp]: 'REGEXP',
+      [Op.notRegexp]: 'NOT REGEXP'
     });
   }
 
@@ -156,8 +156,8 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
     }, options || {});
 
     const database = this.quoteIdentifier(databaseName);
-    const charset = options.charset ? ` DEFAULT CHARACTER SET ${this.escape(options.charset)}` : &apos;&apos;;
-    const collate = options.collate ? ` DEFAULT COLLATE ${this.escape(options.collate)}` : &apos;&apos;;
+    const charset = options.charset ? ` DEFAULT CHARACTER SET ${this.escape(options.charset)}` : '';
+    const collate = options.collate ? ` DEFAULT COLLATE ${this.escape(options.collate)}` : '';
 
     return `${`CREATE DATABASE IF NOT EXISTS ${database}${charset}${collate}`.trim()};`;
   }
@@ -167,20 +167,20 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   createSchema() {
-    return &apos;SHOW TABLES&apos;;
+    return 'SHOW TABLES';
   }
 
   showSchemasQuery() {
-    return &apos;SHOW TABLES&apos;;
+    return 'SHOW TABLES';
   }
 
   versionQuery() {
-    return &apos;SELECT VERSION() as `version`&apos;;
+    return 'SELECT VERSION() as `version`';
   }
 
   createTableQuery(tableName, attributes, options) {
     options = Object.assign({
-      engine: &apos;InnoDB&apos;,
+      engine: 'InnoDB',
       charset: null,
       rowFormat: null
     }, options || {});
@@ -194,19 +194,19 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
       const dataType = attributes[attr];
       let match;
 
-      if (dataType.includes(&apos;PRIMARY KEY&apos;)) {
+      if (dataType.includes('PRIMARY KEY')) {
         primaryKeys.push(attr);
 
-        if (dataType.includes(&apos;REFERENCES&apos;)) {
-          // MySQL doesn&apos;t support inline REFERENCES declarations: move to the end
+        if (dataType.includes('REFERENCES')) {
+          // MySQL doesn't support inline REFERENCES declarations: move to the end
           match = dataType.match(/^(.+) (REFERENCES.*)$/);
-          attrStr.push(`${this.quoteIdentifier(attr)} ${match[1].replace(&apos;PRIMARY KEY&apos;, &apos;&apos;)}`);
+          attrStr.push(`${this.quoteIdentifier(attr)} ${match[1].replace('PRIMARY KEY', '')}`);
           foreignKeys[attr] = match[2];
         } else {
-          attrStr.push(`${this.quoteIdentifier(attr)} ${dataType.replace(&apos;PRIMARY KEY&apos;, &apos;&apos;)}`);
+          attrStr.push(`${this.quoteIdentifier(attr)} ${dataType.replace('PRIMARY KEY', '')}`);
         }
-      } else if (dataType.includes(&apos;REFERENCES&apos;)) {
-        // MySQL doesn&apos;t support inline REFERENCES declarations: move to the end
+      } else if (dataType.includes('REFERENCES')) {
+        // MySQL doesn't support inline REFERENCES declarations: move to the end
         match = dataType.match(/^(.+) (REFERENCES.*)$/);
         attrStr.push(`${this.quoteIdentifier(attr)} ${match[1]}`);
         foreignKeys[attr] = match[2];
@@ -216,22 +216,22 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
     }
 
     const table = this.quoteTable(tableName);
-    let attributesClause = attrStr.join(&apos;, &apos;);
-    const comment = options.comment &amp;&amp; typeof options.comment === &apos;string&apos; ? ` COMMENT ${this.escape(options.comment)}` : &apos;&apos;;
+    let attributesClause = attrStr.join(', ');
+    const comment = options.comment &amp;&amp; typeof options.comment === 'string' ? ` COMMENT ${this.escape(options.comment)}` : '';
     const engine = options.engine;
-    const charset = options.charset ? ` DEFAULT CHARSET=${options.charset}` : &apos;&apos;;
-    const collation = options.collate ? ` COLLATE ${options.collate}` : &apos;&apos;;
-    const rowFormat = options.rowFormat ? ` ROW_FORMAT=${options.rowFormat}` : &apos;&apos;;
-    const initialAutoIncrement = options.initialAutoIncrement ? ` AUTO_INCREMENT=${options.initialAutoIncrement}` : &apos;&apos;;
-    const pkString = primaryKeys.map(pk =&gt; this.quoteIdentifier(pk)).join(&apos;, &apos;);
+    const charset = options.charset ? ` DEFAULT CHARSET=${options.charset}` : '';
+    const collation = options.collate ? ` COLLATE ${options.collate}` : '';
+    const rowFormat = options.rowFormat ? ` ROW_FORMAT=${options.rowFormat}` : '';
+    const initialAutoIncrement = options.initialAutoIncrement ? ` AUTO_INCREMENT=${options.initialAutoIncrement}` : '';
+    const pkString = primaryKeys.map(pk =&gt; this.quoteIdentifier(pk)).join(', ');
 
     if (options.uniqueKeys) {
       _.each(options.uniqueKeys, (columns, indexName) =&gt; {
         if (columns.customIndex) {
-          if (typeof indexName !== &apos;string&apos;) {
-            indexName = `uniq_${tableName}_${columns.fields.join(&apos;_&apos;)}`;
+          if (typeof indexName !== 'string') {
+            indexName = `uniq_${tableName}_${columns.fields.join('_')}`;
           }
-          attributesClause += `, UNIQUE ${this.quoteIdentifier(indexName)} (${columns.fields.map(field =&gt; this.quoteIdentifier(field)).join(&apos;, &apos;)})`;
+          attributesClause += `, UNIQUE ${this.quoteIdentifier(indexName)} (${columns.fields.map(field =&gt; this.quoteIdentifier(field)).join(', ')})`;
         }
       });
     }
@@ -263,18 +263,18 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   showTablesQuery(database) {
-    let query = &apos;SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = \&apos;BASE TABLE\&apos;&apos;;
+    let query = 'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = \'BASE TABLE\'';
     if (database) {
       query += ` AND TABLE_SCHEMA = ${this.escape(database)}`;
     } else {
-      query += &apos; AND TABLE_SCHEMA NOT IN (\&apos;MYSQL\&apos;, \&apos;INFORMATION_SCHEMA\&apos;, \&apos;PERFORMANCE_SCHEMA\&apos;, \&apos;SYS\&apos;)&apos;;
+      query += ' AND TABLE_SCHEMA NOT IN (\'MYSQL\', \'INFORMATION_SCHEMA\', \'PERFORMANCE_SCHEMA\', \'SYS\')';
     }
     return `${query};`;
   }
 
   addColumnQuery(table, key, dataType) {
     const definition = this.attributeToSQL(dataType, {
-      context: &apos;addColumn&apos;,
+      context: 'addColumn',
       tableName: table,
       foreignKey: key
     });
@@ -292,22 +292,22 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
 
     for (const attributeName in attributes) {
       let definition = attributes[attributeName];
-      if (definition.includes(&apos;REFERENCES&apos;)) {
+      if (definition.includes('REFERENCES')) {
         const attrName = this.quoteIdentifier(attributeName);
-        definition = definition.replace(/.+?(?=REFERENCES)/, &apos;&apos;);
+        definition = definition.replace(/.+?(?=REFERENCES)/, '');
         constraintString.push(`FOREIGN KEY (${attrName}) ${definition}`);
       } else {
         attrString.push(`\`${attributeName}\` \`${attributeName}\` ${definition}`);
       }
     }
 
-    let finalQuery = &apos;&apos;;
+    let finalQuery = '';
     if (attrString.length) {
-      finalQuery += `CHANGE ${attrString.join(&apos;, &apos;)}`;
-      finalQuery += constraintString.length ? &apos; &apos; : &apos;&apos;;
+      finalQuery += `CHANGE ${attrString.join(', ')}`;
+      finalQuery += constraintString.length ? ' ' : '';
     }
     if (constraintString.length) {
-      finalQuery += `ADD ${constraintString.join(&apos;, &apos;)}`;
+      finalQuery += `ADD ${constraintString.join(', ')}`;
     }
 
     return `ALTER TABLE ${this.quoteTable(tableName)} ${finalQuery};`;
@@ -321,7 +321,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
       attrString.push(`\`${attrBefore}\` \`${attrName}\` ${definition}`);
     }
 
-    return `ALTER TABLE ${this.quoteTable(tableName)} CHANGE ${attrString.join(&apos;, &apos;)};`;
+    return `ALTER TABLE ${this.quoteTable(tableName)} CHANGE ${attrString.join(', ')};`;
   }
 
   handleSequelizeMethod(smth, tableName, factory, options, prepend) {
@@ -329,10 +329,10 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
       // Parse nested object
       if (smth.conditions) {
         const conditions = this.parseConditionObject(smth.conditions).map(condition =&gt;
-          `${this.jsonPathExtractionQuery(condition.path[0], _.tail(condition.path))} = &apos;${condition.value}&apos;`
+          `${this.jsonPathExtractionQuery(condition.path[0], _.tail(condition.path))} = '${condition.value}'`
         );
 
-        return conditions.join(&apos; AND &apos;);
+        return conditions.join(' AND ');
       }
       if (smth.path) {
         let str;
@@ -348,21 +348,21 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
         }
 
         if (smth.value) {
-          str += util.format(&apos; = %s&apos;, this.escape(smth.value));
+          str += util.format(' = %s', this.escape(smth.value));
         }
 
         return str;
       }
     } else if (smth instanceof Utils.Cast) {
       if (/timestamp/i.test(smth.type)) {
-        smth.type = &apos;datetime&apos;;
+        smth.type = 'datetime';
       } else if (smth.json &amp;&amp; /boolean/i.test(smth.type)) {
         // true or false cannot be casted as booleans within a JSON structure
-        smth.type = &apos;char&apos;;
+        smth.type = 'char';
       } else if (/double precision/i.test(smth.type) || /boolean/i.test(smth.type) || /integer/i.test(smth.type)) {
-        smth.type = &apos;decimal&apos;;
+        smth.type = 'decimal';
       } else if (/text/i.test(smth.type)) {
-        smth.type = &apos;char&apos;;
+        smth.type = 'char';
       }
     }
 
@@ -371,23 +371,23 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
 
   _toJSONValue(value) {
     // true/false are stored as strings in mysql
-    if (typeof value === &apos;boolean&apos;) {
+    if (typeof value === 'boolean') {
       return value.toString();
     }
     // null is stored as a string in mysql
     if (value === null) {
-      return &apos;null&apos;;
+      return 'null';
     }
     return value;
   }
 
   upsertQuery(tableName, insertValues, updateValues, where, model, options) {
-    options.onDuplicate = &apos;UPDATE &apos;;
+    options.onDuplicate = 'UPDATE ';
 
     options.onDuplicate += Object.keys(updateValues).map(key =&gt; {
       key = this.quoteIdentifier(key);
       return `${key}=VALUES(${key})`;
-    }).join(&apos;, &apos;);
+    }).join(', ');
 
     return this.insertQuery(tableName, insertValues, model.rawAttributes, options);
   }
@@ -397,7 +397,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   deleteQuery(tableName, where, options = {}, model) {
-    let limit = &apos;&apos;;
+    let limit = '';
     let query = `DELETE FROM ${this.quoteTable(tableName)}`;
 
     if (options.limit) {
@@ -414,7 +414,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   showIndexesQuery(tableName, options) {
-    return `SHOW INDEX FROM ${this.quoteTable(tableName)}${(options || {}).database ? ` FROM \`${options.database}\`` : &apos;&apos;}`;
+    return `SHOW INDEX FROM ${this.quoteTable(tableName)}${(options || {}).database ? ` FROM \`${options.database}\`` : ''}`;
   }
 
   showConstraintsQuery(table, constraintName) {
@@ -422,22 +422,22 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
     const schemaName = table.schema;
 
     let sql = [
-      &apos;SELECT CONSTRAINT_CATALOG AS constraintCatalog,&apos;,
-      &apos;CONSTRAINT_NAME AS constraintName,&apos;,
-      &apos;CONSTRAINT_SCHEMA AS constraintSchema,&apos;,
-      &apos;CONSTRAINT_TYPE AS constraintType,&apos;,
-      &apos;TABLE_NAME AS tableName,&apos;,
-      &apos;TABLE_SCHEMA AS tableSchema&apos;,
-      &apos;from INFORMATION_SCHEMA.TABLE_CONSTRAINTS&apos;,
-      `WHERE table_name=&apos;${tableName}&apos;`
-    ].join(&apos; &apos;);
+      'SELECT CONSTRAINT_CATALOG AS constraintCatalog,',
+      'CONSTRAINT_NAME AS constraintName,',
+      'CONSTRAINT_SCHEMA AS constraintSchema,',
+      'CONSTRAINT_TYPE AS constraintType,',
+      'TABLE_NAME AS tableName,',
+      'TABLE_SCHEMA AS tableSchema',
+      'from INFORMATION_SCHEMA.TABLE_CONSTRAINTS',
+      `WHERE table_name='${tableName}'`
+    ].join(' ');
 
     if (constraintName) {
-      sql += ` AND constraint_name = &apos;${constraintName}&apos;`;
+      sql += ` AND constraint_name = '${constraintName}'`;
     }
 
     if (schemaName) {
-      sql += ` AND TABLE_SCHEMA = &apos;${schemaName}&apos;`;
+      sql += ` AND TABLE_SCHEMA = '${schemaName}'`;
     }
 
     return `${sql};`;
@@ -446,8 +446,8 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
   removeIndexQuery(tableName, indexNameOrAttributes) {
     let indexName = indexNameOrAttributes;
 
-    if (typeof indexName !== &apos;string&apos;) {
-      indexName = Utils.underscore(`${tableName}_${indexNameOrAttributes.join(&apos;_&apos;)}`);
+    if (typeof indexName !== 'string') {
+      indexName = Utils.underscore(`${tableName}_${indexNameOrAttributes.join('_')}`);
     }
 
     return `DROP INDEX ${this.quoteIdentifier(indexName)} ON ${this.quoteTable(tableName)}`;
@@ -464,11 +464,11 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
     let template = attributeString;
 
     if (attribute.allowNull === false) {
-      template += &apos; NOT NULL&apos;;
+      template += ' NOT NULL';
     }
 
     if (attribute.autoIncrement) {
-      template += &apos; auto_increment&apos;;
+      template += ' auto_increment';
     }
 
     // BLOB/TEXT/GEOMETRY/JSON cannot have a default value
@@ -479,11 +479,11 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
     }
 
     if (attribute.unique === true) {
-      template += &apos; UNIQUE&apos;;
+      template += ' UNIQUE';
     }
 
     if (attribute.primaryKey) {
-      template += &apos; PRIMARY KEY&apos;;
+      template += ' PRIMARY KEY';
     }
 
     if (attribute.comment) {
@@ -491,7 +491,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
     }
 
     if (attribute.first) {
-      template += &apos; FIRST&apos;;
+      template += ' FIRST';
     }
     if (attribute.after) {
       template += ` AFTER ${this.quoteIdentifier(attribute.after)}`;
@@ -499,7 +499,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
 
     if (attribute.references) {
 
-      if (options &amp;&amp; options.context === &apos;addColumn&apos; &amp;&amp; options.foreignKey) {
+      if (options &amp;&amp; options.context === 'addColumn' &amp;&amp; options.foreignKey) {
         const attrName = this.quoteIdentifier(options.foreignKey);
         const fkName = this.quoteIdentifier(`${options.tableName}_${attrName}_foreign_idx`);
 
@@ -511,7 +511,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
       if (attribute.references.key) {
         template += ` (${this.quoteIdentifier(attribute.references.key)})`;
       } else {
-        template += ` (${this.quoteIdentifier(&apos;id&apos;)})`;
+        template += ` (${this.quoteIdentifier('id')})`;
       }
 
       if (attribute.onDelete) {
@@ -546,7 +546,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
    * @private
    */
   _checkValidJsonStatement(stmt) {
-    if (typeof stmt !== &apos;string&apos;) {
+    if (typeof stmt !== 'string') {
       return false;
     }
 
@@ -560,7 +560,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
       const string = stmt.substr(currentIndex);
       const functionMatches = jsonFunctionRegex.exec(string);
       if (functionMatches) {
-        currentIndex += functionMatches[0].indexOf(&apos;(&apos;);
+        currentIndex += functionMatches[0].indexOf('(');
         hasJsonFunction = true;
         continue;
       }
@@ -575,11 +575,11 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
       const tokenMatches = tokenCaptureRegex.exec(string);
       if (tokenMatches) {
         const capturedToken = tokenMatches[1];
-        if (capturedToken === &apos;(&apos;) {
+        if (capturedToken === '(') {
           openingBrackets++;
-        } else if (capturedToken === &apos;)&apos;) {
+        } else if (capturedToken === ')') {
           closingBrackets++;
-        } else if (capturedToken === &apos;;&apos;) {
+        } else if (capturedToken === ';') {
           hasInvalidToken = true;
           break;
         }
@@ -609,7 +609,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
    */
   getForeignKeysQuery(table, schemaName) {
     const tableName = table.tableName || table;
-    return `SELECT ${foreignKeyFields} FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = &apos;${tableName}&apos; AND CONSTRAINT_NAME!=&apos;PRIMARY&apos; AND CONSTRAINT_SCHEMA=&apos;${schemaName}&apos; AND REFERENCED_TABLE_NAME IS NOT NULL;`;
+    return `SELECT ${foreignKeyFields} FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = '${tableName}' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='${schemaName}' AND REFERENCED_TABLE_NAME IS NOT NULL;`;
   }
 
   /**
@@ -621,16 +621,16 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
    * @private
    */
   getForeignKeyQuery(table, columnName) {
-    const quotedSchemaName = table.schema ? wrapSingleQuote(table.schema) : &apos;&apos;;
+    const quotedSchemaName = table.schema ? wrapSingleQuote(table.schema) : '';
     const quotedTableName = wrapSingleQuote(table.tableName || table);
     const quotedColumnName = wrapSingleQuote(columnName);
 
     return `SELECT ${foreignKeyFields} FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE`
       + ` WHERE (REFERENCED_TABLE_NAME = ${quotedTableName}${table.schema
         ? ` AND REFERENCED_TABLE_SCHEMA = ${quotedSchemaName}`
-        : &apos;&apos;} AND REFERENCED_COLUMN_NAME = ${quotedColumnName})`
+        : ''} AND REFERENCED_COLUMN_NAME = ${quotedColumnName})`
       + ` OR (TABLE_NAME = ${quotedTableName}${table.schema ?
-        ` AND TABLE_SCHEMA = ${quotedSchemaName}` : &apos;&apos;} AND COLUMN_NAME = ${quotedColumnName} AND REFERENCED_TABLE_NAME IS NOT NULL)`;
+        ` AND TABLE_SCHEMA = ${quotedSchemaName}` : ''} AND COLUMN_NAME = ${quotedColumnName} AND REFERENCED_TABLE_NAME IS NOT NULL)`;
   }
 
   /**
@@ -649,7 +649,7 @@ class MySQLQueryGenerator extends AbstractQueryGenerator {
 
 // private methods
 function wrapSingleQuote(identifier) {
-  return Utils.addTicks(identifier, &apos;\&apos;&apos;);
+  return Utils.addTicks(identifier, '\'');
 }
 
 module.exports = MySQLQueryGenerator;

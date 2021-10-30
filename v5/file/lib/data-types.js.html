@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,18 +112,18 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/data-types.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const util = require(&apos;util&apos;);
-const _ = require(&apos;lodash&apos;);
-const wkx = require(&apos;wkx&apos;);
-const sequelizeErrors = require(&apos;./errors&apos;);
-const Validator = require(&apos;./utils/validator-extras&apos;).validator;
-const momentTz = require(&apos;moment-timezone&apos;);
-const moment = require(&apos;moment&apos;);
-const { logger } = require(&apos;./utils/logger&apos;);
+const util = require('util');
+const _ = require('lodash');
+const wkx = require('wkx');
+const sequelizeErrors = require('./errors');
+const Validator = require('./utils/validator-extras').validator;
+const momentTz = require('moment-timezone');
+const moment = require('moment');
+const { logger } = require('./utils/logger');
 const warnings = {};
-const { classToInvokable } = require(&apos;./utils/classToInvokable&apos;);
+const { classToInvokable } = require('./utils/classToInvokable');
 
 class ABSTRACT {
   toString(options) {
@@ -158,7 +158,7 @@ class ABSTRACT {
   }
 }
 
-ABSTRACT.prototype.dialectTypes = &apos;&apos;;
+ABSTRACT.prototype.dialectTypes = '';
 
 /**
  * STRING A variable length string
@@ -170,20 +170,20 @@ class STRING extends ABSTRACT {
    */
   constructor(length, binary) {
     super();
-    const options = typeof length === &apos;object&apos; &amp;&amp; length || { length, binary };
+    const options = typeof length === 'object' &amp;&amp; length || { length, binary };
     this.options = options;
     this._binary = options.binary;
     this._length = options.length || 255;
   }
   toSql() {
-    return `VARCHAR(${this._length})${this._binary ? &apos; BINARY&apos; : &apos;&apos;}`;
+    return `VARCHAR(${this._length})${this._binary ? ' BINARY' : ''}`;
   }
   validate(value) {
-    if (Object.prototype.toString.call(value) !== &apos;[object String]&apos;) {
-      if (this.options.binary &amp;&amp; Buffer.isBuffer(value) || typeof value === &apos;number&apos;) {
+    if (Object.prototype.toString.call(value) !== '[object String]') {
+      if (this.options.binary &amp;&amp; Buffer.isBuffer(value) || typeof value === 'number') {
         return true;
       }
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid string&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid string', value));
     }
     return true;
   }
@@ -208,10 +208,10 @@ class CHAR extends STRING {
    * @param {boolean} [binary=false] Is this binary?
    */
   constructor(length, binary) {
-    super(typeof length === &apos;object&apos; &amp;&amp; length || { length, binary });
+    super(typeof length === 'object' &amp;&amp; length || { length, binary });
   }
   toSql() {
-    return `CHAR(${this._length})${this._binary ? &apos; BINARY&apos; : &apos;&apos;}`;
+    return `CHAR(${this._length})${this._binary ? ' BINARY' : ''}`;
   }
 }
 
@@ -220,29 +220,29 @@ class CHAR extends STRING {
  */
 class TEXT extends ABSTRACT {
   /**
-   * @param {string} [length=&apos;&apos;] could be tiny, medium, long.
+   * @param {string} [length=''] could be tiny, medium, long.
    */
   constructor(length) {
     super();
-    const options = typeof length === &apos;object&apos; &amp;&amp; length || { length };
+    const options = typeof length === 'object' &amp;&amp; length || { length };
     this.options = options;
-    this._length = options.length || &apos;&apos;;
+    this._length = options.length || '';
   }
   toSql() {
     switch (this._length.toLowerCase()) {
-      case &apos;tiny&apos;:
-        return &apos;TINYTEXT&apos;;
-      case &apos;medium&apos;:
-        return &apos;MEDIUMTEXT&apos;;
-      case &apos;long&apos;:
-        return &apos;LONGTEXT&apos;;
+      case 'tiny':
+        return 'TINYTEXT';
+      case 'medium':
+        return 'MEDIUMTEXT';
+      case 'long':
+        return 'LONGTEXT';
       default:
         return this.key;
     }
   }
   validate(value) {
-    if (typeof value !== &apos;string&apos;) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid string&apos;, value));
+    if (typeof value !== 'string') {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid string', value));
     }
     return true;
   }
@@ -256,11 +256,11 @@ class TEXT extends ABSTRACT {
  */
 class CITEXT extends ABSTRACT {
   toSql() {
-    return &apos;CITEXT&apos;;
+    return 'CITEXT';
   }
   validate(value) {
-    if (typeof value !== &apos;string&apos;) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid string&apos;, value));
+    if (typeof value !== 'string') {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid string', value));
     }
     return true;
   }
@@ -281,7 +281,7 @@ class NUMBER extends ABSTRACT {
    */
   constructor(options = {}) {
     super();
-    if (typeof options === &apos;number&apos;) {
+    if (typeof options === 'number') {
       options = {
         length: options
       };
@@ -298,16 +298,16 @@ class NUMBER extends ABSTRACT {
     let result = this.key;
     if (this._length) {
       result += `(${this._length}`;
-      if (typeof this._decimals === &apos;number&apos;) {
+      if (typeof this._decimals === 'number') {
         result += `,${this._decimals}`;
       }
-      result += &apos;)&apos;;
+      result += ')';
     }
     if (this._unsigned) {
-      result += &apos; UNSIGNED&apos;;
+      result += ' UNSIGNED';
     }
     if (this._zerofill) {
-      result += &apos; ZEROFILL&apos;;
+      result += ' ZEROFILL';
     }
     return result;
   }
@@ -318,10 +318,10 @@ class NUMBER extends ABSTRACT {
     return true;
   }
   _stringify(number) {
-    if (typeof number === &apos;number&apos; || typeof number === &apos;boolean&apos; || number === null || number === undefined) {
+    if (typeof number === 'number' || typeof number === 'boolean' || number === null || number === undefined) {
       return number;
     }
-    if (typeof number.toString === &apos;function&apos;) {
+    if (typeof number.toString === 'function') {
       return number.toString();
     }
     return number;
@@ -393,11 +393,11 @@ class FLOAT extends NUMBER {
    * @param {string|number} [decimals] number of decimal points, used with length `FLOAT(5, 4)`
    */
   constructor(length, decimals) {
-    super(typeof length === &apos;object&apos; &amp;&amp; length || { length, decimals });
+    super(typeof length === 'object' &amp;&amp; length || { length, decimals });
   }
   validate(value) {
     if (!Validator.isFloat(String(value))) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid float&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid float', value));
     }
     return true;
   }
@@ -412,7 +412,7 @@ class REAL extends NUMBER {
    * @param {string|number} [decimals] number of decimal points, used with length `REAL(5, 4)`
    */
   constructor(length, decimals) {
-    super(typeof length === &apos;object&apos; &amp;&amp; length || { length, decimals });
+    super(typeof length === 'object' &amp;&amp; length || { length, decimals });
   }
 }
 
@@ -425,7 +425,7 @@ class DOUBLE extends NUMBER {
    * @param {string|number} [decimals] number of decimal points, used with length `DOUBLE PRECISION(25, 10)`
    */
   constructor(length, decimals) {
-    super(typeof length === &apos;object&apos; &amp;&amp; length || { length, decimals });
+    super(typeof length === 'object' &amp;&amp; length || { length, decimals });
   }
 }
 
@@ -438,17 +438,17 @@ class DECIMAL extends NUMBER {
    * @param {string|number} [scale] defines scale
    */
   constructor(precision, scale) {
-    super(typeof precision === &apos;object&apos; &amp;&amp; precision || { precision, scale });
+    super(typeof precision === 'object' &amp;&amp; precision || { precision, scale });
   }
   toSql() {
     if (this._precision || this._scale) {
-      return `DECIMAL(${[this._precision, this._scale].filter(_.identity).join(&apos;,&apos;)})`;
+      return `DECIMAL(${[this._precision, this._scale].filter(_.identity).join(',')})`;
     }
-    return &apos;DECIMAL&apos;;
+    return 'DECIMAL';
   }
   validate(value) {
     if (!Validator.isDecimal(String(value))) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid decimal&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid decimal', value));
     }
     return true;
   }
@@ -459,17 +459,17 @@ const protoExtensions = {
   escape: false,
   _value(value) {
     if (isNaN(value)) {
-      return &apos;NaN&apos;;
+      return 'NaN';
     }
     if (!isFinite(value)) {
-      const sign = value &lt; 0 ? &apos;-&apos; : &apos;&apos;;
+      const sign = value &lt; 0 ? '-' : '';
       return `${sign}Infinity`;
     }
 
     return value;
   },
   _stringify(value) {
-    return `&apos;${this._value(value)}&apos;`;
+    return `'${this._value(value)}'`;
   },
   _bindParam(value, options) {
     return options.bindParam(this._value(value));
@@ -485,11 +485,11 @@ for (const floating of [FLOAT, DOUBLE, REAL]) {
  */
 class BOOLEAN extends ABSTRACT {
   toSql() {
-    return &apos;TINYINT(1)&apos;;
+    return 'TINYINT(1)';
   }
   validate(value) {
     if (!Validator.isBoolean(String(value))) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid boolean&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid boolean', value));
     }
     return true;
   }
@@ -500,11 +500,11 @@ class BOOLEAN extends ABSTRACT {
         value = value[0];
       }
       const type = typeof value;
-      if (type === &apos;string&apos;) {
+      if (type === 'string') {
         // Only take action on valid boolean strings.
-        return value === &apos;true&apos; ? true : value === &apos;false&apos; ? false : value;
+        return value === 'true' ? true : value === 'false' ? false : value;
       }
-      if (type === &apos;number&apos;) {
+      if (type === 'number') {
         // Only take action on valid boolean integers.
         return value === 1 ? true : value === 0 ? false : value;
       }
@@ -522,7 +522,7 @@ BOOLEAN.parse = BOOLEAN.prototype._sanitize;
  */
 class TIME extends ABSTRACT {
   toSql() {
-    return &apos;TIME&apos;;
+    return 'TIME';
   }
 }
 
@@ -535,16 +535,16 @@ class DATE extends ABSTRACT {
    */
   constructor(length) {
     super();
-    const options = typeof length === &apos;object&apos; &amp;&amp; length || { length };
+    const options = typeof length === 'object' &amp;&amp; length || { length };
     this.options = options;
-    this._length = options.length || &apos;&apos;;
+    this._length = options.length || '';
   }
   toSql() {
-    return &apos;DATETIME&apos;;
+    return 'DATETIME';
   }
   validate(value) {
     if (!Validator.isDate(String(value))) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid date&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid date', value));
     }
     return true;
   }
@@ -578,7 +578,7 @@ class DATE extends ABSTRACT {
   _stringify(date, options) {
     date = this._applyTimezone(date, options);
     // Z here means current timezone, _not_ UTC
-    return date.format(&apos;YYYY-MM-DD HH:mm:ss.SSS Z&apos;);
+    return date.format('YYYY-MM-DD HH:mm:ss.SSS Z');
   }
 }
 
@@ -587,14 +587,14 @@ class DATE extends ABSTRACT {
  */
 class DATEONLY extends ABSTRACT {
   toSql() {
-    return &apos;DATE&apos;;
+    return 'DATE';
   }
   _stringify(date) {
-    return moment(date).format(&apos;YYYY-MM-DD&apos;);
+    return moment(date).format('YYYY-MM-DD');
   }
   _sanitize(value, options) {
     if ((!options || options &amp;&amp; !options.raw) &amp;&amp; !!value) {
-      return moment(value).format(&apos;YYYY-MM-DD&apos;);
+      return moment(value).format('YYYY-MM-DD');
     }
     return value;
   }
@@ -616,7 +616,7 @@ class DATEONLY extends ABSTRACT {
 class HSTORE extends ABSTRACT {
   validate(value) {
     if (!_.isPlainObject(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid hstore&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid hstore', value));
     }
     return true;
   }
@@ -651,29 +651,29 @@ class NOW extends ABSTRACT {
  */
 class BLOB extends ABSTRACT {
   /**
-   * @param {string} [length=&apos;&apos;] could be tiny, medium, long.
+   * @param {string} [length=''] could be tiny, medium, long.
    */
   constructor(length) {
     super();
-    const options = typeof length === &apos;object&apos; &amp;&amp; length || { length };
+    const options = typeof length === 'object' &amp;&amp; length || { length };
     this.options = options;
-    this._length = options.length || &apos;&apos;;
+    this._length = options.length || '';
   }
   toSql() {
     switch (this._length.toLowerCase()) {
-      case &apos;tiny&apos;:
-        return &apos;TINYBLOB&apos;;
-      case &apos;medium&apos;:
-        return &apos;MEDIUMBLOB&apos;;
-      case &apos;long&apos;:
-        return &apos;LONGBLOB&apos;;
+      case 'tiny':
+        return 'TINYBLOB';
+      case 'medium':
+        return 'MEDIUMBLOB';
+      case 'long':
+        return 'LONGBLOB';
       default:
         return this.key;
     }
   }
   validate(value) {
-    if (typeof value !== &apos;string&apos; &amp;&amp; !Buffer.isBuffer(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid blob&apos;, value));
+    if (typeof value !== 'string' &amp;&amp; !Buffer.isBuffer(value)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid blob', value));
     }
     return true;
   }
@@ -686,11 +686,11 @@ class BLOB extends ABSTRACT {
         value = Buffer.from(value.toString());
       }
     }
-    const hex = value.toString(&apos;hex&apos;);
+    const hex = value.toString('hex');
     return this._hexify(hex);
   }
   _hexify(hex) {
-    return `X&apos;${hex}&apos;`;
+    return `X'${hex}'`;
   }
   _bindParam(value, options) {
     if (!Buffer.isBuffer(value)) {
@@ -709,7 +709,7 @@ class BLOB extends ABSTRACT {
 BLOB.prototype.escape = false;
 
 /**
- * Range types are data types representing a range of values of some element type (called the range&apos;s subtype).
+ * Range types are data types representing a range of values of some element type (called the range's subtype).
  * Only available in Postgres. See [the Postgres documentation](http://www.postgresql.org/docs/9.4/static/rangetypes.html) for more details
  */
 class RANGE extends ABSTRACT {
@@ -721,7 +721,7 @@ class RANGE extends ABSTRACT {
     const options = _.isPlainObject(subtype) ? subtype : { subtype };
     if (!options.subtype)
       options.subtype = new INTEGER();
-    if (typeof options.subtype === &apos;function&apos;) {
+    if (typeof options.subtype === 'function') {
       options.subtype = new options.subtype();
     }
     this._subtype = options.subtype.key;
@@ -729,10 +729,10 @@ class RANGE extends ABSTRACT {
   }
   validate(value) {
     if (!Array.isArray(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid range&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid range', value));
     }
     if (value.length !== 2) {
-      throw new sequelizeErrors.ValidationError(&apos;A range must be an array with two elements&apos;);
+      throw new sequelizeErrors.ValidationError('A range must be an array with two elements');
     }
     return true;
   }
@@ -744,8 +744,8 @@ class RANGE extends ABSTRACT {
  */
 class UUID extends ABSTRACT {
   validate(value, options) {
-    if (typeof value !== &apos;string&apos; || !Validator.isUUID(value) &amp;&amp; (!options || !options.acceptStrings)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid uuid&apos;, value));
+    if (typeof value !== 'string' || !Validator.isUUID(value) &amp;&amp; (!options || !options.acceptStrings)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid uuid', value));
     }
     return true;
   }
@@ -756,8 +756,8 @@ class UUID extends ABSTRACT {
  */
 class UUIDV1 extends ABSTRACT {
   validate(value, options) {
-    if (typeof value !== &apos;string&apos; || !Validator.isUUID(value) &amp;&amp; (!options || !options.acceptStrings)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid uuid&apos;, value));
+    if (typeof value !== 'string' || !Validator.isUUID(value) &amp;&amp; (!options || !options.acceptStrings)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid uuid', value));
     }
     return true;
   }
@@ -768,8 +768,8 @@ class UUIDV1 extends ABSTRACT {
  */
 class UUIDV4 extends ABSTRACT {
   validate(value, options) {
-    if (typeof value !== &apos;string&apos; || !Validator.isUUID(value, 4) &amp;&amp; (!options || !options.acceptStrings)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid uuidv4&apos;, value));
+    if (typeof value !== 'string' || !Validator.isUUID(value, 4) &amp;&amp; (!options || !options.acceptStrings)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid uuidv4', value));
     }
     return true;
   }
@@ -783,19 +783,19 @@ class UUIDV4 extends ABSTRACT {
  * Return type is mostly useful for setups that rely on types like GraphQL.
  *
  * @example &lt;caption&gt;Checking password length before hashing it&lt;/caption&gt;
- * sequelize.define(&apos;user&apos;, {
+ * sequelize.define('user', {
  *   password_hash: DataTypes.STRING,
  *   password: {
  *     type: DataTypes.VIRTUAL,
  *     set: function (val) {
- *        // Remember to set the data value, otherwise it won&apos;t be validated
- *        this.setDataValue(&apos;password&apos;, val);
- *        this.setDataValue(&apos;password_hash&apos;, this.salt + val);
+ *        // Remember to set the data value, otherwise it won't be validated
+ *        this.setDataValue('password', val);
+ *        this.setDataValue('password_hash', this.salt + val);
  *      },
  *      validate: {
  *         isLongEnough: function (val) {
  *           if (val.length &lt; 7) {
- *             throw new Error(&quot;Please choose a longer password&quot;)
+ *             throw new Error("Please choose a longer password")
  *          }
  *       }
  *     }
@@ -807,9 +807,9 @@ class UUIDV4 extends ABSTRACT {
  * @example &lt;caption&gt;Virtual with dependency fields&lt;/caption&gt;
  * {
  *   active: {
- *     type: new DataTypes.VIRTUAL(DataTypes.BOOLEAN, [&apos;createdAt&apos;]),
+ *     type: new DataTypes.VIRTUAL(DataTypes.BOOLEAN, ['createdAt']),
  *     get: function() {
- *       return this.get(&apos;createdAt&apos;) &gt; Date.now() - (7 * 24 * 60 * 60 * 1000)
+ *       return this.get('createdAt') &gt; Date.now() - (7 * 24 * 60 * 60 * 1000)
  *     }
  *   }
  * }
@@ -822,7 +822,7 @@ class VIRTUAL extends ABSTRACT {
    */
   constructor(ReturnType, fields) {
     super();
-    if (typeof ReturnType === &apos;function&apos;)
+    if (typeof ReturnType === 'function')
       ReturnType = new ReturnType();
     this.returnType = ReturnType;
     this.fields = fields;
@@ -833,10 +833,10 @@ class VIRTUAL extends ABSTRACT {
  * An enumeration, Postgres Only
  *
  * @example
- * DataTypes.ENUM(&apos;value&apos;, &apos;another value&apos;)
- * DataTypes.ENUM([&apos;value&apos;, &apos;another value&apos;])
+ * DataTypes.ENUM('value', 'another value')
+ * DataTypes.ENUM(['value', 'another value'])
  * DataTypes.ENUM({
- *   values: [&apos;value&apos;, &apos;another value&apos;]
+ *   values: ['value', 'another value']
  * })
  */
 class ENUM extends ABSTRACT {
@@ -846,7 +846,7 @@ class ENUM extends ABSTRACT {
   constructor(...args) {
     super();
     const value = args[0];
-    const options = typeof value === &apos;object&apos; &amp;&amp; !Array.isArray(value) &amp;&amp; value || {
+    const options = typeof value === 'object' &amp;&amp; !Array.isArray(value) &amp;&amp; value || {
       values: args.reduce((result, element) =&gt; {
         return result.concat(Array.isArray(element) ? element : [element]);
       }, [])
@@ -856,7 +856,7 @@ class ENUM extends ABSTRACT {
   }
   validate(value) {
     if (!this.values.includes(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid choice in %j&apos;, value, this.values));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid choice in %j', value, this.values));
     }
     return true;
   }
@@ -876,14 +876,14 @@ class ARRAY extends ABSTRACT {
     super();
     const options = _.isPlainObject(type) ? type : { type };
     this.options = options;
-    this.type = typeof options.type === &apos;function&apos; ? new options.type() : options.type;
+    this.type = typeof options.type === 'function' ? new options.type() : options.type;
   }
   toSql() {
     return `${this.type.toSql()}[]`;
   }
   validate(value) {
     if (!Array.isArray(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid array&apos;, value));
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid array', value));
     }
     return true;
   }
@@ -905,35 +905,35 @@ class ARRAY extends ABSTRACT {
  *
  * @example &lt;caption&gt;Defining a Geometry type attribute&lt;/caption&gt;
  * DataTypes.GEOMETRY
- * DataTypes.GEOMETRY(&apos;POINT&apos;)
- * DataTypes.GEOMETRY(&apos;POINT&apos;, 4326)
+ * DataTypes.GEOMETRY('POINT')
+ * DataTypes.GEOMETRY('POINT', 4326)
  *
  * @example &lt;caption&gt;Create a new point&lt;/caption&gt;
- * const point = { type: &apos;Point&apos;, coordinates: [39.807222,-76.984722]};
+ * const point = { type: 'Point', coordinates: [39.807222,-76.984722]};
  *
- * User.create({username: &apos;username&apos;, geometry: point });
+ * User.create({username: 'username', geometry: point });
  *
  * @example &lt;caption&gt;Create a new linestring&lt;/caption&gt;
- * const line = { type: &apos;LineString&apos;, &apos;coordinates&apos;: [ [100.0, 0.0], [101.0, 1.0] ] };
+ * const line = { type: 'LineString', 'coordinates': [ [100.0, 0.0], [101.0, 1.0] ] };
  *
- * User.create({username: &apos;username&apos;, geometry: line });
+ * User.create({username: 'username', geometry: line });
  *
  * @example &lt;caption&gt;Create a new polygon&lt;/caption&gt;
- * const polygon = { type: &apos;Polygon&apos;, coordinates: [
+ * const polygon = { type: 'Polygon', coordinates: [
  *                 [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
  *                   [100.0, 1.0], [100.0, 0.0] ]
  *                 ]};
  *
- * User.create({username: &apos;username&apos;, geometry: polygon });
+ * User.create({username: 'username', geometry: polygon });
  *
  * @example &lt;caption&gt;Create a new point with a custom SRID&lt;/caption&gt;
  * const point = {
- *   type: &apos;Point&apos;,
+ *   type: 'Point',
  *   coordinates: [39.807222,-76.984722],
- *   crs: { type: &apos;name&apos;, properties: { name: &apos;EPSG:4326&apos;} }
+ *   crs: { type: 'name', properties: { name: 'EPSG:4326'} }
  * };
  *
- * User.create({username: &apos;username&apos;, geometry: point })
+ * User.create({username: 'username', geometry: point })
  *
  *
  * @see {@link DataTypes.GEOGRAPHY}
@@ -971,15 +971,15 @@ GEOMETRY.prototype.escape = false;
  *
  * __What is best to use? It depends:__
  *
- * When choosing between the geometry and geography type for data storage, you should consider what you&#x2019;ll be using it for.
- * If all you do are simple measurements and relationship checks on your data, and your data covers a fairly large area, then most likely you&#x2019;ll be better off storing your data using the new geography type.
+ * When choosing between the geometry and geography type for data storage, you should consider what you’ll be using it for.
+ * If all you do are simple measurements and relationship checks on your data, and your data covers a fairly large area, then most likely you’ll be better off storing your data using the new geography type.
  * Although the new geography data type can cover the globe, the geometry type is far from obsolete.
  * The geometry type has a much richer set of functions than geography, relationship checks are generally faster, and it has wider support currently across desktop and web-mapping tools
  *
  * @example &lt;caption&gt;Defining a Geography type attribute&lt;/caption&gt;
  * DataTypes.GEOGRAPHY
- * DataTypes.GEOGRAPHY(&apos;POINT&apos;)
- * DataTypes.GEOGRAPHY(&apos;POINT&apos;, 4326)
+ * DataTypes.GEOGRAPHY('POINT')
+ * DataTypes.GEOGRAPHY('POINT', 4326)
  */
 class GEOGRAPHY extends ABSTRACT {
   /**
@@ -1011,8 +1011,8 @@ GEOGRAPHY.prototype.escape = false;
  */
 class CIDR extends ABSTRACT {
   validate(value) {
-    if (typeof value !== &apos;string&apos; || !Validator.isIPRange(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid CIDR&apos;, value));
+    if (typeof value !== 'string' || !Validator.isIPRange(value)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid CIDR', value));
     }
     return true;
   }
@@ -1025,8 +1025,8 @@ class CIDR extends ABSTRACT {
  */
 class INET extends ABSTRACT {
   validate(value) {
-    if (typeof value !== &apos;string&apos; || !Validator.isIP(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid INET&apos;, value));
+    if (typeof value !== 'string' || !Validator.isIP(value)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid INET', value));
     }
     return true;
   }
@@ -1040,8 +1040,8 @@ class INET extends ABSTRACT {
  */
 class MACADDR extends ABSTRACT {
   validate(value) {
-    if (typeof value !== &apos;string&apos; || !Validator.isMACAddress(value)) {
-      throw new sequelizeErrors.ValidationError(util.format(&apos;%j is not a valid MACADDR&apos;, value));
+    if (typeof value !== 'string' || !Validator.isMACAddress(value)) {
+      throw new sequelizeErrors.ValidationError(util.format('%j is not a valid MACADDR', value));
     }
     return true;
   }
@@ -1050,7 +1050,7 @@ class MACADDR extends ABSTRACT {
 /**
  * A convenience class holding commonly used data types. The data types are used when defining a new model using `Sequelize.define`, like this:
  * ```js
- * sequelize.define(&apos;model&apos;, {
+ * sequelize.define('model', {
  *   column: DataTypes.INTEGER
  * })
  * ```
@@ -1069,7 +1069,7 @@ class MACADDR extends ABSTRACT {
  * Three of the values provided here (`NOW`, `UUIDV1` and `UUIDV4`) are special default values, that should not be used to define types. Instead they are used as shorthands for
  * defining default values. For example, to get a uuid field with a default value generated following v1 of the UUID standard:
  * ```js
- * sequelize.define(&apos;model&apos;, {
+ * sequelize.define('model', {
  *   uuid: {
  *     type: DataTypes.UUID,
  *     defaultValue: DataTypes.UUIDV1,
@@ -1081,7 +1081,7 @@ class MACADDR extends ABSTRACT {
  * using the defaultValue property as well, but instead of specifying one of the supplied UUID types, you return a value
  * from a function.
  * ```js
- * sequelize.define(&apos;model&apos;, {
+ * sequelize.define('model', {
  *   uuid: {
  *     type: DataTypes.UUID,
  *     defaultValue: function() {
@@ -1123,7 +1123,7 @@ const DataTypes = module.exports = {
   ENUM,
   RANGE,
   REAL,
-  &apos;DOUBLE PRECISION&apos;: DOUBLE,
+  'DOUBLE PRECISION': DOUBLE,
   DOUBLE,
   GEOMETRY,
   GEOGRAPHY,
@@ -1135,18 +1135,18 @@ const DataTypes = module.exports = {
 
 _.each(DataTypes, (dataType, name) =&gt; {
   // guard for aliases
-  if (!Object.prototype.hasOwnProperty.call(dataType, &apos;key&apos;)) {
+  if (!Object.prototype.hasOwnProperty.call(dataType, 'key')) {
     dataType.types = {};
     dataType.key = dataType.prototype.key = name;
   }
 });
 
 const dialectMap = {};
-dialectMap.postgres = require(&apos;./dialects/postgres/data-types&apos;)(DataTypes);
-dialectMap.mysql = require(&apos;./dialects/mysql/data-types&apos;)(DataTypes);
-dialectMap.mariadb = require(&apos;./dialects/mariadb/data-types&apos;)(DataTypes);
-dialectMap.sqlite = require(&apos;./dialects/sqlite/data-types&apos;)(DataTypes);
-dialectMap.mssql = require(&apos;./dialects/mssql/data-types&apos;)(DataTypes);
+dialectMap.postgres = require('./dialects/postgres/data-types')(DataTypes);
+dialectMap.mysql = require('./dialects/mysql/data-types')(DataTypes);
+dialectMap.mariadb = require('./dialects/mariadb/data-types')(DataTypes);
+dialectMap.sqlite = require('./dialects/sqlite/data-types')(DataTypes);
+dialectMap.mssql = require('./dialects/mssql/data-types')(DataTypes);
 
 const dialectList = _.values(dialectMap);
 

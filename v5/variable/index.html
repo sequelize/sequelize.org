@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -217,7 +217,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-Op">Op</a></span></span><span class="code" data-ice="signature">: {&quot;eq&quot;: <span>*</span>, &quot;ne&quot;: <span>*</span>, &quot;gte&quot;: <span>*</span>, &quot;gt&quot;: <span>*</span>, &quot;lte&quot;: <span>*</span>, &quot;lt&quot;: <span>*</span>, &quot;not&quot;: <span>*</span>, &quot;is&quot;: <span>*</span>, &quot;in&quot;: <span>*</span>, &quot;notIn&quot;: <span>*</span>, &quot;like&quot;: <span>*</span>, &quot;notLike&quot;: <span>*</span>, &quot;iLike&quot;: <span>*</span>, &quot;notILike&quot;: <span>*</span>, &quot;startsWith&quot;: <span>*</span>, &quot;endsWith&quot;: <span>*</span>, &quot;substring&quot;: <span>*</span>, &quot;regexp&quot;: <span>*</span>, &quot;notRegexp&quot;: <span>*</span>, &quot;iRegexp&quot;: <span>*</span>, &quot;notIRegexp&quot;: <span>*</span>, &quot;between&quot;: <span>*</span>, &quot;notBetween&quot;: <span>*</span>, &quot;overlap&quot;: <span>*</span>, &quot;contains&quot;: <span>*</span>, &quot;contained&quot;: <span>*</span>, &quot;adjacent&quot;: <span>*</span>, &quot;strictLeft&quot;: <span>*</span>, &quot;strictRight&quot;: <span>*</span>, &quot;noExtendRight&quot;: <span>*</span>, &quot;noExtendLeft&quot;: <span>*</span>, &quot;and&quot;: <span>*</span>, &quot;or&quot;: <span>*</span>, &quot;any&quot;: <span>*</span>, &quot;all&quot;: <span>*</span>, &quot;values&quot;: <span>*</span>, &quot;col&quot;: <span>*</span>, &quot;placeholder&quot;: <span>*</span>, &quot;join&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-Op">Op</a></span></span><span class="code" data-ice="signature">: {"eq": <span>*</span>, "ne": <span>*</span>, "gte": <span>*</span>, "gt": <span>*</span>, "lte": <span>*</span>, "lt": <span>*</span>, "not": <span>*</span>, "is": <span>*</span>, "in": <span>*</span>, "notIn": <span>*</span>, "like": <span>*</span>, "notLike": <span>*</span>, "iLike": <span>*</span>, "notILike": <span>*</span>, "startsWith": <span>*</span>, "endsWith": <span>*</span>, "substring": <span>*</span>, "regexp": <span>*</span>, "notRegexp": <span>*</span>, "iRegexp": <span>*</span>, "notIRegexp": <span>*</span>, "between": <span>*</span>, "notBetween": <span>*</span>, "overlap": <span>*</span>, "contains": <span>*</span>, "contained": <span>*</span>, "adjacent": <span>*</span>, "strictLeft": <span>*</span>, "strictRight": <span>*</span>, "noExtendRight": <span>*</span>, "noExtendLeft": <span>*</span>, "and": <span>*</span>, "or": <span>*</span>, "any": <span>*</span>, "all": <span>*</span>, "values": <span>*</span>, "col": <span>*</span>, "placeholder": <span>*</span>, "join": <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -315,7 +315,7 @@
   
   
   <div data-ice="description"><p>A convenience class holding commonly used data types. The data types are used when defining a new model using <code>Sequelize.define</code>, like this:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('model', {
   column: DataTypes.INTEGER
 })</code>
 </code></pre>
@@ -331,7 +331,7 @@ The order you access the properties in do not matter, so <code>DataTypes.INTEGER
 </ul>
 <p>Three of the values provided here (<code>NOW</code>, <code>UUIDV1</code> and <code>UUIDV4</code>) are special default values, that should not be used to define types. Instead they are used as shorthands for
 defining default values. For example, to get a uuid field with a default value generated following v1 of the UUID standard:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('model', {
   uuid: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV1,
@@ -342,7 +342,7 @@ defining default values. For example, to get a uuid field with a default value g
 <p>There may be times when you want to generate your own UUID conforming to some other algorithm. This is accomplished
 using the defaultValue property as well, but instead of specifying one of the supplied UUID types, you return a value
 from a function.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('model', {
   uuid: {
     type: DataTypes.UUID,
     defaultValue: function() {
@@ -400,12 +400,12 @@ make foreign key constraints deferrable and to set the constraints within a
 transaction. This is only supported in PostgreSQL.</p>
 <p>The foreign keys can be configured like this. It will create a foreign key
 that will check the constraints immediately when the data was inserted.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;Model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('Model', {
   foreign_id: {
     type: Sequelize.INTEGER,
     references: {
       model: OtherModel,
-      key: &apos;id&apos;,
+      key: 'id',
       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
     }
   }
@@ -565,7 +565,7 @@ to be checked at the very end of the transaction.</p>
     
     
     
-    <span class="code" data-ice="name">Op</span><span class="code" data-ice="signature">: {&quot;eq&quot;: <span>*</span>, &quot;ne&quot;: <span>*</span>, &quot;gte&quot;: <span>*</span>, &quot;gt&quot;: <span>*</span>, &quot;lte&quot;: <span>*</span>, &quot;lt&quot;: <span>*</span>, &quot;not&quot;: <span>*</span>, &quot;is&quot;: <span>*</span>, &quot;in&quot;: <span>*</span>, &quot;notIn&quot;: <span>*</span>, &quot;like&quot;: <span>*</span>, &quot;notLike&quot;: <span>*</span>, &quot;iLike&quot;: <span>*</span>, &quot;notILike&quot;: <span>*</span>, &quot;startsWith&quot;: <span>*</span>, &quot;endsWith&quot;: <span>*</span>, &quot;substring&quot;: <span>*</span>, &quot;regexp&quot;: <span>*</span>, &quot;notRegexp&quot;: <span>*</span>, &quot;iRegexp&quot;: <span>*</span>, &quot;notIRegexp&quot;: <span>*</span>, &quot;between&quot;: <span>*</span>, &quot;notBetween&quot;: <span>*</span>, &quot;overlap&quot;: <span>*</span>, &quot;contains&quot;: <span>*</span>, &quot;contained&quot;: <span>*</span>, &quot;adjacent&quot;: <span>*</span>, &quot;strictLeft&quot;: <span>*</span>, &quot;strictRight&quot;: <span>*</span>, &quot;noExtendRight&quot;: <span>*</span>, &quot;noExtendLeft&quot;: <span>*</span>, &quot;and&quot;: <span>*</span>, &quot;or&quot;: <span>*</span>, &quot;any&quot;: <span>*</span>, &quot;all&quot;: <span>*</span>, &quot;values&quot;: <span>*</span>, &quot;col&quot;: <span>*</span>, &quot;placeholder&quot;: <span>*</span>, &quot;join&quot;: <span>*</span>}</span>
+    <span class="code" data-ice="name">Op</span><span class="code" data-ice="signature">: {"eq": <span>*</span>, "ne": <span>*</span>, "gte": <span>*</span>, "gt": <span>*</span>, "lte": <span>*</span>, "lt": <span>*</span>, "not": <span>*</span>, "is": <span>*</span>, "in": <span>*</span>, "notIn": <span>*</span>, "like": <span>*</span>, "notLike": <span>*</span>, "iLike": <span>*</span>, "notILike": <span>*</span>, "startsWith": <span>*</span>, "endsWith": <span>*</span>, "substring": <span>*</span>, "regexp": <span>*</span>, "notRegexp": <span>*</span>, "iRegexp": <span>*</span>, "notIRegexp": <span>*</span>, "between": <span>*</span>, "notBetween": <span>*</span>, "overlap": <span>*</span>, "contains": <span>*</span>, "contained": <span>*</span>, "adjacent": <span>*</span>, "strictLeft": <span>*</span>, "strictRight": <span>*</span>, "noExtendRight": <span>*</span>, "noExtendLeft": <span>*</span>, "and": <span>*</span>, "or": <span>*</span>, "any": <span>*</span>, "all": <span>*</span>, "values": <span>*</span>, "col": <span>*</span>, "placeholder": <span>*</span>, "join": <span>*</span>}</span>
     <span class="right-info">
       
       

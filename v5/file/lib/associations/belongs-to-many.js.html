@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,18 +112,18 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/associations/belongs-to-many.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const Utils = require(&apos;./../utils&apos;);
-const Helpers = require(&apos;./helpers&apos;);
-const _ = require(&apos;lodash&apos;);
-const Association = require(&apos;./base&apos;);
-const BelongsTo = require(&apos;./belongs-to&apos;);
-const HasMany = require(&apos;./has-many&apos;);
-const HasOne = require(&apos;./has-one&apos;);
-const AssociationError = require(&apos;../errors&apos;).AssociationError;
-const EmptyResultError = require(&apos;../errors&apos;).EmptyResultError;
-const Op = require(&apos;../operators&apos;);
+const Utils = require('./../utils');
+const Helpers = require('./helpers');
+const _ = require('lodash');
+const Association = require('./base');
+const BelongsTo = require('./belongs-to');
+const HasMany = require('./has-many');
+const HasOne = require('./has-one');
+const AssociationError = require('../errors').AssociationError;
+const EmptyResultError = require('../errors').EmptyResultError;
+const Op = require('../operators');
 
 /**
  * Many-to-many association with a join table.
@@ -131,14 +131,14 @@ const Op = require(&apos;../operators&apos;);
  * When the join table has additional attributes, these can be passed in the options object:
  *
  * ```js
- * UserProject = sequelize.define(&apos;user_project&apos;, {
+ * UserProject = sequelize.define('user_project', {
  *   role: Sequelize.STRING
  * });
  * User.belongsToMany(Project, { through: UserProject });
  * Project.belongsToMany(User, { through: UserProject });
  * // through is required!
  *
- * user.addProject(project, { through: { role: &apos;manager&apos; }});
+ * user.addProject(project, { through: { role: 'manager' }});
  * ```
  *
  * All methods allow you to pass either a persisted instance, its primary key, or a mixture:
@@ -184,7 +184,7 @@ class BelongsToMany extends Association {
       };
     }
 
-    this.associationType = &apos;BelongsToMany&apos;;
+    this.associationType = 'BelongsToMany';
     this.targetAssociation = null;
     this.sequelize = source.sequelize;
     this.through = Object.assign({}, this.options.through);
@@ -192,7 +192,7 @@ class BelongsToMany extends Association {
     this.doubleLinked = false;
 
     if (!this.as &amp;&amp; this.isSelfAssociation) {
-      throw new AssociationError(&apos;\&apos;as\&apos; must be defined for many-to-many self-associations&apos;);
+      throw new AssociationError('\'as\' must be defined for many-to-many self-associations');
     }
 
     if (this.as) {
@@ -228,7 +228,7 @@ class BelongsToMany extends Association {
     * Find paired association (if exists)
     */
     _.each(this.target.associations, association =&gt; {
-      if (association.associationType !== &apos;BelongsToMany&apos;) return;
+      if (association.associationType !== 'BelongsToMany') return;
       if (association.target !== this.source) return;
 
       if (this.options.through.model === association.options.through.model) {
@@ -254,13 +254,13 @@ class BelongsToMany extends Association {
 
     this._createForeignAndOtherKeys();
 
-    if (typeof this.through.model === &apos;string&apos;) {
+    if (typeof this.through.model === 'string') {
       if (!this.sequelize.isDefined(this.through.model)) {
         this.through.model = this.sequelize.define(this.through.model, {}, Object.assign(this.options, {
           tableName: this.through.model,
-          indexes: [], //we don&apos;t want indexes here (as referenced in #2416)
+          indexes: [], //we don't want indexes here (as referenced in #2416)
           paranoid: false, // A paranoid join table does not make sense
-          validate: {} // Don&apos;t propagate model-level validations
+          validate: {} // Don't propagate model-level validations
         }));
       } else {
         this.through.model = this.sequelize.model(this.through.model);
@@ -268,7 +268,7 @@ class BelongsToMany extends Association {
     }
 
     this.options = Object.assign(this.options, _.pick(this.through.model.options, [
-      &apos;timestamps&apos;, &apos;createdAt&apos;, &apos;updatedAt&apos;, &apos;deletedAt&apos;, &apos;paranoid&apos;
+      'timestamps', 'createdAt', 'updatedAt', 'deletedAt', 'paranoid'
     ]));
 
     if (this.paired) {
@@ -348,7 +348,7 @@ class BelongsToMany extends Association {
         [
           this.source.options.name.singular,
           this.sourceKey
-        ].join(&apos;_&apos;)
+        ].join('_')
       );
     }
 
@@ -365,7 +365,7 @@ class BelongsToMany extends Association {
         [
           this.isSelfAssociation ? Utils.singularize(this.as) : this.target.options.name.singular,
           this.targetKey
-        ].join(&apos;_&apos;)
+        ].join('_')
       );
     }
   }
@@ -381,7 +381,7 @@ class BelongsToMany extends Association {
     _.each(this.through.model.rawAttributes, (attribute, attributeName) =&gt; {
       if (attribute.primaryKey === true &amp;&amp; attribute._autoGenerated === true) {
         if (attributeName === this.foreignKey || attributeName === this.otherKey) {
-          // this key is still needed as it&apos;s part of the association
+          // this key is still needed as it's part of the association
           // so just set primaryKey to false
           attribute.primaryKey = false;
         }
@@ -405,10 +405,10 @@ class BelongsToMany extends Association {
       targetAttribute.primaryKey = sourceAttribute.primaryKey = true;
     } else if (this.through.unique !== false) {
       let uniqueKey;
-      if (typeof this.options.uniqueKey === &apos;string&apos; &amp;&amp; this.options.uniqueKey !== &apos;&apos;) {
+      if (typeof this.options.uniqueKey === 'string' &amp;&amp; this.options.uniqueKey !== '') {
         uniqueKey = this.options.uniqueKey;
       } else {
-        uniqueKey = [this.through.model.tableName, this.foreignKey, this.otherKey, &apos;unique&apos;].join(&apos;_&apos;);
+        uniqueKey = [this.through.model.tableName, this.foreignKey, this.otherKey, 'unique'].join('_');
       }
       targetAttribute.unique = sourceAttribute.unique = uniqueKey;
     }
@@ -434,19 +434,19 @@ class BelongsToMany extends Association {
       sourceAttribute.onDelete = this.options.onDelete || this.through.model.rawAttributes[this.foreignKey].onDelete;
       sourceAttribute.onUpdate = this.options.onUpdate || this.through.model.rawAttributes[this.foreignKey].onUpdate;
 
-      if (!sourceAttribute.onDelete) sourceAttribute.onDelete = &apos;CASCADE&apos;;
-      if (!sourceAttribute.onUpdate) sourceAttribute.onUpdate = &apos;CASCADE&apos;;
+      if (!sourceAttribute.onDelete) sourceAttribute.onDelete = 'CASCADE';
+      if (!sourceAttribute.onUpdate) sourceAttribute.onUpdate = 'CASCADE';
 
       targetAttribute.references = {
         model: this.target.getTableName(),
         key: targetKeyField
       };
-      // But the for target attribute the previously defined option is the priority (since it could&apos;ve been set by another belongsToMany call)
+      // But the for target attribute the previously defined option is the priority (since it could've been set by another belongsToMany call)
       targetAttribute.onDelete = this.through.model.rawAttributes[this.otherKey].onDelete || this.options.onDelete;
       targetAttribute.onUpdate = this.through.model.rawAttributes[this.otherKey].onUpdate || this.options.onUpdate;
 
-      if (!targetAttribute.onDelete) targetAttribute.onDelete = &apos;CASCADE&apos;;
-      if (!targetAttribute.onUpdate) targetAttribute.onUpdate = &apos;CASCADE&apos;;
+      if (!targetAttribute.onDelete) targetAttribute.onDelete = 'CASCADE';
+      if (!targetAttribute.onUpdate) targetAttribute.onUpdate = 'CASCADE';
     }
 
     this.through.model.rawAttributes[this.foreignKey] = Object.assign(this.through.model.rawAttributes[this.foreignKey], sourceAttribute);
@@ -500,12 +500,12 @@ class BelongsToMany extends Association {
   }
 
   mixin(obj) {
-    const methods = [&apos;get&apos;, &apos;count&apos;, &apos;hasSingle&apos;, &apos;hasAll&apos;, &apos;set&apos;, &apos;add&apos;, &apos;addMultiple&apos;, &apos;remove&apos;, &apos;removeMultiple&apos;, &apos;create&apos;];
+    const methods = ['get', 'count', 'hasSingle', 'hasAll', 'set', 'add', 'addMultiple', 'remove', 'removeMultiple', 'create'];
     const aliases = {
-      hasSingle: &apos;has&apos;,
-      hasAll: &apos;has&apos;,
-      addMultiple: &apos;add&apos;,
-      removeMultiple: &apos;remove&apos;
+      hasSingle: 'has',
+      hasAll: 'has',
+      addMultiple: 'add',
+      removeMultiple: 'remove'
     };
 
     Helpers.mixinMethods(this, obj, methods, aliases);
@@ -551,7 +551,7 @@ class BelongsToMany extends Association {
         Object.assign(throughWhere, through.scope);
       }
 
-      //If a user pass a where on the options through options, make an &quot;and&quot; with the current throughWhere
+      //If a user pass a where on the options through options, make an "and" with the current throughWhere
       if (options.through &amp;&amp; options.through.where) {
         throughWhere = {
           [Op.and]: [throughWhere, options.through.where]
@@ -568,7 +568,7 @@ class BelongsToMany extends Association {
     }
 
     let model = this.target;
-    if (Object.prototype.hasOwnProperty.call(options, &apos;scope&apos;)) {
+    if (Object.prototype.hasOwnProperty.call(options, 'scope')) {
       if (!options.scope) {
         model = model.unscoped();
       } else {
@@ -576,7 +576,7 @@ class BelongsToMany extends Association {
       }
     }
 
-    if (Object.prototype.hasOwnProperty.call(options, &apos;schema&apos;)) {
+    if (Object.prototype.hasOwnProperty.call(options, 'schema')) {
       model = model.schema(options.schema, options.schemaDelimiter);
     }
 
@@ -598,7 +598,7 @@ class BelongsToMany extends Association {
 
     options = Utils.cloneDeep(options);
     options.attributes = [
-      [sequelize.fn(&apos;COUNT&apos;, sequelize.col([this.target.name, this.targetKeyField].join(&apos;.&apos;))), &apos;count&apos;]
+      [sequelize.fn('COUNT', sequelize.col([this.target.name, this.targetKeyField].join('.'))), 'count']
     ];
     options.joinTableAttributes = [];
     options.raw = true;
@@ -911,12 +911,12 @@ class BelongsToMany extends Association {
 
     // Create the related model instance
     return association.target.create(values, options).then(newAssociatedObject =&gt;
-      sourceInstance[association.accessors.add](newAssociatedObject, _.omit(options, [&apos;fields&apos;])).return(newAssociatedObject)
+      sourceInstance[association.accessors.add](newAssociatedObject, _.omit(options, ['fields'])).return(newAssociatedObject)
     );
   }
 
   verifyAssociationAlias(alias) {
-    if (typeof alias === &apos;string&apos;) {
+    if (typeof alias === 'string') {
       return this.as === alias;
     }
 

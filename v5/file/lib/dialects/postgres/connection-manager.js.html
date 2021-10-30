@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,24 +112,24 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/postgres/connection-manager.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const AbstractConnectionManager = require(&apos;../abstract/connection-manager&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
-const debug = logger.debugContext(&apos;connection:pg&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const sequelizeErrors = require(&apos;../../errors&apos;);
-const semver = require(&apos;semver&apos;);
-const dataTypes = require(&apos;../../data-types&apos;);
-const moment = require(&apos;moment-timezone&apos;);
+const _ = require('lodash');
+const AbstractConnectionManager = require('../abstract/connection-manager');
+const { logger } = require('../../utils/logger');
+const debug = logger.debugContext('connection:pg');
+const Promise = require('../../promise');
+const sequelizeErrors = require('../../errors');
+const semver = require('semver');
+const dataTypes = require('../../data-types');
+const moment = require('moment-timezone');
 
 class ConnectionManager extends AbstractConnectionManager {
   constructor(dialect, sequelize) {
     sequelize.config.port = sequelize.config.port || 5432;
     super(dialect, sequelize);
 
-    const pgLib = this._loadDialectModule(&apos;pg&apos;);
+    const pgLib = this._loadDialectModule('pg');
     this.lib = this.sequelize.config.native ? pgLib.native : pgLib;
 
     this._clearDynamicOIDs();
@@ -147,7 +147,7 @@ class ConnectionManager extends AbstractConnectionManager {
     };
 
     // Set range parsers
-    if (dataType.key.toLowerCase() === &apos;range&apos;) {
+    if (dataType.key.toLowerCase() === 'range') {
       for (const name in this.nameOidMap) {
         const entry = this.nameOidMap[name];
         if (! entry.rangeOid) continue;
@@ -167,7 +167,7 @@ class ConnectionManager extends AbstractConnectionManager {
     const arrayParser = arrayParserBuilder(parser);
 
     // Set enum parsers
-    if (dataType.key.toLowerCase() === &apos;enum&apos;) {
+    if (dataType.key.toLowerCase() === 'enum') {
       this.enumOids.oids.forEach(oid =&gt; {
         this.oidParserMap.set(oid, parser);
       });
@@ -200,7 +200,7 @@ class ConnectionManager extends AbstractConnectionManager {
   connect(config) {
     config.user = config.username;
     const connectionConfig = _.pick(config, [
-      &apos;user&apos;, &apos;password&apos;, &apos;host&apos;, &apos;database&apos;, &apos;port&apos;
+      'user', 'password', 'host', 'database', 'port'
     ]);
 
     connectionConfig.types = {
@@ -211,24 +211,24 @@ class ConnectionManager extends AbstractConnectionManager {
       _.merge(connectionConfig,
         _.pick(config.dialectOptions, [
         // see [http://www.postgresql.org/docs/9.3/static/runtime-config-logging.html#GUC-APPLICATION-NAME]
-          &apos;application_name&apos;,
+          'application_name',
           // choose the SSL mode with the PGSSLMODE environment variable
           // object format: [https://github.com/brianc/node-postgres/blob/master/lib/connection.js#L79]
           // see also [http://www.postgresql.org/docs/9.3/static/libpq-ssl.html]
-          &apos;ssl&apos;,
+          'ssl',
           // In addition to the values accepted by the corresponding server,
-          // you can use &quot;auto&quot; to determine the right encoding from the
+          // you can use "auto" to determine the right encoding from the
           // current locale in the client (LC_CTYPE environment variable on Unix systems)
-          &apos;client_encoding&apos;,
+          'client_encoding',
           // !! DO NOT SET THIS TO TRUE !!
-          // (unless you know what you&apos;re doing)
+          // (unless you know what you're doing)
           // see [http://www.postgresql.org/message-id/flat/bc9549a50706040852u27633f41ib1e6b09f8339d845@mail.gmail.com#bc9549a50706040852u27633f41ib1e6b09f8339d845@mail.gmail.com]
-          &apos;binary&apos;,
+          'binary',
           // This should help with backends incorrectly considering idle clients to be dead and prematurely disconnecting them.
           // this feature has been added in pg module v6.0.0, check pg/CHANGELOG.md
-          &apos;keepAlive&apos;,
+          'keepAlive',
           // Times out queries after a set time in milliseconds. Added in pg v7.3
-          &apos;statement_timeout&apos;
+          'statement_timeout'
         ]));
     }
 
@@ -239,7 +239,7 @@ class ConnectionManager extends AbstractConnectionManager {
 
       const parameterHandler = message =&gt; {
         switch (message.parameterName) {
-          case &apos;server_version&apos;:
+          case 'server_version':
             if (this.sequelize.options.databaseVersion === 0) {
               const version = semver.coerce(message.parameterValue).version;
               this.sequelize.options.databaseVersion = semver.valid(version)
@@ -247,26 +247,26 @@ class ConnectionManager extends AbstractConnectionManager {
                 : this.defaultVersion;
             }
             break;
-          case &apos;standard_conforming_strings&apos;:
-            connection[&apos;standard_conforming_strings&apos;] = message.parameterValue;
+          case 'standard_conforming_strings':
+            connection['standard_conforming_strings'] = message.parameterValue;
             break;
         }
       };
 
       const endHandler = () =&gt; {
-        debug(&apos;connection timeout&apos;);
+        debug('connection timeout');
         if (!responded) {
-          reject(new sequelizeErrors.ConnectionTimedOutError(new Error(&apos;Connection timed out&apos;)));
+          reject(new sequelizeErrors.ConnectionTimedOutError(new Error('Connection timed out')));
         }
       };
 
-      // If we didn&apos;t ever hear from the client.connect() callback the connection timeout
+      // If we didn't ever hear from the client.connect() callback the connection timeout
       // node-postgres does not treat this as an error since no active query was ever emitted
-      connection.once(&apos;end&apos;, endHandler);
+      connection.once('end', endHandler);
 
       if (!this.sequelize.config.native) {
         // Receive various server parameters for further configuration
-        connection.connection.on(&apos;parameterStatus&apos;, parameterHandler);
+        connection.connection.on('parameterStatus', parameterHandler);
       }
 
       connection.connect(err =&gt; {
@@ -274,22 +274,22 @@ class ConnectionManager extends AbstractConnectionManager {
 
         if (!this.sequelize.config.native) {
           // remove parameter handler
-          connection.connection.removeListener(&apos;parameterStatus&apos;, parameterHandler);
+          connection.connection.removeListener('parameterStatus', parameterHandler);
         }
 
         if (err) {
           if (err.code) {
             switch (err.code) {
-              case &apos;ECONNREFUSED&apos;:
+              case 'ECONNREFUSED':
                 reject(new sequelizeErrors.ConnectionRefusedError(err));
                 break;
-              case &apos;ENOTFOUND&apos;:
+              case 'ENOTFOUND':
                 reject(new sequelizeErrors.HostNotFoundError(err));
                 break;
-              case &apos;EHOSTUNREACH&apos;:
+              case 'EHOSTUNREACH':
                 reject(new sequelizeErrors.HostNotReachableError(err));
                 break;
-              case &apos;EINVAL&apos;:
+              case 'EINVAL':
                 reject(new sequelizeErrors.InvalidConnectionError(err));
                 break;
               default:
@@ -300,19 +300,19 @@ class ConnectionManager extends AbstractConnectionManager {
             reject(new sequelizeErrors.ConnectionError(err));
           }
         } else {
-          debug(&apos;connection acquired&apos;);
-          connection.removeListener(&apos;end&apos;, endHandler);
+          debug('connection acquired');
+          connection.removeListener('end', endHandler);
           resolve(connection);
         }
       });
     }).tap(connection =&gt; {
-      let query = &apos;&apos;;
+      let query = '';
 
-      if (this.sequelize.options.standardConformingStrings !== false &amp;&amp; connection[&apos;standard_conforming_strings&apos;] !== &apos;on&apos;) {
+      if (this.sequelize.options.standardConformingStrings !== false &amp;&amp; connection['standard_conforming_strings'] !== 'on') {
         // Disable escape characters in strings
         // see https://github.com/sequelize/sequelize/issues/3545 (security issue)
         // see https://www.postgresql.org/docs/current/static/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS
-        query += &apos;SET standard_conforming_strings=on;&apos;;
+        query += 'SET standard_conforming_strings=on;';
       }
 
       if (this.sequelize.options.clientMinMessages !== false) {
@@ -322,9 +322,9 @@ class ConnectionManager extends AbstractConnectionManager {
       if (!this.sequelize.config.keepDefaultTimezone) {
         const isZone = !!moment.tz.zone(this.sequelize.options.timezone);
         if (isZone) {
-          query += `SET TIME ZONE &apos;${this.sequelize.options.timezone}&apos;;`;
+          query += `SET TIME ZONE '${this.sequelize.options.timezone}';`;
         } else {
-          query += `SET TIME ZONE INTERVAL &apos;${this.sequelize.options.timezone}&apos; HOUR TO MINUTE;`;
+          query += `SET TIME ZONE INTERVAL '${this.sequelize.options.timezone}' HOUR TO MINUTE;`;
         }
       }
 
@@ -338,8 +338,8 @@ class ConnectionManager extends AbstractConnectionManager {
         return this._refreshDynamicOIDs(connection);
       }
     }).tap(connection =&gt; {
-      // Don&apos;t let a Postgres restart (or error) to take down the whole app
-      connection.on(&apos;error&apos;, error =&gt; {
+      // Don't let a Postgres restart (or error) to take down the whole app
+      connection.on('error', error =&gt; {
         connection._invalid = true;
         debug(`connection error ${error.code || error.message}`);
         this.pool.destroy(connection);
@@ -349,7 +349,7 @@ class ConnectionManager extends AbstractConnectionManager {
 
   disconnect(connection) {
     if (connection._ending) {
-      debug(&apos;connection tried to disconnect but was already at ENDING state&apos;);
+      debug('connection tried to disconnect but was already at ENDING state');
       return Promise.resolve();
     }
 
@@ -362,7 +362,7 @@ class ConnectionManager extends AbstractConnectionManager {
 
   _refreshDynamicOIDs(connection) {
     const databaseVersion = this.sequelize.options.databaseVersion;
-    const supportedVersion = &apos;8.3.0&apos;;
+    const supportedVersion = '8.3.0';
 
     // Check for supported version
     if ( (databaseVersion &amp;&amp; semver.gte(databaseVersion, supportedVersion)) === false) {
@@ -372,15 +372,15 @@ class ConnectionManager extends AbstractConnectionManager {
     // Refresh dynamic OIDs for some types
     // These include Geometry / Geography / HStore / Enum / Citext / Range
     return (connection || this.sequelize).query(
-      &apos;WITH ranges AS (&apos; +
-      &apos;  SELECT pg_range.rngtypid, pg_type.typname AS rngtypname,&apos; +
-      &apos;         pg_type.typarray AS rngtyparray, pg_range.rngsubtype&apos; +
-      &apos;    FROM pg_range LEFT OUTER JOIN pg_type ON pg_type.oid = pg_range.rngtypid&apos; +
-      &apos;)&apos; +
-      &apos;SELECT pg_type.typname, pg_type.typtype, pg_type.oid, pg_type.typarray,&apos; +
-      &apos;       ranges.rngtypname, ranges.rngtypid, ranges.rngtyparray&apos; +
-      &apos;  FROM pg_type LEFT OUTER JOIN ranges ON pg_type.oid = ranges.rngsubtype&apos; +
-      &apos; WHERE (pg_type.typtype IN(\&apos;b\&apos;, \&apos;e\&apos;));&apos;
+      'WITH ranges AS (' +
+      '  SELECT pg_range.rngtypid, pg_type.typname AS rngtypname,' +
+      '         pg_type.typarray AS rngtyparray, pg_range.rngsubtype' +
+      '    FROM pg_range LEFT OUTER JOIN pg_type ON pg_type.oid = pg_range.rngtypid' +
+      ')' +
+      'SELECT pg_type.typname, pg_type.typtype, pg_type.oid, pg_type.typarray,' +
+      '       ranges.rngtypname, ranges.rngtypid, ranges.rngtyparray' +
+      '  FROM pg_type LEFT OUTER JOIN ranges ON pg_type.oid = ranges.rngsubtype' +
+      ' WHERE (pg_type.typtype IN(\'b\', \'e\'));'
     ).then(results =&gt; {
       let result = Array.isArray(results) ? results.pop() : results;
 
@@ -388,7 +388,7 @@ class ConnectionManager extends AbstractConnectionManager {
       // an array of those two statements. First one is the SET search_path and second is
       // the SELECT query result.
       if (Array.isArray(result)) {
-        if (result[0].command === &apos;SET&apos;) {
+        if (result[0].command === 'SET') {
           result = result.pop();
         }
       }
@@ -398,7 +398,7 @@ class ConnectionManager extends AbstractConnectionManager {
 
       for (const row of result.rows) {
         // Mapping enums, handled separatedly
-        if (row.typtype === &apos;e&apos;) {
+        if (row.typtype === 'e') {
           newEnumOids.oids.push(row.oid);
           if (row.typarray) newEnumOids.arrayOids.push(row.typarray);
           continue;

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,20 +112,20 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mssql/query-generator.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const Utils = require(&apos;../../utils&apos;);
-const DataTypes = require(&apos;../../data-types&apos;);
-const TableHints = require(&apos;../../table-hints&apos;);
-const AbstractQueryGenerator = require(&apos;../abstract/query-generator&apos;);
-const randomBytes = require(&apos;crypto&apos;).randomBytes;
-const semver = require(&apos;semver&apos;);
-const Op = require(&apos;../../operators&apos;);
+const _ = require('lodash');
+const Utils = require('../../utils');
+const DataTypes = require('../../data-types');
+const TableHints = require('../../table-hints');
+const AbstractQueryGenerator = require('../abstract/query-generator');
+const randomBytes = require('crypto').randomBytes;
+const semver = require('semver');
+const Op = require('../../operators');
 
 /* istanbul ignore next */
 const throwMethodUndefined = function(methodName) {
-  throw new Error(`The method &quot;${methodName}&quot; is not defined! Please add it to your sql dialect.`);
+  throw new Error(`The method "${methodName}" is not defined! Please add it to your sql dialect.`);
 };
 
 class MSSQLQueryGenerator extends AbstractQueryGenerator {
@@ -134,126 +134,126 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       collate: null
     }, options || {});
 
-    const collation = options.collate ? `COLLATE ${this.escape(options.collate)}` : &apos;&apos;;
+    const collation = options.collate ? `COLLATE ${this.escape(options.collate)}` : '';
 
     return [
-      &apos;IF NOT EXISTS (SELECT * FROM sys.databases WHERE name =&apos;, wrapSingleQuote(databaseName), &apos;)&apos;,
-      &apos;BEGIN&apos;,
-      &apos;CREATE DATABASE&apos;, this.quoteIdentifier(databaseName),
+      'IF NOT EXISTS (SELECT * FROM sys.databases WHERE name =', wrapSingleQuote(databaseName), ')',
+      'BEGIN',
+      'CREATE DATABASE', this.quoteIdentifier(databaseName),
       `${collation};`,
-      &apos;END;&apos;
-    ].join(&apos; &apos;);
+      'END;'
+    ].join(' ');
   }
 
   dropDatabaseQuery(databaseName) {
     return [
-      &apos;IF EXISTS (SELECT * FROM sys.databases WHERE name =&apos;, wrapSingleQuote(databaseName), &apos;)&apos;,
-      &apos;BEGIN&apos;,
-      &apos;DROP DATABASE&apos;, this.quoteIdentifier(databaseName), &apos;;&apos;,
-      &apos;END;&apos;
-    ].join(&apos; &apos;);
+      'IF EXISTS (SELECT * FROM sys.databases WHERE name =', wrapSingleQuote(databaseName), ')',
+      'BEGIN',
+      'DROP DATABASE', this.quoteIdentifier(databaseName), ';',
+      'END;'
+    ].join(' ');
   }
 
   createSchema(schema) {
     return [
-      &apos;IF NOT EXISTS (SELECT schema_name&apos;,
-      &apos;FROM information_schema.schemata&apos;,
-      &apos;WHERE schema_name =&apos;, wrapSingleQuote(schema), &apos;)&apos;,
-      &apos;BEGIN&apos;,
-      &quot;EXEC sp_executesql N&apos;CREATE SCHEMA&quot;,
+      'IF NOT EXISTS (SELECT schema_name',
+      'FROM information_schema.schemata',
+      'WHERE schema_name =', wrapSingleQuote(schema), ')',
+      'BEGIN',
+      "EXEC sp_executesql N'CREATE SCHEMA",
       this.quoteIdentifier(schema),
-      &quot;;&apos;&quot;,
-      &apos;END;&apos;
-    ].join(&apos; &apos;);
+      ";'",
+      'END;'
+    ].join(' ');
   }
 
   dropSchema(schema) {
     // Mimics Postgres CASCADE, will drop objects belonging to the schema
     const quotedSchema = wrapSingleQuote(schema);
     return [
-      &apos;IF EXISTS (SELECT schema_name&apos;,
-      &apos;FROM information_schema.schemata&apos;,
-      &apos;WHERE schema_name =&apos;, quotedSchema, &apos;)&apos;,
-      &apos;BEGIN&apos;,
-      &apos;DECLARE @id INT, @ms_sql NVARCHAR(2000);&apos;,
-      &apos;DECLARE @cascade TABLE (&apos;,
-      &apos;id INT NOT NULL IDENTITY PRIMARY KEY,&apos;,
-      &apos;ms_sql NVARCHAR(2000) NOT NULL );&apos;,
-      &apos;INSERT INTO @cascade ( ms_sql )&apos;,
-      &quot;SELECT CASE WHEN o.type IN (&apos;F&apos;,&apos;PK&apos;)&quot;,
-      &quot;THEN N&apos;ALTER TABLE [&apos;+ s.name + N&apos;].[&apos; + p.name + N&apos;] DROP CONSTRAINT [&apos; + o.name + N&apos;]&apos;&quot;,
-      &quot;ELSE N&apos;DROP TABLE [&apos;+ s.name + N&apos;].[&apos; + o.name + N&apos;]&apos; END&quot;,
-      &apos;FROM sys.objects o&apos;,
-      &apos;JOIN sys.schemas s on o.schema_id = s.schema_id&apos;,
-      &apos;LEFT OUTER JOIN sys.objects p on o.parent_object_id = p.object_id&apos;,
-      &quot;WHERE o.type IN (&apos;F&apos;, &apos;PK&apos;, &apos;U&apos;) AND s.name = &quot;, quotedSchema,
-      &apos;ORDER BY o.type ASC;&apos;,
-      &apos;SELECT TOP 1 @id = id, @ms_sql = ms_sql FROM @cascade ORDER BY id;&apos;,
-      &apos;WHILE @id IS NOT NULL&apos;,
-      &apos;BEGIN&apos;,
-      &apos;BEGIN TRY EXEC sp_executesql @ms_sql; END TRY&apos;,
-      &apos;BEGIN CATCH BREAK; THROW; END CATCH;&apos;,
-      &apos;DELETE FROM @cascade WHERE id = @id;&apos;,
-      &apos;SELECT @id = NULL, @ms_sql = NULL;&apos;,
-      &apos;SELECT TOP 1 @id = id, @ms_sql = ms_sql FROM @cascade ORDER BY id;&apos;,
-      &apos;END&apos;,
-      &quot;EXEC sp_executesql N&apos;DROP SCHEMA&quot;, this.quoteIdentifier(schema), &quot;;&apos;&quot;,
-      &apos;END;&apos;
-    ].join(&apos; &apos;);
+      'IF EXISTS (SELECT schema_name',
+      'FROM information_schema.schemata',
+      'WHERE schema_name =', quotedSchema, ')',
+      'BEGIN',
+      'DECLARE @id INT, @ms_sql NVARCHAR(2000);',
+      'DECLARE @cascade TABLE (',
+      'id INT NOT NULL IDENTITY PRIMARY KEY,',
+      'ms_sql NVARCHAR(2000) NOT NULL );',
+      'INSERT INTO @cascade ( ms_sql )',
+      "SELECT CASE WHEN o.type IN ('F','PK')",
+      "THEN N'ALTER TABLE ['+ s.name + N'].[' + p.name + N'] DROP CONSTRAINT [' + o.name + N']'",
+      "ELSE N'DROP TABLE ['+ s.name + N'].[' + o.name + N']' END",
+      'FROM sys.objects o',
+      'JOIN sys.schemas s on o.schema_id = s.schema_id',
+      'LEFT OUTER JOIN sys.objects p on o.parent_object_id = p.object_id',
+      "WHERE o.type IN ('F', 'PK', 'U') AND s.name = ", quotedSchema,
+      'ORDER BY o.type ASC;',
+      'SELECT TOP 1 @id = id, @ms_sql = ms_sql FROM @cascade ORDER BY id;',
+      'WHILE @id IS NOT NULL',
+      'BEGIN',
+      'BEGIN TRY EXEC sp_executesql @ms_sql; END TRY',
+      'BEGIN CATCH BREAK; THROW; END CATCH;',
+      'DELETE FROM @cascade WHERE id = @id;',
+      'SELECT @id = NULL, @ms_sql = NULL;',
+      'SELECT TOP 1 @id = id, @ms_sql = ms_sql FROM @cascade ORDER BY id;',
+      'END',
+      "EXEC sp_executesql N'DROP SCHEMA", this.quoteIdentifier(schema), ";'",
+      'END;'
+    ].join(' ');
   }
 
   showSchemasQuery() {
     return [
-      &apos;SELECT &quot;name&quot; as &quot;schema_name&quot; FROM sys.schemas as s&apos;,
-      &apos;WHERE &quot;s&quot;.&quot;name&quot; NOT IN (&apos;,
-      &quot;&apos;INFORMATION_SCHEMA&apos;, &apos;dbo&apos;, &apos;guest&apos;, &apos;sys&apos;, &apos;archive&apos;&quot;,
-      &apos;)&apos;, &apos;AND&apos;, &apos;&quot;s&quot;.&quot;name&quot; NOT LIKE&apos;, &quot;&apos;db_%&apos;&quot;
-    ].join(&apos; &apos;);
+      'SELECT "name" as "schema_name" FROM sys.schemas as s',
+      'WHERE "s"."name" NOT IN (',
+      "'INFORMATION_SCHEMA', 'dbo', 'guest', 'sys', 'archive'",
+      ')', 'AND', '"s"."name" NOT LIKE', "'db_%'"
+    ].join(' ');
   }
 
   versionQuery() {
     // Uses string manipulation to convert the MS Maj.Min.Patch.Build to semver Maj.Min.Patch
     return [
-      &apos;DECLARE @ms_ver NVARCHAR(20);&apos;,
-      &quot;SET @ms_ver = REVERSE(CONVERT(NVARCHAR(20), SERVERPROPERTY(&apos;ProductVersion&apos;)));&quot;,
-      &quot;SELECT REVERSE(SUBSTRING(@ms_ver, CHARINDEX(&apos;.&apos;, @ms_ver)+1, 20)) AS &apos;version&apos;&quot;
-    ].join(&apos; &apos;);
+      'DECLARE @ms_ver NVARCHAR(20);',
+      "SET @ms_ver = REVERSE(CONVERT(NVARCHAR(20), SERVERPROPERTY('ProductVersion')));",
+      "SELECT REVERSE(SUBSTRING(@ms_ver, CHARINDEX('.', @ms_ver)+1, 20)) AS 'version'"
+    ].join(' ');
   }
 
   createTableQuery(tableName, attributes, options) {
-    const query = (table, attrs) =&gt; `IF OBJECT_ID(&apos;${table}&apos;, &apos;U&apos;) IS NULL CREATE TABLE ${table} (${attrs})`,
+    const query = (table, attrs) =&gt; `IF OBJECT_ID('${table}', 'U') IS NULL CREATE TABLE ${table} (${attrs})`,
       primaryKeys = [],
       foreignKeys = {},
       attrStr = [];
 
-    let commentStr = &apos;&apos;;
+    let commentStr = '';
 
     for (const attr in attributes) {
       if (Object.prototype.hasOwnProperty.call(attributes, attr)) {
         let dataType = attributes[attr];
         let match;
 
-        if (dataType.includes(&apos;COMMENT &apos;)) {
+        if (dataType.includes('COMMENT ')) {
           const commentMatch = dataType.match(/^(.+) (COMMENT.*)$/);
-          const commentText = commentMatch[2].replace(&apos;COMMENT&apos;, &apos;&apos;).trim();
+          const commentText = commentMatch[2].replace('COMMENT', '').trim();
           commentStr += this.commentTemplate(commentText, tableName, attr);
           // remove comment related substring from dataType
           dataType = commentMatch[1];
         }
 
-        if (dataType.includes(&apos;PRIMARY KEY&apos;)) {
+        if (dataType.includes('PRIMARY KEY')) {
           primaryKeys.push(attr);
 
-          if (dataType.includes(&apos;REFERENCES&apos;)) {
-            // MSSQL doesn&apos;t support inline REFERENCES declarations: move to the end
+          if (dataType.includes('REFERENCES')) {
+            // MSSQL doesn't support inline REFERENCES declarations: move to the end
             match = dataType.match(/^(.+) (REFERENCES.*)$/);
-            attrStr.push(`${this.quoteIdentifier(attr)} ${match[1].replace(&apos;PRIMARY KEY&apos;, &apos;&apos;)}`);
+            attrStr.push(`${this.quoteIdentifier(attr)} ${match[1].replace('PRIMARY KEY', '')}`);
             foreignKeys[attr] = match[2];
           } else {
-            attrStr.push(`${this.quoteIdentifier(attr)} ${dataType.replace(&apos;PRIMARY KEY&apos;, &apos;&apos;)}`);
+            attrStr.push(`${this.quoteIdentifier(attr)} ${dataType.replace('PRIMARY KEY', '')}`);
           }
-        } else if (dataType.includes(&apos;REFERENCES&apos;)) {
-          // MSSQL doesn&apos;t support inline REFERENCES declarations: move to the end
+        } else if (dataType.includes('REFERENCES')) {
+          // MSSQL doesn't support inline REFERENCES declarations: move to the end
           match = dataType.match(/^(.+) (REFERENCES.*)$/);
           attrStr.push(`${this.quoteIdentifier(attr)} ${match[1]}`);
           foreignKeys[attr] = match[2];
@@ -264,16 +264,16 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     }
 
 
-    let attributesClause = attrStr.join(&apos;, &apos;);
-    const pkString = primaryKeys.map(pk =&gt; this.quoteIdentifier(pk)).join(&apos;, &apos;);
+    let attributesClause = attrStr.join(', ');
+    const pkString = primaryKeys.map(pk =&gt; this.quoteIdentifier(pk)).join(', ');
 
     if (options.uniqueKeys) {
       _.each(options.uniqueKeys, (columns, indexName) =&gt; {
         if (columns.customIndex) {
-          if (typeof indexName !== &apos;string&apos;) {
-            indexName = `uniq_${tableName}_${columns.fields.join(&apos;_&apos;)}`;
+          if (typeof indexName !== 'string') {
+            indexName = `uniq_${tableName}_${columns.fields.join('_')}`;
           }
-          attributesClause += `, CONSTRAINT ${this.quoteIdentifier(indexName)} UNIQUE (${columns.fields.map(field =&gt; this.quoteIdentifier(field)).join(&apos;, &apos;)})`;
+          attributesClause += `, CONSTRAINT ${this.quoteIdentifier(indexName)} UNIQUE (${columns.fields.map(field =&gt; this.quoteIdentifier(field)).join(', ')})`;
         }
       });
     }
@@ -293,36 +293,36 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
   describeTableQuery(tableName, schema) {
     let sql = [
-      &apos;SELECT&apos;,
-      &quot;c.COLUMN_NAME AS &apos;Name&apos;,&quot;,
-      &quot;c.DATA_TYPE AS &apos;Type&apos;,&quot;,
-      &quot;c.CHARACTER_MAXIMUM_LENGTH AS &apos;Length&apos;,&quot;,
-      &quot;c.IS_NULLABLE as &apos;IsNull&apos;,&quot;,
-      &quot;COLUMN_DEFAULT AS &apos;Default&apos;,&quot;,
-      &quot;pk.CONSTRAINT_TYPE AS &apos;Constraint&apos;,&quot;,
-      &quot;COLUMNPROPERTY(OBJECT_ID(c.TABLE_SCHEMA+&apos;.&apos;+c.TABLE_NAME), c.COLUMN_NAME, &apos;IsIdentity&apos;) as &apos;IsIdentity&apos;,&quot;,
-      &quot;prop.value AS &apos;Comment&apos;&quot;,
-      &apos;FROM&apos;,
-      &apos;INFORMATION_SCHEMA.TABLES t&apos;,
-      &apos;INNER JOIN&apos;,
-      &apos;INFORMATION_SCHEMA.COLUMNS c ON t.TABLE_NAME = c.TABLE_NAME AND t.TABLE_SCHEMA = c.TABLE_SCHEMA&apos;,
-      &apos;LEFT JOIN (SELECT tc.table_schema, tc.table_name, &apos;,
-      &apos;cu.column_name, tc.CONSTRAINT_TYPE &apos;,
-      &apos;FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc &apos;,
-      &apos;JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE  cu &apos;,
-      &apos;ON tc.table_schema=cu.table_schema and tc.table_name=cu.table_name &apos;,
-      &apos;and tc.constraint_name=cu.constraint_name &apos;,
-      &apos;and tc.CONSTRAINT_TYPE=\&apos;PRIMARY KEY\&apos;) pk &apos;,
-      &apos;ON pk.table_schema=c.table_schema &apos;,
-      &apos;AND pk.table_name=c.table_name &apos;,
-      &apos;AND pk.column_name=c.column_name &apos;,
-      &apos;INNER JOIN sys.columns AS sc&apos;,
-      &quot;ON sc.object_id = object_id(t.table_schema + &apos;.&apos; + t.table_name) AND sc.name = c.column_name&quot;,
-      &apos;LEFT JOIN sys.extended_properties prop ON prop.major_id = sc.object_id&apos;,
-      &apos;AND prop.minor_id = sc.column_id&apos;,
-      &quot;AND prop.name = &apos;MS_Description&apos;&quot;,
-      &apos;WHERE t.TABLE_NAME =&apos;, wrapSingleQuote(tableName)
-    ].join(&apos; &apos;);
+      'SELECT',
+      "c.COLUMN_NAME AS 'Name',",
+      "c.DATA_TYPE AS 'Type',",
+      "c.CHARACTER_MAXIMUM_LENGTH AS 'Length',",
+      "c.IS_NULLABLE as 'IsNull',",
+      "COLUMN_DEFAULT AS 'Default',",
+      "pk.CONSTRAINT_TYPE AS 'Constraint',",
+      "COLUMNPROPERTY(OBJECT_ID(c.TABLE_SCHEMA+'.'+c.TABLE_NAME), c.COLUMN_NAME, 'IsIdentity') as 'IsIdentity',",
+      "prop.value AS 'Comment'",
+      'FROM',
+      'INFORMATION_SCHEMA.TABLES t',
+      'INNER JOIN',
+      'INFORMATION_SCHEMA.COLUMNS c ON t.TABLE_NAME = c.TABLE_NAME AND t.TABLE_SCHEMA = c.TABLE_SCHEMA',
+      'LEFT JOIN (SELECT tc.table_schema, tc.table_name, ',
+      'cu.column_name, tc.CONSTRAINT_TYPE ',
+      'FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc ',
+      'JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE  cu ',
+      'ON tc.table_schema=cu.table_schema and tc.table_name=cu.table_name ',
+      'and tc.constraint_name=cu.constraint_name ',
+      'and tc.CONSTRAINT_TYPE=\'PRIMARY KEY\') pk ',
+      'ON pk.table_schema=c.table_schema ',
+      'AND pk.table_name=c.table_name ',
+      'AND pk.column_name=c.column_name ',
+      'INNER JOIN sys.columns AS sc',
+      "ON sc.object_id = object_id(t.table_schema + '.' + t.table_name) AND sc.name = c.column_name",
+      'LEFT JOIN sys.extended_properties prop ON prop.major_id = sc.object_id',
+      'AND prop.minor_id = sc.column_id',
+      "AND prop.name = 'MS_Description'",
+      'WHERE t.TABLE_NAME =', wrapSingleQuote(tableName)
+    ].join(' ');
 
     if (schema) {
       sql += `AND t.TABLE_SCHEMA =${wrapSingleQuote(schema)}`;
@@ -336,40 +336,40 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   showTablesQuery() {
-    return &quot;SELECT TABLE_NAME, TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = &apos;BASE TABLE&apos;;&quot;;
+    return "SELECT TABLE_NAME, TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE';";
   }
 
   dropTableQuery(tableName) {
     const qouteTbl = this.quoteTable(tableName);
-    return `IF OBJECT_ID(&apos;${qouteTbl}&apos;, &apos;U&apos;) IS NOT NULL DROP TABLE ${qouteTbl};`;
+    return `IF OBJECT_ID('${qouteTbl}', 'U') IS NOT NULL DROP TABLE ${qouteTbl};`;
   }
 
   addColumnQuery(table, key, dataType) {
     // FIXME: attributeToSQL SHOULD be using attributes in addColumnQuery
     //        but instead we need to pass the key along as the field here
     dataType.field = key;
-    let commentStr = &apos;&apos;;
+    let commentStr = '';
 
     if (dataType.comment &amp;&amp; _.isString(dataType.comment)) {
       commentStr = this.commentTemplate(dataType.comment, table, key);
-      // attributeToSQL will try to include `COMMENT &apos;Comment Text&apos;` when it returns if the comment key
+      // attributeToSQL will try to include `COMMENT 'Comment Text'` when it returns if the comment key
       // is present. This is needed for createTable statement where that part is extracted with regex.
       // Here we can intercept the object and remove comment property since we have the original object.
-      delete dataType[&apos;comment&apos;];
+      delete dataType['comment'];
     }
 
     const def = this.attributeToSQL(dataType, {
-      context: &apos;addColumn&apos;
+      context: 'addColumn'
     });
     return `ALTER TABLE ${this.quoteTable(table)} ADD ${this.quoteIdentifier(key)} ${def};${commentStr}`;
   }
 
   commentTemplate(comment, table, column) {
-    return &apos; EXEC sp_addextendedproperty &apos; +
-        `@name = N&apos;MS_Description&apos;, @value = ${this.escape(comment)}, ` +
-        &apos;@level0type = N\&apos;Schema\&apos;, @level0name = \&apos;dbo\&apos;, &apos; +
-        `@level1type = N&apos;Table&apos;, @level1name = ${this.quoteIdentifier(table)}, ` +
-        `@level2type = N&apos;Column&apos;, @level2name = ${this.quoteIdentifier(column)};`;
+    return ' EXEC sp_addextendedproperty ' +
+        `@name = N'MS_Description', @value = ${this.escape(comment)}, ` +
+        '@level0type = N\'Schema\', @level0name = \'dbo\', ' +
+        `@level1type = N'Table', @level1name = ${this.quoteIdentifier(table)}, ` +
+        `@level2type = N'Column', @level2name = ${this.quoteIdentifier(column)};`;
   }
 
   removeColumnQuery(tableName, attributeName) {
@@ -379,32 +379,32 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   changeColumnQuery(tableName, attributes) {
     const attrString = [],
       constraintString = [];
-    let commentString = &apos;&apos;;
+    let commentString = '';
 
     for (const attributeName in attributes) {
       const quotedAttrName = this.quoteIdentifier(attributeName);
       let definition = attributes[attributeName];
-      if (definition.includes(&apos;COMMENT &apos;)) {
+      if (definition.includes('COMMENT ')) {
         const commentMatch = definition.match(/^(.+) (COMMENT.*)$/);
-        const commentText = commentMatch[2].replace(&apos;COMMENT&apos;, &apos;&apos;).trim();
+        const commentText = commentMatch[2].replace('COMMENT', '').trim();
         commentString += this.commentTemplate(commentText, tableName, attributeName);
         // remove comment related substring from dataType
         definition = commentMatch[1];
       }
-      if (definition.includes(&apos;REFERENCES&apos;)) {
-        constraintString.push(`FOREIGN KEY (${quotedAttrName}) ${definition.replace(/.+?(?=REFERENCES)/, &apos;&apos;)}`);
+      if (definition.includes('REFERENCES')) {
+        constraintString.push(`FOREIGN KEY (${quotedAttrName}) ${definition.replace(/.+?(?=REFERENCES)/, '')}`);
       } else {
         attrString.push(`${quotedAttrName} ${definition}`);
       }
     }
 
-    let finalQuery = &apos;&apos;;
+    let finalQuery = '';
     if (attrString.length) {
-      finalQuery += `ALTER COLUMN ${attrString.join(&apos;, &apos;)}`;
-      finalQuery += constraintString.length ? &apos; &apos; : &apos;&apos;;
+      finalQuery += `ALTER COLUMN ${attrString.join(', ')}`;
+      finalQuery += constraintString.length ? ' ' : '';
     }
     if (constraintString.length) {
-      finalQuery += `ADD ${constraintString.join(&apos;, &apos;)}`;
+      finalQuery += `ADD ${constraintString.join(', ')}`;
     }
 
     return `ALTER TABLE ${this.quoteTable(tableName)} ${finalQuery};${commentString}`;
@@ -412,7 +412,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
   renameColumnQuery(tableName, attrBefore, attributes) {
     const newName = Object.keys(attributes)[0];
-    return `EXEC sp_rename &apos;${this.quoteTable(tableName)}.${attrBefore}&apos;, &apos;${newName}&apos;, &apos;COLUMN&apos;;`;
+    return `EXEC sp_rename '${this.quoteTable(tableName)}.${attrBefore}', '${newName}', 'COLUMN';`;
   }
 
   bulkInsertQuery(tableName, attrValueHashes, options, attributes) {
@@ -427,10 +427,10 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
 
     let needIdentityInsertWrapper = false,
-      outputFragment = &apos;&apos;;
+      outputFragment = '';
 
     if (options.returning) {
-      outputFragment = &apos; OUTPUT INSERTED.*&apos;;
+      outputFragment = ' OUTPUT INSERTED.*';
     }
 
     const emptyQuery = `INSERT INTO ${quotedTable}${outputFragment} DEFAULT VALUES`;
@@ -463,11 +463,11 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       attrValueHashes.forEach(attrValueHash =&gt; {
         tuples.push(`(${
           allAttributes.map(key =&gt;
-            this.escape(attrValueHash[key])).join(&apos;,&apos;)
+            this.escape(attrValueHash[key])).join(',')
         })`);
       });
 
-      const quotedAttributes = allAttributes.map(attr =&gt; this.quoteIdentifier(attr)).join(&apos;,&apos;);
+      const quotedAttributes = allAttributes.map(attr =&gt; this.quoteIdentifier(attr)).join(',');
       allQueries.push(tupleStr =&gt; `INSERT INTO ${quotedTable} (${quotedAttributes})${outputFragment} VALUES ${tupleStr};`);
     }
     const commands = [];
@@ -475,21 +475,21 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     const batch = Math.floor(250 / (allAttributes.length + 1)) + 1;
     while (offset &lt; Math.max(tuples.length, 1)) {
       const tupleStr = tuples.slice(offset, Math.min(tuples.length, offset + batch));
-      let generatedQuery = allQueries.map(v =&gt; typeof v === &apos;string&apos; ? v : v(tupleStr)).join(&apos;;&apos;);
+      let generatedQuery = allQueries.map(v =&gt; typeof v === 'string' ? v : v(tupleStr)).join(';');
       if (needIdentityInsertWrapper) {
         generatedQuery = `SET IDENTITY_INSERT ${quotedTable} ON; ${generatedQuery}; SET IDENTITY_INSERT ${quotedTable} OFF;`;
       }
       commands.push(generatedQuery);
       offset += batch;
     }
-    return commands.join(&apos;;&apos;);
+    return commands.join(';');
   }
 
   updateQuery(tableName, attrValueHash, where, options, attributes) {
     const sql = super.updateQuery(tableName, attrValueHash, where, options, attributes);
     if (options.limit) {
       const updateArgs = `UPDATE TOP(${this.escape(options.limit)})`;
-      sql.query = sql.query.replace(&apos;UPDATE&apos;, updateArgs);
+      sql.query = sql.query.replace('UPDATE', updateArgs);
     }
     return sql;
   }
@@ -520,7 +520,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     for (const index of model._indexes) {
       if (index.unique &amp;&amp; index.fields) {
         for (const field of index.fields) {
-          const fieldName = typeof field === &apos;string&apos; ? field : field.name || field.attribute;
+          const fieldName = typeof field === 'string' ? field : field.name || field.attribute;
           if (!uniqueAttrs.includes(fieldName) &amp;&amp; model.rawAttributes[fieldName]) {
             uniqueAttrs.push(fieldName);
           }
@@ -530,8 +530,8 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
     const updateKeys = Object.keys(updateValues);
     const insertKeys = Object.keys(insertValues);
-    const insertKeysQuoted = insertKeys.map(key =&gt; this.quoteIdentifier(key)).join(&apos;, &apos;);
-    const insertValuesEscaped = insertKeys.map(key =&gt; this.escape(insertValues[key])).join(&apos;, &apos;);
+    const insertKeysQuoted = insertKeys.map(key =&gt; this.quoteIdentifier(key)).join(', ');
+    const insertValuesEscaped = insertKeys.map(key =&gt; this.escape(insertValues[key])).join(', ');
     const sourceTableQuery = `VALUES(${insertValuesEscaped})`; //Virtual Table
     let joinCondition;
 
@@ -550,7 +550,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     const clauses = where[Op.or].filter(clause =&gt; {
       let valid = true;
       /*
-       * Exclude NULL Composite PK/UK. Partial Composite clauses should also be excluded as it doesn&apos;t guarantee a single row
+       * Exclude NULL Composite PK/UK. Partial Composite clauses should also be excluded as it doesn't guarantee a single row
        */
       for (const key in clause) {
         if (!clause[key]) {
@@ -573,18 +573,18 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     };
 
     if (clauses.length === 0) {
-      throw new Error(&apos;Primary Key or Unique key should be passed to upsert query&apos;);
+      throw new Error('Primary Key or Unique key should be passed to upsert query');
     } else {
       // Search for primary key attribute in clauses -- Model can have two separate unique keys
       for (const key in clauses) {
         const keys = Object.keys(clauses[key]);
         if (primaryKeysAttrs.includes(keys[0])) {
-          joinCondition = getJoinSnippet(primaryKeysAttrs).join(&apos; AND &apos;);
+          joinCondition = getJoinSnippet(primaryKeysAttrs).join(' AND ');
           break;
         }
       }
       if (!joinCondition) {
-        joinCondition = getJoinSnippet(uniqueAttrs).join(&apos; AND &apos;);
+        joinCondition = getJoinSnippet(uniqueAttrs).join(' AND ');
       }
     }
 
@@ -594,7 +594,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
         const value = this.escape(updateValues[key]);
         key = this.quoteIdentifier(key);
         return `${targetTableAlias}.${key} = ${value}`;
-      }).join(&apos;, &apos;);
+      }).join(', ');
 
     const insertSnippet = `(${insertKeysQuoted}) VALUES(${insertValuesEscaped})`;
     let query = `MERGE INTO ${tableNameQuoted} WITH(HOLDLOCK) AS ${targetTableAlias} USING (${sourceTableQuery}) AS ${sourceTableAlias}(${insertKeysQuoted}) ON ${joinCondition}`;
@@ -613,7 +613,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     const table = this.quoteTable(tableName);
 
     let whereClause = this.getWhereConditions(where, null, model, options);
-    let limit = &apos;&apos;;
+    let limit = '';
 
     if (options.limit) {
       limit = ` TOP(${this.escape(options.limit)})`;
@@ -627,7 +627,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   showIndexesQuery(tableName) {
-    return `EXEC sys.sp_helpindex @objname = N&apos;${this.quoteTable(tableName)}&apos;;`;
+    return `EXEC sys.sp_helpindex @objname = N'${this.quoteTable(tableName)}';`;
   }
 
   showConstraintsQuery(tableName) {
@@ -637,8 +637,8 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   removeIndexQuery(tableName, indexNameOrAttributes) {
     let indexName = indexNameOrAttributes;
 
-    if (typeof indexName !== &apos;string&apos;) {
-      indexName = Utils.underscore(`${tableName}_${indexNameOrAttributes.join(&apos;_&apos;)}`);
+    if (typeof indexName !== 'string') {
+      indexName = Utils.underscore(`${tableName}_${indexNameOrAttributes.join('_')}`);
     }
 
     return `DROP INDEX ${this.quoteIdentifiers(indexName)} ON ${this.quoteIdentifiers(tableName)}`;
@@ -655,10 +655,10 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
     if (attribute.references) {
 
       if (attribute.Model &amp;&amp; attribute.Model.tableName === attribute.references.model) {
-        this.sequelize.log(&apos;MSSQL does not support self referencial constraints, &apos;
-          + &apos;we will remove it but we recommend restructuring your query&apos;);
-        attribute.onDelete = &apos;&apos;;
-        attribute.onUpdate = &apos;&apos;;
+        this.sequelize.log('MSSQL does not support self referencial constraints, '
+          + 'we will remove it but we recommend restructuring your query');
+        attribute.onDelete = '';
+        attribute.onUpdate = '';
       }
     }
 
@@ -671,33 +671,33 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       template = attribute.type.toSql();
       template += ` CHECK (${this.quoteIdentifier(attribute.field)} IN(${attribute.values.map(value =&gt; {
         return this.escape(value);
-      }).join(&apos;, &apos;) }))`;
+      }).join(', ') }))`;
       return template;
     }
     template = attribute.type.toString();
 
     if (attribute.allowNull === false) {
-      template += &apos; NOT NULL&apos;;
+      template += ' NOT NULL';
     } else if (!attribute.primaryKey &amp;&amp; !Utils.defaultValueSchemable(attribute.defaultValue)) {
-      template += &apos; NULL&apos;;
+      template += ' NULL';
     }
 
     if (attribute.autoIncrement) {
-      template += &apos; IDENTITY(1,1)&apos;;
+      template += ' IDENTITY(1,1)';
     }
 
     // Blobs/texts cannot have a defaultValue
-    if (attribute.type !== &apos;TEXT&apos; &amp;&amp; attribute.type._binary !== true &amp;&amp;
+    if (attribute.type !== 'TEXT' &amp;&amp; attribute.type._binary !== true &amp;&amp;
         Utils.defaultValueSchemable(attribute.defaultValue)) {
       template += ` DEFAULT ${this.escape(attribute.defaultValue)}`;
     }
 
     if (attribute.unique === true) {
-      template += &apos; UNIQUE&apos;;
+      template += ' UNIQUE';
     }
 
     if (attribute.primaryKey) {
-      template += &apos; PRIMARY KEY&apos;;
+      template += ' PRIMARY KEY';
     }
 
     if (attribute.references) {
@@ -706,7 +706,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       if (attribute.references.key) {
         template += ` (${this.quoteIdentifier(attribute.references.key)})`;
       } else {
-        template += ` (${this.quoteIdentifier(&apos;id&apos;)})`;
+        template += ` (${this.quoteIdentifier('id')})`;
       }
 
       if (attribute.onDelete) {
@@ -718,7 +718,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       }
     }
 
-    if (attribute.comment &amp;&amp; typeof attribute.comment === &apos;string&apos;) {
+    if (attribute.comment &amp;&amp; typeof attribute.comment === 'string') {
       template += ` COMMENT ${attribute.comment}`;
     }
 
@@ -738,15 +738,15 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
         if (existingConstraints.includes(attribute.references.model.toString())) {
           // no cascading constraints to a table more than once
-          attribute.onDelete = &apos;&apos;;
-          attribute.onUpdate = &apos;&apos;;
+          attribute.onDelete = '';
+          attribute.onUpdate = '';
         } else {
           existingConstraints.push(attribute.references.model.toString());
 
           // NOTE: this really just disables cascading updates for all
           //       definitions. Can be made more robust to support the
           //       few cases where MSSQL actually supports them
-          attribute.onUpdate = &apos;&apos;;
+          attribute.onUpdate = '';
         }
 
       }
@@ -759,27 +759,27 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   createTrigger() {
-    throwMethodUndefined(&apos;createTrigger&apos;);
+    throwMethodUndefined('createTrigger');
   }
 
   dropTrigger() {
-    throwMethodUndefined(&apos;dropTrigger&apos;);
+    throwMethodUndefined('dropTrigger');
   }
 
   renameTrigger() {
-    throwMethodUndefined(&apos;renameTrigger&apos;);
+    throwMethodUndefined('renameTrigger');
   }
 
   createFunction() {
-    throwMethodUndefined(&apos;createFunction&apos;);
+    throwMethodUndefined('createFunction');
   }
 
   dropFunction() {
-    throwMethodUndefined(&apos;dropFunction&apos;);
+    throwMethodUndefined('dropFunction');
   }
 
   renameFunction() {
-    throwMethodUndefined(&apos;renameFunction&apos;);
+    throwMethodUndefined('renameFunction');
   }
 
   /**
@@ -789,25 +789,25 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
    * @returns {string}
    */
   _getForeignKeysQueryPrefix(catalogName) {
-    return `${&apos;SELECT &apos; +
-        &apos;constraint_name = OBJ.NAME, &apos; +
-        &apos;constraintName = OBJ.NAME, &apos;}${
-      catalogName ? `constraintCatalog = &apos;${catalogName}&apos;, ` : &apos;&apos;
+    return `${'SELECT ' +
+        'constraint_name = OBJ.NAME, ' +
+        'constraintName = OBJ.NAME, '}${
+      catalogName ? `constraintCatalog = '${catalogName}', ` : ''
     }constraintSchema = SCHEMA_NAME(OBJ.SCHEMA_ID), ` +
-        &apos;tableName = TB.NAME, &apos; +
+        'tableName = TB.NAME, ' +
         `tableSchema = SCHEMA_NAME(TB.SCHEMA_ID), ${
-          catalogName ? `tableCatalog = &apos;${catalogName}&apos;, ` : &apos;&apos;
+          catalogName ? `tableCatalog = '${catalogName}', ` : ''
         }columnName = COL.NAME, ` +
         `referencedTableSchema = SCHEMA_NAME(RTB.SCHEMA_ID), ${
-          catalogName ? `referencedCatalog = &apos;${catalogName}&apos;, ` : &apos;&apos;
+          catalogName ? `referencedCatalog = '${catalogName}', ` : ''
         }referencedTableName = RTB.NAME, ` +
-        &apos;referencedColumnName = RCOL.NAME &apos; +
-      &apos;FROM sys.foreign_key_columns FKC &apos; +
-        &apos;INNER JOIN sys.objects OBJ ON OBJ.OBJECT_ID = FKC.CONSTRAINT_OBJECT_ID &apos; +
-        &apos;INNER JOIN sys.tables TB ON TB.OBJECT_ID = FKC.PARENT_OBJECT_ID &apos; +
-        &apos;INNER JOIN sys.columns COL ON COL.COLUMN_ID = PARENT_COLUMN_ID AND COL.OBJECT_ID = TB.OBJECT_ID &apos; +
-        &apos;INNER JOIN sys.tables RTB ON RTB.OBJECT_ID = FKC.REFERENCED_OBJECT_ID &apos; +
-        &apos;INNER JOIN sys.columns RCOL ON RCOL.COLUMN_ID = REFERENCED_COLUMN_ID AND RCOL.OBJECT_ID = RTB.OBJECT_ID&apos;;
+        'referencedColumnName = RCOL.NAME ' +
+      'FROM sys.foreign_key_columns FKC ' +
+        'INNER JOIN sys.objects OBJ ON OBJ.OBJECT_ID = FKC.CONSTRAINT_OBJECT_ID ' +
+        'INNER JOIN sys.tables TB ON TB.OBJECT_ID = FKC.PARENT_OBJECT_ID ' +
+        'INNER JOIN sys.columns COL ON COL.COLUMN_ID = PARENT_COLUMN_ID AND COL.OBJECT_ID = TB.OBJECT_ID ' +
+        'INNER JOIN sys.tables RTB ON RTB.OBJECT_ID = FKC.REFERENCED_OBJECT_ID ' +
+        'INNER JOIN sys.columns RCOL ON RCOL.COLUMN_ID = REFERENCED_COLUMN_ID AND RCOL.OBJECT_ID = RTB.OBJECT_ID';
   }
 
   /**
@@ -844,19 +844,19 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   getPrimaryKeyConstraintQuery(table, attributeName) {
     const tableName = wrapSingleQuote(table.tableName || table);
     return [
-      &apos;SELECT K.TABLE_NAME AS tableName,&apos;,
-      &apos;K.COLUMN_NAME AS columnName,&apos;,
-      &apos;K.CONSTRAINT_NAME AS constraintName&apos;,
-      &apos;FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C&apos;,
-      &apos;JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS K&apos;,
-      &apos;ON C.TABLE_NAME = K.TABLE_NAME&apos;,
-      &apos;AND C.CONSTRAINT_CATALOG = K.CONSTRAINT_CATALOG&apos;,
-      &apos;AND C.CONSTRAINT_SCHEMA = K.CONSTRAINT_SCHEMA&apos;,
-      &apos;AND C.CONSTRAINT_NAME = K.CONSTRAINT_NAME&apos;,
-      &apos;WHERE C.CONSTRAINT_TYPE = \&apos;PRIMARY KEY\&apos;&apos;,
+      'SELECT K.TABLE_NAME AS tableName,',
+      'K.COLUMN_NAME AS columnName,',
+      'K.CONSTRAINT_NAME AS constraintName',
+      'FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS C',
+      'JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS K',
+      'ON C.TABLE_NAME = K.TABLE_NAME',
+      'AND C.CONSTRAINT_CATALOG = K.CONSTRAINT_CATALOG',
+      'AND C.CONSTRAINT_SCHEMA = K.CONSTRAINT_SCHEMA',
+      'AND C.CONSTRAINT_NAME = K.CONSTRAINT_NAME',
+      'WHERE C.CONSTRAINT_TYPE = \'PRIMARY KEY\'',
       `AND K.COLUMN_NAME = ${wrapSingleQuote(attributeName)}`,
       `AND K.TABLE_NAME = ${tableName};`
-    ].join(&apos; &apos;);
+    ].join(' ');
   }
 
   dropForeignKeyQuery(tableName, foreignKey) {
@@ -865,10 +865,10 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
   getDefaultConstraintQuery(tableName, attributeName) {
     const quotedTable = this.quoteTable(tableName);
-    return &apos;SELECT name FROM sys.default_constraints &apos; +
-      `WHERE PARENT_OBJECT_ID = OBJECT_ID(&apos;${quotedTable}&apos;, &apos;U&apos;) ` +
-      `AND PARENT_COLUMN_ID = (SELECT column_id FROM sys.columns WHERE NAME = (&apos;${attributeName}&apos;) ` +
-      `AND object_id = OBJECT_ID(&apos;${quotedTable}&apos;, &apos;U&apos;));`;
+    return 'SELECT name FROM sys.default_constraints ' +
+      `WHERE PARENT_OBJECT_ID = OBJECT_ID('${quotedTable}', 'U') ` +
+      `AND PARENT_COLUMN_ID = (SELECT column_id FROM sys.columns WHERE NAME = ('${attributeName}') ` +
+      `AND object_id = OBJECT_ID('${quotedTable}', 'U'));`;
   }
 
   dropConstraintQuery(tableName, constraintName) {
@@ -880,7 +880,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
   }
 
   generateTransactionId() {
-    return randomBytes(10).toString(&apos;hex&apos;);
+    return randomBytes(10).toString('hex');
   }
 
   startTransactionQuery(transaction) {
@@ -888,7 +888,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       return `SAVE TRANSACTION ${this.quoteIdentifier(transaction.name)};`;
     }
 
-    return &apos;BEGIN TRANSACTION;&apos;;
+    return 'BEGIN TRANSACTION;';
   }
 
   commitTransactionQuery(transaction) {
@@ -896,7 +896,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       return;
     }
 
-    return &apos;COMMIT TRANSACTION;&apos;;
+    return 'COMMIT TRANSACTION;';
   }
 
   rollbackTransactionQuery(transaction) {
@@ -904,15 +904,15 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       return `ROLLBACK TRANSACTION ${this.quoteIdentifier(transaction.name)};`;
     }
 
-    return &apos;ROLLBACK TRANSACTION;&apos;;
+    return 'ROLLBACK TRANSACTION;';
   }
 
   selectFromTableFragment(options, model, attributes, tables, mainTableAs, where) {
-    let topFragment = &apos;&apos;;
-    let mainFragment = `SELECT ${attributes.join(&apos;, &apos;)} FROM ${tables}`;
+    let topFragment = '';
+    let mainFragment = `SELECT ${attributes.join(', ')} FROM ${tables}`;
 
     // Handle SQL Server 2008 with TOP instead of LIMIT
-    if (semver.valid(this.sequelize.options.databaseVersion) &amp;&amp; semver.lt(this.sequelize.options.databaseVersion, &apos;11.0.0&apos;)) {
+    if (semver.valid(this.sequelize.options.databaseVersion) &amp;&amp; semver.lt(this.sequelize.options.databaseVersion, '11.0.0')) {
       if (options.limit) {
         topFragment = `TOP ${options.limit} `;
       }
@@ -928,8 +928,8 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
           orders.mainQueryOrder.push(this.quoteIdentifier(model.primaryKeyField));
         }
 
-        const tmpTable = mainTableAs ? mainTableAs : &apos;OffsetTable&apos;;
-        const whereFragment = where ? ` WHERE ${where}` : &apos;&apos;;
+        const tmpTable = mainTableAs ? mainTableAs : 'OffsetTable';
+        const whereFragment = where ? ` WHERE ${where}` : '';
 
         /*
          * For earlier versions of SQL server, we need to nest several queries
@@ -942,15 +942,15 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
          *    the TOP N rows of the query where the row number is &gt; OFFSET
          * 3. The innermost query is the actual set we want information from
          */
-        const fragment = `SELECT TOP 100 PERCENT ${attributes.join(&apos;, &apos;)} FROM ` +
+        const fragment = `SELECT TOP 100 PERCENT ${attributes.join(', ')} FROM ` +
                         `(SELECT ${topFragment}*` +
-                          ` FROM (SELECT ROW_NUMBER() OVER (ORDER BY ${orders.mainQueryOrder.join(&apos;, &apos;)}) as row_num, * ` +
+                          ` FROM (SELECT ROW_NUMBER() OVER (ORDER BY ${orders.mainQueryOrder.join(', ')}) as row_num, * ` +
                             ` FROM ${tables} AS ${tmpTable}${whereFragment})` +
                           ` AS ${tmpTable} WHERE row_num &gt; ${offset})` +
                         ` AS ${tmpTable}`;
         return fragment;
       }
-      mainFragment = `SELECT ${topFragment}${attributes.join(&apos;, &apos;)} FROM ${tables}`;
+      mainFragment = `SELECT ${topFragment}${attributes.join(', ')} FROM ${tables}`;
     }
 
     if (mainTableAs) {
@@ -966,8 +966,8 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
   addLimitAndOffset(options, model) {
     // Skip handling of limit and offset as postfixes for older SQL Server versions
-    if (semver.valid(this.sequelize.options.databaseVersion) &amp;&amp; semver.lt(this.sequelize.options.databaseVersion, &apos;11.0.0&apos;)) {
-      return &apos;&apos;;
+    if (semver.valid(this.sequelize.options.databaseVersion) &amp;&amp; semver.lt(this.sequelize.options.databaseVersion, '11.0.0')) {
+      return '';
     }
 
     const offset = options.offset || 0;
@@ -975,7 +975,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
       ? options.hasIncludeWhere || options.hasIncludeRequired || options.hasMultiAssociation
       : options.subQuery;
 
-    let fragment = &apos;&apos;;
+    let fragment = '';
     let orders = {};
 
     if (options.order) {
@@ -984,7 +984,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
     if (options.limit || options.offset) {
       if (!options.order || options.include &amp;&amp; !orders.subQueryOrder.length) {
-        fragment += options.order &amp;&amp; !isSubQuery ? &apos;, &apos; : &apos; ORDER BY &apos;;
+        fragment += options.order &amp;&amp; !isSubQuery ? ', ' : ' ORDER BY ';
         fragment += `${this.quoteTable(options.tableAs || model.name)}.${this.quoteIdentifier(model.primaryKeyField)}`;
       }
 
@@ -1007,7 +1007,7 @@ class MSSQLQueryGenerator extends AbstractQueryGenerator {
 
 // private methods
 function wrapSingleQuote(identifier) {
-  return Utils.addTicks(Utils.removeTicks(identifier, &quot;&apos;&quot;), &quot;&apos;&quot;);
+  return Utils.addTicks(Utils.removeTicks(identifier, "'"), "'");
 }
 
 module.exports = MSSQLQueryGenerator;

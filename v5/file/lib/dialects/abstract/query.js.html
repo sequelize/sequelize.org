@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,14 +112,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/abstract/query.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const SqlString = require(&apos;../../sql-string&apos;);
-const QueryTypes = require(&apos;../../query-types&apos;);
-const Dot = require(&apos;dottie&apos;);
-const deprecations = require(&apos;../../utils/deprecations&apos;);
-const uuid = require(&apos;uuid/v4&apos;);
+const _ = require('lodash');
+const SqlString = require('../../sql-string');
+const QueryTypes = require('../../query-types');
+const Dot = require('dottie');
+const deprecations = require('../../utils/deprecations');
+const uuid = require('uuid').v4;
 
 class AbstractQuery {
 
@@ -143,9 +143,9 @@ class AbstractQuery {
    *
    * Examples:
    *
-   *   query.formatBindParameters(&apos;select $1 as foo&apos;, [&apos;fooval&apos;]);
+   *   query.formatBindParameters('select $1 as foo', ['fooval']);
    *
-   *   query.formatBindParameters(&apos;select $foo as foo&apos;, { foo: &apos;fooval&apos; });
+   *   query.formatBindParameters('select $foo as foo', { foo: 'fooval' });
    *
    * Options
    *   skipUnescape: bool, skip unescaping $$
@@ -164,7 +164,7 @@ class AbstractQuery {
     }
 
     options = options || {};
-    if (typeof replacementFunc !== &apos;function&apos;) {
+    if (typeof replacementFunc !== 'function') {
       options = replacementFunc || {};
       replacementFunc = undefined;
     }
@@ -199,7 +199,7 @@ class AbstractQuery {
     const list = Array.isArray(values);
 
     sql = sql.replace(/\$(\$|\w+)/g, (match, key) =&gt; {
-      if (&apos;$&apos; === key) {
+      if ('$' === key) {
         return options.skipUnescape ? match : key;
       }
 
@@ -213,7 +213,7 @@ class AbstractQuery {
         replVal = replacementFunc(match, key, values, timeZone, dialect, options);
       }
       if (replVal === undefined) {
-        throw new Error(`Named bind parameter &quot;${match}&quot; has no value in the given object.`);
+        throw new Error(`Named bind parameter "${match}" has no value in the given object.`);
       }
       return replVal;
     });
@@ -225,12 +225,12 @@ class AbstractQuery {
    *
    * Examples:
    *
-   *     query.run(&apos;SELECT 1&apos;)
+   *     query.run('SELECT 1')
    *
    * @private
    */
   run() {
-    throw new Error(&apos;The run method wasn\&apos;t overwritten!&apos;);
+    throw new Error('The run method wasn\'t overwritten!');
   }
 
   /**
@@ -253,15 +253,15 @@ class AbstractQuery {
    * @private
    */
   getInsertIdField() {
-    return &apos;insertId&apos;;
+    return 'insertId';
   }
 
   getUniqueConstraintErrorMessage(field) {
-    let message = field ? `${field} must be unique` : &apos;Must be unique&apos;;
+    let message = field ? `${field} must be unique` : 'Must be unique';
 
     if (field &amp;&amp; this.model) {
       for (const key of Object.keys(this.model.uniqueKeys)) {
-        if (this.model.uniqueKeys[key].fields.includes(field.replace(/&quot;/g, &apos;&apos;))) {
+        if (this.model.uniqueKeys[key].fields.includes(field.replace(/"/g, ''))) {
           if (this.model.uniqueKeys[key].msg) {
             message = this.model.uniqueKeys[key].msg;
           }
@@ -291,7 +291,7 @@ class AbstractQuery {
     }
 
     // is insert query if sql contains insert into
-    result = result &amp;&amp; this.sql.toLowerCase().startsWith(&apos;insert into&apos;);
+    result = result &amp;&amp; this.sql.toLowerCase().startsWith('insert into');
 
     // is insert query if no results are passed or if the result has the inserted id
     result = result &amp;&amp; (!results || Object.prototype.hasOwnProperty.call(results, this.getInsertIdField()));
@@ -425,14 +425,14 @@ class AbstractQuery {
   isShowOrDescribeQuery() {
     let result = false;
 
-    result = result || this.sql.toLowerCase().startsWith(&apos;show&apos;);
-    result = result || this.sql.toLowerCase().startsWith(&apos;describe&apos;);
+    result = result || this.sql.toLowerCase().startsWith('show');
+    result = result || this.sql.toLowerCase().startsWith('describe');
 
     return result;
   }
 
   isCallQuery() {
-    return this.sql.toLowerCase().startsWith(&apos;call&apos;);
+    return this.sql.toLowerCase().startsWith('call');
   }
 
   /**
@@ -447,19 +447,19 @@ class AbstractQuery {
     const benchmark = this.sequelize.options.benchmark || options.benchmark;
     const logQueryParameters = this.sequelize.options.logQueryParameters || options.logQueryParameters;
     const startTime = Date.now();
-    let logParameter = &apos;&apos;;
-    
+    let logParameter = '';
+
     if (logQueryParameters &amp;&amp; parameters) {
-      const delimiter = sql.endsWith(&apos;;&apos;) ? &apos;&apos; : &apos;;&apos;;
+      const delimiter = sql.endsWith(';') ? '' : ';';
       let paramStr;
       if (Array.isArray(parameters)) {
-        paramStr = parameters.map(p=&gt;JSON.stringify(p)).join(&apos;, &apos;);
+        paramStr = parameters.map(p=&gt;JSON.stringify(p)).join(', ');
       } else {
         paramStr = JSON.stringify(parameters);
       }
       logParameter = `${delimiter} ${paramStr}`;
     }
-    const fmt = `(${connection.uuid || &apos;default&apos;}): ${sql}${logParameter}`;
+    const fmt = `(${connection.uuid || 'default'}): ${sql}${logParameter}`;
     const msg = `Executing ${fmt}`;
     debugContext(msg);
     if (!benchmark) {
@@ -481,17 +481,17 @@ class AbstractQuery {
    * Example:
    *   groupJoinData([
    *     {
-   *       some: &apos;data&apos;,
+   *       some: 'data',
    *       id: 1,
-   *       association: { foo: &apos;bar&apos;, id: 1 }
+   *       association: { foo: 'bar', id: 1 }
    *     }, {
-   *       some: &apos;data&apos;,
+   *       some: 'data',
    *       id: 1,
-   *       association: { foo: &apos;bar&apos;, id: 2 }
+   *       association: { foo: 'bar', id: 2 }
    *     }, {
-   *       some: &apos;data&apos;,
+   *       some: 'data',
    *       id: 1,
-   *       association: { foo: &apos;bar&apos;, id: 3 }
+   *       association: { foo: 'bar', id: 3 }
    *     }
    *   ])
    *
@@ -500,12 +500,12 @@ class AbstractQuery {
    *
    *   [
    *     {
-   *       some: &apos;data&apos;,
+   *       some: 'data',
    *       id: 1,
    *       association: [
-   *         { foo: &apos;bar&apos;, id: 1 },
-   *         { foo: &apos;bar&apos;, id: 2 },
-   *         { foo: &apos;bar&apos;, id: 3 }
+   *         { foo: 'bar', id: 1 },
+   *         { foo: 'bar', id: 2 },
+   *         { foo: 'bar', id: 3 }
    *       ]
    *     }
    *   ]
@@ -522,11 +522,11 @@ class AbstractQuery {
      * ID is not necessarily the first field
      * All fields for a level is grouped in the same set (i.e. Panel.id, Task.id, Panel.title is not possible)
      * Parent keys will be seen before any include/child keys
-     * Previous set won&apos;t necessarily be parent set (one parent could have two children, one child would then be previous set for the other)
+     * Previous set won't necessarily be parent set (one parent could have two children, one child would then be previous set for the other)
      */
 
     /*
-     * Author (MH) comment: This code is an unreadable mess, but it&apos;s performant.
+     * Author (MH) comment: This code is an unreadable mess, but it's performant.
      * groupJoinData is a performance critical function so we prioritize perf over readability.
      */
     if (!rows.length) {
@@ -552,7 +552,7 @@ class AbstractQuery {
     let topValues;
     let topExists;
     const checkExisting = options.checkExisting;
-    // If we don&apos;t have to deduplicate we can pre-allocate the resulting array
+    // If we don't have to deduplicate we can pre-allocate the resulting array
     let itemHash;
     let parentHash;
     let topHash;
@@ -580,44 +580,44 @@ class AbstractQuery {
         includeMap[previousPiece] = $current;
       }
     };
-    // Calculate the string prefix of a key (&apos;User.Results&apos; for &apos;User.Results.id&apos;)
+    // Calculate the string prefix of a key ('User.Results' for 'User.Results.id')
     const keyPrefixStringMemo = {};
     const keyPrefixString = (key, memo) =&gt; {
       if (!Object.prototype.hasOwnProperty.call(memo, key)) {
-        memo[key] = key.substr(0, key.lastIndexOf(&apos;.&apos;));
+        memo[key] = key.substr(0, key.lastIndexOf('.'));
       }
       return memo[key];
     };
-    // Removes the prefix from a key (&apos;id&apos; for &apos;User.Results.id&apos;)
+    // Removes the prefix from a key ('id' for 'User.Results.id')
     const removeKeyPrefixMemo = {};
     const removeKeyPrefix = key =&gt; {
       if (!Object.prototype.hasOwnProperty.call(removeKeyPrefixMemo, key)) {
-        const index = key.lastIndexOf(&apos;.&apos;);
+        const index = key.lastIndexOf('.');
         removeKeyPrefixMemo[key] = key.substr(index === -1 ? 0 : index + 1);
       }
       return removeKeyPrefixMemo[key];
     };
-    // Calculates the array prefix of a key ([&apos;User&apos;, &apos;Results&apos;] for &apos;User.Results.id&apos;)
+    // Calculates the array prefix of a key (['User', 'Results'] for 'User.Results.id')
     const keyPrefixMemo = {};
     const keyPrefix = key =&gt; {
       // We use a double memo and keyPrefixString so that different keys with the same prefix will receive the same array instead of differnet arrays with equal values
       if (!Object.prototype.hasOwnProperty.call(keyPrefixMemo, key)) {
         const prefixString = keyPrefixString(key, keyPrefixStringMemo);
         if (!Object.prototype.hasOwnProperty.call(keyPrefixMemo, prefixString)) {
-          keyPrefixMemo[prefixString] = prefixString ? prefixString.split(&apos;.&apos;) : [];
+          keyPrefixMemo[prefixString] = prefixString ? prefixString.split('.') : [];
         }
         keyPrefixMemo[key] = keyPrefixMemo[prefixString];
       }
       return keyPrefixMemo[key];
     };
-    // Calcuate the last item in the array prefix (&apos;Results&apos; for &apos;User.Results.id&apos;)
+    // Calcuate the last item in the array prefix ('Results' for 'User.Results.id')
     const lastKeyPrefixMemo = {};
     const lastKeyPrefix = key =&gt; {
       if (!Object.prototype.hasOwnProperty.call(lastKeyPrefixMemo, key)) {
         const prefix = keyPrefix(key);
         const length = prefix.length;
 
-        lastKeyPrefixMemo[key] = !length ? &apos;&apos; : prefix[length - 1];
+        lastKeyPrefixMemo[key] = !length ? '' : prefix[length - 1];
       }
       return lastKeyPrefixMemo[key];
     };
@@ -630,7 +630,7 @@ class AbstractQuery {
 
       return uniqueKeyAttributes;
     };
-    const stringify = obj =&gt; obj instanceof Buffer ? obj.toString(&apos;hex&apos;) : obj;
+    const stringify = obj =&gt; obj instanceof Buffer ? obj.toString('hex') : obj;
     let primaryKeyAttributes;
     let uniqueKeyAttributes;
     let prefix;
@@ -649,7 +649,7 @@ class AbstractQuery {
 
         // Compute top level hash key (this is usually just the primary key values)
         $length = includeOptions.model.primaryKeyAttributes.length;
-        topHash = &apos;&apos;;
+        topHash = '';
         if ($length === 1) {
           topHash = stringify(row[includeOptions.model.primaryKeyAttributes[0]]);
         }
@@ -671,7 +671,7 @@ class AbstractQuery {
       for (keyI = 0; keyI &lt; keyLength; keyI++) {
         key = keys[keyI];
 
-        // The string prefix isn&apos;t actualy needed
+        // The string prefix isn't actualy needed
         // We use it so keyPrefix for different keys will resolve to the same array if they have the same prefix
         // TODO: Find a better way?
         $keyPrefixString = keyPrefixString(key, keyPrefixStringMemo);
@@ -680,7 +680,7 @@ class AbstractQuery {
         // On the first row we compute the includeMap
         if (rowsI === 0 &amp;&amp; !Object.prototype.hasOwnProperty.call(includeMap, key)) {
           if (!$keyPrefix.length) {
-            includeMap[key] = includeMap[&apos;&apos;] = includeOptions;
+            includeMap[key] = includeMap[''] = includeOptions;
           } else {
             $current = includeOptions;
             previousPiece = undefined;
@@ -755,7 +755,7 @@ class AbstractQuery {
             // Reset values
             values = {};
           } else {
-            // If checkExisting is false it&apos;s because there&apos;s only 1:1 associations in this query
+            // If checkExisting is false it's because there's only 1:1 associations in this query
             // However we still need to map onto the appropriate parent
             // For 1:1 we map forward, initializing the value object on the parent to be filled in the next iterations of the loop
             $current = topValues;

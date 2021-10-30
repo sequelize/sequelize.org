@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,17 +112,17 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/utils/deprecations.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const { deprecate } = require(&apos;util&apos;);
+const { deprecate } = require('util');
 
 const noop = () =&gt; {};
 
-exports.noRawAttributes = deprecate(noop, &apos;Use sequelize.fn / sequelize.literal to construct attributes&apos;, &apos;SEQUELIZE0001&apos;);
-exports.noTrueLogging = deprecate(noop, &apos;The logging-option should be either a function or false. Default: console.log&apos;, &apos;SEQUELIZE0002&apos;);
-exports.noStringOperators = deprecate(noop, &apos;String based operators are deprecated. Please use Symbol based operators for better security, read more at https://sequelize.org/master/manual/querying.html#operators&apos;, &apos;SEQUELIZE0003&apos;);
-exports.noBoolOperatorAliases = deprecate(noop, &apos;A boolean value was passed to options.operatorsAliases. This is a no-op with v5 and should be removed.&apos;, &apos;SEQUELIZE0004&apos;);
-exports.noDoubleNestedGroup = deprecate(noop, &apos;Passing a double nested nested array to `group` is unsupported and will be removed in v6.&apos;, &apos;SEQUELIZE0005&apos;);
+exports.noRawAttributes = deprecate(noop, 'Use sequelize.fn / sequelize.literal to construct attributes', 'SEQUELIZE0001');
+exports.noTrueLogging = deprecate(noop, 'The logging-option should be either a function or false. Default: console.log', 'SEQUELIZE0002');
+exports.noStringOperators = deprecate(noop, 'String based operators are deprecated. Please use Symbol based operators for better security, read more at https://sequelize.org/master/manual/querying.html#operators', 'SEQUELIZE0003');
+exports.noBoolOperatorAliases = deprecate(noop, 'A boolean value was passed to options.operatorsAliases. This is a no-op with v5 and should be removed.', 'SEQUELIZE0004');
+exports.noDoubleNestedGroup = deprecate(noop, 'Passing a double nested nested array to `group` is unsupported and will be removed in v6.', 'SEQUELIZE0005');
 </code></pre>
 
 </div>

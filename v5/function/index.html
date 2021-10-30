@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -173,14 +173,14 @@
 <p>This method returns an array of hashes containing information about all attributes in the table.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">{
    name: {
-     type:         &apos;VARCHAR(255)&apos;, // this will be &apos;CHARACTER VARYING&apos; for pg!
+     type:         'VARCHAR(255)', // this will be 'CHARACTER VARYING' for pg!
      allowNull:    true,
      defaultValue: null,
      unique:       true,           // available for sqlite only
      references:   {},             // available for sqlite only
    },
    isBetaMember: {
-     type:         &apos;TINYINT(1)&apos;, // this will be &apos;BOOLEAN&apos; for pg!
+     type:         'TINYINT(1)', // this will be 'BOOLEAN' for pg!
      allowNull:    false,
      defaultValue: false,
      unique:       false,        // available for sqlite only

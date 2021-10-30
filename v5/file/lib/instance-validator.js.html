@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,15 +112,15 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/instance-validator.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const Utils = require(&apos;./utils&apos;);
-const sequelizeError = require(&apos;./errors&apos;);
-const Promise = require(&apos;./promise&apos;);
-const DataTypes = require(&apos;./data-types&apos;);
-const BelongsTo = require(&apos;./associations/belongs-to&apos;);
-const validator = require(&apos;./utils/validator-extras&apos;).validator;
+const _ = require('lodash');
+const Utils = require('./utils');
+const sequelizeError = require('./errors');
+const Promise = require('./promise');
+const DataTypes = require('./data-types');
+const BelongsTo = require('./associations/belongs-to');
+const validator = require('./utils/validator-extras').validator;
 
 /**
  * Instance Validator.
@@ -176,7 +176,7 @@ class InstanceValidator {
    * @private
    */
   _validate() {
-    if (this.inProgress) throw new Error(&apos;Validations already in progress.&apos;);
+    if (this.inProgress) throw new Error('Validations already in progress.');
 
     this.inProgress = true;
 
@@ -216,13 +216,13 @@ class InstanceValidator {
    */
   _validateAndRunHooks() {
     const runHooks = this.modelInstance.constructor.runHooks.bind(this.modelInstance.constructor);
-    return runHooks(&apos;beforeValidate&apos;, this.modelInstance, this.options)
+    return runHooks('beforeValidate', this.modelInstance, this.options)
       .then(() =&gt;
         this._validate()
-          .catch(error =&gt; runHooks(&apos;validationFailed&apos;, this.modelInstance, this.options, error)
+          .catch(error =&gt; runHooks('validationFailed', this.modelInstance, this.options, error)
             .then(newError =&gt; { throw newError || error; }))
       )
-      .then(() =&gt; runHooks(&apos;afterValidate&apos;, this.modelInstance, this.options))
+      .then(() =&gt; runHooks('afterValidate', this.modelInstance, this.options))
       .return(this.modelInstance);
   }
 
@@ -261,7 +261,7 @@ class InstanceValidator {
   }
 
   /**
-   * Will run all the custom validators defined in the model&apos;s options.
+   * Will run all the custom validators defined in the model's options.
    *
    * @returns {Promise&lt;Array.&lt;Promise.PromiseInspection&gt;&gt;} A promise from .reflect().
    * @private
@@ -306,9 +306,9 @@ class InstanceValidator {
     const validators = [];
     _.forIn(this.modelInstance.validators[field], (test, validatorType) =&gt; {
 
-      if (validatorType === &apos;isUrl&apos; || validatorType === &apos;isURL&apos; || validatorType === &apos;isEmail&apos;) {
+      if (validatorType === 'isUrl' || validatorType === 'isURL' || validatorType === 'isEmail') {
         // Preserve backwards compat. Validator.js now expects the second param to isURL and isEmail to be an object
-        if (typeof test === &apos;object&apos; &amp;&amp; test !== null &amp;&amp; test.msg) {
+        if (typeof test === 'object' &amp;&amp; test !== null &amp;&amp; test.msg) {
           test = {
             msg: test.msg
           };
@@ -318,7 +318,7 @@ class InstanceValidator {
       }
 
       // Custom validators should always run, except if value is null and allowNull is false (see #9143)
-      if (typeof test === &apos;function&apos;) {
+      if (typeof test === 'function') {
         validators.push(this._invokeCustomValidator(test, validatorType, true, value, field).reflect());
         return;
       }
@@ -401,7 +401,7 @@ class InstanceValidator {
       // Cast value as string to pass new Validator.js string requirement
       const valueString = String(value);
       // check if Validator knows that kind of validation test
-      if (typeof validator[validatorType] !== &apos;function&apos;) {
+      if (typeof validator[validatorType] !== 'function') {
         throw new Error(`Invalid validator function: ${validatorType}`);
       }
 
@@ -424,12 +424,12 @@ class InstanceValidator {
    */
   _extractValidatorArgs(test, validatorType, field) {
     let validatorArgs = test.args || test;
-    const isLocalizedValidator = typeof validatorArgs !== &apos;string&apos; &amp;&amp; (validatorType === &apos;isAlpha&apos; || validatorType === &apos;isAlphanumeric&apos; || validatorType === &apos;isMobilePhone&apos;);
+    const isLocalizedValidator = typeof validatorArgs !== 'string' &amp;&amp; (validatorType === 'isAlpha' || validatorType === 'isAlphanumeric' || validatorType === 'isMobilePhone');
 
     if (!Array.isArray(validatorArgs)) {
-      if (validatorType === &apos;isImmutable&apos;) {
+      if (validatorType === 'isImmutable') {
         validatorArgs = [validatorArgs, field, this.modelInstance];
-      } else if (isLocalizedValidator || validatorType === &apos;isIP&apos;) {
+      } else if (isLocalizedValidator || validatorType === 'isIP') {
         validatorArgs = [];
       } else {
         validatorArgs = [validatorArgs];
@@ -454,15 +454,15 @@ class InstanceValidator {
       const association = _.values(this.modelInstance.constructor.associations).find(association =&gt; association instanceof BelongsTo &amp;&amp; association.foreignKey === rawAttribute.fieldName);
       if (!association || !this.modelInstance.get(association.associationAccessor)) {
         const validators = this.modelInstance.validators[field];
-        const errMsg = _.get(validators, &apos;notNull.msg&apos;, `${this.modelInstance.constructor.name}.${field} cannot be null`);
+        const errMsg = _.get(validators, 'notNull.msg', `${this.modelInstance.constructor.name}.${field} cannot be null`);
 
         this.errors.push(new sequelizeError.ValidationErrorItem(
           errMsg,
-          &apos;notNull Violation&apos;, // sequelizeError.ValidationErrorItem.Origins.CORE,
+          'notNull Violation', // sequelizeError.ValidationErrorItem.Origins.CORE,
           field,
           value,
           this.modelInstance,
-          &apos;is_null&apos;
+          'is_null'
         ));
       }
     }
@@ -471,11 +471,11 @@ class InstanceValidator {
       if (Array.isArray(value) || _.isObject(value) &amp;&amp; !(value instanceof Utils.SequelizeMethod) &amp;&amp; !Buffer.isBuffer(value)) {
         this.errors.push(new sequelizeError.ValidationErrorItem(
           `${field} cannot be an array or an object`,
-          &apos;string violation&apos;, // sequelizeError.ValidationErrorItem.Origins.CORE,
+          'string violation', // sequelizeError.ValidationErrorItem.Origins.CORE,
           field,
           value,
           this.modelInstance,
-          &apos;not_a_string&apos;
+          'not_a_string'
         ));
       }
     }
@@ -517,10 +517,10 @@ class InstanceValidator {
    * @private
    */
   _pushError(isBuiltin, errorKey, rawError, value, fnName, fnArgs) {
-    const message = rawError.message || rawError || &apos;Validation error&apos;;
+    const message = rawError.message || rawError || 'Validation error';
     const error = new sequelizeError.ValidationErrorItem(
       message,
-      &apos;Validation error&apos;, // sequelizeError.ValidationErrorItem.Origins.FUNCTION,
+      'Validation error', // sequelizeError.ValidationErrorItem.Origins.FUNCTION,
       errorKey,
       value,
       this.modelInstance,
@@ -538,7 +538,7 @@ class InstanceValidator {
  * @define {string} The error key for arguments as passed by custom validators
  * @private
  */
-InstanceValidator.RAW_KEY_NAME = &apos;original&apos;;
+InstanceValidator.RAW_KEY_NAME = 'original';
 
 module.exports = InstanceValidator;
 module.exports.InstanceValidator = InstanceValidator;

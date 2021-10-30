@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,20 +112,20 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/utils.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const DataTypes = require(&apos;./data-types&apos;);
-const SqlString = require(&apos;./sql-string&apos;);
-const _ = require(&apos;lodash&apos;);
-const uuidv1 = require(&apos;uuid/v1&apos;);
-const uuidv4 = require(&apos;uuid/v4&apos;);
-const Promise = require(&apos;./promise&apos;);
-const operators = require(&apos;./operators&apos;);
+const DataTypes = require('./data-types');
+const SqlString = require('./sql-string');
+const _ = require('lodash');
+const uuidv1 = require('uuid').v1;
+const uuidv4 = require('uuid').v4;
+const Promise = require('./promise');
+const operators = require('./operators');
 const operatorsSet = new Set(_.values(operators));
 
-let inflection = require(&apos;inflection&apos;);
+let inflection = require('inflection');
 
-exports.classToInvokable = require(&apos;./utils/classToInvokable&apos;).classToInvokable;
+exports.classToInvokable = require('./utils/classToInvokable').classToInvokable;
 
 exports.Promise = Promise;
 
@@ -158,14 +158,14 @@ exports.underscoredIf = underscoredIf;
 
 function isPrimitive(val) {
   const type = typeof val;
-  return type === &apos;string&apos; || type === &apos;number&apos; || type === &apos;boolean&apos;;
+  return type === 'string' || type === 'number' || type === 'boolean';
 }
 exports.isPrimitive = isPrimitive;
 
-// Same concept as _.merge, but don&apos;t overwrite properties that have already been assigned
+// Same concept as _.merge, but don't overwrite properties that have already been assigned
 function mergeDefaults(a, b) {
   return _.mergeWith(a, b, objectValue =&gt; {
-    // If it&apos;s an object, let _ handle it this time, we will be called again for each property
+    // If it's an object, let _ handle it this time, we will be called again for each property
     if (!_.isPlainObject(objectValue) &amp;&amp; objectValue !== undefined) {
       return objectValue;
     }
@@ -173,9 +173,9 @@ function mergeDefaults(a, b) {
 }
 exports.mergeDefaults = mergeDefaults;
 
-// An alternative to _.merge, which doesn&apos;t clone its arguments
+// An alternative to _.merge, which doesn't clone its arguments
 // Cloning is a bad idea because options arguments may contain references to sequelize
-// models - which again reference database libs which don&apos;t like to be cloned (in particular pg-native)
+// models - which again reference database libs which don't like to be cloned (in particular pg-native)
 function merge() {
   const result = {};
 
@@ -246,13 +246,13 @@ function cloneDeep(obj, onlyPlain) {
     }
 
     // If we specified to clone only plain objects &amp; arrays, we ignore everyhing else
-    // In any case, don&apos;t clone stuff that&apos;s an object, but not a plain one - fx example sequelize models and instances
-    if (onlyPlain || typeof elem === &apos;object&apos;) {
+    // In any case, don't clone stuff that's an object, but not a plain one - fx example sequelize models and instances
+    if (onlyPlain || typeof elem === 'object') {
       return elem;
     }
 
     // Preserve special data-types like `fn` across clones. _.get() is used for checking up the prototype chain
-    if (elem &amp;&amp; typeof elem.clone === &apos;function&apos;) {
+    if (elem &amp;&amp; typeof elem.clone === 'function') {
       return elem.clone();
     }
   });
@@ -276,8 +276,8 @@ exports.mapFinderOptions = mapFinderOptions;
 function mapOptionFieldNames(options, Model) {
   if (Array.isArray(options.attributes)) {
     options.attributes = options.attributes.map(attr =&gt; {
-      // Object lookups will force any variable to strings, we don&apos;t want that for special objects etc
-      if (typeof attr !== &apos;string&apos;) return attr;
+      // Object lookups will force any variable to strings, we don't want that for special objects etc
+      if (typeof attr !== 'string') return attr;
       // Map attributes to aliased syntax attributes
       if (Model.rawAttributes[attr] &amp;&amp; attr !== Model.rawAttributes[attr].field) {
         return [Model.rawAttributes[attr].field, attr];
@@ -348,7 +348,7 @@ function mapValueFieldNames(dataValues, fields, Model) {
 exports.mapValueFieldNames = mapValueFieldNames;
 
 function isColString(value) {
-  return typeof value === &apos;string&apos; &amp;&amp; value[0] === &apos;$&apos; &amp;&amp; value[value.length - 1] === &apos;$&apos;;
+  return typeof value === 'string' &amp;&amp; value[0] === '$' &amp;&amp; value[value.length - 1] === '$';
 }
 exports.isColString = isColString;
 
@@ -363,7 +363,7 @@ function combineTableNames(tableName1, tableName2) {
 exports.combineTableNames = combineTableNames;
 
 function toDefaultValue(value, dialect) {
-  if (typeof value === &apos;function&apos;) {
+  if (typeof value === 'function') {
     const tmp = value();
     if (tmp instanceof DataTypes.ABSTRACT) {
       return tmp.toSql();
@@ -403,7 +403,7 @@ function defaultValueSchemable(value) {
 
   if (value instanceof DataTypes.UUIDV1 || value instanceof DataTypes.UUIDV4) { return false; }
 
-  return typeof value !== &apos;function&apos;;
+  return typeof value !== 'function';
 }
 exports.defaultValueSchemable = defaultValueSchemable;
 
@@ -417,7 +417,7 @@ function removeNullValuesFromHash(hash, omitNull, options) {
     const _hash = {};
 
     _.forIn(hash, (val, key) =&gt; {
-      if (options.allowNull.includes(key) || key.endsWith(&apos;Id&apos;) || val !== null &amp;&amp; val !== undefined) {
+      if (options.allowNull.includes(key) || key.endsWith('Id') || val !== null &amp;&amp; val !== undefined) {
         _hash[key] = val;
       }
     });
@@ -440,7 +440,7 @@ function stack() {
 }
 exports.stack = stack;
 
-const dialects = new Set([&apos;mariadb&apos;, &apos;mysql&apos;, &apos;postgres&apos;, &apos;sqlite&apos;, &apos;mssql&apos;]);
+const dialects = new Set(['mariadb', 'mysql', 'postgres', 'sqlite', 'mssql']);
 
 function now(dialect) {
   const d = new Date();
@@ -454,7 +454,7 @@ exports.now = now;
 // Note: Use the `quoteIdentifier()` and `escape()` methods on the
 // `QueryInterface` instead for more portable code.
 
-const TICK_CHAR = &apos;`&apos;;
+const TICK_CHAR = '`';
 exports.TICK_CHAR = TICK_CHAR;
 
 function addTicks(s, tickChar) {
@@ -465,7 +465,7 @@ exports.addTicks = addTicks;
 
 function removeTicks(s, tickChar) {
   tickChar = tickChar || TICK_CHAR;
-  return s.replace(new RegExp(tickChar, &apos;g&apos;), &apos;&apos;);
+  return s.replace(new RegExp(tickChar, 'g'), '');
 }
 exports.removeTicks = removeTicks;
 
@@ -475,9 +475,9 @@ exports.removeTicks = removeTicks;
  * - Input:
  *
  *  {
- *    name: &apos;John&apos;,
+ *    name: 'John',
  *    address: {
- *      street: &apos;Fake St. 123&apos;,
+ *      street: 'Fake St. 123',
  *      coordinates: {
  *        longitude: 55.6779627,
  *        latitude: 12.5964313
@@ -488,8 +488,8 @@ exports.removeTicks = removeTicks;
  * - Output:
  *
  *  {
- *    name: &apos;John&apos;,
- *    address.street: &apos;Fake St. 123&apos;,
+ *    name: 'John',
+ *    address.street: 'Fake St. 123',
  *    address.coordinates.latitude: 55.6779627,
  *    address.coordinates.longitude: 12.5964313
  *  }
@@ -505,7 +505,7 @@ function flattenObjectDeep(value) {
   function flattenObject(obj, subPath) {
     Object.keys(obj).forEach(key =&gt; {
       const pathToProperty = subPath ? `${subPath}.${key}` : key;
-      if (typeof obj[key] === &apos;object&apos; &amp;&amp; obj[key] !== null) {
+      if (typeof obj[key] === 'object' &amp;&amp; obj[key] !== null) {
         flattenObject(obj[key], pathToProperty);
       } else {
         flattenedObj[pathToProperty] = _.get(obj, key);
@@ -553,7 +553,7 @@ class Cast extends SequelizeMethod {
   constructor(val, type, json) {
     super();
     this.val = val;
-    this.type = (type || &apos;&apos;).trim();
+    this.type = (type || '').trim();
     this.json = json || false;
   }
 }
@@ -587,7 +587,7 @@ class Where extends SequelizeMethod {
     super();
     if (logic === undefined) {
       logic = comparator;
-      comparator = &apos;=&apos;;
+      comparator = '=';
     }
 
     this.attribute = attribute;
@@ -727,11 +727,11 @@ exports.defaults = defaults;
 function nameIndex(index, tableName) {
   if (tableName.tableName) tableName = tableName.tableName;
 
-  if (!Object.prototype.hasOwnProperty.call(index, &apos;name&apos;)) {
+  if (!Object.prototype.hasOwnProperty.call(index, 'name')) {
     const fields = index.fields.map(
-      field =&gt; typeof field === &apos;string&apos; ? field : field.name || field.attribute
+      field =&gt; typeof field === 'string' ? field : field.name || field.attribute
     );
-    index.name = underscore(`${tableName}_${fields.join(&apos;_&apos;)}`);
+    index.name = underscore(`${tableName}_${fields.join('_')}`);
   }
 
   return index;

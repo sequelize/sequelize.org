@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -128,7 +128,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/data-types.js~ABSTRACT</span> &#x2192; GEOMETRY</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/data-types.js~ABSTRACT</span> → GEOMETRY</div></div>
   
   
   
@@ -155,39 +155,39 @@ In MySQL it is parsed using the function <code>GeomFromText</code>.</p>
   <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Defining a Geometry type attribute</div>
       <pre class="prettyprint source-code"><code data-ice="exampleCode">DataTypes.GEOMETRY
-DataTypes.GEOMETRY(&apos;POINT&apos;)
-DataTypes.GEOMETRY(&apos;POINT&apos;, 4326)</code></pre>
+DataTypes.GEOMETRY('POINT')
+DataTypes.GEOMETRY('POINT', 4326)</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Create a new point</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">const point = { type: &apos;Point&apos;, coordinates: [39.807222,-76.984722]};
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">const point = { type: 'Point', coordinates: [39.807222,-76.984722]};
 
-User.create({username: &apos;username&apos;, geometry: point });</code></pre>
+User.create({username: 'username', geometry: point });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Create a new linestring</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">const line = { type: &apos;LineString&apos;, &apos;coordinates&apos;: [ [100.0, 0.0], [101.0, 1.0] ] };
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">const line = { type: 'LineString', 'coordinates': [ [100.0, 0.0], [101.0, 1.0] ] };
 
-User.create({username: &apos;username&apos;, geometry: line });</code></pre>
+User.create({username: 'username', geometry: line });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Create a new polygon</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">const polygon = { type: &apos;Polygon&apos;, coordinates: [
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">const polygon = { type: 'Polygon', coordinates: [
                 [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
                   [100.0, 1.0], [100.0, 0.0] ]
                 ]};
 
-User.create({username: &apos;username&apos;, geometry: polygon });</code></pre>
+User.create({username: 'username', geometry: polygon });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Create a new point with a custom SRID</div>
       <pre class="prettyprint source-code"><code data-ice="exampleCode">const point = {
-  type: &apos;Point&apos;,
+  type: 'Point',
   coordinates: [39.807222,-76.984722],
-  crs: { type: &apos;name&apos;, properties: { name: &apos;EPSG:4326&apos;} }
+  crs: { type: 'name', properties: { name: 'EPSG:4326'} }
 };
 
-User.create({username: &apos;username&apos;, geometry: point })</code></pre>
+User.create({username: 'username', geometry: point })</code></pre>
     </div>
 </div>
 

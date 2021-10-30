@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -394,13 +394,13 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="working-with-legacy-tables">Working with legacy tables</h1><p>While out of the box Sequelize will seem a bit opinionated it&apos;s easy to work legacy tables and forward proof your application by defining (otherwise generated) table and field names.</p>
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="working-with-legacy-tables">Working with legacy tables</h1><p>While out of the box Sequelize will seem a bit opinionated it's easy to work legacy tables and forward proof your application by defining (otherwise generated) table and field names.</p>
 <h2 id="tables">Tables</h2><pre><code class="lang-js"><code class="source-code prettyprint">class User extends Model {}
 User.init({
   // ...
 }, {
-  modelName: &apos;user&apos;,
-  tableName: &apos;users&apos;,
+  modelName: 'user',
+  tableName: 'users',
   sequelize,
 });</code>
 </code></pre>
@@ -408,7 +408,7 @@ User.init({
 MyModel.init({
   userId: {
     type: Sequelize.INTEGER,
-    field: &apos;user_id&apos;
+    field: 'user_id'
   }
 }, { sequelize });</code>
 </code></pre>
@@ -431,18 +431,18 @@ Collection.init({
   }
 }, { sequelize });</code>
 </code></pre>
-<p>And if your model has no primary key at all you can use <code>Model.removeAttribute(&apos;id&apos;);</code></p>
+<p>And if your model has no primary key at all you can use <code>Model.removeAttribute('id');</code></p>
 <h2 id="foreign-keys">Foreign keys</h2><pre><code class="lang-js"><code class="source-code prettyprint">// 1:1
-Organization.belongsTo(User, { foreignKey: &apos;owner_id&apos; });
-User.hasOne(Organization, { foreignKey: &apos;owner_id&apos; });
+Organization.belongsTo(User, { foreignKey: 'owner_id' });
+User.hasOne(Organization, { foreignKey: 'owner_id' });
 
 // 1:M
-Project.hasMany(Task, { foreignKey: &apos;tasks_pk&apos; });
-Task.belongsTo(Project, { foreignKey: &apos;tasks_pk&apos; });
+Project.hasMany(Task, { foreignKey: 'tasks_pk' });
+Task.belongsTo(Project, { foreignKey: 'tasks_pk' });
 
 // N:M
-User.belongsToMany(Role, { through: &apos;user_has_roles&apos;, foreignKey: &apos;user_role_user_id&apos; });
-Role.belongsToMany(User, { through: &apos;user_has_roles&apos;, foreignKey: &apos;roles_identifier&apos; });</code>
+User.belongsToMany(Role, { through: 'user_has_roles', foreignKey: 'user_role_user_id' });
+Role.belongsToMany(User, { through: 'user_has_roles', foreignKey: 'roles_identifier' });</code>
 </code></pre>
 </div>
 </div>

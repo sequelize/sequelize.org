@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -128,7 +128,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/data-types.js~ABSTRACT</span> &#x2192; VIRTUAL</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/data-types.js~ABSTRACT</span> → VIRTUAL</div></div>
   
   
   
@@ -152,19 +152,19 @@ Return type is mostly useful for setups that rely on types like GraphQL.</p>
     
   <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Checking password length before hashing it</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">sequelize.define(&apos;user&apos;, {
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">sequelize.define('user', {
   password_hash: DataTypes.STRING,
   password: {
     type: DataTypes.VIRTUAL,
     set: function (val) {
-       // Remember to set the data value, otherwise it won&apos;t be validated
-       this.setDataValue(&apos;password&apos;, val);
-       this.setDataValue(&apos;password_hash&apos;, this.salt + val);
+       // Remember to set the data value, otherwise it won't be validated
+       this.setDataValue('password', val);
+       this.setDataValue('password_hash', this.salt + val);
      },
      validate: {
         isLongEnough: function (val) {
           if (val.length &lt; 7) {
-            throw new Error(&quot;Please choose a longer password&quot;)
+            throw new Error("Please choose a longer password")
          }
       }
     }
@@ -177,9 +177,9 @@ Return type is mostly useful for setups that rely on types like GraphQL.</p>
       <div class="example-caption" data-ice="exampleCaption">Virtual with dependency fields</div>
       <pre class="prettyprint source-code"><code data-ice="exampleCode">{
   active: {
-    type: new DataTypes.VIRTUAL(DataTypes.BOOLEAN, [&apos;createdAt&apos;]),
+    type: new DataTypes.VIRTUAL(DataTypes.BOOLEAN, ['createdAt']),
     get: function() {
-      return this.get(&apos;createdAt&apos;) &gt; Date.now() - (7 * 24 * 60 * 60 * 1000)
+      return this.get('createdAt') &gt; Date.now() - (7 * 24 * 60 * 60 * 1000)
     }
   }
 }</code></pre>

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,10 +112,10 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/sqlite/data-types.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
 module.exports = BaseTypes =&gt; {
-  const warn = BaseTypes.ABSTRACT.warn.bind(undefined, &apos;https://www.sqlite.org/datatype3.html&apos;);
+  const warn = BaseTypes.ABSTRACT.warn.bind(undefined, 'https://www.sqlite.org/datatype3.html');
 
   /**
    * Removes unsupported SQLite options, i.e., UNSIGNED and ZEROFILL, for the integer data types.
@@ -125,7 +125,7 @@ module.exports = BaseTypes =&gt; {
    */
   function removeUnsupportedIntegerOptions(dataType) {
     if (dataType._zerofill || dataType._unsigned) {
-      warn(`SQLite does not support &apos;${dataType.key}&apos; with UNSIGNED or ZEROFILL. Plain &apos;${dataType.key}&apos; will be used instead.`);
+      warn(`SQLite does not support '${dataType.key}' with UNSIGNED or ZEROFILL. Plain '${dataType.key}' will be used instead.`);
       dataType._unsigned = undefined;
       dataType._zerofill = undefined;
     }
@@ -135,27 +135,27 @@ module.exports = BaseTypes =&gt; {
    * @see https://sqlite.org/datatype3.html
    */
 
-  BaseTypes.DATE.types.sqlite = [&apos;DATETIME&apos;];
-  BaseTypes.STRING.types.sqlite = [&apos;VARCHAR&apos;, &apos;VARCHAR BINARY&apos;];
-  BaseTypes.CHAR.types.sqlite = [&apos;CHAR&apos;, &apos;CHAR BINARY&apos;];
-  BaseTypes.TEXT.types.sqlite = [&apos;TEXT&apos;];
-  BaseTypes.TINYINT.types.sqlite = [&apos;TINYINT&apos;];
-  BaseTypes.SMALLINT.types.sqlite = [&apos;SMALLINT&apos;];
-  BaseTypes.MEDIUMINT.types.sqlite = [&apos;MEDIUMINT&apos;];
-  BaseTypes.INTEGER.types.sqlite = [&apos;INTEGER&apos;];
-  BaseTypes.BIGINT.types.sqlite = [&apos;BIGINT&apos;];
-  BaseTypes.FLOAT.types.sqlite = [&apos;FLOAT&apos;];
-  BaseTypes.TIME.types.sqlite = [&apos;TIME&apos;];
-  BaseTypes.DATEONLY.types.sqlite = [&apos;DATE&apos;];
-  BaseTypes.BOOLEAN.types.sqlite = [&apos;TINYINT&apos;];
-  BaseTypes.BLOB.types.sqlite = [&apos;TINYBLOB&apos;, &apos;BLOB&apos;, &apos;LONGBLOB&apos;];
-  BaseTypes.DECIMAL.types.sqlite = [&apos;DECIMAL&apos;];
-  BaseTypes.UUID.types.sqlite = [&apos;UUID&apos;];
+  BaseTypes.DATE.types.sqlite = ['DATETIME'];
+  BaseTypes.STRING.types.sqlite = ['VARCHAR', 'VARCHAR BINARY'];
+  BaseTypes.CHAR.types.sqlite = ['CHAR', 'CHAR BINARY'];
+  BaseTypes.TEXT.types.sqlite = ['TEXT'];
+  BaseTypes.TINYINT.types.sqlite = ['TINYINT'];
+  BaseTypes.SMALLINT.types.sqlite = ['SMALLINT'];
+  BaseTypes.MEDIUMINT.types.sqlite = ['MEDIUMINT'];
+  BaseTypes.INTEGER.types.sqlite = ['INTEGER'];
+  BaseTypes.BIGINT.types.sqlite = ['BIGINT'];
+  BaseTypes.FLOAT.types.sqlite = ['FLOAT'];
+  BaseTypes.TIME.types.sqlite = ['TIME'];
+  BaseTypes.DATEONLY.types.sqlite = ['DATE'];
+  BaseTypes.BOOLEAN.types.sqlite = ['TINYINT'];
+  BaseTypes.BLOB.types.sqlite = ['TINYBLOB', 'BLOB', 'LONGBLOB'];
+  BaseTypes.DECIMAL.types.sqlite = ['DECIMAL'];
+  BaseTypes.UUID.types.sqlite = ['UUID'];
   BaseTypes.ENUM.types.sqlite = false;
-  BaseTypes.REAL.types.sqlite = [&apos;REAL&apos;];
-  BaseTypes.DOUBLE.types.sqlite = [&apos;DOUBLE PRECISION&apos;];
+  BaseTypes.REAL.types.sqlite = ['REAL'];
+  BaseTypes.DOUBLE.types.sqlite = ['DOUBLE PRECISION'];
   BaseTypes.GEOMETRY.types.sqlite = false;
-  BaseTypes.JSON.types.sqlite = [&apos;JSON&apos;, &apos;JSONB&apos;];
+  BaseTypes.JSON.types.sqlite = ['JSON', 'JSONB'];
 
   class JSONTYPE extends BaseTypes.JSON {
     static parse(data) {
@@ -165,7 +165,7 @@ module.exports = BaseTypes =&gt; {
 
   class DATE extends BaseTypes.DATE {
     static parse(date, options) {
-      if (!date.includes(&apos;+&apos;)) {
+      if (!date.includes('+')) {
         // For backwards compat. Dates inserted by sequelize &lt; 2.0dev12 will not have a timestamp set
         return new Date(date + options.timezone);
       }
@@ -191,16 +191,16 @@ module.exports = BaseTypes =&gt; {
   class TEXT extends BaseTypes.TEXT {
     toSql() {
       if (this._length) {
-        warn(&apos;SQLite does not support TEXT with options. Plain `TEXT` will be used instead.&apos;);
+        warn('SQLite does not support TEXT with options. Plain `TEXT` will be used instead.');
         this._length = undefined;
       }
-      return &apos;TEXT&apos;;
+      return 'TEXT';
     }
   }
 
   class CITEXT extends BaseTypes.CITEXT {
     toSql() {
-      return &apos;TEXT COLLATE NOCASE&apos;;
+      return 'TEXT COLLATE NOCASE';
     }
   }
 
@@ -217,17 +217,17 @@ module.exports = BaseTypes =&gt; {
     toSql() {
       let result = this.key;
       if (this._unsigned) {
-        result += &apos; UNSIGNED&apos;;
+        result += ' UNSIGNED';
       }
       if (this._zerofill) {
-        result += &apos; ZEROFILL&apos;;
+        result += ' ZEROFILL';
       }
       if (this._length) {
         result += `(${this._length}`;
-        if (typeof this._decimals === &apos;number&apos;) {
+        if (typeof this._decimals === 'number') {
           result += `,${this._decimals}`;
         }
-        result += &apos;)&apos;;
+        result += ')';
       }
       return result;
     }
@@ -277,16 +277,16 @@ module.exports = BaseTypes =&gt; {
   class REAL extends BaseTypes.REAL { }
 
   function parseFloating(value) {
-    if (typeof value !== &apos;string&apos;) {
+    if (typeof value !== 'string') {
       return value;
     }
-    if (value === &apos;NaN&apos;) {
+    if (value === 'NaN') {
       return NaN;
     }
-    if (value === &apos;Infinity&apos;) {
+    if (value === 'Infinity') {
       return Infinity;
     }
-    if (value === &apos;-Infinity&apos;) {
+    if (value === '-Infinity') {
       return -Infinity;
     }
   }
@@ -301,7 +301,7 @@ module.exports = BaseTypes =&gt; {
 
   class ENUM extends BaseTypes.ENUM {
     toSql() {
-      return &apos;TEXT&apos;;
+      return 'TEXT';
     }
   }
 
@@ -313,7 +313,7 @@ module.exports = BaseTypes =&gt; {
     NUMBER,
     FLOAT,
     REAL,
-    &apos;DOUBLE PRECISION&apos;: DOUBLE,
+    'DOUBLE PRECISION': DOUBLE,
     TINYINT,
     SMALLINT,
     MEDIUMINT,

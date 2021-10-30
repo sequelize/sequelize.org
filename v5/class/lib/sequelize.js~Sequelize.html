@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -1418,9 +1418,9 @@ If you want to refer to columns in your function, you should use <code>sequelize
     <h4>Example:</h4>
     
   <div class="example-doc" data-ice="exampleDoc">
-      <div class="example-caption" data-ice="exampleCaption">Convert a user&apos;s username to upper case</div>
+      <div class="example-caption" data-ice="exampleCaption">Convert a user's username to upper case</div>
       <pre class="prettyprint source-code"><code data-ice="exampleCode">instance.update({
-  username: sequelize.fn(&apos;upper&apos;, sequelize.col(&apos;username&apos;))
+  username: sequelize.fn('upper', sequelize.col('username'))
 });</code></pre>
     </div>
 </div>
@@ -1475,7 +1475,7 @@ If you want to refer to columns in your function, you should use <code>sequelize
       <td data-ice="name" class="code" data-depth="0">value</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"><p>An optional value to compare against. Produces a string of the form &quot;&lt;json path&gt; = &apos;&lt;value&gt;&apos;&quot;.</p>
+      <td data-ice="description"><p>An optional value to compare against. Produces a string of the form "&lt;json path&gt; = '&lt;value&gt;'".</p>
 </td>
     </tr>
 </tbody>
@@ -1756,7 +1756,7 @@ and bluebird Promise is patched to use the namespace, using <code>cls-bluebird</
   <div data-ice="description"><p>A way of specifying attr = condition.</p>
 <p>The attr can either be an object taken from <code>Model.rawAttributes</code> (for example <code>Model.rawAttributes.id</code> or <code>Model.rawAttributes.name</code>). The
 attribute should be defined in your model definition. The attribute can also be an object from one of the sequelize utility functions (<code>sequelize.fn</code>, <code>sequelize.col</code> etc.)</p>
-<p>For string attributes, use the regular <code>{ where: { attr: something }}</code> syntax. If you don&apos;t want your string to be escaped, use <code>sequelize.literal</code>.</p>
+<p>For string attributes, use the regular <code>{ where: { attr: something }}</code> syntax. If you don't want your string to be escaped, use <code>sequelize.literal</code>.</p>
 </div>
 
   
@@ -1780,7 +1780,7 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="name" class="code" data-depth="0">comparator</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;Op.eq&apos;</li></ul></td>
+<li>default: 'Op.eq'</li></ul></td>
       <td data-ice="description"><p>operator</p>
 </td>
     </tr>
@@ -1895,7 +1895,7 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="name" class="code" data-depth="1">options.host</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;localhost&apos;</li></ul></td>
+<li>default: 'localhost'</li></ul></td>
       <td data-ice="description"><p>The host of the relational database.</p>
 </td>
     </tr>
@@ -1943,7 +1943,7 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: null</li></ul></td>
-      <td data-ice="description"><p>If specified, use this dialect library. For example, if you want to use pg.js instead of pg when connecting to a pg database, you should specify &apos;require(&quot;pg.js&quot;)&apos; here</p>
+      <td data-ice="description"><p>If specified, use this dialect library. For example, if you want to use pg.js instead of pg when connecting to a pg database, you should specify 'require("pg.js")' here</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -1951,7 +1951,7 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: null</li></ul></td>
-      <td data-ice="description"><p>If specified, load the dialect library from this path. For example, if you want to use pg.js instead of pg when connecting to a pg database, you should specify &apos;/path/to/pg.js&apos; here</p>
+      <td data-ice="description"><p>If specified, load the dialect library from this path. For example, if you want to use pg.js instead of pg when connecting to a pg database, you should specify '/path/to/pg.js' here</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -1965,14 +1965,14 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="name" class="code" data-depth="1">options.storage</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"><p>Only used by sqlite. Defaults to &apos;:memory:&apos;</p>
+      <td data-ice="description"><p>Only used by sqlite. Defaults to ':memory:'</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.protocol</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;tcp&apos;</li></ul></td>
+<li>default: 'tcp'</li></ul></td>
       <td data-ice="description"><p>The protocol of the relational database.</p>
 </td>
     </tr>
@@ -2020,16 +2020,16 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="name" class="code" data-depth="1">options.timezone</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;+00:00&apos;</li></ul></td>
-      <td data-ice="description"><p>The timezone used when converting a date from the database into a JavaScript date. The timezone is also used to SET TIMEZONE when connecting to the server, to ensure that the result of NOW, CURRENT_TIMESTAMP and other time related functions have in the right timezone. For best cross platform performance use the format +/-HH:MM. Will also accept string versions of timezones used by moment.js (e.g. &apos;America/Los_Angeles&apos;); this is useful to capture daylight savings time changes.</p>
+<li>default: '+00:00'</li></ul></td>
+      <td data-ice="description"><p>The timezone used when converting a date from the database into a JavaScript date. The timezone is also used to SET TIMEZONE when connecting to the server, to ensure that the result of NOW, CURRENT_TIMESTAMP and other time related functions have in the right timezone. For best cross platform performance use the format +/-HH:MM. Will also accept string versions of timezones used by moment.js (e.g. 'America/Los_Angeles'); this is useful to capture daylight savings time changes.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.clientMinMessages</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;warning&apos;</li></ul></td>
-      <td data-ice="description"><p>The PostgreSQL <code>client_min_messages</code> session parameter. Set to <code>false</code> to not override the database&apos;s default.</p>
+<li>default: 'warning'</li></ul></td>
+      <td data-ice="description"><p>The PostgreSQL <code>client_min_messages</code> session parameter. Set to <code>false</code> to not override the database's default.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -2146,7 +2146,7 @@ attribute should be defined in your model definition. The attribute can also be 
       <td data-ice="name" class="code" data-depth="1">options.transactionType</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;DEFERRED&apos;</li></ul></td>
+<li>default: 'DEFERRED'</li></ul></td>
       <td data-ice="description"><p>Set the default transaction type. See <code>Sequelize.Transaction.TYPES</code> for possible options. Sqlite only.</p>
 </td>
     </tr>
@@ -2237,37 +2237,37 @@ attribute should be defined in your model definition. The attribute can also be 
   <div class="example-doc" data-ice="exampleDoc">
       
       <pre class="prettyprint source-code"><code data-ice="exampleCode">// without password / with blank password
-const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, null, {
-  dialect: &apos;mysql&apos;
+const sequelize = new Sequelize('database', 'username', null, {
+  dialect: 'mysql'
 })
 
 // with password and options
-const sequelize = new Sequelize(&apos;my_database&apos;, &apos;john&apos;, &apos;doe&apos;, {
-  dialect: &apos;postgres&apos;
+const sequelize = new Sequelize('my_database', 'john', 'doe', {
+  dialect: 'postgres'
 })
 
 // with database, username, and password in the options object
-const sequelize = new Sequelize({ database, username, password, dialect: &apos;mssql&apos; });
+const sequelize = new Sequelize({ database, username, password, dialect: 'mssql' });
 
 // with uri
-const sequelize = new Sequelize(&apos;mysql://localhost:3306/database&apos;, {})
+const sequelize = new Sequelize('mysql://localhost:3306/database', {})
 
 // option examples
-const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
+const sequelize = new Sequelize('database', 'username', 'password', {
   // the sql dialect of the database
-  // currently supported: &apos;mysql&apos;, &apos;sqlite&apos;, &apos;postgres&apos;, &apos;mssql&apos;
-  dialect: &apos;mysql&apos;,
+  // currently supported: 'mysql', 'sqlite', 'postgres', 'mssql'
+  dialect: 'mysql',
 
   // custom host; default: localhost
-  host: &apos;my.server.tld&apos;,
+  host: 'my.server.tld',
   // for postgres, you can also specify an absolute path to a directory
   // containing a UNIX socket to connect over
-  // host: &apos;/sockets/psql_sockets&apos;.
+  // host: '/sockets/psql_sockets'.
 
   // custom port; default: dialect default
   port: 12345,
 
-  // custom protocol; default: &apos;tcp&apos;
+  // custom protocol; default: 'tcp'
   // postgres only, useful for Heroku
   protocol: null,
 
@@ -2276,23 +2276,23 @@ const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apo
 
   // you can also pass any dialect options to the underlying dialect library
   // - default is empty
-  // - currently supported: &apos;mysql&apos;, &apos;postgres&apos;, &apos;mssql&apos;
+  // - currently supported: 'mysql', 'postgres', 'mssql'
   dialectOptions: {
-    socketPath: &apos;/Applications/MAMP/tmp/mysql/mysql.sock&apos;,
+    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
     supportBigNumbers: true,
     bigNumberStrings: true
   },
 
   // the storage engine for sqlite
-  // - default &apos;:memory:&apos;
-  storage: &apos;path/to/database.sqlite&apos;,
+  // - default ':memory:'
+  storage: 'path/to/database.sqlite',
 
   // disable inserting undefined values as NULL
   // - default: false
   omitNull: true,
 
   // a flag for using a native library or not.
-  // in the case of &apos;pg&apos; -- set this to true will allow SSL support
+  // in the case of 'pg' -- set this to true will allow SSL support
   // - default: false
   native: true,
 
@@ -2306,9 +2306,9 @@ const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apo
   define: {
     underscored: false,
     freezeTableName: false,
-    charset: &apos;utf8&apos;,
+    charset: 'utf8',
     dialectOptions: {
-      collate: &apos;utf8_general_ci&apos;
+      collate: 'utf8_general_ci'
     },
     timestamps: true
   },
@@ -2694,21 +2694,21 @@ not a database table. In mysql and sqlite, this command will do nothing.</p>
     
   <div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">sequelize.define(&apos;modelName&apos;, {
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">sequelize.define('modelName', {
   columnA: {
       type: Sequelize.BOOLEAN,
       validate: {
-        is: [&quot;[a-z]&quot;,&apos;i&apos;],        // will only allow letters
+        is: ["[a-z]",'i'],        // will only allow letters
         max: 23,                  // only allow values &lt;= 23
         isIn: {
-          args: [[&apos;en&apos;, &apos;zh&apos;]],
-          msg: &quot;Must be English or Chinese&quot;
+          args: [['en', 'zh']],
+          msg: "Must be English or Chinese"
         }
       },
-      field: &apos;column_a&apos;
+      field: 'column_a'
   },
   columnB: Sequelize.STRING,
-  columnC: &apos;MY VERY OWN COLUMN TYPE&apos;
+  columnC: 'MY VERY OWN COLUMN TYPE'
 });
 
 sequelize.models.modelName // The model will now be available in models under the name given to define</code></pre>
@@ -3476,12 +3476,12 @@ calls to import with the same path will not load the file multiple times.</p>
   
   <div data-ice="description"><p>Execute a query on the DB, optionally bypassing all the Sequelize goodness.</p>
 <p>By default, the function will return two arguments: an array of results, and a metadata object, containing number of affected rows etc.</p>
-<p>If you are running a type of query where you don&apos;t need the metadata, for example a <code>SELECT</code> query, you can pass in a query type to make sequelize format the results:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.query(&apos;SELECT...&apos;).then(([results, metadata]) =&gt; {
+<p>If you are running a type of query where you don't need the metadata, for example a <code>SELECT</code> query, you can pass in a query type to make sequelize format the results:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.query('SELECT...').then(([results, metadata]) =&gt; {
   // Raw query - use then plus array spread
 });
 
-sequelize.query(&apos;SELECT...&apos;, { type: sequelize.QueryTypes.SELECT }).then(results =&gt; {
+sequelize.query('SELECT...', { type: sequelize.QueryTypes.SELECT }).then(results =&gt; {
   // SELECT query - use then
 })</code>
 </code></pre>
@@ -3530,7 +3530,7 @@ sequelize.query(&apos;SELECT...&apos;, { type: sequelize.QueryTypes.SELECT }).th
       <td data-ice="name" class="code" data-depth="1">options.type</td>
       <td data-ice="type" class="code"><span><a href="variable/index.html#static-variable-QueryTypes">QueryTypes</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;RAW&apos;</li></ul></td>
+<li>default: 'RAW'</li></ul></td>
       <td data-ice="description"><p>The type of query you are executing. The query type affects how results are formatted before they are passed back. The type is a string, but <code>Sequelize.QueryTypes</code> is provided as convenience shortcuts.</p>
 </td>
     </tr>
@@ -3539,7 +3539,7 @@ sequelize.query(&apos;SELECT...&apos;, { type: sequelize.QueryTypes.SELECT }).th
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: false</li></ul></td>
-      <td data-ice="description"><p>If true, transforms objects with <code>.</code> separated property names into nested objects using <a href="https://github.com/mickhansen/dottie.js">dottie.js</a>. For example { &apos;user.username&apos;: &apos;john&apos; } becomes { user: { username: &apos;john&apos; }}. When <code>nest</code> is true, the query type is assumed to be <code>&apos;SELECT&apos;</code>, unless otherwise specified</p>
+      <td data-ice="description"><p>If true, transforms objects with <code>.</code> separated property names into nested objects using <a href="https://github.com/mickhansen/dottie.js">dottie.js</a>. For example { 'user.username': 'john' } becomes { user: { username: 'john' }}. When <code>nest</code> is true, the query type is assumed to be <code>'SELECT'</code>, unless otherwise specified</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -3635,7 +3635,7 @@ sequelize.query(&apos;SELECT...&apos;, { type: sequelize.QueryTypes.SELECT }).th
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: false</li></ul></td>
-      <td data-ice="description"><p>Map returned fields to model&apos;s fields if <code>options.model</code> or <code>options.instance</code> is present. Mapping will occur before building the model instance.</p>
+      <td data-ice="description"><p>Map returned fields to model's fields if <code>options.model</code> or <code>options.instance</code> is present. Mapping will occur before building the model instance.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -3973,7 +3973,7 @@ not a database table. In mysql and sqlite, this will show all tables.</p>
       <td data-ice="name" class="code" data-depth="1">options.schema</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;public&apos;</li></ul></td>
+<li>default: 'public'</li></ul></td>
       <td data-ice="description"><p>The schema that the tables should be created in. This can be overridden for each table in sequelize.define</p>
 </td>
     </tr>
@@ -4079,7 +4079,7 @@ not a database table. In mysql and sqlite, this will show all tables.</p>
       <td data-ice="name" class="code" data-depth="1">options.type</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: &apos;DEFERRED&apos;</li></ul></td>
+<li>default: 'DEFERRED'</li></ul></td>
       <td data-ice="description"><p>See <code>Sequelize.Transaction.TYPES</code> for possible options. Sqlite only.</p>
 </td>
     </tr>
@@ -4167,9 +4167,9 @@ sequelize.transaction(transaction =&gt; { // Note that we use a callback rather 
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">To enable CLS, add it do your project, create a namespace and set it on the sequelize constructor:</div>
       <pre class="prettyprint source-code"><code data-ice="exampleCode">
-const cls = require(&apos;continuation-local-storage&apos;);
-const ns = cls.createNamespace(&apos;....&apos;);
-const Sequelize = require(&apos;sequelize&apos;);
+const cls = require('continuation-local-storage');
+const ns = cls.createNamespace('....');
+const Sequelize = require('sequelize');
 Sequelize.useCLS(ns);
 
 // Note, that CLS is enabled for all sequelize instances, and all instances will share the same namespace</code></pre>

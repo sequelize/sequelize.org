@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2667,
+  "end": 3075,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 104,
+      "line": 106,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2667,
+    "end": 3075,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 104,
+        "line": 106,
         "column": 0
       }
     },
@@ -2246,9 +2246,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED Defer constraints checks to the end of transactions.\n * @property INITIALLY_IMMEDIATE Trigger the constraint checks immediately\n * @property NOT Set the constraints to not deferred. This is the default in PostgreSQL and it make it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED\n * @property SET_IMMEDIATE\n ",
+            "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED    Use when declaring a constraint. Allow and enable by default this constraint's checks to be deferred at the end of transactions.\n * @property INITIALLY_IMMEDIATE   Use when declaring a constraint. Allow the constraint's checks to be deferred at the end of transactions.\n * @property NOT                   Use when declaring a constraint. Set the constraint to not deferred. This is the default in PostgreSQL and makes it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED          Use when declaring a transaction. Defer the deferrable checks involved in this transaction at commit.\n * @property SET_IMMEDIATE         Use when declaring a transaction. Execute the deferrable checks involved in this transaction immediately.\n ",
             "start": 1015,
-            "end": 2352,
+            "end": 2770,
             "loc": {
               "start": {
                 "line": 59,
@@ -2264,8 +2264,8 @@
       },
       {
         "type": "VariableDeclaration",
-        "start": 2354,
-        "end": 2666,
+        "start": 2772,
+        "end": 3044,
         "loc": {
           "start": {
             "line": 97,
@@ -2279,8 +2279,8 @@
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 2360,
-            "end": 2665,
+            "start": 2778,
+            "end": 3043,
             "loc": {
               "start": {
                 "line": 97,
@@ -2293,8 +2293,8 @@
             },
             "id": {
               "type": "Identifier",
-              "start": 2360,
-              "end": 2370,
+              "start": 2778,
+              "end": 2788,
               "loc": {
                 "start": {
                   "line": 97,
@@ -2310,9 +2310,9 @@
               "leadingComments": null
             },
             "init": {
-              "type": "AssignmentExpression",
-              "start": 2373,
-              "end": 2665,
+              "type": "ObjectExpression",
+              "start": 2791,
+              "end": 3043,
               "loc": {
                 "start": {
                   "line": 97,
@@ -2323,76 +2323,28 @@
                   "column": 1
                 }
               },
-              "operator": "=",
-              "left": {
-                "type": "MemberExpression",
-                "start": 2373,
-                "end": 2387,
-                "loc": {
-                  "start": {
-                    "line": 97,
-                    "column": 19
-                  },
-                  "end": {
-                    "line": 97,
-                    "column": 33
-                  }
-                },
-                "object": {
-                  "type": "Identifier",
-                  "start": 2373,
-                  "end": 2379,
+              "properties": [
+                {
+                  "type": "ObjectProperty",
+                  "start": 2795,
+                  "end": 2851,
                   "loc": {
                     "start": {
-                      "line": 97,
-                      "column": 19
+                      "line": 98,
+                      "column": 2
                     },
                     "end": {
-                      "line": 97,
-                      "column": 25
-                    },
-                    "identifierName": "module"
+                      "line": 98,
+                      "column": 58
+                    }
                   },
-                  "name": "module"
-                },
-                "property": {
-                  "type": "Identifier",
-                  "start": 2380,
-                  "end": 2387,
-                  "loc": {
-                    "start": {
-                      "line": 97,
-                      "column": 26
-                    },
-                    "end": {
-                      "line": 97,
-                      "column": 33
-                    },
-                    "identifierName": "exports"
-                  },
-                  "name": "exports"
-                },
-                "computed": false
-              },
-              "right": {
-                "type": "ObjectExpression",
-                "start": 2390,
-                "end": 2665,
-                "loc": {
-                  "start": {
-                    "line": 97,
-                    "column": 36
-                  },
-                  "end": {
-                    "line": 103,
-                    "column": 1
-                  }
-                },
-                "properties": [
-                  {
-                    "type": "ObjectProperty",
-                    "start": 2417,
-                    "end": 2473,
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 2795,
+                    "end": 2813,
                     "loc": {
                       "start": {
                         "line": 98,
@@ -2400,34 +2352,30 @@
                       },
                       "end": {
                         "line": 98,
+                        "column": 20
+                      },
+                      "identifierName": "INITIALLY_DEFERRED"
+                    },
+                    "name": "INITIALLY_DEFERRED"
+                  },
+                  "value": {
+                    "type": "CallExpression",
+                    "start": 2815,
+                    "end": 2851,
+                    "loc": {
+                      "start": {
+                        "line": 98,
+                        "column": 22
+                      },
+                      "end": {
+                        "line": 98,
                         "column": 58
                       }
                     },
-                    "method": false,
-                    "shorthand": false,
-                    "computed": false,
-                    "key": {
+                    "callee": {
                       "type": "Identifier",
-                      "start": 2417,
-                      "end": 2435,
-                      "loc": {
-                        "start": {
-                          "line": 98,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 98,
-                          "column": 20
-                        },
-                        "identifierName": "INITIALLY_DEFERRED"
-                      },
-                      "name": "INITIALLY_DEFERRED",
-                      "leadingComments": null
-                    },
-                    "value": {
-                      "type": "CallExpression",
-                      "start": 2437,
-                      "end": 2473,
+                      "start": 2815,
+                      "end": 2831,
                       "loc": {
                         "start": {
                           "line": 98,
@@ -2435,69 +2383,54 @@
                         },
                         "end": {
                           "line": 98,
-                          "column": 58
-                        }
-                      },
-                      "callee": {
-                        "type": "Identifier",
-                        "start": 2437,
-                        "end": 2453,
-                        "loc": {
-                          "start": {
-                            "line": 98,
-                            "column": 22
-                          },
-                          "end": {
-                            "line": 98,
-                            "column": 38
-                          },
-                          "identifierName": "classToInvokable"
+                          "column": 38
                         },
-                        "name": "classToInvokable"
+                        "identifierName": "classToInvokable"
                       },
-                      "arguments": [
-                        {
-                          "type": "Identifier",
-                          "start": 2454,
-                          "end": 2472,
-                          "loc": {
-                            "start": {
-                              "line": 98,
-                              "column": 39
-                            },
-                            "end": {
-                              "line": 98,
-                              "column": 57
-                            },
-                            "identifierName": "INITIALLY_DEFERRED"
-                          },
-                          "name": "INITIALLY_DEFERRED"
-                        }
-                      ]
+                      "name": "classToInvokable"
                     },
-                    "leadingComments": [
+                    "arguments": [
                       {
-                        "type": "CommentLine",
-                        "value": " eslint-disable-line",
-                        "start": 2392,
-                        "end": 2414,
+                        "type": "Identifier",
+                        "start": 2832,
+                        "end": 2850,
                         "loc": {
                           "start": {
-                            "line": 97,
-                            "column": 38
+                            "line": 98,
+                            "column": 39
                           },
                           "end": {
-                            "line": 97,
-                            "column": 60
-                          }
-                        }
+                            "line": 98,
+                            "column": 57
+                          },
+                          "identifierName": "INITIALLY_DEFERRED"
+                        },
+                        "name": "INITIALLY_DEFERRED"
                       }
                     ]
+                  }
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 2855,
+                  "end": 2913,
+                  "loc": {
+                    "start": {
+                      "line": 99,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 99,
+                      "column": 60
+                    }
                   },
-                  {
-                    "type": "ObjectProperty",
-                    "start": 2477,
-                    "end": 2535,
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 2855,
+                    "end": 2874,
                     "loc": {
                       "start": {
                         "line": 99,
@@ -2505,33 +2438,30 @@
                       },
                       "end": {
                         "line": 99,
+                        "column": 21
+                      },
+                      "identifierName": "INITIALLY_IMMEDIATE"
+                    },
+                    "name": "INITIALLY_IMMEDIATE"
+                  },
+                  "value": {
+                    "type": "CallExpression",
+                    "start": 2876,
+                    "end": 2913,
+                    "loc": {
+                      "start": {
+                        "line": 99,
+                        "column": 23
+                      },
+                      "end": {
+                        "line": 99,
                         "column": 60
                       }
                     },
-                    "method": false,
-                    "shorthand": false,
-                    "computed": false,
-                    "key": {
+                    "callee": {
                       "type": "Identifier",
-                      "start": 2477,
-                      "end": 2496,
-                      "loc": {
-                        "start": {
-                          "line": 99,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 99,
-                          "column": 21
-                        },
-                        "identifierName": "INITIALLY_IMMEDIATE"
-                      },
-                      "name": "INITIALLY_IMMEDIATE"
-                    },
-                    "value": {
-                      "type": "CallExpression",
-                      "start": 2498,
-                      "end": 2535,
+                      "start": 2876,
+                      "end": 2892,
                       "loc": {
                         "start": {
                           "line": 99,
@@ -2539,51 +2469,54 @@
                         },
                         "end": {
                           "line": 99,
-                          "column": 60
-                        }
+                          "column": 39
+                        },
+                        "identifierName": "classToInvokable"
                       },
-                      "callee": {
+                      "name": "classToInvokable"
+                    },
+                    "arguments": [
+                      {
                         "type": "Identifier",
-                        "start": 2498,
-                        "end": 2514,
+                        "start": 2893,
+                        "end": 2912,
                         "loc": {
                           "start": {
                             "line": 99,
-                            "column": 23
+                            "column": 40
                           },
                           "end": {
                             "line": 99,
-                            "column": 39
+                            "column": 59
                           },
-                          "identifierName": "classToInvokable"
+                          "identifierName": "INITIALLY_IMMEDIATE"
                         },
-                        "name": "classToInvokable"
-                      },
-                      "arguments": [
-                        {
-                          "type": "Identifier",
-                          "start": 2515,
-                          "end": 2534,
-                          "loc": {
-                            "start": {
-                              "line": 99,
-                              "column": 40
-                            },
-                            "end": {
-                              "line": 99,
-                              "column": 59
-                            },
-                            "identifierName": "INITIALLY_IMMEDIATE"
-                          },
-                          "name": "INITIALLY_IMMEDIATE"
-                        }
-                      ]
+                        "name": "INITIALLY_IMMEDIATE"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 2917,
+                  "end": 2943,
+                  "loc": {
+                    "start": {
+                      "line": 100,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 100,
+                      "column": 28
                     }
                   },
-                  {
-                    "type": "ObjectProperty",
-                    "start": 2539,
-                    "end": 2565,
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 2917,
+                    "end": 2920,
                     "loc": {
                       "start": {
                         "line": 100,
@@ -2591,33 +2524,30 @@
                       },
                       "end": {
                         "line": 100,
+                        "column": 5
+                      },
+                      "identifierName": "NOT"
+                    },
+                    "name": "NOT"
+                  },
+                  "value": {
+                    "type": "CallExpression",
+                    "start": 2922,
+                    "end": 2943,
+                    "loc": {
+                      "start": {
+                        "line": 100,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 100,
                         "column": 28
                       }
                     },
-                    "method": false,
-                    "shorthand": false,
-                    "computed": false,
-                    "key": {
+                    "callee": {
                       "type": "Identifier",
-                      "start": 2539,
-                      "end": 2542,
-                      "loc": {
-                        "start": {
-                          "line": 100,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 100,
-                          "column": 5
-                        },
-                        "identifierName": "NOT"
-                      },
-                      "name": "NOT"
-                    },
-                    "value": {
-                      "type": "CallExpression",
-                      "start": 2544,
-                      "end": 2565,
+                      "start": 2922,
+                      "end": 2938,
                       "loc": {
                         "start": {
                           "line": 100,
@@ -2625,51 +2555,54 @@
                         },
                         "end": {
                           "line": 100,
-                          "column": 28
-                        }
+                          "column": 23
+                        },
+                        "identifierName": "classToInvokable"
                       },
-                      "callee": {
+                      "name": "classToInvokable"
+                    },
+                    "arguments": [
+                      {
                         "type": "Identifier",
-                        "start": 2544,
-                        "end": 2560,
+                        "start": 2939,
+                        "end": 2942,
                         "loc": {
                           "start": {
                             "line": 100,
-                            "column": 7
+                            "column": 24
                           },
                           "end": {
                             "line": 100,
-                            "column": 23
+                            "column": 27
                           },
-                          "identifierName": "classToInvokable"
+                          "identifierName": "NOT"
                         },
-                        "name": "classToInvokable"
-                      },
-                      "arguments": [
-                        {
-                          "type": "Identifier",
-                          "start": 2561,
-                          "end": 2564,
-                          "loc": {
-                            "start": {
-                              "line": 100,
-                              "column": 24
-                            },
-                            "end": {
-                              "line": 100,
-                              "column": 27
-                            },
-                            "identifierName": "NOT"
-                          },
-                          "name": "NOT"
-                        }
-                      ]
+                        "name": "NOT"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 2947,
+                  "end": 2991,
+                  "loc": {
+                    "start": {
+                      "line": 101,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 101,
+                      "column": 46
                     }
                   },
-                  {
-                    "type": "ObjectProperty",
-                    "start": 2569,
-                    "end": 2613,
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 2947,
+                    "end": 2959,
                     "loc": {
                       "start": {
                         "line": 101,
@@ -2677,33 +2610,30 @@
                       },
                       "end": {
                         "line": 101,
+                        "column": 14
+                      },
+                      "identifierName": "SET_DEFERRED"
+                    },
+                    "name": "SET_DEFERRED"
+                  },
+                  "value": {
+                    "type": "CallExpression",
+                    "start": 2961,
+                    "end": 2991,
+                    "loc": {
+                      "start": {
+                        "line": 101,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 101,
                         "column": 46
                       }
                     },
-                    "method": false,
-                    "shorthand": false,
-                    "computed": false,
-                    "key": {
+                    "callee": {
                       "type": "Identifier",
-                      "start": 2569,
-                      "end": 2581,
-                      "loc": {
-                        "start": {
-                          "line": 101,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 101,
-                          "column": 14
-                        },
-                        "identifierName": "SET_DEFERRED"
-                      },
-                      "name": "SET_DEFERRED"
-                    },
-                    "value": {
-                      "type": "CallExpression",
-                      "start": 2583,
-                      "end": 2613,
+                      "start": 2961,
+                      "end": 2977,
                       "loc": {
                         "start": {
                           "line": 101,
@@ -2711,51 +2641,54 @@
                         },
                         "end": {
                           "line": 101,
-                          "column": 46
-                        }
+                          "column": 32
+                        },
+                        "identifierName": "classToInvokable"
                       },
-                      "callee": {
+                      "name": "classToInvokable"
+                    },
+                    "arguments": [
+                      {
                         "type": "Identifier",
-                        "start": 2583,
-                        "end": 2599,
+                        "start": 2978,
+                        "end": 2990,
                         "loc": {
                           "start": {
                             "line": 101,
-                            "column": 16
+                            "column": 33
                           },
                           "end": {
                             "line": 101,
-                            "column": 32
+                            "column": 45
                           },
-                          "identifierName": "classToInvokable"
+                          "identifierName": "SET_DEFERRED"
                         },
-                        "name": "classToInvokable"
-                      },
-                      "arguments": [
-                        {
-                          "type": "Identifier",
-                          "start": 2600,
-                          "end": 2612,
-                          "loc": {
-                            "start": {
-                              "line": 101,
-                              "column": 33
-                            },
-                            "end": {
-                              "line": 101,
-                              "column": 45
-                            },
-                            "identifierName": "SET_DEFERRED"
-                          },
-                          "name": "SET_DEFERRED"
-                        }
-                      ]
+                        "name": "SET_DEFERRED"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 2995,
+                  "end": 3041,
+                  "loc": {
+                    "start": {
+                      "line": 102,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 102,
+                      "column": 48
                     }
                   },
-                  {
-                    "type": "ObjectProperty",
-                    "start": 2617,
-                    "end": 2663,
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 2995,
+                    "end": 3008,
                     "loc": {
                       "start": {
                         "line": 102,
@@ -2763,33 +2696,30 @@
                       },
                       "end": {
                         "line": 102,
+                        "column": 15
+                      },
+                      "identifierName": "SET_IMMEDIATE"
+                    },
+                    "name": "SET_IMMEDIATE"
+                  },
+                  "value": {
+                    "type": "CallExpression",
+                    "start": 3010,
+                    "end": 3041,
+                    "loc": {
+                      "start": {
+                        "line": 102,
+                        "column": 17
+                      },
+                      "end": {
+                        "line": 102,
                         "column": 48
                       }
                     },
-                    "method": false,
-                    "shorthand": false,
-                    "computed": false,
-                    "key": {
+                    "callee": {
                       "type": "Identifier",
-                      "start": 2617,
-                      "end": 2630,
-                      "loc": {
-                        "start": {
-                          "line": 102,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 102,
-                          "column": 15
-                        },
-                        "identifierName": "SET_IMMEDIATE"
-                      },
-                      "name": "SET_IMMEDIATE"
-                    },
-                    "value": {
-                      "type": "CallExpression",
-                      "start": 2632,
-                      "end": 2663,
+                      "start": 3010,
+                      "end": 3026,
                       "loc": {
                         "start": {
                           "line": 102,
@@ -2797,49 +2727,34 @@
                         },
                         "end": {
                           "line": 102,
-                          "column": 48
-                        }
+                          "column": 33
+                        },
+                        "identifierName": "classToInvokable"
                       },
-                      "callee": {
+                      "name": "classToInvokable"
+                    },
+                    "arguments": [
+                      {
                         "type": "Identifier",
-                        "start": 2632,
-                        "end": 2648,
+                        "start": 3027,
+                        "end": 3040,
                         "loc": {
                           "start": {
                             "line": 102,
-                            "column": 17
+                            "column": 34
                           },
                           "end": {
                             "line": 102,
-                            "column": 33
+                            "column": 47
                           },
-                          "identifierName": "classToInvokable"
+                          "identifierName": "SET_IMMEDIATE"
                         },
-                        "name": "classToInvokable"
-                      },
-                      "arguments": [
-                        {
-                          "type": "Identifier",
-                          "start": 2649,
-                          "end": 2662,
-                          "loc": {
-                            "start": {
-                              "line": 102,
-                              "column": 34
-                            },
-                            "end": {
-                              "line": 102,
-                              "column": 47
-                            },
-                            "identifierName": "SET_IMMEDIATE"
-                          },
-                          "name": "SET_IMMEDIATE"
-                        }
-                      ]
-                    }
+                        "name": "SET_IMMEDIATE"
+                      }
+                    ]
                   }
-                ]
-              }
+                }
+              ]
             },
             "leadingComments": null
           }
@@ -2848,9 +2763,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED Defer constraints checks to the end of transactions.\n * @property INITIALLY_IMMEDIATE Trigger the constraint checks immediately\n * @property NOT Set the constraints to not deferred. This is the default in PostgreSQL and it make it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED\n * @property SET_IMMEDIATE\n ",
+            "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED    Use when declaring a constraint. Allow and enable by default this constraint's checks to be deferred at the end of transactions.\n * @property INITIALLY_IMMEDIATE   Use when declaring a constraint. Allow the constraint's checks to be deferred at the end of transactions.\n * @property NOT                   Use when declaring a constraint. Set the constraint to not deferred. This is the default in PostgreSQL and makes it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED          Use when declaring a transaction. Defer the deferrable checks involved in this transaction at commit.\n * @property SET_IMMEDIATE         Use when declaring a transaction. Execute the deferrable checks involved in this transaction immediately.\n ",
             "start": 1015,
-            "end": 2352,
+            "end": 2770,
             "loc": {
               "start": {
                 "line": 59,
@@ -2863,6 +2778,104 @@
             }
           }
         ]
+      },
+      {
+        "type": "ExpressionStatement",
+        "start": 3046,
+        "end": 3074,
+        "loc": {
+          "start": {
+            "line": 105,
+            "column": 0
+          },
+          "end": {
+            "line": 105,
+            "column": 28
+          }
+        },
+        "expression": {
+          "type": "AssignmentExpression",
+          "start": 3046,
+          "end": 3073,
+          "loc": {
+            "start": {
+              "line": 105,
+              "column": 0
+            },
+            "end": {
+              "line": 105,
+              "column": 27
+            }
+          },
+          "operator": "=",
+          "left": {
+            "type": "MemberExpression",
+            "start": 3046,
+            "end": 3060,
+            "loc": {
+              "start": {
+                "line": 105,
+                "column": 0
+              },
+              "end": {
+                "line": 105,
+                "column": 14
+              }
+            },
+            "object": {
+              "type": "Identifier",
+              "start": 3046,
+              "end": 3052,
+              "loc": {
+                "start": {
+                  "line": 105,
+                  "column": 0
+                },
+                "end": {
+                  "line": 105,
+                  "column": 6
+                },
+                "identifierName": "module"
+              },
+              "name": "module"
+            },
+            "property": {
+              "type": "Identifier",
+              "start": 3053,
+              "end": 3060,
+              "loc": {
+                "start": {
+                  "line": 105,
+                  "column": 7
+                },
+                "end": {
+                  "line": 105,
+                  "column": 14
+                },
+                "identifierName": "exports"
+              },
+              "name": "exports"
+            },
+            "computed": false
+          },
+          "right": {
+            "type": "Identifier",
+            "start": 3063,
+            "end": 3073,
+            "loc": {
+              "start": {
+                "line": 105,
+                "column": 17
+              },
+              "end": {
+                "line": 105,
+                "column": 27
+              },
+              "identifierName": "Deferrable"
+            },
+            "name": "Deferrable"
+          }
+        }
       }
     ],
     "directives": [
@@ -2906,9 +2919,9 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED Defer constraints checks to the end of transactions.\n * @property INITIALLY_IMMEDIATE Trigger the constraint checks immediately\n * @property NOT Set the constraints to not deferred. This is the default in PostgreSQL and it make it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED\n * @property SET_IMMEDIATE\n ",
+      "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED    Use when declaring a constraint. Allow and enable by default this constraint's checks to be deferred at the end of transactions.\n * @property INITIALLY_IMMEDIATE   Use when declaring a constraint. Allow the constraint's checks to be deferred at the end of transactions.\n * @property NOT                   Use when declaring a constraint. Set the constraint to not deferred. This is the default in PostgreSQL and makes it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED          Use when declaring a transaction. Defer the deferrable checks involved in this transaction at commit.\n * @property SET_IMMEDIATE         Use when declaring a transaction. Execute the deferrable checks involved in this transaction immediately.\n ",
       "start": 1015,
-      "end": 2352,
+      "end": 2770,
       "loc": {
         "start": {
           "line": 59,
@@ -2917,22 +2930,6 @@
         "end": {
           "line": 95,
           "column": 3
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": " eslint-disable-line",
-      "start": 2392,
-      "end": 2414,
-      "loc": {
-        "start": {
-          "line": 97,
-          "column": 38
-        },
-        "end": {
-          "line": 97,
-          "column": 60
         }
       }
     }
@@ -7669,9 +7666,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED Defer constraints checks to the end of transactions.\n * @property INITIALLY_IMMEDIATE Trigger the constraint checks immediately\n * @property NOT Set the constraints to not deferred. This is the default in PostgreSQL and it make it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED\n * @property SET_IMMEDIATE\n ",
+      "value": "*\n * A collection of properties related to deferrable constraints. It can be used to\n * make foreign key constraints deferrable and to set the constraints within a\n * transaction. This is only supported in PostgreSQL.\n *\n * The foreign keys can be configured like this. It will create a foreign key\n * that will check the constraints immediately when the data was inserted.\n *\n * ```js\n * sequelize.define('Model', {\n *   foreign_id: {\n *     type: Sequelize.INTEGER,\n *     references: {\n *       model: OtherModel,\n *       key: 'id',\n *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE\n *     }\n *   }\n * });\n * ```\n *\n * The constraints can be configured in a transaction like this. It will\n * trigger a query once the transaction has been started and set the constraints\n * to be checked at the very end of the transaction.\n *\n * ```js\n * sequelize.transaction({\n *   deferrable: Sequelize.Deferrable.SET_DEFERRED\n * });\n * ```\n *\n * @property INITIALLY_DEFERRED    Use when declaring a constraint. Allow and enable by default this constraint's checks to be deferred at the end of transactions.\n * @property INITIALLY_IMMEDIATE   Use when declaring a constraint. Allow the constraint's checks to be deferred at the end of transactions.\n * @property NOT                   Use when declaring a constraint. Set the constraint to not deferred. This is the default in PostgreSQL and makes it impossible to dynamically defer the constraints within a transaction.\n * @property SET_DEFERRED          Use when declaring a transaction. Defer the deferrable checks involved in this transaction at commit.\n * @property SET_IMMEDIATE         Use when declaring a transaction. Execute the deferrable checks involved in this transaction immediately.\n ",
       "start": 1015,
-      "end": 2352,
+      "end": 2770,
       "loc": {
         "start": {
           "line": 59,
@@ -7698,8 +7695,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 2354,
-      "end": 2359,
+      "start": 2772,
+      "end": 2777,
       "loc": {
         "start": {
           "line": 97,
@@ -7724,8 +7721,8 @@
         "binop": null
       },
       "value": "Deferrable",
-      "start": 2360,
-      "end": 2370,
+      "start": 2778,
+      "end": 2788,
       "loc": {
         "start": {
           "line": 97,
@@ -7751,8 +7748,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 2371,
-      "end": 2372,
+      "start": 2789,
+      "end": 2790,
       "loc": {
         "start": {
           "line": 97,
@@ -7761,111 +7758,6 @@
         "end": {
           "line": 97,
           "column": 18
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "module",
-      "start": 2373,
-      "end": 2379,
-      "loc": {
-        "start": {
-          "line": 97,
-          "column": 19
-        },
-        "end": {
-          "line": 97,
-          "column": 25
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ".",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 2379,
-      "end": 2380,
-      "loc": {
-        "start": {
-          "line": 97,
-          "column": 25
-        },
-        "end": {
-          "line": 97,
-          "column": 26
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "exports",
-      "start": 2380,
-      "end": 2387,
-      "loc": {
-        "start": {
-          "line": 97,
-          "column": 26
-        },
-        "end": {
-          "line": 97,
-          "column": 33
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 2388,
-      "end": 2389,
-      "loc": {
-        "start": {
-          "line": 97,
-          "column": 34
-        },
-        "end": {
-          "line": 97,
-          "column": 35
         }
       }
     },
@@ -7881,32 +7773,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2390,
-      "end": 2391,
+      "start": 2791,
+      "end": 2792,
       "loc": {
         "start": {
           "line": 97,
-          "column": 36
+          "column": 19
         },
         "end": {
           "line": 97,
-          "column": 37
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": " eslint-disable-line",
-      "start": 2392,
-      "end": 2414,
-      "loc": {
-        "start": {
-          "line": 97,
-          "column": 38
-        },
-        "end": {
-          "line": 97,
-          "column": 60
+          "column": 20
         }
       }
     },
@@ -7923,8 +7799,8 @@
         "binop": null
       },
       "value": "INITIALLY_DEFERRED",
-      "start": 2417,
-      "end": 2435,
+      "start": 2795,
+      "end": 2813,
       "loc": {
         "start": {
           "line": 98,
@@ -7949,8 +7825,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2435,
-      "end": 2436,
+      "start": 2813,
+      "end": 2814,
       "loc": {
         "start": {
           "line": 98,
@@ -7975,8 +7851,8 @@
         "binop": null
       },
       "value": "classToInvokable",
-      "start": 2437,
-      "end": 2453,
+      "start": 2815,
+      "end": 2831,
       "loc": {
         "start": {
           "line": 98,
@@ -8000,8 +7876,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2453,
-      "end": 2454,
+      "start": 2831,
+      "end": 2832,
       "loc": {
         "start": {
           "line": 98,
@@ -8026,8 +7902,8 @@
         "binop": null
       },
       "value": "INITIALLY_DEFERRED",
-      "start": 2454,
-      "end": 2472,
+      "start": 2832,
+      "end": 2850,
       "loc": {
         "start": {
           "line": 98,
@@ -8051,8 +7927,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2472,
-      "end": 2473,
+      "start": 2850,
+      "end": 2851,
       "loc": {
         "start": {
           "line": 98,
@@ -8077,8 +7953,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2473,
-      "end": 2474,
+      "start": 2851,
+      "end": 2852,
       "loc": {
         "start": {
           "line": 98,
@@ -8103,8 +7979,8 @@
         "binop": null
       },
       "value": "INITIALLY_IMMEDIATE",
-      "start": 2477,
-      "end": 2496,
+      "start": 2855,
+      "end": 2874,
       "loc": {
         "start": {
           "line": 99,
@@ -8129,8 +8005,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2496,
-      "end": 2497,
+      "start": 2874,
+      "end": 2875,
       "loc": {
         "start": {
           "line": 99,
@@ -8155,8 +8031,8 @@
         "binop": null
       },
       "value": "classToInvokable",
-      "start": 2498,
-      "end": 2514,
+      "start": 2876,
+      "end": 2892,
       "loc": {
         "start": {
           "line": 99,
@@ -8180,8 +8056,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2514,
-      "end": 2515,
+      "start": 2892,
+      "end": 2893,
       "loc": {
         "start": {
           "line": 99,
@@ -8206,8 +8082,8 @@
         "binop": null
       },
       "value": "INITIALLY_IMMEDIATE",
-      "start": 2515,
-      "end": 2534,
+      "start": 2893,
+      "end": 2912,
       "loc": {
         "start": {
           "line": 99,
@@ -8231,8 +8107,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2534,
-      "end": 2535,
+      "start": 2912,
+      "end": 2913,
       "loc": {
         "start": {
           "line": 99,
@@ -8257,8 +8133,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2535,
-      "end": 2536,
+      "start": 2913,
+      "end": 2914,
       "loc": {
         "start": {
           "line": 99,
@@ -8283,8 +8159,8 @@
         "binop": null
       },
       "value": "NOT",
-      "start": 2539,
-      "end": 2542,
+      "start": 2917,
+      "end": 2920,
       "loc": {
         "start": {
           "line": 100,
@@ -8309,8 +8185,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2542,
-      "end": 2543,
+      "start": 2920,
+      "end": 2921,
       "loc": {
         "start": {
           "line": 100,
@@ -8335,8 +8211,8 @@
         "binop": null
       },
       "value": "classToInvokable",
-      "start": 2544,
-      "end": 2560,
+      "start": 2922,
+      "end": 2938,
       "loc": {
         "start": {
           "line": 100,
@@ -8360,8 +8236,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2560,
-      "end": 2561,
+      "start": 2938,
+      "end": 2939,
       "loc": {
         "start": {
           "line": 100,
@@ -8386,8 +8262,8 @@
         "binop": null
       },
       "value": "NOT",
-      "start": 2561,
-      "end": 2564,
+      "start": 2939,
+      "end": 2942,
       "loc": {
         "start": {
           "line": 100,
@@ -8411,8 +8287,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2564,
-      "end": 2565,
+      "start": 2942,
+      "end": 2943,
       "loc": {
         "start": {
           "line": 100,
@@ -8437,8 +8313,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2565,
-      "end": 2566,
+      "start": 2943,
+      "end": 2944,
       "loc": {
         "start": {
           "line": 100,
@@ -8463,8 +8339,8 @@
         "binop": null
       },
       "value": "SET_DEFERRED",
-      "start": 2569,
-      "end": 2581,
+      "start": 2947,
+      "end": 2959,
       "loc": {
         "start": {
           "line": 101,
@@ -8489,8 +8365,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2581,
-      "end": 2582,
+      "start": 2959,
+      "end": 2960,
       "loc": {
         "start": {
           "line": 101,
@@ -8515,8 +8391,8 @@
         "binop": null
       },
       "value": "classToInvokable",
-      "start": 2583,
-      "end": 2599,
+      "start": 2961,
+      "end": 2977,
       "loc": {
         "start": {
           "line": 101,
@@ -8540,8 +8416,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2599,
-      "end": 2600,
+      "start": 2977,
+      "end": 2978,
       "loc": {
         "start": {
           "line": 101,
@@ -8566,8 +8442,8 @@
         "binop": null
       },
       "value": "SET_DEFERRED",
-      "start": 2600,
-      "end": 2612,
+      "start": 2978,
+      "end": 2990,
       "loc": {
         "start": {
           "line": 101,
@@ -8591,8 +8467,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2612,
-      "end": 2613,
+      "start": 2990,
+      "end": 2991,
       "loc": {
         "start": {
           "line": 101,
@@ -8617,8 +8493,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2613,
-      "end": 2614,
+      "start": 2991,
+      "end": 2992,
       "loc": {
         "start": {
           "line": 101,
@@ -8643,8 +8519,8 @@
         "binop": null
       },
       "value": "SET_IMMEDIATE",
-      "start": 2617,
-      "end": 2630,
+      "start": 2995,
+      "end": 3008,
       "loc": {
         "start": {
           "line": 102,
@@ -8669,8 +8545,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2630,
-      "end": 2631,
+      "start": 3008,
+      "end": 3009,
       "loc": {
         "start": {
           "line": 102,
@@ -8695,8 +8571,8 @@
         "binop": null
       },
       "value": "classToInvokable",
-      "start": 2632,
-      "end": 2648,
+      "start": 3010,
+      "end": 3026,
       "loc": {
         "start": {
           "line": 102,
@@ -8720,8 +8596,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2648,
-      "end": 2649,
+      "start": 3026,
+      "end": 3027,
       "loc": {
         "start": {
           "line": 102,
@@ -8746,8 +8622,8 @@
         "binop": null
       },
       "value": "SET_IMMEDIATE",
-      "start": 2649,
-      "end": 2662,
+      "start": 3027,
+      "end": 3040,
       "loc": {
         "start": {
           "line": 102,
@@ -8771,8 +8647,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2662,
-      "end": 2663,
+      "start": 3040,
+      "end": 3041,
       "loc": {
         "start": {
           "line": 102,
@@ -8796,8 +8672,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2664,
-      "end": 2665,
+      "start": 3042,
+      "end": 3043,
       "loc": {
         "start": {
           "line": 103,
@@ -8822,8 +8698,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2665,
-      "end": 2666,
+      "start": 3043,
+      "end": 3044,
       "loc": {
         "start": {
           "line": 103,
@@ -8832,6 +8708,163 @@
         "end": {
           "line": 103,
           "column": 2
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "module",
+      "start": 3046,
+      "end": 3052,
+      "loc": {
+        "start": {
+          "line": 105,
+          "column": 0
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 3052,
+      "end": 3053,
+      "loc": {
+        "start": {
+          "line": 105,
+          "column": 6
+        },
+        "end": {
+          "line": 105,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "exports",
+      "start": 3053,
+      "end": 3060,
+      "loc": {
+        "start": {
+          "line": 105,
+          "column": 7
+        },
+        "end": {
+          "line": 105,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 3061,
+      "end": 3062,
+      "loc": {
+        "start": {
+          "line": 105,
+          "column": 15
+        },
+        "end": {
+          "line": 105,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Deferrable",
+      "start": 3063,
+      "end": 3073,
+      "loc": {
+        "start": {
+          "line": 105,
+          "column": 17
+        },
+        "end": {
+          "line": 105,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 3073,
+      "end": 3074,
+      "loc": {
+        "start": {
+          "line": 105,
+          "column": 27
+        },
+        "end": {
+          "line": 105,
+          "column": 28
         }
       }
     },
@@ -8848,15 +8881,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2667,
-      "end": 2667,
+      "start": 3075,
+      "end": 3075,
       "loc": {
         "start": {
-          "line": 104,
+          "line": 106,
           "column": 0
         },
         "end": {
-          "line": 104,
+          "line": 106,
           "column": 0
         }
       }

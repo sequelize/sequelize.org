@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,13 +112,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mariadb/data-types.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const moment = require(&apos;moment-timezone&apos;);
+const _ = require('lodash');
+const moment = require('moment-timezone');
 
 module.exports = BaseTypes =&gt; {
-  BaseTypes.ABSTRACT.prototype.dialectTypes = &apos;https://mariadb.com/kb/en/library/resultset/#field-types&apos;;
+  BaseTypes.ABSTRACT.prototype.dialectTypes = 'https://mariadb.com/kb/en/library/resultset/#field-types';
 
   /**
    * types: [buffer_type, ...]
@@ -126,36 +126,36 @@ module.exports = BaseTypes =&gt; {
    * @see connector implementation : https://github.com/MariaDB/mariadb-connector-nodejs/blob/master/lib/const/field-type.js
    */
 
-  BaseTypes.DATE.types.mariadb = [&apos;DATETIME&apos;];
-  BaseTypes.STRING.types.mariadb = [&apos;VAR_STRING&apos;];
-  BaseTypes.CHAR.types.mariadb = [&apos;STRING&apos;];
-  BaseTypes.TEXT.types.mariadb = [&apos;BLOB&apos;];
-  BaseTypes.TINYINT.types.mariadb = [&apos;TINY&apos;];
-  BaseTypes.SMALLINT.types.mariadb = [&apos;SHORT&apos;];
-  BaseTypes.MEDIUMINT.types.mariadb = [&apos;INT24&apos;];
-  BaseTypes.INTEGER.types.mariadb = [&apos;LONG&apos;];
-  BaseTypes.BIGINT.types.mariadb = [&apos;LONGLONG&apos;];
-  BaseTypes.FLOAT.types.mariadb = [&apos;FLOAT&apos;];
-  BaseTypes.TIME.types.mariadb = [&apos;TIME&apos;];
-  BaseTypes.DATEONLY.types.mariadb = [&apos;DATE&apos;];
-  BaseTypes.BOOLEAN.types.mariadb = [&apos;TINY&apos;];
-  BaseTypes.BLOB.types.mariadb = [&apos;TINYBLOB&apos;, &apos;BLOB&apos;, &apos;LONGBLOB&apos;];
-  BaseTypes.DECIMAL.types.mariadb = [&apos;NEWDECIMAL&apos;];
+  BaseTypes.DATE.types.mariadb = ['DATETIME'];
+  BaseTypes.STRING.types.mariadb = ['VAR_STRING'];
+  BaseTypes.CHAR.types.mariadb = ['STRING'];
+  BaseTypes.TEXT.types.mariadb = ['BLOB'];
+  BaseTypes.TINYINT.types.mariadb = ['TINY'];
+  BaseTypes.SMALLINT.types.mariadb = ['SHORT'];
+  BaseTypes.MEDIUMINT.types.mariadb = ['INT24'];
+  BaseTypes.INTEGER.types.mariadb = ['LONG'];
+  BaseTypes.BIGINT.types.mariadb = ['LONGLONG'];
+  BaseTypes.FLOAT.types.mariadb = ['FLOAT'];
+  BaseTypes.TIME.types.mariadb = ['TIME'];
+  BaseTypes.DATEONLY.types.mariadb = ['DATE'];
+  BaseTypes.BOOLEAN.types.mariadb = ['TINY'];
+  BaseTypes.BLOB.types.mariadb = ['TINYBLOB', 'BLOB', 'LONGBLOB'];
+  BaseTypes.DECIMAL.types.mariadb = ['NEWDECIMAL'];
   BaseTypes.UUID.types.mariadb = false;
   BaseTypes.ENUM.types.mariadb = false;
-  BaseTypes.REAL.types.mariadb = [&apos;DOUBLE&apos;];
-  BaseTypes.DOUBLE.types.mariadb = [&apos;DOUBLE&apos;];
-  BaseTypes.GEOMETRY.types.mariadb = [&apos;GEOMETRY&apos;];
-  BaseTypes.JSON.types.mariadb = [&apos;JSON&apos;];
+  BaseTypes.REAL.types.mariadb = ['DOUBLE'];
+  BaseTypes.DOUBLE.types.mariadb = ['DOUBLE'];
+  BaseTypes.GEOMETRY.types.mariadb = ['GEOMETRY'];
+  BaseTypes.JSON.types.mariadb = ['JSON'];
 
   class DECIMAL extends BaseTypes.DECIMAL {
     toSql() {
       let definition = super.toSql();
       if (this._unsigned) {
-        definition += &apos; UNSIGNED&apos;;
+        definition += ' UNSIGNED';
       }
       if (this._zerofill) {
-        definition += &apos; ZEROFILL&apos;;
+        definition += ' ZEROFILL';
       }
       return definition;
     }
@@ -163,11 +163,11 @@ module.exports = BaseTypes =&gt; {
 
   class DATE extends BaseTypes.DATE {
     toSql() {
-      return `DATETIME${this._length ? `(${this._length})` : &apos;&apos;}`;
+      return `DATETIME${this._length ? `(${this._length})` : ''}`;
     }
     _stringify(date, options) {
       date = this._applyTimezone(date, options);
-      return date.format(&apos;YYYY-MM-DD HH:mm:ss.SSS&apos;);
+      return date.format('YYYY-MM-DD HH:mm:ss.SSS');
     }
     static parse(value, options) {
       value = value.string();
@@ -192,7 +192,7 @@ module.exports = BaseTypes =&gt; {
 
   class UUID extends BaseTypes.UUID {
     toSql() {
-      return &apos;CHAR(36) BINARY&apos;;
+      return 'CHAR(36) BINARY';
     }
   }
 
@@ -213,13 +213,13 @@ module.exports = BaseTypes =&gt; {
 
   class ENUM extends BaseTypes.ENUM {
     toSql(options) {
-      return `ENUM(${this.values.map(value =&gt; options.escape(value)).join(&apos;, &apos;)})`;
+      return `ENUM(${this.values.map(value =&gt; options.escape(value)).join(', ')})`;
     }
   }
 
   class JSONTYPE extends BaseTypes.JSON {
     _stringify(value, options) {
-      return options.operation === &apos;where&apos; &amp;&amp; typeof value === &apos;string&apos; ? value
+      return options.operation === 'where' &amp;&amp; typeof value === 'string' ? value
         : JSON.stringify(value);
     }
   }

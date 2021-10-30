@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -395,7 +395,7 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="model-usage">Model usage</h1><h2 id="data-retrieval---finders">Data retrieval / Finders</h2><p>Finder methods are intended to query data from the database. They do <em>not</em> return plain objects but instead return model instances. Because finder methods return model instances you can call any model instance member on the result as described in the documentation for <a href="./manual/instances.html"><em>instances</em></a>.</p>
-<p>In this document we&apos;ll explore what finder methods can do:</p>
+<p>In this document we'll explore what finder methods can do:</p>
 <h3 id="-code-find--code----search-for-one-specific-element-in-the-database"><code>find</code> - Search for one specific element in the database</h3><pre><code class="lang-js"><code class="source-code prettyprint">// search for known ids
 Project.findByPk(123).then(project =&gt; {
   // project will be an instance of Project and stores the content of the table entry
@@ -403,24 +403,24 @@ Project.findByPk(123).then(project =&gt; {
 })
 
 // search for attributes
-Project.findOne({ where: {title: &apos;aProject&apos;} }).then(project =&gt; {
-  // project will be the first entry of the Projects table with the title &apos;aProject&apos; || null
+Project.findOne({ where: {title: 'aProject'} }).then(project =&gt; {
+  // project will be the first entry of the Projects table with the title 'aProject' || null
 })
 
 
 Project.findOne({
-  where: {title: &apos;aProject&apos;},
-  attributes: [&apos;id&apos;, [&apos;name&apos;, &apos;title&apos;]]
+  where: {title: 'aProject'},
+  attributes: ['id', ['name', 'title']]
 }).then(project =&gt; {
-  // project will be the first entry of the Projects table with the title &apos;aProject&apos; || null
-  // project.get(&apos;title&apos;) will contain the name of the project
+  // project will be the first entry of the Projects table with the title 'aProject' || null
+  // project.get('title') will contain the name of the project
 })</code>
 </code></pre>
 <h3 id="-code-findorcreate--code----search-for-a-specific-element-or-create-it-if-not-available"><code>findOrCreate</code> - Search for a specific element or create it if not available</h3><p>The method <code>findOrCreate</code> can be used to check if a certain element already exists in the database. If that is the case the method will result in a respective instance. If the element does not yet exist, it will be created.</p>
-<p>Let&apos;s assume we have an empty database with a <code>User</code> model which has a <code>username</code> and a <code>job</code>.</p>
+<p>Let's assume we have an empty database with a <code>User</code> model which has a <code>username</code> and a <code>job</code>.</p>
 <p><code>where</code> option will be appended to <code>defaults</code> for create case.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User
-  .findOrCreate({where: {username: &apos;sdepold&apos;}, defaults: {job: &apos;Technical Lead JavaScript&apos;}})
+  .findOrCreate({where: {username: 'sdepold'}, defaults: {job: 'Technical Lead JavaScript'}})
   .then(([user, created]) =&gt; {
     console.log(user.get({
       plain: true
@@ -432,8 +432,8 @@ Project.findOne({
      will be true if a new object was created and false if not, like so:
 
     [ {
-        username: &apos;sdepold&apos;,
-        job: &apos;Technical Lead JavaScript&apos;,
+        username: 'sdepold',
+        job: 'Technical Lead JavaScript',
         id: 1,
         createdAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET),
         updatedAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET)
@@ -441,15 +441,15 @@ Project.findOne({
       true ]
 
  In the example above, the array spread on line 3 divides the array into its 2 parts and passes them
-  as arguments to the callback function defined beginning at line 39, which treats them as &quot;user&quot; and
-  &quot;created&quot; in this case. (So &quot;user&quot; will be the object from index 0 of the returned array and
-  &quot;created&quot; will equal &quot;true&quot;.)
+  as arguments to the callback function defined beginning at line 39, which treats them as "user" and
+  "created" in this case. (So "user" will be the object from index 0 of the returned array and
+  "created" will equal "true".)
     */
   })</code>
 </code></pre>
 <p>The code created a new instance. So when we already have an instance ...</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">User.create({ username: &apos;fnord&apos;, job: &apos;omnomnom&apos; })
-  .then(() =&gt; User.findOrCreate({where: {username: &apos;fnord&apos;}, defaults: {job: &apos;something else&apos;}}))
+<pre><code class="lang-js"><code class="source-code prettyprint">User.create({ username: 'fnord', job: 'omnomnom' })
+  .then(() =&gt; User.findOrCreate({where: {username: 'fnord'}, defaults: {job: 'something else'}}))
   .then(([user, created]) =&gt; {
     console.log(user.get({
       plain: true
@@ -459,8 +459,8 @@ Project.findOne({
     /*
     In this example, findOrCreate returns an array like this:
     [ {
-        username: &apos;fnord&apos;,
-        job: &apos;omnomnom&apos;,
+        username: 'fnord',
+        job: 'omnomnom',
         id: 2,
         createdAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET),
         updatedAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET)
@@ -469,8 +469,8 @@ Project.findOne({
     ]
     The array returned by findOrCreate gets spread into its 2 parts by the array spread on line 3, and
     the parts will be passed as 2 arguments to the callback function beginning on line 69, which will
-    then treat them as &quot;user&quot; and &quot;created&quot; in this case. (So &quot;user&quot; will be the object from index 0
-    of the returned array and &quot;created&quot; will equal &quot;false&quot;.)
+    then treat them as "user" and "created" in this case. (So "user" will be the object from index 0
+    of the returned array and "created" will equal "false".)
     */
   })</code>
 </code></pre>
@@ -485,7 +485,7 @@ Project.findOne({
   .findAndCountAll({
      where: {
         title: {
-          [Op.like]: &apos;foo%&apos;
+          [Op.like]: 'foo%'
         }
      },
      offset: 10,
@@ -521,7 +521,7 @@ Project.findAll().then(projects =&gt; {
 })
 
 // search for specific attributes - hash usage
-Project.findAll({ where: { name: &apos;A Project&apos; } }).then(projects =&gt; {
+Project.findAll({ where: { name: 'A Project' } }).then(projects =&gt; {
   // projects will be an array of Project instances with the specified name
 })
 
@@ -545,10 +545,10 @@ Project.findAll({
       [Op.notBetween]: [11, 15], // NOT BETWEEN 11 AND 15
       [Op.in]: [1, 2],           // IN [1, 2]
       [Op.notIn]: [1, 2],        // NOT IN [1, 2]
-      [Op.like]: &apos;%hat&apos;,         // LIKE &apos;%hat&apos;
-      [Op.notLike]: &apos;%hat&apos;,       // NOT LIKE &apos;%hat&apos;
-      [Op.iLike]: &apos;%hat&apos;,         // ILIKE &apos;%hat&apos; (case insensitive)  (PG only)
-      [Op.notILike]: &apos;%hat&apos;,      // NOT ILIKE &apos;%hat&apos;  (PG only)
+      [Op.like]: '%hat',         // LIKE '%hat'
+      [Op.notLike]: '%hat',       // NOT LIKE '%hat'
+      [Op.iLike]: '%hat',         // ILIKE '%hat' (case insensitive)  (PG only)
+      [Op.notILike]: '%hat',      // NOT ILIKE '%hat'  (PG only)
       [Op.overlap]: [1, 2],       // &amp;&amp; [1, 2] (PG array overlap operator)
       [Op.contains]: [1, 2],      // @&gt; [1, 2] (PG array contains operator)
       [Op.contained]: [1, 2],     // &lt;@ [1, 2] (PG array contained by operator)
@@ -560,10 +560,10 @@ Project.findAll({
   }
 })</code>
 </code></pre>
-<h3 id="complex-filtering---or---not-queries">Complex filtering / OR / NOT queries</h3><p>It&apos;s possible to do complex where queries with multiple levels of nested AND, OR and NOT conditions. In order to do that you can use <code>or</code>, <code>and</code> or <code>not</code> <code>Operators</code>:</p>
+<h3 id="complex-filtering---or---not-queries">Complex filtering / OR / NOT queries</h3><p>It's possible to do complex where queries with multiple levels of nested AND, OR and NOT conditions. In order to do that you can use <code>or</code>, <code>and</code> or <code>not</code> <code>Operators</code>:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Project.findOne({
   where: {
-    name: &apos;a project&apos;,
+    name: 'a project',
     [Op.or]: [
       { id: [1,2,3] },
       { id: { [Op.gt]: 10 } }
@@ -573,7 +573,7 @@ Project.findAll({
 
 Project.findOne({
   where: {
-    name: &apos;a project&apos;,
+    name: 'a project',
     id: {
       [Op.or]: [
         [1,2,3],
@@ -587,7 +587,7 @@ Project.findOne({
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT *
 FROM `Projects`
 WHERE (
-  `Projects`.`name` = &apos;a project&apos;
+  `Projects`.`name` = 'a project'
    AND (`Projects`.`id` IN (1,2,3) OR `Projects`.`id` &gt; 10)
 )
 LIMIT 1;</code>
@@ -595,7 +595,7 @@ LIMIT 1;</code>
 <p><code>not</code> example:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Project.findOne({
   where: {
-    name: &apos;a project&apos;,
+    name: 'a project',
     [Op.not]: [
       { id: [1,2,3] },
       { array: { [Op.contains]: [3,4,5] } }
@@ -607,7 +607,7 @@ LIMIT 1;</code>
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT *
 FROM `Projects`
 WHERE (
-  `Projects`.`name` = &apos;a project&apos;
+  `Projects`.`name` = 'a project'
    AND NOT (`Projects`.`id` IN (1,2,3) OR `Projects`.`array` @&gt; ARRAY[3,4,5]::INTEGER[])
 )
 LIMIT 1;</code>
@@ -623,27 +623,27 @@ Project.findAll({ offset: 10 })
 Project.findAll({ offset: 10, limit: 2 })</code>
 </code></pre>
 <p>The syntax for grouping and ordering are equal, so below it is only explained with a single example for group, and the rest for order. Everything you see below can also be done for group</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Project.findAll({order: [[&apos;title&apos;, &apos;DESC&apos;]]})
+<pre><code class="lang-js"><code class="source-code prettyprint">Project.findAll({order: [['title', 'DESC']]})
 // yields ORDER BY title DESC
 
-Project.findAll({group: &apos;name&apos;})
+Project.findAll({group: 'name'})
 // yields GROUP BY name</code>
 </code></pre>
 <p>Notice how in the two examples above, the string provided is inserted verbatim into the query, i.e. column names are not escaped. When you provide a string to order/group, this will always be the case. If you want to escape column names, you should provide an array of arguments, even though you only want to order/group by a single column</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">something.findOne({
   order: [
     // will return `name`
-    [&apos;name&apos;],
+    ['name'],
     // will return `username` DESC
-    [&apos;username&apos;, &apos;DESC&apos;],
+    ['username', 'DESC'],
     // will return max(`age`)
-    sequelize.fn(&apos;max&apos;, sequelize.col(&apos;age&apos;)),
+    sequelize.fn('max', sequelize.col('age')),
     // will return max(`age`) DESC
-    [sequelize.fn(&apos;max&apos;, sequelize.col(&apos;age&apos;)), &apos;DESC&apos;],
-    // will return otherfunction(`col1`, 12, &apos;lalala&apos;) DESC
-    [sequelize.fn(&apos;otherfunction&apos;, sequelize.col(&apos;col1&apos;), 12, &apos;lalala&apos;), &apos;DESC&apos;],
+    [sequelize.fn('max', sequelize.col('age')), 'DESC'],
+    // will return otherfunction(`col1`, 12, 'lalala') DESC
+    [sequelize.fn('otherfunction', sequelize.col('col1'), 12, 'lalala'), 'DESC'],
     // will return otherfunction(awesomefunction(`col`)) DESC, This nesting is potentially infinite!
-    [sequelize.fn(&apos;otherfunction&apos;, sequelize.fn(&apos;awesomefunction&apos;, sequelize.col(&apos;col&apos;))), &apos;DESC&apos;]
+    [sequelize.fn('otherfunction', sequelize.fn('awesomefunction', sequelize.col('col'))), 'DESC']
   ]
 })</code>
 </code></pre>
@@ -658,99 +658,99 @@ Project.findAll({group: &apos;name&apos;})
 </li>
 <li>Sequelize.fn and Sequelize.col returns functions and quoted column names</li>
 </ul>
-<h3 id="raw-queries">Raw queries</h3><p>Sometimes you might be expecting a massive dataset that you just want to display, without manipulation. For each row you select, Sequelize creates an instance with functions for update, delete, get associations etc. If you have thousands of rows, this might take some time. If you only need the raw data and don&apos;t want to update anything, you can do like this to get the raw data.</p>
+<h3 id="raw-queries">Raw queries</h3><p>Sometimes you might be expecting a massive dataset that you just want to display, without manipulation. For each row you select, Sequelize creates an instance with functions for update, delete, get associations etc. If you have thousands of rows, this might take some time. If you only need the raw data and don't want to update anything, you can do like this to get the raw data.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// Are you expecting a massive dataset from the DB,
-// and don&apos;t want to spend the time building DAOs for each entry?
+// and don't want to spend the time building DAOs for each entry?
 // You can pass an extra query option to get the raw data instead:
 Project.findAll({ where: { ... }, raw: true })</code>
 </code></pre>
 <h3 id="-code-count--code----count-the-occurrences-of-elements-in-the-database"><code>count</code> - Count the occurrences of elements in the database</h3><p>There is also a method for counting database objects:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Project.count().then(c =&gt; {
-  console.log(&quot;There are &quot; + c + &quot; projects!&quot;)
+  console.log("There are " + c + " projects!")
 })
 
-Project.count({ where: {&apos;id&apos;: {[Op.gt]: 25}} }).then(c =&gt; {
-  console.log(&quot;There are &quot; + c + &quot; projects with an id greater than 25.&quot;)
+Project.count({ where: {'id': {[Op.gt]: 25}} }).then(c =&gt; {
+  console.log("There are " + c + " projects with an id greater than 25.")
 })</code>
 </code></pre>
 <h3 id="-code-max--code----get-the-greatest-value-of-a-specific-attribute-within-a-specific-table"><code>max</code> - Get the greatest value of a specific attribute within a specific table</h3><p>And here is a method for getting the max value of an attribute</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">/*
-  Let&apos;s assume 3 person objects with an attribute age.
+  Let's assume 3 person objects with an attribute age.
   The first one is 10 years old,
   the second one is 5 years old,
   the third one is 40 years old.
 */
-Project.max(&apos;age&apos;).then(max =&gt; {
+Project.max('age').then(max =&gt; {
   // this will return 40
 })
 
-Project.max(&apos;age&apos;, { where: { age: { [Op.lt]: 20 } } }).then(max =&gt; {
+Project.max('age', { where: { age: { [Op.lt]: 20 } } }).then(max =&gt; {
   // will be 10
 })</code>
 </code></pre>
 <h3 id="-code-min--code----get-the-least-value-of-a-specific-attribute-within-a-specific-table"><code>min</code> - Get the least value of a specific attribute within a specific table</h3><p>And here is a method for getting the min value of an attribute:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">/*
-  Let&apos;s assume 3 person objects with an attribute age.
+  Let's assume 3 person objects with an attribute age.
   The first one is 10 years old,
   the second one is 5 years old,
   the third one is 40 years old.
 */
-Project.min(&apos;age&apos;).then(min =&gt; {
+Project.min('age').then(min =&gt; {
   // this will return 5
 })
 
-Project.min(&apos;age&apos;, { where: { age: { [Op.gt]: 5 } } }).then(min =&gt; {
+Project.min('age', { where: { age: { [Op.gt]: 5 } } }).then(min =&gt; {
   // will be 10
 })</code>
 </code></pre>
 <h3 id="-code-sum--code----sum-the-value-of-specific-attributes"><code>sum</code> - Sum the value of specific attributes</h3><p>In order to calculate the sum over a specific column of a table, you can
 use the <code>sum</code> method.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">/*
-  Let&apos;s assume 3 person objects with an attribute age.
+  Let's assume 3 person objects with an attribute age.
   The first one is 10 years old,
   the second one is 5 years old,
   the third one is 40 years old.
 */
-Project.sum(&apos;age&apos;).then(sum =&gt; {
+Project.sum('age').then(sum =&gt; {
   // this will return 55
 })
 
-Project.sum(&apos;age&apos;, { where: { age: { [Op.gt]: 5 } } }).then(sum =&gt; {
+Project.sum('age', { where: { age: { [Op.gt]: 5 } } }).then(sum =&gt; {
   // will be 50
 })</code>
 </code></pre>
 <h2 id="eager-loading">Eager loading</h2><p>When you are retrieving data from the database there is a fair chance that you also want to get associations with the same query - this is called eager loading. The basic idea behind that, is the use of the attribute <code>include</code> when you are calling <code>find</code> or <code>findAll</code>. Lets assume the following setup:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">class User extends Model {}
-User.init({ name: Sequelize.STRING }, { sequelize, modelName: &apos;user&apos; })
+User.init({ name: Sequelize.STRING }, { sequelize, modelName: 'user' })
 class Task extends Model {}
-Task.init({ name: Sequelize.STRING }, { sequelize, modelName: &apos;task&apos; })
+Task.init({ name: Sequelize.STRING }, { sequelize, modelName: 'task' })
 class Tool extends Model {}
-Tool.init({ name: Sequelize.STRING }, { sequelize, modelName: &apos;tool&apos; })
+Tool.init({ name: Sequelize.STRING }, { sequelize, modelName: 'tool' })
 
 Task.belongsTo(User)
 User.hasMany(Task)
-User.hasMany(Tool, { as: &apos;Instruments&apos; })
+User.hasMany(Tool, { as: 'Instruments' })
 
 sequelize.sync().then(() =&gt; {
   // this is where we continue ...
 })</code>
 </code></pre>
-<p>OK. So, first of all, let&apos;s load all tasks with their associated user.</p>
+<p>OK. So, first of all, let's load all tasks with their associated user.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Task.findAll({ include: [ User ] }).then(tasks =&gt; {
   console.log(JSON.stringify(tasks))
 
   /*
     [{
-      &quot;name&quot;: &quot;A Task&quot;,
-      &quot;id&quot;: 1,
-      &quot;createdAt&quot;: &quot;2013-03-20T20:31:40.000Z&quot;,
-      &quot;updatedAt&quot;: &quot;2013-03-20T20:31:40.000Z&quot;,
-      &quot;userId&quot;: 1,
-      &quot;user&quot;: {
-        &quot;name&quot;: &quot;John Doe&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;
+      "name": "A Task",
+      "id": 1,
+      "createdAt": "2013-03-20T20:31:40.000Z",
+      "updatedAt": "2013-03-20T20:31:40.000Z",
+      "userId": 1,
+      "user": {
+        "name": "John Doe",
+        "id": 1,
+        "createdAt": "2013-03-20T20:31:45.000Z",
+        "updatedAt": "2013-03-20T20:31:45.000Z"
       }
     }]
   */
@@ -763,79 +763,79 @@ sequelize.sync().then(() =&gt; {
 
   /*
     [{
-      &quot;name&quot;: &quot;John Doe&quot;,
-      &quot;id&quot;: 1,
-      &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;tasks&quot;: [{
-        &quot;name&quot;: &quot;A Task&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: &quot;2013-03-20T20:31:40.000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2013-03-20T20:31:40.000Z&quot;,
-        &quot;userId&quot;: 1
+      "name": "John Doe",
+      "id": 1,
+      "createdAt": "2013-03-20T20:31:45.000Z",
+      "updatedAt": "2013-03-20T20:31:45.000Z",
+      "tasks": [{
+        "name": "A Task",
+        "id": 1,
+        "createdAt": "2013-03-20T20:31:40.000Z",
+        "updatedAt": "2013-03-20T20:31:40.000Z",
+        "userId": 1
       }]
     }]
   */
 })</code>
 </code></pre>
 <p>Notice that the accessor (the <code>Tasks</code> property in the resulting instance) is plural because the association is many-to-something.</p>
-<p>If an association is aliased (using the <code>as</code> option), you must specify this alias when including the model. Notice how the user&apos;s <code>Tool</code>s are aliased as <code>Instruments</code> above. In order to get that right you have to specify the model you want to load, as well as the alias:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({ include: [{ model: Tool, as: &apos;Instruments&apos; }] }).then(users =&gt; {
+<p>If an association is aliased (using the <code>as</code> option), you must specify this alias when including the model. Notice how the user's <code>Tool</code>s are aliased as <code>Instruments</code> above. In order to get that right you have to specify the model you want to load, as well as the alias:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({ include: [{ model: Tool, as: 'Instruments' }] }).then(users =&gt; {
   console.log(JSON.stringify(users))
 
   /*
     [{
-      &quot;name&quot;: &quot;John Doe&quot;,
-      &quot;id&quot;: 1,
-      &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;Instruments&quot;: [{
-        &quot;name&quot;: &quot;Toothpick&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: null,
-        &quot;updatedAt&quot;: null,
-        &quot;userId&quot;: 1
+      "name": "John Doe",
+      "id": 1,
+      "createdAt": "2013-03-20T20:31:45.000Z",
+      "updatedAt": "2013-03-20T20:31:45.000Z",
+      "Instruments": [{
+        "name": "Toothpick",
+        "id": 1,
+        "createdAt": null,
+        "updatedAt": null,
+        "userId": 1
       }]
     }]
   */
 })</code>
 </code></pre>
 <p>You can also include by alias name by specifying a string that matches the association alias:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({ include: [&apos;Instruments&apos;] }).then(users =&gt; {
+<pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({ include: ['Instruments'] }).then(users =&gt; {
   console.log(JSON.stringify(users))
 
   /*
     [{
-      &quot;name&quot;: &quot;John Doe&quot;,
-      &quot;id&quot;: 1,
-      &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;Instruments&quot;: [{
-        &quot;name&quot;: &quot;Toothpick&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: null,
-        &quot;updatedAt&quot;: null,
-        &quot;userId&quot;: 1
+      "name": "John Doe",
+      "id": 1,
+      "createdAt": "2013-03-20T20:31:45.000Z",
+      "updatedAt": "2013-03-20T20:31:45.000Z",
+      "Instruments": [{
+        "name": "Toothpick",
+        "id": 1,
+        "createdAt": null,
+        "updatedAt": null,
+        "userId": 1
       }]
     }]
   */
 })
 
-User.findAll({ include: [{ association: &apos;Instruments&apos; }] }).then(users =&gt; {
+User.findAll({ include: [{ association: 'Instruments' }] }).then(users =&gt; {
   console.log(JSON.stringify(users))
 
   /*
     [{
-      &quot;name&quot;: &quot;John Doe&quot;,
-      &quot;id&quot;: 1,
-      &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;Instruments&quot;: [{
-        &quot;name&quot;: &quot;Toothpick&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: null,
-        &quot;updatedAt&quot;: null,
-        &quot;userId&quot;: 1
+      "name": "John Doe",
+      "id": 1,
+      "createdAt": "2013-03-20T20:31:45.000Z",
+      "updatedAt": "2013-03-20T20:31:45.000Z",
+      "Instruments": [{
+        "name": "Toothpick",
+        "id": 1,
+        "createdAt": null,
+        "updatedAt": null,
+        "userId": 1
       }]
     }]
   */
@@ -845,38 +845,38 @@ User.findAll({ include: [{ association: &apos;Instruments&apos; }] }).then(users
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({
     include: [{
         model: Tool,
-        as: &apos;Instruments&apos;,
-        where: { name: { [Op.like]: &apos;%ooth%&apos; } }
+        as: 'Instruments',
+        where: { name: { [Op.like]: '%ooth%' } }
     }]
 }).then(users =&gt; {
     console.log(JSON.stringify(users))
 
     /*
       [{
-        &quot;name&quot;: &quot;John Doe&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;Instruments&quot;: [{
-          &quot;name&quot;: &quot;Toothpick&quot;,
-          &quot;id&quot;: 1,
-          &quot;createdAt&quot;: null,
-          &quot;updatedAt&quot;: null,
-          &quot;userId&quot;: 1
+        "name": "John Doe",
+        "id": 1,
+        "createdAt": "2013-03-20T20:31:45.000Z",
+        "updatedAt": "2013-03-20T20:31:45.000Z",
+        "Instruments": [{
+          "name": "Toothpick",
+          "id": 1,
+          "createdAt": null,
+          "updatedAt": null,
+          "userId": 1
         }]
       }],
 
       [{
-        &quot;name&quot;: &quot;John Smith&quot;,
-        &quot;id&quot;: 2,
-        &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;Instruments&quot;: [{
-          &quot;name&quot;: &quot;Toothpick&quot;,
-          &quot;id&quot;: 1,
-          &quot;createdAt&quot;: null,
-          &quot;updatedAt&quot;: null,
-          &quot;userId&quot;: 1
+        "name": "John Smith",
+        "id": 2,
+        "createdAt": "2013-03-20T20:31:45.000Z",
+        "updatedAt": "2013-03-20T20:31:45.000Z",
+        "Instruments": [{
+          "name": "Toothpick",
+          "id": 1,
+          "createdAt": null,
+          "updatedAt": null,
+          "userId": 1
         }]
       }],
     */
@@ -884,44 +884,44 @@ User.findAll({ include: [{ association: &apos;Instruments&apos; }] }).then(users
 </code></pre>
 <p>When an eager loaded model is filtered using <code>include.where</code> then <code>include.required</code> is implicitly set to
 <code>true</code>. This means that an inner join is done returning parent models with any matching children.</p>
-<h3 id="top-level-where-with-eagerly-loaded-models">Top level where with eagerly loaded models</h3><p>To move the where conditions from an included model from the <code>ON</code> condition to the top level <code>WHERE</code> you can use the <code>&apos;$nested.column$&apos;</code> syntax:</p>
+<h3 id="top-level-where-with-eagerly-loaded-models">Top level where with eagerly loaded models</h3><p>To move the where conditions from an included model from the <code>ON</code> condition to the top level <code>WHERE</code> you can use the <code>'$nested.column$'</code> syntax:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({
     where: {
-        &apos;$Instruments.name$&apos;: { [Op.iLike]: &apos;%ooth%&apos; }
+        '$Instruments.name$': { [Op.iLike]: '%ooth%' }
     },
     include: [{
         model: Tool,
-        as: &apos;Instruments&apos;
+        as: 'Instruments'
     }]
 }).then(users =&gt; {
     console.log(JSON.stringify(users));
 
     /*
       [{
-        &quot;name&quot;: &quot;John Doe&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;Instruments&quot;: [{
-          &quot;name&quot;: &quot;Toothpick&quot;,
-          &quot;id&quot;: 1,
-          &quot;createdAt&quot;: null,
-          &quot;updatedAt&quot;: null,
-          &quot;userId&quot;: 1
+        "name": "John Doe",
+        "id": 1,
+        "createdAt": "2013-03-20T20:31:45.000Z",
+        "updatedAt": "2013-03-20T20:31:45.000Z",
+        "Instruments": [{
+          "name": "Toothpick",
+          "id": 1,
+          "createdAt": null,
+          "updatedAt": null,
+          "userId": 1
         }]
       }],
 
       [{
-        &quot;name&quot;: &quot;John Smith&quot;,
-        &quot;id&quot;: 2,
-        &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-        &quot;Instruments&quot;: [{
-          &quot;name&quot;: &quot;Toothpick&quot;,
-          &quot;id&quot;: 1,
-          &quot;createdAt&quot;: null,
-          &quot;updatedAt&quot;: null,
-          &quot;userId&quot;: 1
+        "name": "John Smith",
+        "id": 2,
+        "createdAt": "2013-03-20T20:31:45.000Z",
+        "updatedAt": "2013-03-20T20:31:45.000Z",
+        "Instruments": [{
+          "name": "Toothpick",
+          "id": 1,
+          "createdAt": null,
+          "updatedAt": null,
+          "userId": 1
         }]
       }],
     */</code>
@@ -933,37 +933,37 @@ User.findAll({ include: [{ association: &apos;Instruments&apos; }] }).then(users
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({
     include: [{
         model: Tool,
-        where: { name: { [Op.like]: &apos;%ooth%&apos; } },
+        where: { name: { [Op.like]: '%ooth%' } },
         paranoid: false // query and loads the soft deleted records
     }]
 });</code>
 </code></pre>
 <h3 id="ordering-eager-loaded-associations">Ordering Eager Loaded Associations</h3><p>In the case of a one-to-many relationship.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Company.findAll({ include: [ Division ], order: [ [ Division, &apos;name&apos; ] ] });
-Company.findAll({ include: [ Division ], order: [ [ Division, &apos;name&apos;, &apos;DESC&apos; ] ] });
+<pre><code class="lang-js"><code class="source-code prettyprint">Company.findAll({ include: [ Division ], order: [ [ Division, 'name' ] ] });
+Company.findAll({ include: [ Division ], order: [ [ Division, 'name', 'DESC' ] ] });
 Company.findAll({
-  include: [ { model: Division, as: &apos;Div&apos; } ],
-  order: [ [ { model: Division, as: &apos;Div&apos; }, &apos;name&apos; ] ]
+  include: [ { model: Division, as: 'Div' } ],
+  order: [ [ { model: Division, as: 'Div' }, 'name' ] ]
 });
 Company.findAll({
-  include: [ { model: Division, as: &apos;Div&apos; } ],
-  order: [ [ { model: Division, as: &apos;Div&apos; }, &apos;name&apos;, &apos;DESC&apos; ] ]
+  include: [ { model: Division, as: 'Div' } ],
+  order: [ [ { model: Division, as: 'Div' }, 'name', 'DESC' ] ]
 });
 Company.findAll({
   include: [ { model: Division, include: [ Department ] } ],
-  order: [ [ Division, Department, &apos;name&apos; ] ]
+  order: [ [ Division, Department, 'name' ] ]
 });</code>
 </code></pre>
 <p>In the case of many-to-many joins, you are also able to sort by attributes in the through table.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Company.findAll({
   include: [ { model: Division, include: [ Department ] } ],
-  order: [ [ Division, DepartmentDivision, &apos;name&apos; ] ]
+  order: [ [ Division, DepartmentDivision, 'name' ] ]
 });</code>
 </code></pre>
 <h3 id="nested-eager-loading">Nested eager loading</h3><p>You can use nested eager loading to load all related models of a related model:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({
   include: [
-    {model: Tool, as: &apos;Instruments&apos;, include: [
+    {model: Tool, as: 'Instruments', include: [
       {model: Teacher, include: [ /* etc */]}
     ]}
   ]
@@ -972,18 +972,18 @@ Company.findAll({
 
   /*
     [{
-      &quot;name&quot;: &quot;John Doe&quot;,
-      &quot;id&quot;: 1,
-      &quot;createdAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;updatedAt&quot;: &quot;2013-03-20T20:31:45.000Z&quot;,
-      &quot;Instruments&quot;: [{ // 1:M and N:M association
-        &quot;name&quot;: &quot;Toothpick&quot;,
-        &quot;id&quot;: 1,
-        &quot;createdAt&quot;: null,
-        &quot;updatedAt&quot;: null,
-        &quot;userId&quot;: 1,
-        &quot;Teacher&quot;: { // 1:1 association
-          &quot;name&quot;: &quot;Jimi Hendrix&quot;
+      "name": "John Doe",
+      "id": 1,
+      "createdAt": "2013-03-20T20:31:45.000Z",
+      "updatedAt": "2013-03-20T20:31:45.000Z",
+      "Instruments": [{ // 1:M and N:M association
+        "name": "Toothpick",
+        "id": 1,
+        "createdAt": null,
+        "updatedAt": null,
+        "userId": 1,
+        "Teacher": { // 1:1 association
+          "name": "Jimi Hendrix"
         }
       }]
     }]
@@ -994,11 +994,11 @@ Company.findAll({
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findAll({
   include: [{
     model: Tool,
-    as: &apos;Instruments&apos;,
+    as: 'Instruments',
     include: [{
       model: Teacher,
       where: {
-        school: &quot;Woodstock Music School&quot;
+        school: "Woodstock Music School"
       },
       required: false
     }]
@@ -1037,7 +1037,7 @@ User.findAll({
 User.findAll({
     include: [{
         model: Tool,
-        where: { name: { [Op.like]: &apos;%ooth%&apos; } },
+        where: { name: { [Op.like]: '%ooth%' } },
         right: true // has no effect, will create an inner join
     }]
 });
@@ -1045,7 +1045,7 @@ User.findAll({
 User.findAll({
     include: [{
         model: Tool,
-        where: { name: { [Op.like]: &apos;%ooth%&apos; } },
+        where: { name: { [Op.like]: '%ooth%' } },
         required: false
         right: true // because we set `required` to false, this will create a right join
     }]

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/abstract/query-generator/transaction.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const uuidv4 = require(&apos;uuid/v4&apos;);
+const uuidv4 = require('uuid').v4;
 
 const TransactionQueries = {
   /**
@@ -150,7 +150,7 @@ const TransactionQueries = {
       return `SAVEPOINT ${this.quoteIdentifier(transaction.name, true)};`;
     }
 
-    return &apos;START TRANSACTION;&apos;;
+    return 'START TRANSACTION;';
   },
 
   deferConstraintsQuery() {},
@@ -171,7 +171,7 @@ const TransactionQueries = {
       return;
     }
 
-    return &apos;COMMIT;&apos;;
+    return 'COMMIT;';
   },
 
   /**
@@ -187,7 +187,7 @@ const TransactionQueries = {
       return `ROLLBACK TO SAVEPOINT ${this.quoteIdentifier(transaction.name, true)};`;
     }
 
-    return &apos;ROLLBACK;&apos;;
+    return 'ROLLBACK;';
   }
 };
 

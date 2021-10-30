@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,16 +112,16 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mssql/query.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const Promise = require(&apos;../../promise&apos;);
-const AbstractQuery = require(&apos;../abstract/query&apos;);
-const sequelizeErrors = require(&apos;../../errors&apos;);
-const parserStore = require(&apos;../parserStore&apos;)(&apos;mssql&apos;);
-const _ = require(&apos;lodash&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
+const Promise = require('../../promise');
+const AbstractQuery = require('../abstract/query');
+const sequelizeErrors = require('../../errors');
+const parserStore = require('../parserStore')('mssql');
+const _ = require('lodash');
+const { logger } = require('../../utils/logger');
 
-const debug = logger.debugContext(&apos;sql:mssql&apos;);
+const debug = logger.debugContext('sql:mssql');
 
 function getScale(aNum) {
   if (!Number.isFinite(aNum)) return 0;
@@ -132,13 +132,13 @@ function getScale(aNum) {
 
 class Query extends AbstractQuery {
   getInsertIdField() {
-    return &apos;id&apos;;
+    return 'id';
   }
 
   getSQLTypeFromJsType(value, TYPES) {
     const paramType = { type: TYPES.VarChar, typeOptions: {} };
     paramType.type = TYPES.NVarChar;
-    if (typeof value === &apos;number&apos;) {
+    if (typeof value === 'number') {
       if (Number.isInteger(value)) {
         if (value &gt;= -2147483648 &amp;&amp; value &lt;= 2147483647) {
           paramType.type = TYPES.Int;
@@ -172,16 +172,16 @@ class Query extends AbstractQuery {
         resolve(this.formatResults());
       };
       // TRANSACTION SUPPORT
-      if (sql.startsWith(&apos;BEGIN TRANSACTION&apos;)) {
+      if (sql.startsWith('BEGIN TRANSACTION')) {
         return connection.beginTransaction(handleTransaction, options.transaction.name, connection.lib.ISOLATION_LEVEL[options.isolationLevel]);
       }
-      if (sql.startsWith(&apos;COMMIT TRANSACTION&apos;)) {
+      if (sql.startsWith('COMMIT TRANSACTION')) {
         return connection.commitTransaction(handleTransaction);
       }
-      if (sql.startsWith(&apos;ROLLBACK TRANSACTION&apos;)) {
+      if (sql.startsWith('ROLLBACK TRANSACTION')) {
         return connection.rollbackTransaction(handleTransaction, options.transaction.name);
       }
-      if (sql.startsWith(&apos;SAVE TRANSACTION&apos;)) {
+      if (sql.startsWith('SAVE TRANSACTION')) {
         return connection.saveTransaction(handleTransaction, options.transaction.name);
       }
       const results = [];
@@ -205,7 +205,7 @@ class Query extends AbstractQuery {
         });
       }
 
-      request.on(&apos;row&apos;, columns =&gt; {
+      request.on('row', columns =&gt; {
         const row = {};
         for (const column of columns) {
           const typeid = column.metadata.type.id;
@@ -254,9 +254,9 @@ class Query extends AbstractQuery {
    *  query.formatResults([
    *    {
    *      id: 1,              // this is from the main table
-   *      attr2: &apos;snafu&apos;,     // this is from the main table
+   *      attr2: 'snafu',     // this is from the main table
    *      Tasks.id: 1,        // this is from the associated table
-   *      Tasks.title: &apos;task&apos; // this is from the associated table
+   *      Tasks.title: 'task' // this is from the associated table
    *    }
    *  ])
    */
@@ -268,7 +268,7 @@ class Query extends AbstractQuery {
       if (!this.instance) {
         if (this.options.plain) {
           // NOTE: super contrived. This just passes the newly added query-interface
-          //       test returning only the PK. There isn&apos;t a way in MSSQL to identify
+          //       test returning only the PK. There isn't a way in MSSQL to identify
           //       that a given return value is the PK, and we have no schema information
           //       because there was no calling Model.
           const record = data[0];
@@ -286,24 +286,24 @@ class Query extends AbstractQuery {
       result = {};
       for (const _result of data) {
         if (_result.Default) {
-          _result.Default = _result.Default.replace(&quot;(&apos;&quot;, &apos;&apos;).replace(&quot;&apos;)&quot;, &apos;&apos;).replace(/&apos;/g, &apos;&apos;);
+          _result.Default = _result.Default.replace("('", '').replace("')", '').replace(/'/g, '');
         }
 
         result[_result.Name] = {
           type: _result.Type.toUpperCase(),
-          allowNull: _result.IsNull === &apos;YES&apos; ? true : false,
+          allowNull: _result.IsNull === 'YES' ? true : false,
           defaultValue: _result.Default,
-          primaryKey: _result.Constraint === &apos;PRIMARY KEY&apos;,
+          primaryKey: _result.Constraint === 'PRIMARY KEY',
           autoIncrement: _result.IsIdentity === 1,
           comment: _result.Comment
         };
 
         if (
-          result[_result.Name].type.includes(&apos;CHAR&apos;)
+          result[_result.Name].type.includes('CHAR')
           &amp;&amp; _result.Length
         ) {
           if (_result.Length === -1) {
-            result[_result.Name].type += &apos;(MAX)&apos;;
+            result[_result.Name].type += '(MAX)';
           } else {
             result[_result.Name].type += `(${_result.Length})`;
           }
@@ -347,7 +347,7 @@ class Query extends AbstractQuery {
       return this.handleShowConstraintsQuery(data);
     }
     if (this.isRawQuery()) {
-      // MSSQL returns row data and metadata (affected rows etc) in a single object - let&apos;s standarize it, sorta
+      // MSSQL returns row data and metadata (affected rows etc) in a single object - let's standarize it, sorta
       return [data, data];
     }
 
@@ -364,7 +364,7 @@ class Query extends AbstractQuery {
   }
 
   handleShowConstraintsQuery(data) {
-    //Convert snake_case keys to camelCase as it&apos;s generated by stored procedure
+    //Convert snake_case keys to camelCase as it's generated by stored procedure
     return data.slice(1).map(result =&gt; {
       const constraint = {};
       for (const key in result) {
@@ -377,18 +377,18 @@ class Query extends AbstractQuery {
   formatError(err) {
     let match;
 
-    match = err.message.match(/Violation of (?:UNIQUE|PRIMARY) KEY constraint &apos;((.|\s)*)&apos;. Cannot insert duplicate key in object &apos;.*&apos;.(:? The duplicate key value is \((.*)\).)?/);
-    match = match || err.message.match(/Cannot insert duplicate key row in object .* with unique index &apos;(.*)&apos;/);
+    match = err.message.match(/Violation of (?:UNIQUE|PRIMARY) KEY constraint '((.|\s)*)'. Cannot insert duplicate key in object '.*'.(:? The duplicate key value is \((.*)\).)?/);
+    match = match || err.message.match(/Cannot insert duplicate key row in object .* with unique index '(.*)'/);
     if (match &amp;&amp; match.length &gt; 1) {
       let fields = {};
       const uniqueKey = this.model &amp;&amp; this.model.uniqueKeys[match[1]];
-      let message = &apos;Validation error&apos;;
+      let message = 'Validation error';
 
       if (uniqueKey &amp;&amp; !!uniqueKey.msg) {
         message = uniqueKey.msg;
       }
       if (match[4]) {
-        const values = match[4].split(&apos;,&apos;).map(part =&gt; part.trim());
+        const values = match[4].split(',').map(part =&gt; part.trim());
         if (uniqueKey) {
           fields = _.zipObject(uniqueKey.fields, values);
         } else {
@@ -400,20 +400,20 @@ class Query extends AbstractQuery {
       _.forOwn(fields, (value, field) =&gt; {
         errors.push(new sequelizeErrors.ValidationErrorItem(
           this.getUniqueConstraintErrorMessage(field),
-          &apos;unique violation&apos;, // sequelizeErrors.ValidationErrorItem.Origins.DB,
+          'unique violation', // sequelizeErrors.ValidationErrorItem.Origins.DB,
           field,
           value,
           this.instance,
-          &apos;not_unique&apos;
+          'not_unique'
         ));
       });
 
       return new sequelizeErrors.UniqueConstraintError({ message, errors, parent: err, fields });
     }
 
-    match = err.message.match(/Failed on step &apos;(.*)&apos;.Could not create constraint. See previous errors./) ||
-      err.message.match(/The DELETE statement conflicted with the REFERENCE constraint &quot;(.*)&quot;. The conflict occurred in database &quot;(.*)&quot;, table &quot;(.*)&quot;, column &apos;(.*)&apos;./) ||
-      err.message.match(/The (?:INSERT|MERGE|UPDATE) statement conflicted with the FOREIGN KEY constraint &quot;(.*)&quot;. The conflict occurred in database &quot;(.*)&quot;, table &quot;(.*)&quot;, column &apos;(.*)&apos;./);
+    match = err.message.match(/Failed on step '(.*)'.Could not create constraint. See previous errors./) ||
+      err.message.match(/The DELETE statement conflicted with the REFERENCE constraint "(.*)". The conflict occurred in database "(.*)", table "(.*)", column '(.*)'./) ||
+      err.message.match(/The (?:INSERT|MERGE|UPDATE) statement conflicted with the FOREIGN KEY constraint "(.*)". The conflict occurred in database "(.*)", table "(.*)", column '(.*)'./);
     if (match &amp;&amp; match.length &gt; 0) {
       return new sequelizeErrors.ForeignKeyConstraintError({
         fields: null,
@@ -443,15 +443,15 @@ class Query extends AbstractQuery {
   isShowOrDescribeQuery() {
     let result = false;
 
-    result = result || this.sql.toLowerCase().startsWith(&quot;select c.column_name as &apos;name&apos;, c.data_type as &apos;type&apos;, c.is_nullable as &apos;isnull&apos;&quot;);
-    result = result || this.sql.toLowerCase().startsWith(&apos;select tablename = t.name, name = ind.name,&apos;);
-    result = result || this.sql.toLowerCase().startsWith(&apos;exec sys.sp_helpindex @objname&apos;);
+    result = result || this.sql.toLowerCase().startsWith("select c.column_name as 'name', c.data_type as 'type', c.is_nullable as 'isnull'");
+    result = result || this.sql.toLowerCase().startsWith('select tablename = t.name, name = ind.name,');
+    result = result || this.sql.toLowerCase().startsWith('exec sys.sp_helpindex @objname');
 
     return result;
   }
 
   isShowIndexesQuery() {
-    return this.sql.toLowerCase().startsWith(&apos;exec sys.sp_helpindex @objname&apos;);
+    return this.sql.toLowerCase().startsWith('exec sys.sp_helpindex @objname');
   }
 
   handleShowIndexesQuery(data) {
@@ -462,16 +462,16 @@ class Query extends AbstractQuery {
         item.fields = [];
       }
 
-      item.index_keys.split(&apos;,&apos;).forEach(column =&gt; {
+      item.index_keys.split(',').forEach(column =&gt; {
         let columnName = column.trim();
-        if (columnName.includes(&apos;(-)&apos;)) {
-          columnName = columnName.replace(&apos;(-)&apos;, &apos;&apos;);
+        if (columnName.includes('(-)')) {
+          columnName = columnName.replace('(-)', '');
         }
 
         acc[item.index_name].fields.push({
           attribute: columnName,
           length: undefined,
-          order: column.includes(&apos;(-)&apos;) ? &apos;DESC&apos; : &apos;ASC&apos;,
+          order: column.includes('(-)') ? 'DESC' : 'ASC',
           collate: undefined
         });
       });
@@ -480,11 +480,11 @@ class Query extends AbstractQuery {
     }, {});
 
     return _.map(data, item =&gt; ({
-      primary: item.index_name.toLowerCase().startsWith(&apos;pk&apos;),
+      primary: item.index_name.toLowerCase().startsWith('pk'),
       fields: item.fields,
       name: item.index_name,
       tableName: undefined,
-      unique: item.index_description.toLowerCase().includes(&apos;unique&apos;),
+      unique: item.index_description.toLowerCase().includes('unique'),
       type: undefined
     }));
   }

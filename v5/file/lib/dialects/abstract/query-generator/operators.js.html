@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,51 +112,51 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/abstract/query-generator/operators.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const Op = require(&apos;../../../operators&apos;);
-const Utils = require(&apos;../../../utils&apos;);
+const _ = require('lodash');
+const Op = require('../../../operators');
+const Utils = require('../../../utils');
 
 const OperatorHelpers = {
   OperatorMap: {
-    [Op.eq]: &apos;=&apos;,
-    [Op.ne]: &apos;!=&apos;,
-    [Op.gte]: &apos;&gt;=&apos;,
-    [Op.gt]: &apos;&gt;&apos;,
-    [Op.lte]: &apos;&lt;=&apos;,
-    [Op.lt]: &apos;&lt;&apos;,
-    [Op.not]: &apos;IS NOT&apos;,
-    [Op.is]: &apos;IS&apos;,
-    [Op.in]: &apos;IN&apos;,
-    [Op.notIn]: &apos;NOT IN&apos;,
-    [Op.like]: &apos;LIKE&apos;,
-    [Op.notLike]: &apos;NOT LIKE&apos;,
-    [Op.iLike]: &apos;ILIKE&apos;,
-    [Op.notILike]: &apos;NOT ILIKE&apos;,
-    [Op.startsWith]: &apos;LIKE&apos;,
-    [Op.endsWith]: &apos;LIKE&apos;,
-    [Op.substring]: &apos;LIKE&apos;,
-    [Op.regexp]: &apos;~&apos;,
-    [Op.notRegexp]: &apos;!~&apos;,
-    [Op.iRegexp]: &apos;~*&apos;,
-    [Op.notIRegexp]: &apos;!~*&apos;,
-    [Op.between]: &apos;BETWEEN&apos;,
-    [Op.notBetween]: &apos;NOT BETWEEN&apos;,
-    [Op.overlap]: &apos;&amp;&amp;&apos;,
-    [Op.contains]: &apos;@&gt;&apos;,
-    [Op.contained]: &apos;&lt;@&apos;,
-    [Op.adjacent]: &apos;-|-&apos;,
-    [Op.strictLeft]: &apos;&lt;&lt;&apos;,
-    [Op.strictRight]: &apos;&gt;&gt;&apos;,
-    [Op.noExtendRight]: &apos;&amp;&lt;&apos;,
-    [Op.noExtendLeft]: &apos;&amp;&gt;&apos;,
-    [Op.any]: &apos;ANY&apos;,
-    [Op.all]: &apos;ALL&apos;,
-    [Op.and]: &apos; AND &apos;,
-    [Op.or]: &apos; OR &apos;,
-    [Op.col]: &apos;COL&apos;,
-    [Op.placeholder]: &apos;$$PLACEHOLDER$$&apos;
+    [Op.eq]: '=',
+    [Op.ne]: '!=',
+    [Op.gte]: '&gt;=',
+    [Op.gt]: '&gt;',
+    [Op.lte]: '&lt;=',
+    [Op.lt]: '&lt;',
+    [Op.not]: 'IS NOT',
+    [Op.is]: 'IS',
+    [Op.in]: 'IN',
+    [Op.notIn]: 'NOT IN',
+    [Op.like]: 'LIKE',
+    [Op.notLike]: 'NOT LIKE',
+    [Op.iLike]: 'ILIKE',
+    [Op.notILike]: 'NOT ILIKE',
+    [Op.startsWith]: 'LIKE',
+    [Op.endsWith]: 'LIKE',
+    [Op.substring]: 'LIKE',
+    [Op.regexp]: '~',
+    [Op.notRegexp]: '!~',
+    [Op.iRegexp]: '~*',
+    [Op.notIRegexp]: '!~*',
+    [Op.between]: 'BETWEEN',
+    [Op.notBetween]: 'NOT BETWEEN',
+    [Op.overlap]: '&amp;&amp;',
+    [Op.contains]: '@&gt;',
+    [Op.contained]: '&lt;@',
+    [Op.adjacent]: '-|-',
+    [Op.strictLeft]: '&lt;&lt;',
+    [Op.strictRight]: '&gt;&gt;',
+    [Op.noExtendRight]: '&amp;&lt;',
+    [Op.noExtendLeft]: '&amp;&gt;',
+    [Op.any]: 'ANY',
+    [Op.all]: 'ALL',
+    [Op.and]: ' AND ',
+    [Op.or]: ' OR ',
+    [Op.col]: 'COL',
+    [Op.placeholder]: '$$PLACEHOLDER$$'
   },
 
   OperatorsAliasMap: {},

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/transaction.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const Promise = require(&apos;./promise&apos;);
+const Promise = require('./promise');
 
 /**
  * The transaction object is used to identify a running transaction.
@@ -178,7 +178,7 @@ class Transaction {
       .getQueryInterface()
       .commitTransaction(this, this.options)
       .finally(() =&gt; {
-        this.finished = &apos;commit&apos;;
+        this.finished = 'commit';
         if (!this.parent) {
           return this.cleanup();
         }
@@ -201,7 +201,7 @@ class Transaction {
     }
 
     if (!this.connection) {
-      return Promise.reject(new Error(&apos;Transaction cannot be rolled back because it never started&apos;));
+      return Promise.reject(new Error('Transaction cannot be rolled back because it never started'));
     }
 
     this._clearCls();
@@ -230,7 +230,7 @@ class Transaction {
     } else {
       const acquireOptions = { uuid: this.id };
       if (this.options.readOnly) {
-        acquireOptions.type = &apos;SELECT&apos;;
+        acquireOptions.type = 'SELECT';
       }
       connectionPromise = this.sequelize.connectionManager.getConnection(acquireOptions);
     }
@@ -249,7 +249,7 @@ class Transaction {
       })
       .tap(() =&gt; {
         if (useCLS &amp;&amp; this.sequelize.constructor._cls) {
-          this.sequelize.constructor._cls.set(&apos;transaction&apos;, this);
+          this.sequelize.constructor._cls.set('transaction', this);
         }
         return null;
       });
@@ -288,8 +288,8 @@ class Transaction {
     const cls = this.sequelize.constructor._cls;
 
     if (cls) {
-      if (cls.get(&apos;transaction&apos;) === this) {
-        cls.set(&apos;transaction&apos;, null);
+      if (cls.get('transaction') === this) {
+        cls.set('transaction', null);
       }
     }
   }
@@ -302,8 +302,8 @@ class Transaction {
    * @memberof Sequelize.Transaction
    */
   afterCommit(fn) {
-    if (!fn || typeof fn !== &apos;function&apos;) {
-      throw new Error(&apos;&quot;fn&quot; must be a function&apos;);
+    if (!fn || typeof fn !== 'function') {
+      throw new Error('"fn" must be a function');
     }
     this._afterCommitHooks.push(fn);
   }
@@ -330,9 +330,9 @@ class Transaction {
    */
   static get TYPES() {
     return {
-      DEFERRED: &apos;DEFERRED&apos;,
-      IMMEDIATE: &apos;IMMEDIATE&apos;,
-      EXCLUSIVE: &apos;EXCLUSIVE&apos;
+      DEFERRED: 'DEFERRED',
+      IMMEDIATE: 'IMMEDIATE',
+      EXCLUSIVE: 'EXCLUSIVE'
     };
   }
 
@@ -358,10 +358,10 @@ class Transaction {
    */
   static get ISOLATION_LEVELS() {
     return {
-      READ_UNCOMMITTED: &apos;READ UNCOMMITTED&apos;,
-      READ_COMMITTED: &apos;READ COMMITTED&apos;,
-      REPEATABLE_READ: &apos;REPEATABLE READ&apos;,
-      SERIALIZABLE: &apos;SERIALIZABLE&apos;
+      READ_UNCOMMITTED: 'READ UNCOMMITTED',
+      READ_COMMITTED: 'READ COMMITTED',
+      REPEATABLE_READ: 'REPEATABLE READ',
+      SERIALIZABLE: 'SERIALIZABLE'
     };
   }
 
@@ -388,7 +388,7 @@ class Transaction {
    *   }
    * });
    *
-   * # UserModel will be locked but TaskModel won&apos;t!
+   * # UserModel will be locked but TaskModel won't!
    *
    * @example &lt;caption&gt;You can also skip locked rows:&lt;/caption&gt;
    * // t1 is a transaction
@@ -398,7 +398,7 @@ class Transaction {
    *   lock: true,
    *   skipLocked: true
    * });
-   * # The query will now return any rows that aren&apos;t locked by another transaction
+   * # The query will now return any rows that aren't locked by another transaction
    *
    * @returns {Object}
    * @property UPDATE
@@ -408,10 +408,10 @@ class Transaction {
    */
   static get LOCK() {
     return {
-      UPDATE: &apos;UPDATE&apos;,
-      SHARE: &apos;SHARE&apos;,
-      KEY_SHARE: &apos;KEY SHARE&apos;,
-      NO_KEY_UPDATE: &apos;NO KEY UPDATE&apos;
+      UPDATE: 'UPDATE',
+      SHARE: 'SHARE',
+      KEY_SHARE: 'KEY SHARE',
+      NO_KEY_UPDATE: 'NO KEY UPDATE'
     };
   }
 

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,14 +112,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/associations/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const Association = require(&apos;./base&apos;);
+const Association = require('./base');
 
-Association.BelongsTo = require(&apos;./belongs-to&apos;);
-Association.HasOne = require(&apos;./has-one&apos;);
-Association.HasMany = require(&apos;./has-many&apos;);
-Association.BelongsToMany = require(&apos;./belongs-to-many&apos;);
+Association.BelongsTo = require('./belongs-to');
+Association.HasOne = require('./has-one');
+Association.HasMany = require('./has-many');
+Association.BelongsToMany = require('./belongs-to-many');
 
 module.exports = Association;
 module.exports.default = Association;

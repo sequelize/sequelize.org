@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,12 +112,12 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/hooks.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const { logger } = require(&apos;./utils/logger&apos;);
-const Promise = require(&apos;./promise&apos;);
-const debug = logger.debugContext(&apos;hooks&apos;);
+const _ = require('lodash');
+const { logger } = require('./utils/logger');
+const Promise = require('./promise');
+const debug = logger.debugContext('hooks');
 
 const hookTypes = {
   beforeValidate: { params: 2 },
@@ -131,8 +131,8 @@ const hookTypes = {
   afterRestore: { params: 2 },
   beforeUpdate: { params: 2 },
   afterUpdate: { params: 2 },
-  beforeSave: { params: 2, proxies: [&apos;beforeUpdate&apos;, &apos;beforeCreate&apos;] },
-  afterSave: { params: 2, proxies: [&apos;afterUpdate&apos;, &apos;afterCreate&apos;] },
+  beforeSave: { params: 2, proxies: ['beforeUpdate', 'beforeCreate'] },
+  afterSave: { params: 2, proxies: ['afterUpdate', 'afterCreate'] },
   beforeUpsert: { params: 2 },
   afterUpsert: { params: 2 },
   beforeBulkCreate: { params: 2 },
@@ -204,11 +204,11 @@ const Hooks = {
   },
 
   runHooks(hooks, ...hookArgs) {
-    if (!hooks) throw new Error(&apos;runHooks requires at least 1 argument&apos;);
+    if (!hooks) throw new Error('runHooks requires at least 1 argument');
 
     let hookType;
 
-    if (typeof hooks === &apos;string&apos;) {
+    if (typeof hooks === 'string') {
       hookType = hooks;
       hooks = getHooks(this, hookType);
 
@@ -224,7 +224,7 @@ const Hooks = {
     // synchronous hooks
     if (hookTypes[hookType] &amp;&amp; hookTypes[hookType].sync) {
       for (let hook of hooks) {
-        if (typeof hook === &apos;object&apos;) {
+        if (typeof hook === 'object') {
           hook = hook.fn;
         }
 
@@ -236,7 +236,7 @@ const Hooks = {
 
     // asynchronous hooks (default)
     return Promise.each(hooks, hook =&gt; {
-      if (typeof hook === &apos;object&apos;) {
+      if (typeof hook === 'object') {
         hook = hook.fn;
       }
 
@@ -256,7 +256,7 @@ const Hooks = {
    * @memberof Sequelize.Model
    */
   addHook(hookType, name, fn) {
-    if (typeof name === &apos;function&apos;) {
+    if (typeof name === 'function') {
       fn = name;
       name = null;
     }
@@ -284,7 +284,7 @@ const Hooks = {
    * @memberof Sequelize.Model
    */
   removeHook(hookType, name) {
-    const isReference = typeof name === &apos;function&apos; ? true : false;
+    const isReference = typeof name === 'function' ? true : false;
 
     if (!this.hasHook(hookType)) {
       return this;
@@ -297,10 +297,10 @@ const Hooks = {
 
     for (const type of hookType) {
       this.options.hooks[type] = this.options.hooks[type].filter(hook =&gt; {
-        if (isReference &amp;&amp; typeof hook === &apos;function&apos;) {
+        if (isReference &amp;&amp; typeof hook === 'function') {
           return hook !== name; // check if same method
         }
-        if (!isReference &amp;&amp; typeof hook === &apos;object&apos;) {
+        if (!isReference &amp;&amp; typeof hook === 'object') {
           return hook.name !== name;
         }
         return true;

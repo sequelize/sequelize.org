@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,37 +112,37 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/errors/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-exports.BaseError = require(&apos;./base-error&apos;);
+exports.BaseError = require('./base-error');
 
-exports.AssociationError = require(&apos;./association-error&apos;);
-exports.BulkRecordError = require(&apos;./bulk-record-error&apos;);
-exports.ConnectionError = require(&apos;./connection-error&apos;);
-exports.DatabaseError = require(&apos;./database-error&apos;);
-exports.EagerLoadingError = require(&apos;./eager-loading-error&apos;);
-exports.EmptyResultError = require(&apos;./empty-result-error&apos;);
-exports.InstanceError = require(&apos;./instance-error&apos;);
-exports.OptimisticLockError = require(&apos;./optimistic-lock-error&apos;);
-exports.QueryError = require(&apos;./query-error&apos;);
-exports.SequelizeScopeError = require(&apos;./sequelize-scope-error&apos;);
-exports.ValidationError = require(&apos;./validation-error&apos;);
+exports.AssociationError = require('./association-error');
+exports.BulkRecordError = require('./bulk-record-error');
+exports.ConnectionError = require('./connection-error');
+exports.DatabaseError = require('./database-error');
+exports.EagerLoadingError = require('./eager-loading-error');
+exports.EmptyResultError = require('./empty-result-error');
+exports.InstanceError = require('./instance-error');
+exports.OptimisticLockError = require('./optimistic-lock-error');
+exports.QueryError = require('./query-error');
+exports.SequelizeScopeError = require('./sequelize-scope-error');
+exports.ValidationError = require('./validation-error');
 exports.ValidationErrorItem = exports.ValidationError.ValidationErrorItem;
 
-exports.AccessDeniedError = require(&apos;./connection/access-denied-error&apos;);
-exports.ConnectionAcquireTimeoutError = require(&apos;./connection/connection-acquire-timeout-error&apos;);
-exports.ConnectionRefusedError = require(&apos;./connection/connection-refused-error&apos;);
-exports.ConnectionTimedOutError = require(&apos;./connection/connection-timed-out-error&apos;);
-exports.HostNotFoundError = require(&apos;./connection/host-not-found-error&apos;);
-exports.HostNotReachableError = require(&apos;./connection/host-not-reachable-error&apos;);
-exports.InvalidConnectionError = require(&apos;./connection/invalid-connection-error&apos;);
+exports.AccessDeniedError = require('./connection/access-denied-error');
+exports.ConnectionAcquireTimeoutError = require('./connection/connection-acquire-timeout-error');
+exports.ConnectionRefusedError = require('./connection/connection-refused-error');
+exports.ConnectionTimedOutError = require('./connection/connection-timed-out-error');
+exports.HostNotFoundError = require('./connection/host-not-found-error');
+exports.HostNotReachableError = require('./connection/host-not-reachable-error');
+exports.InvalidConnectionError = require('./connection/invalid-connection-error');
 
-exports.ExclusionConstraintError = require(&apos;./database/exclusion-constraint-error&apos;);
-exports.ForeignKeyConstraintError = require(&apos;./database/foreign-key-constraint-error&apos;);
-exports.TimeoutError = require(&apos;./database/timeout-error&apos;);
-exports.UnknownConstraintError = require(&apos;./database/unknown-constraint-error&apos;);
+exports.ExclusionConstraintError = require('./database/exclusion-constraint-error');
+exports.ForeignKeyConstraintError = require('./database/foreign-key-constraint-error');
+exports.TimeoutError = require('./database/timeout-error');
+exports.UnknownConstraintError = require('./database/unknown-constraint-error');
 
-exports.UniqueConstraintError = require(&apos;./validation/unique-constraint-error&apos;);
+exports.UniqueConstraintError = require('./validation/unique-constraint-error');
 </code></pre>
 
 </div>

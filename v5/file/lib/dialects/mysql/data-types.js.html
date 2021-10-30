@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,13 +112,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mysql/data-types.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const wkx = require(&apos;wkx&apos;);
-const _ = require(&apos;lodash&apos;);
-const moment = require(&apos;moment-timezone&apos;);
+const wkx = require('wkx');
+const _ = require('lodash');
+const moment = require('moment-timezone');
 module.exports = BaseTypes =&gt; {
-  BaseTypes.ABSTRACT.prototype.dialectTypes = &apos;https://dev.mysql.com/doc/refman/5.7/en/data-types.html&apos;;
+  BaseTypes.ABSTRACT.prototype.dialectTypes = 'https://dev.mysql.com/doc/refman/5.7/en/data-types.html';
 
   /**
    * types: [buffer_type, ...]
@@ -126,36 +126,36 @@ module.exports = BaseTypes =&gt; {
    * @see hex here https://github.com/sidorares/node-mysql2/blob/master/lib/constants/types.js
    */
 
-  BaseTypes.DATE.types.mysql = [&apos;DATETIME&apos;];
-  BaseTypes.STRING.types.mysql = [&apos;VAR_STRING&apos;];
-  BaseTypes.CHAR.types.mysql = [&apos;STRING&apos;];
-  BaseTypes.TEXT.types.mysql = [&apos;BLOB&apos;];
-  BaseTypes.TINYINT.types.mysql = [&apos;TINY&apos;];
-  BaseTypes.SMALLINT.types.mysql = [&apos;SHORT&apos;];
-  BaseTypes.MEDIUMINT.types.mysql = [&apos;INT24&apos;];
-  BaseTypes.INTEGER.types.mysql = [&apos;LONG&apos;];
-  BaseTypes.BIGINT.types.mysql = [&apos;LONGLONG&apos;];
-  BaseTypes.FLOAT.types.mysql = [&apos;FLOAT&apos;];
-  BaseTypes.TIME.types.mysql = [&apos;TIME&apos;];
-  BaseTypes.DATEONLY.types.mysql = [&apos;DATE&apos;];
-  BaseTypes.BOOLEAN.types.mysql = [&apos;TINY&apos;];
-  BaseTypes.BLOB.types.mysql = [&apos;TINYBLOB&apos;, &apos;BLOB&apos;, &apos;LONGBLOB&apos;];
-  BaseTypes.DECIMAL.types.mysql = [&apos;NEWDECIMAL&apos;];
+  BaseTypes.DATE.types.mysql = ['DATETIME'];
+  BaseTypes.STRING.types.mysql = ['VAR_STRING'];
+  BaseTypes.CHAR.types.mysql = ['STRING'];
+  BaseTypes.TEXT.types.mysql = ['BLOB'];
+  BaseTypes.TINYINT.types.mysql = ['TINY'];
+  BaseTypes.SMALLINT.types.mysql = ['SHORT'];
+  BaseTypes.MEDIUMINT.types.mysql = ['INT24'];
+  BaseTypes.INTEGER.types.mysql = ['LONG'];
+  BaseTypes.BIGINT.types.mysql = ['LONGLONG'];
+  BaseTypes.FLOAT.types.mysql = ['FLOAT'];
+  BaseTypes.TIME.types.mysql = ['TIME'];
+  BaseTypes.DATEONLY.types.mysql = ['DATE'];
+  BaseTypes.BOOLEAN.types.mysql = ['TINY'];
+  BaseTypes.BLOB.types.mysql = ['TINYBLOB', 'BLOB', 'LONGBLOB'];
+  BaseTypes.DECIMAL.types.mysql = ['NEWDECIMAL'];
   BaseTypes.UUID.types.mysql = false;
   BaseTypes.ENUM.types.mysql = false;
-  BaseTypes.REAL.types.mysql = [&apos;DOUBLE&apos;];
-  BaseTypes.DOUBLE.types.mysql = [&apos;DOUBLE&apos;];
-  BaseTypes.GEOMETRY.types.mysql = [&apos;GEOMETRY&apos;];
-  BaseTypes.JSON.types.mysql = [&apos;JSON&apos;];
+  BaseTypes.REAL.types.mysql = ['DOUBLE'];
+  BaseTypes.DOUBLE.types.mysql = ['DOUBLE'];
+  BaseTypes.GEOMETRY.types.mysql = ['GEOMETRY'];
+  BaseTypes.JSON.types.mysql = ['JSON'];
 
   class DECIMAL extends BaseTypes.DECIMAL {
     toSql() {
       let definition = super.toSql();
       if (this._unsigned) {
-        definition += &apos; UNSIGNED&apos;;
+        definition += ' UNSIGNED';
       }
       if (this._zerofill) {
-        definition += &apos; ZEROFILL&apos;;
+        definition += ' ZEROFILL';
       }
       return definition;
     }
@@ -163,15 +163,15 @@ module.exports = BaseTypes =&gt; {
 
   class DATE extends BaseTypes.DATE {
     toSql() {
-      return `DATETIME${this._length ? `(${this._length})` : &apos;&apos;}`;
+      return `DATETIME${this._length ? `(${this._length})` : ''}`;
     }
     _stringify(date, options) {
       date = this._applyTimezone(date, options);
       // Fractional DATETIMEs only supported on MySQL 5.6.4+
       if (this._length) {
-        return date.format(&apos;YYYY-MM-DD HH:mm:ss.SSS&apos;);
+        return date.format('YYYY-MM-DD HH:mm:ss.SSS');
       }
-      return date.format(&apos;YYYY-MM-DD HH:mm:ss&apos;);
+      return date.format('YYYY-MM-DD HH:mm:ss');
     }
     static parse(value, options) {
       value = value.string();
@@ -195,11 +195,11 @@ module.exports = BaseTypes =&gt; {
   }
   class UUID extends BaseTypes.UUID {
     toSql() {
-      return &apos;CHAR(36) BINARY&apos;;
+      return 'CHAR(36) BINARY';
     }
   }
 
-  const SUPPORTED_GEOMETRY_TYPES = [&apos;POINT&apos;, &apos;LINESTRING&apos;, &apos;POLYGON&apos;];
+  const SUPPORTED_GEOMETRY_TYPES = ['POINT', 'LINESTRING', 'POLYGON'];
 
   class GEOMETRY extends BaseTypes.GEOMETRY {
     constructor(type, srid) {
@@ -212,11 +212,11 @@ module.exports = BaseTypes =&gt; {
         this.sqlType = this.type;
         return;
       }
-      throw new Error(`Supported geometry types are: ${SUPPORTED_GEOMETRY_TYPES.join(&apos;, &apos;)}`);
+      throw new Error(`Supported geometry types are: ${SUPPORTED_GEOMETRY_TYPES.join(', ')}`);
     }
     static parse(value) {
       value = value.buffer();
-      // Empty buffer, MySQL doesn&apos;t support POINT EMPTY
+      // Empty buffer, MySQL doesn't support POINT EMPTY
       // check, https://dev.mysql.com/worklog/task/?id=2381
       if (!value || value.length === 0) {
         return null;
@@ -232,13 +232,13 @@ module.exports = BaseTypes =&gt; {
 
   class ENUM extends BaseTypes.ENUM {
     toSql(options) {
-      return `ENUM(${this.values.map(value =&gt; options.escape(value)).join(&apos;, &apos;)})`;
+      return `ENUM(${this.values.map(value =&gt; options.escape(value)).join(', ')})`;
     }
   }
 
   class JSONTYPE extends BaseTypes.JSON {
     _stringify(value, options) {
-      return options.operation === &apos;where&apos; &amp;&amp; typeof value === &apos;string&apos; ? value : JSON.stringify(value);
+      return options.operation === 'where' &amp;&amp; typeof value === 'string' ? value : JSON.stringify(value);
     }
   }
 

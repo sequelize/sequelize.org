@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,11 +112,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/utils/validator-extras.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const validator = _.cloneDeep(require(&apos;validator&apos;));
-const moment = require(&apos;moment&apos;);
+const _ = require('lodash');
+const validator = _.cloneDeep(require('validator'));
+const moment = require('moment');
 
 const extensions = {
   extend(name, fn) {
@@ -143,8 +143,8 @@ const extensions = {
     return !this.isIn(str, values);
   },
   regex(str, pattern, modifiers) {
-    str += &apos;&apos;;
-    if (Object.prototype.toString.call(pattern).slice(8, -1) !== &apos;RegExp&apos;) {
+    str += '';
+    if (Object.prototype.toString.call(pattern).slice(8, -1) !== 'RegExp') {
       pattern = new RegExp(pattern, modifiers);
     }
     return str.match(pattern);
@@ -153,7 +153,7 @@ const extensions = {
     return !this.regex(str, pattern, modifiers);
   },
   isDecimal(str) {
-    return str !== &apos;&apos; &amp;&amp; !!str.match(/^(?:-?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][+-]?(?:[0-9]+))?$/);
+    return str !== '' &amp;&amp; !!str.match(/^(?:-?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][+-]?(?:[0-9]+))?$/);
   },
   min(str, val) {
     const number = parseFloat(str);
@@ -204,7 +204,7 @@ validator.isDate = function(dateString) {
   // by doing a preliminary check on `dateString`
   const parsed = Date.parse(dateString);
   if (isNaN(parsed)) {
-    // fail if we can&apos;t parse it
+    // fail if we can't parse it
     return false;
   }
   // otherwise convert to ISO 8601 as moment prefers

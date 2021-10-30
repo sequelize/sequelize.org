@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -128,7 +128,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/data-types.js~ABSTRACT</span> &#x2192; GEOGRAPHY</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>lib/data-types.js~ABSTRACT</span> → GEOGRAPHY</div></div>
   
   
   
@@ -144,8 +144,8 @@
 Coordinate points in the geography type are always represented in WGS 84 lon lat degrees (SRID 4326),
 but measurement functions and relationships ST_Distance, ST_DWithin, ST_Length, and ST_Area always return answers in meters or assume inputs in meters.</p>
 <p><strong>What is best to use? It depends:</strong></p>
-<p>When choosing between the geometry and geography type for data storage, you should consider what you&#x2019;ll be using it for.
-If all you do are simple measurements and relationship checks on your data, and your data covers a fairly large area, then most likely you&#x2019;ll be better off storing your data using the new geography type.
+<p>When choosing between the geometry and geography type for data storage, you should consider what you’ll be using it for.
+If all you do are simple measurements and relationship checks on your data, and your data covers a fairly large area, then most likely you’ll be better off storing your data using the new geography type.
 Although the new geography data type can cover the globe, the geometry type is far from obsolete.
 The geometry type has a much richer set of functions than geography, relationship checks are generally faster, and it has wider support currently across desktop and web-mapping tools</p>
 </div>
@@ -159,8 +159,8 @@ The geometry type has a much richer set of functions than geography, relationshi
   <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Defining a Geography type attribute</div>
       <pre class="prettyprint source-code"><code data-ice="exampleCode">DataTypes.GEOGRAPHY
-DataTypes.GEOGRAPHY(&apos;POINT&apos;)
-DataTypes.GEOGRAPHY(&apos;POINT&apos;, 4326)</code></pre>
+DataTypes.GEOGRAPHY('POINT')
+DataTypes.GEOGRAPHY('POINT', 4326)</code></pre>
     </div>
 </div>
 

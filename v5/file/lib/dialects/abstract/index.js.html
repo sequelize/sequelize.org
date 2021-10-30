@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,20 +112,20 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/abstract/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
 class AbstractDialect {}
 
 AbstractDialect.prototype.supports = {
-  &apos;DEFAULT&apos;: true,
-  &apos;DEFAULT VALUES&apos;: false,
-  &apos;VALUES ()&apos;: false,
-  &apos;LIMIT ON UPDATE&apos;: false,
-  &apos;ON DUPLICATE KEY&apos;: true,
-  &apos;ORDER NULLS&apos;: false,
-  &apos;UNION&apos;: true,
-  &apos;UNION ALL&apos;: true,
-  &apos;RIGHT JOIN&apos;: true,
+  'DEFAULT': true,
+  'DEFAULT VALUES': false,
+  'VALUES ()': false,
+  'LIMIT ON UPDATE': false,
+  'ON DUPLICATE KEY': true,
+  'ORDER NULLS': false,
+  'UNION': true,
+  'UNION ALL': true,
+  'RIGHT JOIN': true,
 
   /* does the dialect support returning values for inserted/updated fields */
   returnValues: false,
@@ -152,9 +152,9 @@ AbstractDialect.prototype.supports = {
   migrations: true,
   upserts: true,
   inserts: {
-    ignoreDuplicates: &apos;&apos;, /* dialect specific words for INSERT IGNORE or DO NOTHING */
+    ignoreDuplicates: '', /* dialect specific words for INSERT IGNORE or DO NOTHING */
     updateOnDuplicate: false, /* whether dialect supports ON DUPLICATE KEY UPDATE */
-    onConflictDoNothing: &apos;&apos; /* dialect specific words for ON CONFLICT DO NOTHING */
+    onConflictDoNothing: '' /* dialect specific words for ON CONFLICT DO NOTHING */
   },
   constraints: {
     restrict: true,

@@ -1563,7 +1563,7 @@
                   "trailingComments": [
                     {
                       "type": "CommentBlock",
-                      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.js\n   ",
+                      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.ts\n   ",
                       "start": 844,
                       "end": 966,
                       "loc": {
@@ -1770,7 +1770,7 @@
                   "leadingComments": [
                     {
                       "type": "CommentBlock",
-                      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.js\n   ",
+                      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.ts\n   ",
                       "start": 844,
                       "end": 966,
                       "loc": {
@@ -13895,7 +13895,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.js\n   ",
+      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.ts\n   ",
       "start": 844,
       "end": 966,
       "loc": {
@@ -16889,7 +16889,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.js\n   ",
+      "value": "*\n   * types: [hex, ...]\n   *\n   * @see hex here https://github.com/tediousjs/tedious/blob/master/src/data-type.ts\n   ",
       "start": 844,
       "end": 966,
       "loc": {

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,13 +112,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/postgres/data-types.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const wkx = require(&apos;wkx&apos;);
+const _ = require('lodash');
+const wkx = require('wkx');
 
 module.exports = BaseTypes =&gt; {
-  const warn = BaseTypes.ABSTRACT.warn.bind(undefined, &apos;http://www.postgresql.org/docs/9.4/static/datatype.html&apos;);
+  const warn = BaseTypes.ABSTRACT.warn.bind(undefined, 'http://www.postgresql.org/docs/9.4/static/datatype.html');
 
   /**
    * Removes unsupported Postgres options, i.e., LENGTH, UNSIGNED and ZEROFILL, for the integer data types.
@@ -128,7 +128,7 @@ module.exports = BaseTypes =&gt; {
    */
   function removeUnsupportedIntegerOptions(dataType) {
     if (dataType._length || dataType.options.length || dataType._unsigned || dataType._zerofill) {
-      warn(`PostgresSQL does not support &apos;${dataType.key}&apos; with LENGTH, UNSIGNED or ZEROFILL. Plain &apos;${dataType.key}&apos; will be used instead.`);
+      warn(`PostgresSQL does not support '${dataType.key}' with LENGTH, UNSIGNED or ZEROFILL. Plain '${dataType.key}' will be used instead.`);
       dataType._length = undefined;
       dataType.options.length = undefined;
       dataType._unsigned = undefined;
@@ -145,32 +145,32 @@ module.exports = BaseTypes =&gt; {
    * @see oid here https://github.com/lib/pq/blob/master/oid/types.go
    */
 
-  BaseTypes.UUID.types.postgres = [&apos;uuid&apos;];
-  BaseTypes.CIDR.types.postgres = [&apos;cidr&apos;];
-  BaseTypes.INET.types.postgres = [&apos;inet&apos;];
-  BaseTypes.MACADDR.types.postgres = [&apos;macaddr&apos;];
-  BaseTypes.JSON.types.postgres = [&apos;json&apos;];
-  BaseTypes.JSONB.types.postgres = [&apos;jsonb&apos;];
-  BaseTypes.TIME.types.postgres = [&apos;time&apos;];
+  BaseTypes.UUID.types.postgres = ['uuid'];
+  BaseTypes.CIDR.types.postgres = ['cidr'];
+  BaseTypes.INET.types.postgres = ['inet'];
+  BaseTypes.MACADDR.types.postgres = ['macaddr'];
+  BaseTypes.JSON.types.postgres = ['json'];
+  BaseTypes.JSONB.types.postgres = ['jsonb'];
+  BaseTypes.TIME.types.postgres = ['time'];
 
   class DATEONLY extends BaseTypes.DATEONLY {
     _stringify(value, options) {
       if (value === Infinity) {
-        return &apos;Infinity&apos;;
+        return 'Infinity';
       }
       if (value === -Infinity) {
-        return &apos;-Infinity&apos;;
+        return '-Infinity';
       }
       return super._stringify(value, options);
     }
     _sanitize(value, options) {
       if ((!options || options &amp;&amp; !options.raw) &amp;&amp; value !== Infinity &amp;&amp; value !== -Infinity) {
-        if (typeof value === &apos;string&apos;) {
+        if (typeof value === 'string') {
           const lower = value.toLowerCase();
-          if (lower === &apos;infinity&apos;) {
+          if (lower === 'infinity') {
             return Infinity;
           }
-          if (lower === &apos;-infinity&apos;) {
+          if (lower === '-infinity') {
             return -Infinity;
           }
         }
@@ -179,17 +179,17 @@ module.exports = BaseTypes =&gt; {
       return value;
     }
     static parse(value) {
-      if (value === &apos;infinity&apos;) {
+      if (value === 'infinity') {
         return Infinity;
       }
-      if (value === &apos;-infinity&apos;) {
+      if (value === '-infinity') {
         return -Infinity;
       }
       return value;
     }
   }
 
-  BaseTypes.DATEONLY.types.postgres = [&apos;date&apos;];
+  BaseTypes.DATEONLY.types.postgres = ['date'];
 
   class DECIMAL extends BaseTypes.DECIMAL {
     static parse(value) {
@@ -198,30 +198,30 @@ module.exports = BaseTypes =&gt; {
   }
 
   // numeric
-  BaseTypes.DECIMAL.types.postgres = [&apos;numeric&apos;];
+  BaseTypes.DECIMAL.types.postgres = ['numeric'];
 
   class STRING extends BaseTypes.STRING {
     toSql() {
       if (this._binary) {
-        return &apos;BYTEA&apos;;
+        return 'BYTEA';
       }
       return super.toSql();
     }
   }
 
-  BaseTypes.STRING.types.postgres = [&apos;varchar&apos;];
+  BaseTypes.STRING.types.postgres = ['varchar'];
 
   class TEXT extends BaseTypes.TEXT {
     toSql() {
       if (this._length) {
-        warn(&apos;PostgreSQL does not support TEXT with options. Plain `TEXT` will be used instead.&apos;);
+        warn('PostgreSQL does not support TEXT with options. Plain `TEXT` will be used instead.');
         this._length = undefined;
       }
-      return &apos;TEXT&apos;;
+      return 'TEXT';
     }
   }
 
-  BaseTypes.TEXT.types.postgres = [&apos;text&apos;];
+  BaseTypes.TEXT.types.postgres = ['text'];
 
   class CITEXT extends BaseTypes.CITEXT {
     static parse(value) {
@@ -229,22 +229,22 @@ module.exports = BaseTypes =&gt; {
     }
   }
 
-  BaseTypes.CITEXT.types.postgres = [&apos;citext&apos;];
+  BaseTypes.CITEXT.types.postgres = ['citext'];
 
   class CHAR extends BaseTypes.CHAR {
     toSql() {
       if (this._binary) {
-        return &apos;BYTEA&apos;;
+        return 'BYTEA';
       }
       return super.toSql();
     }
   }
 
-  BaseTypes.CHAR.types.postgres = [&apos;char&apos;, &apos;bpchar&apos;];
+  BaseTypes.CHAR.types.postgres = ['char', 'bpchar'];
 
   class BOOLEAN extends BaseTypes.BOOLEAN {
     toSql() {
-      return &apos;BOOLEAN&apos;;
+      return 'BOOLEAN';
     }
     _sanitize(value) {
       if (value !== null &amp;&amp; value !== undefined) {
@@ -252,11 +252,11 @@ module.exports = BaseTypes =&gt; {
           // Bit fields are returned as buffers
           value = value[0];
         }
-        if (typeof value === &apos;string&apos;) {
+        if (typeof value === 'string') {
           // Only take action on valid boolean strings.
-          return value === &apos;true&apos; || value === &apos;t&apos; ? true : value === &apos;false&apos; || value === &apos;f&apos; ? false : value;
+          return value === 'true' || value === 't' ? true : value === 'false' || value === 'f' ? false : value;
         }
-        if (typeof value === &apos;number&apos;) {
+        if (typeof value === 'number') {
           // Only take action on valid boolean integers.
           return value === 1 ? true : value === 0 ? false : value;
         }
@@ -267,11 +267,11 @@ module.exports = BaseTypes =&gt; {
 
   BOOLEAN.parse = BOOLEAN.prototype._sanitize;
 
-  BaseTypes.BOOLEAN.types.postgres = [&apos;bool&apos;];
+  BaseTypes.BOOLEAN.types.postgres = ['bool'];
 
   class DATE extends BaseTypes.DATE {
     toSql() {
-      return &apos;TIMESTAMP WITH TIME ZONE&apos;;
+      return 'TIMESTAMP WITH TIME ZONE';
     }
     validate(value) {
       if (value !== Infinity &amp;&amp; value !== -Infinity) {
@@ -281,21 +281,21 @@ module.exports = BaseTypes =&gt; {
     }
     _stringify(value, options) {
       if (value === Infinity) {
-        return &apos;Infinity&apos;;
+        return 'Infinity';
       }
       if (value === -Infinity) {
-        return &apos;-Infinity&apos;;
+        return '-Infinity';
       }
       return super._stringify(value, options);
     }
     _sanitize(value, options) {
       if ((!options || options &amp;&amp; !options.raw) &amp;&amp; !(value instanceof Date) &amp;&amp; !!value &amp;&amp; value !== Infinity &amp;&amp; value !== -Infinity) {
-        if (typeof value === &apos;string&apos;) {
+        if (typeof value === 'string') {
           const lower = value.toLowerCase();
-          if (lower === &apos;infinity&apos;) {
+          if (lower === 'infinity') {
             return Infinity;
           }
-          if (lower === &apos;-infinity&apos;) {
+          if (lower === '-infinity') {
             return -Infinity;
           }
         }
@@ -305,7 +305,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
 
-  BaseTypes.DATE.types.postgres = [&apos;timestamptz&apos;];
+  BaseTypes.DATE.types.postgres = ['timestamptz'];
 
   class TINYINT extends BaseTypes.TINYINT {
     constructor(length) {
@@ -314,7 +314,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
   // int2
-  BaseTypes.TINYINT.types.postgres = [&apos;int2&apos;];
+  BaseTypes.TINYINT.types.postgres = ['int2'];
 
   class SMALLINT extends BaseTypes.SMALLINT {
     constructor(length) {
@@ -323,7 +323,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
   // int2
-  BaseTypes.SMALLINT.types.postgres = [&apos;int2&apos;];
+  BaseTypes.SMALLINT.types.postgres = ['int2'];
 
   class INTEGER extends BaseTypes.INTEGER {
     constructor(length) {
@@ -336,7 +336,7 @@ module.exports = BaseTypes =&gt; {
   };
 
   // int4
-  BaseTypes.INTEGER.types.postgres = [&apos;int4&apos;];
+  BaseTypes.INTEGER.types.postgres = ['int4'];
 
   class BIGINT extends BaseTypes.BIGINT {
     constructor(length) {
@@ -345,7 +345,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
   // int8
-  BaseTypes.BIGINT.types.postgres = [&apos;int8&apos;];
+  BaseTypes.BIGINT.types.postgres = ['int8'];
 
   class REAL extends BaseTypes.REAL {
     constructor(length) {
@@ -354,7 +354,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
   // float4
-  BaseTypes.REAL.types.postgres = [&apos;float4&apos;];
+  BaseTypes.REAL.types.postgres = ['float4'];
 
   class DOUBLE extends BaseTypes.DOUBLE {
     constructor(length) {
@@ -363,7 +363,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
   // float8
-  BaseTypes.DOUBLE.types.postgres = [&apos;float8&apos;];
+  BaseTypes.DOUBLE.types.postgres = ['float8'];
 
   class FLOAT extends BaseTypes.FLOAT {
     constructor(length, decimals) {
@@ -373,17 +373,17 @@ module.exports = BaseTypes =&gt; {
       // Values between 25-53 result in DOUBLE PRECISION
       // If decimals are provided remove these and print a warning
       if (this._decimals) {
-        warn(&apos;PostgreSQL does not support FLOAT with decimals. Plain `FLOAT` will be used instead.&apos;);
+        warn('PostgreSQL does not support FLOAT with decimals. Plain `FLOAT` will be used instead.');
         this._length = undefined;
         this.options.length = undefined;
         this._decimals = undefined;
       }
       if (this._unsigned) {
-        warn(&apos;PostgreSQL does not support FLOAT unsigned. `UNSIGNED` was removed.&apos;);
+        warn('PostgreSQL does not support FLOAT unsigned. `UNSIGNED` was removed.');
         this._unsigned = undefined;
       }
       if (this._zerofill) {
-        warn(&apos;PostgreSQL does not support FLOAT zerofill. `ZEROFILL` was removed.&apos;);
+        warn('PostgreSQL does not support FLOAT zerofill. `ZEROFILL` was removed.');
         this._zerofill = undefined;
       }
     }
@@ -393,18 +393,18 @@ module.exports = BaseTypes =&gt; {
   class BLOB extends BaseTypes.BLOB {
     toSql() {
       if (this._length) {
-        warn(&apos;PostgreSQL does not support BLOB (BYTEA) with options. Plain `BYTEA` will be used instead.&apos;);
+        warn('PostgreSQL does not support BLOB (BYTEA) with options. Plain `BYTEA` will be used instead.');
         this._length = undefined;
       }
-      return &apos;BYTEA&apos;;
+      return 'BYTEA';
     }
     _hexify(hex) {
       // bytea hex format http://www.postgresql.org/docs/current/static/datatype-binary.html
-      return `E&apos;\\\\x${hex}&apos;`;
+      return `E'\\\\x${hex}'`;
     }
   }
 
-  BaseTypes.BLOB.types.postgres = [&apos;bytea&apos;];
+  BaseTypes.BLOB.types.postgres = ['bytea'];
 
   class GEOMETRY extends BaseTypes.GEOMETRY {
     toSql() {
@@ -414,12 +414,12 @@ module.exports = BaseTypes =&gt; {
         if (this.srid) {
           result += `,${this.srid}`;
         }
-        result += &apos;)&apos;;
+        result += ')';
       }
       return result;
     }
     static parse(value) {
-      const b = Buffer.from(value, &apos;hex&apos;);
+      const b = Buffer.from(value, 'hex');
       return wkx.Geometry.parse(b).toGeoJSON();
     }
     _stringify(value, options) {
@@ -430,23 +430,23 @@ module.exports = BaseTypes =&gt; {
     }
   }
 
-  BaseTypes.GEOMETRY.types.postgres = [&apos;geometry&apos;];
+  BaseTypes.GEOMETRY.types.postgres = ['geometry'];
 
 
   class GEOGRAPHY extends BaseTypes.GEOGRAPHY {
     toSql() {
-      let result = &apos;GEOGRAPHY&apos;;
+      let result = 'GEOGRAPHY';
       if (this.type) {
         result += `(${this.type}`;
         if (this.srid) {
           result += `,${this.srid}`;
         }
-        result += &apos;)&apos;;
+        result += ')';
       }
       return result;
     }
     static parse(value) {
-      const b = Buffer.from(value, &apos;hex&apos;);
+      const b = Buffer.from(value, 'hex');
       return wkx.Geometry.parse(b).toGeoJSON();
     }
     _stringify(value, options) {
@@ -457,7 +457,7 @@ module.exports = BaseTypes =&gt; {
     }
   }
 
-  BaseTypes.GEOGRAPHY.types.postgres = [&apos;geography&apos;];
+  BaseTypes.GEOGRAPHY.types.postgres = ['geography'];
 
   let hstore;
 
@@ -465,27 +465,27 @@ module.exports = BaseTypes =&gt; {
     constructor() {
       super();
       if (!hstore) {
-        // All datatype files are loaded at import - make sure we don&apos;t load the hstore parser before a hstore is instantiated
-        hstore = require(&apos;./hstore&apos;);
+        // All datatype files are loaded at import - make sure we don't load the hstore parser before a hstore is instantiated
+        hstore = require('./hstore');
       }
     }
     _value(value) {
       if (!hstore) {
-        // All datatype files are loaded at import - make sure we don&apos;t load the hstore parser before a hstore is instantiated
-        hstore = require(&apos;./hstore&apos;);
+        // All datatype files are loaded at import - make sure we don't load the hstore parser before a hstore is instantiated
+        hstore = require('./hstore');
       }
       return hstore.stringify(value);
     }
     _stringify(value) {
-      return `&apos;${this._value(value)}&apos;`;
+      return `'${this._value(value)}'`;
     }
     _bindParam(value, options) {
       return options.bindParam(this._value(value));
     }
     static parse(value) {
       if (!hstore) {
-        // All datatype files are loaded at import - make sure we don&apos;t load the hstore parser before a hstore is instantiated
-        hstore = require(&apos;./hstore&apos;);
+        // All datatype files are loaded at import - make sure we don't load the hstore parser before a hstore is instantiated
+        hstore = require('./hstore');
       }
       return hstore.parse(value);
     }
@@ -493,7 +493,7 @@ module.exports = BaseTypes =&gt; {
 
   HSTORE.prototype.escape = false;
 
-  BaseTypes.HSTORE.types.postgres = [&apos;hstore&apos;];
+  BaseTypes.HSTORE.types.postgres = ['hstore'];
 
   class RANGE extends BaseTypes.RANGE {
     _value(values, options) {
@@ -502,14 +502,14 @@ module.exports = BaseTypes =&gt; {
       }
       const valueInclusivity = [true, false];
       const valuesStringified = values.map((value, index) =&gt; {
-        if (_.isObject(value) &amp;&amp; Object.prototype.hasOwnProperty.call(value, &apos;value&apos;)) {
-          if (Object.prototype.hasOwnProperty.call(value, &apos;inclusive&apos;)) {
+        if (_.isObject(value) &amp;&amp; Object.prototype.hasOwnProperty.call(value, 'value')) {
+          if (Object.prototype.hasOwnProperty.call(value, 'inclusive')) {
             valueInclusivity[index] = value.inclusive;
           }
           value = value.value;
         }
         if (value === null || value === -Infinity || value === Infinity) {
-          // Pass through &quot;unbounded&quot; bounds unchanged
+          // Pass through "unbounded" bounds unchanged
           return value;
         }
         if (this.options.subtype.stringify) {
@@ -524,9 +524,9 @@ module.exports = BaseTypes =&gt; {
     _stringify(values, options) {
       const value = this._value(values, options);
       if (!Array.isArray(values)) {
-        return `&apos;${value}&apos;::${this.toCastType()}`;
+        return `'${value}'::${this.toCastType()}`;
       }
-      return `&apos;${value}&apos;`;
+      return `'${value}'`;
     }
     _bindParam(values, options) {
       const value = this._value(values, options);
@@ -545,24 +545,24 @@ module.exports = BaseTypes =&gt; {
       return range.parse(value, options.parser);
     }
   }
-  const range = require(&apos;./range&apos;);
+  const range = require('./range');
 
   RANGE.prototype.escape = false;
 
   BaseTypes.RANGE.types.postgres = {
     subtypes: {
-      integer: &apos;int4range&apos;,
-      decimal: &apos;numrange&apos;,
-      date: &apos;tstzrange&apos;,
-      dateonly: &apos;daterange&apos;,
-      bigint: &apos;int8range&apos;
+      integer: 'int4range',
+      decimal: 'numrange',
+      date: 'tstzrange',
+      dateonly: 'daterange',
+      bigint: 'int8range'
     },
     castTypes: {
-      integer: &apos;int4&apos;,
-      decimal: &apos;numeric&apos;,
-      date: &apos;timestamptz&apos;,
-      dateonly: &apos;date&apos;,
-      bigint: &apos;int8&apos;
+      integer: 'int4',
+      decimal: 'numeric',
+      date: 'timestamptz',
+      dateonly: 'date',
+      bigint: 'int8'
     }
   };
 
@@ -584,16 +584,16 @@ module.exports = BaseTypes =&gt; {
     }, this);
   };
   BaseTypes.ARRAY.prototype._stringify = function _stringify(values, options) {
-    let str = `ARRAY[${this._value(values, options).join(&apos;,&apos;)}]`;
+    let str = `ARRAY[${this._value(values, options).join(',')}]`;
 
     if (this.type) {
-      const Utils = require(&apos;../../utils&apos;);
+      const Utils = require('../../utils');
       let castKey = this.toSql();
 
       if (this.type instanceof BaseTypes.ENUM) {
         castKey = `${Utils.addTicks(
           Utils.generateEnumName(options.field.Model.getTableName(), options.field.fieldName),
-          &apos;&quot;&apos;
+          '"'
         ) }[]`;
       }
 
@@ -629,7 +629,7 @@ module.exports = BaseTypes =&gt; {
     DATE,
     DATEONLY,
     REAL,
-    &apos;DOUBLE PRECISION&apos;: DOUBLE,
+    'DOUBLE PRECISION': DOUBLE,
     FLOAT,
     GEOMETRY,
     GEOGRAPHY,

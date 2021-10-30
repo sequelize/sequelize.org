@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -147,9 +147,9 @@
 </ul>
 <p>Creating an association will add a foreign key constraint to the attributes. All associations use <code>CASCADE</code> on update and <code>SET NULL</code> on delete, except for n:m, which also uses <code>CASCADE</code> on delete.</p>
 <p>When creating associations, you can provide an alias, via the <code>as</code> option. This is useful if the same model is associated twice, or you want your association to be called something other than the name of the target model.</p>
-<p>As an example, consider the case where users have many pictures, one of which is their profile picture. All pictures have a <code>userId</code>, but in addition the user model also has a <code>profilePictureId</code>, to be able to easily load the user&apos;s profile picture.</p>
+<p>As an example, consider the case where users have many pictures, one of which is their profile picture. All pictures have a <code>userId</code>, but in addition the user model also has a <code>profilePictureId</code>, to be able to easily load the user's profile picture.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.hasMany(Picture)
-User.belongsTo(Picture, { as: &apos;ProfilePicture&apos;, constraints: false })
+User.belongsTo(Picture, { as: 'ProfilePicture', constraints: false })
 
 user.getPictures() // gets you all pictures
 user.getProfilePicture() // gets you only the profile picture
@@ -158,19 +158,19 @@ User.findAll({
   where: ...,
   include: [
     { model: Picture }, // load all pictures
-    { model: Picture, as: &apos;ProfilePicture&apos; }, // load the profile picture.
+    { model: Picture, as: 'ProfilePicture' }, // load the profile picture.
     // Notice that the spelling must be the exact same as the one in the association
   ]
 })</code>
 </code></pre>
 <p>To get full control over the foreign key column added by sequelize, you can use the <code>foreignKey</code> option. It can either be a string, that specifies the name, or and object type definition,
 equivalent to those passed to <code>sequelize.define</code>.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">User.hasMany(Picture, { foreignKey: &apos;uid&apos; })</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">User.hasMany(Picture, { foreignKey: 'uid' })</code>
 </code></pre>
 <p>The foreign key column in Picture will now be called <code>uid</code> instead of the default <code>userId</code>.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.hasMany(Picture, {
   foreignKey: {
-    name: &apos;uid&apos;,
+    name: 'uid',
     allowNull: false
   }
 })</code>
@@ -179,20 +179,20 @@ equivalent to those passed to <code>sequelize.define</code>.</p>
 <p>When fetching associated models, you can limit your query to only load some models. These queries are written in the same way as queries to <code>find</code>/<code>findAll</code>. To only get pictures in JPG, you can do:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">user.getPictures({
   where: {
-    format: &apos;jpg&apos;
+    format: 'jpg'
   }
 })</code>
 </code></pre>
 <p>There are several ways to update and add new associations. Continuing with our example of users and pictures:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">user.addPicture(p) // Add a single picture
 user.setPictures([p1, p2]) // Associate user with ONLY these two picture, all other associations will be deleted
-user.addPictures([p1, p2]) // Associate user with these two pictures, but don&apos;t touch any current associations</code>
+user.addPictures([p1, p2]) // Associate user with these two pictures, but don't touch any current associations</code>
 </code></pre>
-<p>You don&apos;t have to pass in a complete object to the association functions, if your associated model has a single primary key:</p>
+<p>You don't have to pass in a complete object to the association functions, if your associated model has a single primary key:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">user.addPicture(req.query.pid) // Here pid is just an integer, representing the primary key of the picture</code>
 </code></pre>
 <p>In the example above we have specified that a user belongs to his profile picture. Conceptually, this might not make sense, but since we want to add the foreign key to the user model this is the way to do it.</p>
-<p>Note how we also specified <code>constraints: false</code> for profile picture. This is because we add a foreign key from user to picture (profilePictureId), and from picture to user (userId). If we were to add foreign keys to both, it would create a cyclic dependency, and sequelize would not know which table to create first, since user depends on picture, and picture depends on user. These kinds of problems are detected by sequelize before the models are synced to the database, and you will get an error along the lines of <code>Error: Cyclic dependency found. &apos;users&apos; is dependent of itself</code>. If you encounter this, you should either disable some constraints, or rethink your associations completely.</p>
+<p>Note how we also specified <code>constraints: false</code> for profile picture. This is because we add a foreign key from user to picture (profilePictureId), and from picture to user (userId). If we were to add foreign keys to both, it would create a cyclic dependency, and sequelize would not know which table to create first, since user depends on picture, and picture depends on user. These kinds of problems are detected by sequelize before the models are synced to the database, and you will get an error along the lines of <code>Error: Cyclic dependency found. 'users' is dependent of itself</code>. If you encounter this, you should either disable some constraints, or rethink your associations completely.</p>
 </div>
   
 

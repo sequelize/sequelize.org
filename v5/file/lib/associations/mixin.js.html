@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,13 +112,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/associations/mixin.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const HasOne = require(&apos;./has-one&apos;);
-const HasMany = require(&apos;./has-many&apos;);
-const BelongsToMany = require(&apos;./belongs-to-many&apos;);
-const BelongsTo = require(&apos;./belongs-to&apos;);
+const _ = require('lodash');
+const HasOne = require('./has-one');
+const HasMany = require('./has-many');
+const BelongsToMany = require('./belongs-to-many');
+const BelongsTo = require('./belongs-to');
 
 function isModel(model, sequelize) {
   return model
@@ -129,19 +129,19 @@ function isModel(model, sequelize) {
 const Mixin = {
   hasMany(target, options = {}) {
     if (!isModel(target, this.sequelize)) {
-      throw new Error(`${this.name}.hasMany called with something that&apos;s not a subclass of Sequelize.Model`);
+      throw new Error(`${this.name}.hasMany called with something that's not a subclass of Sequelize.Model`);
     }
 
     const source = this;
 
-    // Since this is a mixin, we&apos;ll need a unique letiable name for hooks (since Model will override our hooks option)
+    // Since this is a mixin, we'll need a unique letiable name for hooks (since Model will override our hooks option)
     options.hooks = options.hooks === undefined ? false : Boolean(options.hooks);
     options.useHooks = options.hooks;
 
-    options = Object.assign(options, _.omit(source.options, [&apos;hooks&apos;]));
+    options = Object.assign(options, _.omit(source.options, ['hooks']));
 
     if (options.useHooks) {
-      this.runHooks(&apos;beforeAssociate&apos;, { source, target, type: HasMany }, options);
+      this.runHooks('beforeAssociate', { source, target, type: HasMany }, options);
     }
 
     // the id is in the foreign table or in a connecting table
@@ -152,7 +152,7 @@ const Mixin = {
     association.mixin(source.prototype);
 
     if (options.useHooks) {
-      this.runHooks(&apos;afterAssociate&apos;, { source, target, type: HasMany, association }, options);
+      this.runHooks('afterAssociate', { source, target, type: HasMany, association }, options);
     }
 
     return association;
@@ -160,19 +160,19 @@ const Mixin = {
 
   belongsToMany(target, options = {}) {
     if (!isModel(target, this.sequelize)) {
-      throw new Error(`${this.name}.belongsToMany called with something that&apos;s not a subclass of Sequelize.Model`);
+      throw new Error(`${this.name}.belongsToMany called with something that's not a subclass of Sequelize.Model`);
     }
 
     const source = this;
 
-    // Since this is a mixin, we&apos;ll need a unique letiable name for hooks (since Model will override our hooks option)
+    // Since this is a mixin, we'll need a unique letiable name for hooks (since Model will override our hooks option)
     options.hooks = options.hooks === undefined ? false : Boolean(options.hooks);
     options.useHooks = options.hooks;
     options.timestamps = options.timestamps === undefined ? this.sequelize.options.timestamps : options.timestamps;
-    options = Object.assign(options, _.omit(source.options, [&apos;hooks&apos;, &apos;timestamps&apos;, &apos;scopes&apos;, &apos;defaultScope&apos;]));
+    options = Object.assign(options, _.omit(source.options, ['hooks', 'timestamps', 'scopes', 'defaultScope']));
 
     if (options.useHooks) {
-      this.runHooks(&apos;beforeAssociate&apos;, { source, target, type: BelongsToMany }, options);
+      this.runHooks('beforeAssociate', { source, target, type: BelongsToMany }, options);
     }
     // the id is in the foreign table or in a connecting table
     const association = new BelongsToMany(source, target, options);
@@ -182,7 +182,7 @@ const Mixin = {
     association.mixin(source.prototype);
 
     if (options.useHooks) {
-      this.runHooks(&apos;afterAssociate&apos;, { source, target, type: BelongsToMany, association }, options);
+      this.runHooks('afterAssociate', { source, target, type: BelongsToMany, association }, options);
     }
 
     return association;
@@ -204,16 +204,16 @@ function singleLinked(Type) {
     // eslint-disable-next-line no-invalid-this
     const source = this;
     if (!isModel(target, source.sequelize)) {
-      throw new Error(`${source.name}.${_.lowerFirst(Type.name)} called with something that&apos;s not a subclass of Sequelize.Model`);
+      throw new Error(`${source.name}.${_.lowerFirst(Type.name)} called with something that's not a subclass of Sequelize.Model`);
     }
 
 
-    // Since this is a mixin, we&apos;ll need a unique letiable name for hooks (since Model will override our hooks option)
+    // Since this is a mixin, we'll need a unique letiable name for hooks (since Model will override our hooks option)
     options.hooks = options.hooks === undefined ? false : Boolean(options.hooks);
     options.useHooks = options.hooks;
 
     if (options.useHooks) {
-      source.runHooks(&apos;beforeAssociate&apos;, { source, target, type: Type }, options);
+      source.runHooks('beforeAssociate', { source, target, type: Type }, options);
     }
     // the id is in the foreign table
     const association = new Type(source, target, Object.assign(options, source.options));
@@ -223,7 +223,7 @@ function singleLinked(Type) {
     association.mixin(source.prototype);
 
     if (options.useHooks) {
-      source.runHooks(&apos;afterAssociate&apos;, { source, target, type: Type, association }, options);
+      source.runHooks('afterAssociate', { source, target, type: Type, association }, options);
     }
 
     return association;

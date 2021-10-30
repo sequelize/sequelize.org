@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,23 +112,23 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mssql/connection-manager.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const AbstractConnectionManager = require(&apos;../abstract/connection-manager&apos;);
-const ResourceLock = require(&apos;./resource-lock&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
-const sequelizeErrors = require(&apos;../../errors&apos;);
-const DataTypes = require(&apos;../../data-types&apos;).mssql;
-const parserStore = require(&apos;../parserStore&apos;)(&apos;mssql&apos;);
-const debug = logger.debugContext(&apos;connection:mssql&apos;);
-const debugTedious = logger.debugContext(&apos;connection:mssql:tedious&apos;);
+const AbstractConnectionManager = require('../abstract/connection-manager');
+const ResourceLock = require('./resource-lock');
+const Promise = require('../../promise');
+const { logger } = require('../../utils/logger');
+const sequelizeErrors = require('../../errors');
+const DataTypes = require('../../data-types').mssql;
+const parserStore = require('../parserStore')('mssql');
+const debug = logger.debugContext('connection:mssql');
+const debugTedious = logger.debugContext('connection:mssql:tedious');
 
 class ConnectionManager extends AbstractConnectionManager {
   constructor(dialect, sequelize) {
     sequelize.config.port = sequelize.config.port || 1433;
     super(dialect, sequelize);
-    this.lib = this._loadDialectModule(&apos;tedious&apos;);
+    this.lib = this._loadDialectModule('tedious');
     this.refreshTypeParser(DataTypes);
   }
 
@@ -144,7 +144,7 @@ class ConnectionManager extends AbstractConnectionManager {
     const connectionConfig = {
       server: config.host,
       authentication: {
-        type: &apos;default&apos;,
+        type: 'default',
         options: {
           userName: config.username || undefined,
           password: config.password || undefined
@@ -182,30 +182,30 @@ class ConnectionManager extends AbstractConnectionManager {
       const resourceLock = new ResourceLock(connection);
 
       const connectHandler = error =&gt; {
-        connection.removeListener(&apos;end&apos;, endHandler);
-        connection.removeListener(&apos;error&apos;, errorHandler);
+        connection.removeListener('end', endHandler);
+        connection.removeListener('error', errorHandler);
 
         if (error) return reject(error);
 
-        debug(&apos;connection acquired&apos;);
+        debug('connection acquired');
         resolve(resourceLock);
       };
 
       const endHandler = () =&gt; {
-        connection.removeListener(&apos;connect&apos;, connectHandler);
-        connection.removeListener(&apos;error&apos;, errorHandler);
-        reject(new Error(&apos;Connection was closed by remote server&apos;));
+        connection.removeListener('connect', connectHandler);
+        connection.removeListener('error', errorHandler);
+        reject(new Error('Connection was closed by remote server'));
       };
 
       const errorHandler = error =&gt; {
-        connection.removeListener(&apos;connect&apos;, connectHandler);
-        connection.removeListener(&apos;end&apos;, endHandler);
+        connection.removeListener('connect', connectHandler);
+        connection.removeListener('end', endHandler);
         reject(error);
       };
 
-      connection.once(&apos;error&apos;, errorHandler);
-      connection.once(&apos;end&apos;, endHandler);
-      connection.once(&apos;connect&apos;, connectHandler);
+      connection.once('error', errorHandler);
+      connection.once('end', endHandler);
+      connection.once('connect', connectHandler);
 
       /*
        * Permanently attach this event before connection is even acquired
@@ -215,16 +215,16 @@ class ConnectionManager extends AbstractConnectionManager {
        *
        * E.g. connectTimeout is set higher than requestTimeout
        */
-      connection.on(&apos;error&apos;, error =&gt; {
+      connection.on('error', error =&gt; {
         switch (error.code) {
-          case &apos;ESOCKET&apos;:
-          case &apos;ECONNRESET&apos;:
+          case 'ESOCKET':
+          case 'ECONNRESET':
             this.pool.destroy(resourceLock);
         }
       });
 
       if (config.dialectOptions &amp;&amp; config.dialectOptions.debug) {
-        connection.on(&apos;debug&apos;, debugTedious.log.bind(debugTedious));
+        connection.on('debug', debugTedious.log.bind(debugTedious));
       }
     }).catch(error =&gt; {
       if (!error.code) {
@@ -232,27 +232,27 @@ class ConnectionManager extends AbstractConnectionManager {
       }
 
       switch (error.code) {
-        case &apos;ESOCKET&apos;:
-          if (error.message.includes(&apos;connect EHOSTUNREACH&apos;)) {
+        case 'ESOCKET':
+          if (error.message.includes('connect EHOSTUNREACH')) {
             throw new sequelizeErrors.HostNotReachableError(error);
           }
-          if (error.message.includes(&apos;connect ENETUNREACH&apos;)) {
+          if (error.message.includes('connect ENETUNREACH')) {
             throw new sequelizeErrors.HostNotReachableError(error);
           }
-          if (error.message.includes(&apos;connect EADDRNOTAVAIL&apos;)) {
+          if (error.message.includes('connect EADDRNOTAVAIL')) {
             throw new sequelizeErrors.HostNotReachableError(error);
           }
-          if (error.message.includes(&apos;getaddrinfo ENOTFOUND&apos;)) {
+          if (error.message.includes('getaddrinfo ENOTFOUND')) {
             throw new sequelizeErrors.HostNotFoundError(error);
           }
-          if (error.message.includes(&apos;connect ECONNREFUSED&apos;)) {
+          if (error.message.includes('connect ECONNREFUSED')) {
             throw new sequelizeErrors.ConnectionRefusedError(error);
           }
           throw new sequelizeErrors.ConnectionError(error);
-        case &apos;ER_ACCESS_DENIED_ERROR&apos;:
-        case &apos;ELOGIN&apos;:
+        case 'ER_ACCESS_DENIED_ERROR':
+        case 'ELOGIN':
           throw new sequelizeErrors.AccessDeniedError(error);
-        case &apos;EINVAL&apos;:
+        case 'EINVAL':
           throw new sequelizeErrors.InvalidConnectionError(error);
         default:
           throw new sequelizeErrors.ConnectionError(error);
@@ -268,15 +268,15 @@ class ConnectionManager extends AbstractConnectionManager {
       ? connectionLock.unwrap()
       : connectionLock;
 
-    // Don&apos;t disconnect a connection that is already disconnected
+    // Don't disconnect a connection that is already disconnected
     if (connection.closed) {
       return Promise.resolve();
     }
 
     return new Promise(resolve =&gt; {
-      connection.on(&apos;end&apos;, resolve);
+      connection.on('end', resolve);
       connection.close();
-      debug(&apos;connection closed&apos;);
+      debug('connection closed');
     });
   }
 

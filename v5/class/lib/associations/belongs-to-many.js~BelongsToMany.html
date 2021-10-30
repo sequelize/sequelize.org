@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -128,7 +128,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/lib/associations/base.js~Association.html">Association</a></span> &#x2192; BelongsToMany</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/lib/associations/base.js~Association.html">Association</a></span> → BelongsToMany</div></div>
   
   
   
@@ -140,14 +140,14 @@
   
   <div class="description" data-ice="description"><p>Many-to-many association with a join table.</p>
 <p>When the join table has additional attributes, these can be passed in the options object:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">UserProject = sequelize.define(&apos;user_project&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">UserProject = sequelize.define('user_project', {
   role: Sequelize.STRING
 });
 User.belongsToMany(Project, { through: UserProject });
 Project.belongsToMany(User, { through: UserProject });
 // through is required!
 
-user.addProject(project, { through: { role: &apos;manager&apos; }});</code>
+user.addProject(project, { through: { role: 'manager' }});</code>
 </code></pre>
 <p>All methods allow you to pass either a persisted instance, its primary key, or a mixture:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Project.create({ id: 11 }).then(project =&gt; {

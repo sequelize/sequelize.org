@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/deferrable.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const { classToInvokable } = require(&apos;./utils&apos;);
+const { classToInvokable } = require('./utils');
 
 class ABSTRACT {
   static toString(...args) {
@@ -126,25 +126,25 @@ class ABSTRACT {
   }
 
   toSql() {
-    throw new Error(&apos;toSql implementation missing&apos;);
+    throw new Error('toSql implementation missing');
   }
 }
 
 class INITIALLY_DEFERRED extends ABSTRACT {
   toSql() {
-    return &apos;DEFERRABLE INITIALLY DEFERRED&apos;;
+    return 'DEFERRABLE INITIALLY DEFERRED';
   }
 }
 
 class INITIALLY_IMMEDIATE extends ABSTRACT {
   toSql() {
-    return &apos;DEFERRABLE INITIALLY IMMEDIATE&apos;;
+    return 'DEFERRABLE INITIALLY IMMEDIATE';
   }
 }
 
 class NOT extends ABSTRACT {
   toSql() {
-    return &apos;NOT DEFERRABLE&apos;;
+    return 'NOT DEFERRABLE';
   }
 }
 
@@ -179,12 +179,12 @@ class SET_IMMEDIATE extends ABSTRACT {
  * that will check the constraints immediately when the data was inserted.
  *
  * ```js
- * sequelize.define(&apos;Model&apos;, {
+ * sequelize.define('Model', {
  *   foreign_id: {
  *     type: Sequelize.INTEGER,
  *     references: {
  *       model: OtherModel,
- *       key: &apos;id&apos;,
+ *       key: 'id',
  *       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
  *     }
  *   }

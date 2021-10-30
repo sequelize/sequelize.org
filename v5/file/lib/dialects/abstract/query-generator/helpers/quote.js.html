@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -123,9 +123,9 @@
  * code in dual dependency of abstract &lt;-&gt; specific dialect
  */
 
-&apos;use strict&apos;;
+'use strict';
 
-const Utils = require(&apos;../../../../utils&apos;);
+const Utils = require('../../../../utils');
 
 /**
  * list of reserved words in PostgreSQL 10
@@ -133,7 +133,7 @@ const Utils = require(&apos;../../../../utils&apos;);
  *
  * @private
  */
-const postgresReservedWords = &apos;all,analyse,analyze,and,any,array,as,asc,asymmetric,authorization,binary,both,case,cast,check,collate,collation,column,concurrently,constraint,create,cross,current_catalog,current_date,current_role,current_schema,current_time,current_timestamp,current_user,default,deferrable,desc,distinct,do,else,end,except,false,fetch,for,foreign,freeze,from,full,grant,group,having,ilike,in,initially,inner,intersect,into,is,isnull,join,lateral,leading,left,like,limit,localtime,localtimestamp,natural,not,notnull,null,offset,on,only,or,order,outer,overlaps,placing,primary,references,returning,right,select,session_user,similar,some,symmetric,table,tablesample,then,to,trailing,true,union,unique,user,using,variadic,verbose,when,where,window,with&apos;.split(&apos;,&apos;);
+const postgresReservedWords = 'all,analyse,analyze,and,any,array,as,asc,asymmetric,authorization,binary,both,case,cast,check,collate,collation,column,concurrently,constraint,create,cross,current_catalog,current_date,current_role,current_schema,current_time,current_timestamp,current_user,default,deferrable,desc,distinct,do,else,end,except,false,fetch,for,foreign,freeze,from,full,grant,group,having,ilike,in,initially,inner,intersect,into,is,isnull,join,lateral,leading,left,like,limit,localtime,localtimestamp,natural,not,notnull,null,offset,on,only,or,order,outer,overlaps,placing,primary,references,returning,right,select,session_user,similar,some,symmetric,table,tablesample,then,to,trailing,true,union,unique,user,using,variadic,verbose,when,where,window,with'.split(',');
 
 /**
  *
@@ -147,7 +147,7 @@ const postgresReservedWords = &apos;all,analyse,analyze,and,any,array,as,asc,asy
  * @private
  */
 function quoteIdentifier(dialect, identifier, options) {
-  if (identifier === &apos;*&apos;) return identifier;
+  if (identifier === '*') return identifier;
 
   options = Utils.defaults(options || {}, {
     force: false,
@@ -155,34 +155,34 @@ function quoteIdentifier(dialect, identifier, options) {
   });
 
   switch (dialect) {
-    case &apos;sqlite&apos;:
-    case &apos;mariadb&apos;:
-    case &apos;mysql&apos;:
-      return Utils.addTicks(Utils.removeTicks(identifier, &apos;`&apos;), &apos;`&apos;);
+    case 'sqlite':
+    case 'mariadb':
+    case 'mysql':
+      return Utils.addTicks(Utils.removeTicks(identifier, '`'), '`');
 
-    case &apos;postgres&apos;:
-      const rawIdentifier = Utils.removeTicks(identifier, &apos;&quot;&apos;);
+    case 'postgres':
+      const rawIdentifier = Utils.removeTicks(identifier, '"');
 
       if (
         options.force !== true &amp;&amp;
         options.quoteIdentifiers === false &amp;&amp;
-        !identifier.includes(&apos;.&apos;) &amp;&amp;
-        !identifier.includes(&apos;-&gt;&apos;) &amp;&amp;
+        !identifier.includes('.') &amp;&amp;
+        !identifier.includes('-&gt;') &amp;&amp;
         !postgresReservedWords.includes(rawIdentifier.toLowerCase())
       ) {
         // In Postgres, if tables or attributes are created double-quoted,
         // they are also case sensitive. If they contain any uppercase
         // characters, they must always be double-quoted. This makes it
         // impossible to write queries in portable SQL if tables are created in
-        // this way. Hence, we strip quotes if we don&apos;t want case sensitivity.
+        // this way. Hence, we strip quotes if we don't want case sensitivity.
         return rawIdentifier;
       }
-      return Utils.addTicks(rawIdentifier, &apos;&quot;&apos;);
-    case &apos;mssql&apos;:
-      return `[${identifier.replace(/[[\]&apos;]+/g, &apos;&apos;)}]`;
+      return Utils.addTicks(rawIdentifier, '"');
+    case 'mssql':
+      return `[${identifier.replace(/[[\]']+/g, '')}]`;
 
     default:
-      throw new Error(`Dialect &quot;${dialect}&quot; is not supported`);
+      throw new Error(`Dialect "${dialect}" is not supported`);
   }
 }
 module.exports.quoteIdentifier = quoteIdentifier;
@@ -196,7 +196,7 @@ module.exports.quoteIdentifier = quoteIdentifier;
  * @private
  */
 function isIdentifierQuoted(identifier) {
-  return /^\s*(?:([`&quot;&apos;])(?:(?!\1).|\1{2})*\1\.?)+\s*$/i.test(identifier);
+  return /^\s*(?:([`"'])(?:(?!\1).|\1{2})*\1\.?)+\s*$/i.test(identifier);
 }
 module.exports.isIdentifierQuoted = isIdentifierQuoted;
 </code></pre>

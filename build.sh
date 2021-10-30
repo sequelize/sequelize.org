@@ -14,7 +14,7 @@ build_branch () {
         mkdocs build --clean
         mv ./site ../$BUILD_DIR/$1
     else
-        if [ $1 == "v6" ]; then
+        if [ $1 == "main" ]; then
           mv ./esdoc ../$BUILD_DIR/master
         else
           mv ./esdoc ../$BUILD_DIR/$1
@@ -27,7 +27,7 @@ git clone $CLONE_URL
 
 cd $REPO_NAME
 
-build_branch v6
+build_branch main
 build_branch v5
 build_branch v4
 build_branch v3

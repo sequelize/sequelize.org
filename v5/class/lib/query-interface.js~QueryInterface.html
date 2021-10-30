@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -974,8 +974,8 @@
   
   
   <div data-ice="description"><p>Add a new column to a table</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">queryInterface.addColumn(&apos;tableA&apos;, &apos;columnC&apos;, Sequelize.STRING, {
-   after: &apos;columnB&apos; // after option is only supported by MySQL
+<pre><code class="lang-js"><code class="source-code prettyprint">queryInterface.addColumn('tableA', 'columnC', Sequelize.STRING, {
+   after: 'columnB' // after option is only supported by MySQL
 });</code>
 </code></pre>
 </div>
@@ -1201,45 +1201,45 @@
     
   <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">UNIQUE</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint(&apos;Users&apos;, [&apos;email&apos;], {
-  type: &apos;unique&apos;,
-  name: &apos;custom_unique_constraint_name&apos;
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint('Users', ['email'], {
+  type: 'unique',
+  name: 'custom_unique_constraint_name'
 });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">CHECK</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint(&apos;Users&apos;, [&apos;roles&apos;], {
-  type: &apos;check&apos;,
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint('Users', ['roles'], {
+  type: 'check',
   where: {
-     roles: [&apos;user&apos;, &apos;admin&apos;, &apos;moderator&apos;, &apos;guest&apos;]
+     roles: ['user', 'admin', 'moderator', 'guest']
   }
 });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Default - MSSQL only</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint(&apos;Users&apos;, [&apos;roles&apos;], {
-   type: &apos;default&apos;,
-   defaultValue: &apos;guest&apos;
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint('Users', ['roles'], {
+   type: 'default',
+   defaultValue: 'guest'
 });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Primary Key</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint(&apos;Users&apos;, [&apos;username&apos;], {
-   type: &apos;primary key&apos;,
-   name: &apos;custom_primary_constraint_name&apos;
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint('Users', ['username'], {
+   type: 'primary key',
+   name: 'custom_primary_constraint_name'
 });</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">
       <div class="example-caption" data-ice="exampleCaption">Foreign Key</div>
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint(&apos;Posts&apos;, [&apos;username&apos;], {
-  type: &apos;foreign key&apos;,
-  name: &apos;custom_fkey_constraint_name&apos;,
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.addConstraint('Posts', ['username'], {
+  type: 'foreign key',
+  name: 'custom_fkey_constraint_name',
   references: { //Required field
-    table: &apos;target_table_name&apos;,
-    field: &apos;target_column_name&apos;
+    table: 'target_table_name',
+    field: 'target_column_name'
   },
-  onDelete: &apos;cascade&apos;,
-  onUpdate: &apos;cascade&apos;
+  onDelete: 'cascade',
+  onUpdate: 'cascade'
 });</code></pre>
     </div>
 </div>
@@ -1608,12 +1608,12 @@
     
   <div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.bulkInsert(&apos;roles&apos;, [{
-   label: &apos;user&apos;,
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.bulkInsert('roles', [{
+   label: 'user',
    createdAt: new Date(),
    updatedAt: new Date()
  }, {
-   label: &apos;admin&apos;,
+   label: 'admin',
    createdAt: new Date(),
    updatedAt: new Date()
  }]);</code></pre>
@@ -1724,8 +1724,8 @@
     
   <div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.bulkUpdate(&apos;roles&apos;, {
-    label: &apos;admin&apos;,
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.bulkUpdate('roles', {
+    label: 'admin',
   }, {
     userType: 3,
   },
@@ -2075,21 +2075,21 @@
   <div class="example-doc" data-ice="exampleDoc">
       
       <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.createFunction(
-  &apos;someFunction&apos;,
+  'someFunction',
   [
-    {type: &apos;integer&apos;, name: &apos;param&apos;, direction: &apos;IN&apos;}
+    {type: 'integer', name: 'param', direction: 'IN'}
   ],
-  &apos;integer&apos;,
-  &apos;plpgsql&apos;,
-  &apos;RETURN param + 1;&apos;,
+  'integer',
+  'plpgsql',
+  'RETURN param + 1;',
   [
-    &apos;IMMUTABLE&apos;,
-    &apos;LEAKPROOF&apos;
+    'IMMUTABLE',
+    'LEAKPROOF'
   ],
   {
    variables:
      [
-       {type: &apos;integer&apos;, name: &apos;myVar&apos;, default: 100}
+       {type: 'integer', name: 'myVar', default: 100}
      ],
      force: true
   };
@@ -2203,7 +2203,7 @@
   
   <div data-ice="description"><p>Create a table with given set of attributes</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">queryInterface.createTable(
-  &apos;nameOfTheNewTable&apos;,
+  'nameOfTheNewTable',
   {
     id: {
       type: Sequelize.INTEGER,
@@ -2227,19 +2227,19 @@
     attr4: {
       type: Sequelize.INTEGER,
       references: {
-        model: &apos;another_table_name&apos;,
-        key: &apos;id&apos;
+        model: 'another_table_name',
+        key: 'id'
       },
-      onUpdate: &apos;cascade&apos;,
-      onDelete: &apos;cascade&apos;
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
     }
   },
   {
-    engine: &apos;MYISAM&apos;,    // default: &apos;InnoDB&apos;
-    charset: &apos;latin1&apos;,   // default: null
-    schema: &apos;public&apos;,    // default: public, PostgreSQL only.
-    comment: &apos;my table&apos;, // comment for table
-    collate: &apos;latin1_danish_ci&apos; // collation, MYSQL only
+    engine: 'MYISAM',    // default: 'InnoDB'
+    charset: 'latin1',   // default: null
+    schema: 'public',    // default: public, PostgreSQL only.
+    comment: 'my table', // comment for table
+    collate: 'latin1_danish_ci' // collation, MYSQL only
   }
 )</code>
 </code></pre>
@@ -2340,12 +2340,12 @@
 <p>This method returns an array of hashes containing information about all attributes in the table.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">{
    name: {
-     type:         &apos;VARCHAR(255)&apos;, // this will be &apos;CHARACTER VARYING&apos; for pg!
+     type:         'VARCHAR(255)', // this will be 'CHARACTER VARYING' for pg!
      allowNull:    true,
      defaultValue: null
    },
    isBetaMember: {
-     type:         &apos;TINYINT(1)&apos;, // this will be &apos;BOOLEAN&apos; for pg!
+     type:         'TINYINT(1)', // this will be 'BOOLEAN' for pg!
      allowNull:    false,
      defaultValue: false
    }
@@ -2730,10 +2730,10 @@
   <div class="example-doc" data-ice="exampleDoc">
       
       <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.dropFunction(
-  &apos;someFunction&apos;,
+  'someFunction',
   [
-    {type: &apos;varchar&apos;, name: &apos;param1&apos;, direction: &apos;IN&apos;},
-    {type: &apos;integer&apos;, name: &apos;param2&apos;, direction: &apos;INOUT&apos;}
+    {type: 'varchar', name: 'param1', direction: 'IN'},
+    {type: 'integer', name: 'param2', direction: 'INOUT'}
   ]
 );</code></pre>
     </div>
@@ -2927,7 +2927,7 @@
 <p>Those details contains constraintSchema, constraintName, constraintCatalog
 tableCatalog, tableSchema, tableName, columnName,
 referencedTableCatalog, referencedTableCatalog, referencedTableSchema, referencedTableName, referencedColumnName.
-Remind: constraint informations won&apos;t return if it&apos;s sqlite.</p>
+Remind: constraint informations won't return if it's sqlite.</p>
 </div>
 
   
@@ -3436,12 +3436,12 @@ Remind: constraint informations won&apos;t return if it&apos;s sqlite.</p>
   <div class="example-doc" data-ice="exampleDoc">
       
       <pre class="prettyprint source-code"><code data-ice="exampleCode">queryInterface.renameFunction(
-  &apos;fooFunction&apos;,
+  'fooFunction',
   [
-    {type: &apos;varchar&apos;, name: &apos;param1&apos;, direction: &apos;IN&apos;},
-    {type: &apos;integer&apos;, name: &apos;param2&apos;, direction: &apos;INOUT&apos;}
+    {type: 'varchar', name: 'param1', direction: 'IN'},
+    {type: 'integer', name: 'param2', direction: 'INOUT'}
   ],
-  &apos;barFunction&apos;
+  'barFunction'
 );</code></pre>
     </div>
 </div>

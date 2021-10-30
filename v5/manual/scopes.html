@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -433,7 +433,7 @@ Project.init({
       }
     }
     sequelize,
-    modelName: &apos;project&apos;
+    modelName: 'project'
   }
 });</code>
 </code></pre>
@@ -442,7 +442,7 @@ Project.init({
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE active = true</code>
 </code></pre>
 <p>The default scope can be removed by calling <code>.unscoped()</code>, <code>.scope(null)</code>, or by invoking another scope:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope(&apos;deleted&apos;).findAll(); // Removes the default scope</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope('deleted').findAll(); // Removes the default scope</code>
 </code></pre>
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE deleted = true</code>
 </code></pre>
@@ -450,29 +450,29 @@ Project.init({
 Using the above example, and invoking the <code>active</code> scope on the included User model (rather than specifying the condition directly in that include object):</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">activeUsers: {
   include: [
-    { model: User.scope(&apos;active&apos;)}
+    { model: User.scope('active')}
   ]
 }</code>
 </code></pre>
 <h2 id="usage">Usage</h2><p>Scopes are applied by calling <code>.scope</code> on the model definition, passing the name of one or more scopes. <code>.scope</code> returns a fully functional model instance with all the regular methods: <code>.findAll</code>, <code>.update</code>, <code>.count</code>, <code>.destroy</code> etc. You can save this model instance and reuse it later:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const DeletedProjects = Project.scope(&apos;deleted&apos;);
+<pre><code class="lang-js"><code class="source-code prettyprint">const DeletedProjects = Project.scope('deleted');
 
 DeletedProjects.findAll();
 // some time passes
 
-// let&apos;s look for deleted projects again!
+// let's look for deleted projects again!
 DeletedProjects.findAll();</code>
 </code></pre>
 <p>Scopes apply to <code>.find</code>, <code>.findAll</code>, <code>.count</code>, <code>.update</code>, <code>.increment</code> and <code>.destroy</code>.</p>
 <p>Scopes which are functions can be invoked in two ways. If the scope does not take any arguments it can be invoked as normally. If the scope takes arguments, pass an object:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope(&apos;random&apos;, { method: [&apos;accessLevel&apos;, 19]}).findAll();</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope('random', { method: ['accessLevel', 19]}).findAll();</code>
 </code></pre>
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE someNumber = 42 AND accessLevel &gt;= 19</code>
 </code></pre>
 <h2 id="merging">Merging</h2><p>Several scopes can be applied simultaneously by passing an array of scopes to <code>.scope</code>, or by passing the scopes as consecutive arguments.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// These two are equivalent
-Project.scope(&apos;deleted&apos;, &apos;activeUsers&apos;).findAll();
-Project.scope([&apos;deleted&apos;, &apos;activeUsers&apos;]).findAll();</code>
+Project.scope('deleted', 'activeUsers').findAll();
+Project.scope(['deleted', 'activeUsers']).findAll();</code>
 </code></pre>
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects
 INNER JOIN users ON projects.userId = users.id
@@ -480,7 +480,7 @@ WHERE projects.deleted = true
 AND users.active = true</code>
 </code></pre>
 <p>If you want to apply another scope alongside the default scope, pass the key <code>defaultScope</code> to <code>.scope</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope(&apos;defaultScope&apos;, &apos;deleted&apos;).findAll();</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope('defaultScope', 'deleted').findAll();</code>
 </code></pre>
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE active = true AND deleted = true</code>
 </code></pre>
@@ -488,7 +488,7 @@ AND users.active = true</code>
 <pre><code class="lang-js"><code class="source-code prettyprint">{
   scope1: {
     where: {
-      firstName: &apos;bob&apos;,
+      firstName: 'bob',
       age: {
         [Op.gt]: 20
       }
@@ -505,21 +505,21 @@ AND users.active = true</code>
   }
 }</code>
 </code></pre>
-<p>Calling <code>.scope(&apos;scope1&apos;, &apos;scope2&apos;)</code> will yield the following query</p>
-<pre><code class="lang-sql"><code class="source-code prettyprint">WHERE firstName = &apos;bob&apos; AND age &gt; 30 LIMIT 10</code>
+<p>Calling <code>.scope('scope1', 'scope2')</code> will yield the following query</p>
+<pre><code class="lang-sql"><code class="source-code prettyprint">WHERE firstName = 'bob' AND age &gt; 30 LIMIT 10</code>
 </code></pre>
 <p>Note how <code>limit</code> and <code>age</code> are overwritten by <code>scope2</code>, while <code>firstName</code> is preserved. The <code>limit</code>, <code>offset</code>, <code>order</code>, <code>paranoid</code>, <code>lock</code> and <code>raw</code> fields are overwritten, while <code>where</code> is shallowly merged (meaning that identical keys will be overwritten). The merge strategy for <code>include</code> will be discussed later on.</p>
 <p>Note that <code>attributes</code> keys of multiple applied scopes are merged in such a way that <code>attributes.exclude</code> are always preserved. This allows merging several scopes and never leaking sensitive fields in final scope.</p>
 <p>The same merge logic applies when passing a find object directly to <code>findAll</code> (and similar finders) on a scoped model:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope(&apos;deleted&apos;).findAll({
+<pre><code class="lang-js"><code class="source-code prettyprint">Project.scope('deleted').findAll({
   where: {
-    firstName: &apos;john&apos;
+    firstName: 'john'
   }
 })</code>
 </code></pre>
-<pre><code class="lang-sql"><code class="source-code prettyprint">WHERE deleted = true AND firstName = &apos;john&apos;</code>
+<pre><code class="lang-sql"><code class="source-code prettyprint">WHERE deleted = true AND firstName = 'john'</code>
 </code></pre>
-<p>Here the <code>deleted</code> scope is merged with the finder. If we were to pass <code>where: { firstName: &apos;john&apos;, deleted: false }</code> to the finder, the <code>deleted</code> scope would be overwritten.</p>
+<p>Here the <code>deleted</code> scope is merged with the finder. If we were to pass <code>where: { firstName: 'john', deleted: false }</code> to the finder, the <code>deleted</code> scope would be overwritten.</p>
 <h3 id="merging-includes">Merging includes</h3><p>Includes are merged recursively based on the models being included. This is a very powerful merge, added on v5, and is better understood with an example.</p>
 <p>Consider four models: Foo, Bar, Baz and Qux, with has-many associations as follows:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">class Foo extends Model {}
@@ -530,9 +530,9 @@ Foo.init({ name: Sequelize.STRING }, { sequelize });
 Bar.init({ name: Sequelize.STRING }, { sequelize });
 Baz.init({ name: Sequelize.STRING }, { sequelize });
 Qux.init({ name: Sequelize.STRING }, { sequelize });
-Foo.hasMany(Bar, { foreignKey: &apos;fooId&apos; });
-Bar.hasMany(Baz, { foreignKey: &apos;barId&apos; });
-Baz.hasMany(Qux, { foreignKey: &apos;bazId&apos; });</code>
+Foo.hasMany(Bar, { foreignKey: 'fooId' });
+Bar.hasMany(Baz, { foreignKey: 'barId' });
+Baz.hasMany(Qux, { foreignKey: 'bazId' });</code>
 </code></pre>
 <p>Now, consider the following four scopes defined on Foo:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">{
@@ -566,14 +566,14 @@ Baz.hasMany(Qux, { foreignKey: &apos;bazId&apos; });</code>
       include: [{
         model: this.Baz,
         attributes: {
-          exclude: [&apos;name&apos;]
+          exclude: ['name']
         }
       }]
     }]
   }
 }</code>
 </code></pre>
-<p>These four scopes can be deeply merged easily, for example by calling <code>Foo.scope(&apos;includeEverything&apos;, &apos;limitedBars&apos;, &apos;limitedBazs&apos;, &apos;excludeBazName&apos;).findAll()</code>, which would be entirely equivalent to calling the following:</p>
+<p>These four scopes can be deeply merged easily, for example by calling <code>Foo.scope('includeEverything', 'limitedBars', 'limitedBazs', 'excludeBazName').findAll()</code>, which would be entirely equivalent to calling the following:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Foo.findAll({
   include: {
     model: this.Bar,
@@ -582,7 +582,7 @@ Baz.hasMany(Qux, { foreignKey: &apos;bazId&apos; });</code>
       model: this.Baz,
       limit: 2,
       attributes: {
-        exclude: [&apos;name&apos;]
+        exclude: ['name']
       },
       include: this.Qux
     }]
@@ -600,16 +600,16 @@ Baz.hasMany(Qux, { foreignKey: &apos;bazId&apos; });</code>
 <p>As an example, consider the models Post and Comment. Comment is associated to several other models (Image, Video etc.) and the association between Comment and other models is polymorphic, which means that Comment stores a <code>commentable</code> column, in addition to the foreign key <code>commentable_id</code>.</p>
 <p>The polymorphic association can be implemented with an <em>association scope</em> :</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">this.Post.hasMany(this.Comment, {
-  foreignKey: &apos;commentable_id&apos;,
+  foreignKey: 'commentable_id',
   scope: {
-    commentable: &apos;post&apos;
+    commentable: 'post'
   }
 });</code>
 </code></pre>
-<p>When calling <code>post.getComments()</code>, this will automatically add <code>WHERE commentable = &apos;post&apos;</code>. Similarly, when adding new comments to a post, <code>commentable</code> will automagically be set to <code>&apos;post&apos;</code>. The association scope is meant to live in the background without the programmer having to worry about it - it cannot be disabled. For a more complete polymorphic example, see <a href="./manual/associations.html#scopes">Association scopes</a></p>
+<p>When calling <code>post.getComments()</code>, this will automatically add <code>WHERE commentable = 'post'</code>. Similarly, when adding new comments to a post, <code>commentable</code> will automagically be set to <code>'post'</code>. The association scope is meant to live in the background without the programmer having to worry about it - it cannot be disabled. For a more complete polymorphic example, see <a href="./manual/associations.html#scopes">Association scopes</a></p>
 <p>Consider then, that Post has a default scope which only shows active posts: <code>where: { active: true }</code>. This scope lives on the associated model (Post), and not on the association like the <code>commentable</code> scope did. Just like the default scope is applied when calling <code>Post.findAll()</code>, it is also applied when calling <code>User.getPosts()</code> - this will only return the active posts for that user.</p>
 <p>To disable the default scope, pass <code>scope: null</code> to the getter: <code>User.getPosts({ scope: null })</code>. Similarly, if you want to apply other scopes, pass an array like you would to <code>.scope</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">User.getPosts({ scope: [&apos;scope1&apos;, &apos;scope2&apos;]});</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">User.getPosts({ scope: ['scope1', 'scope2']});</code>
 </code></pre>
 <p>If you want to create a shortcut method to a scope on an associated model, you can pass the scoped model to the association. Consider a shortcut to get all deleted posts for a user:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">class Post extends Model {}
@@ -630,7 +630,7 @@ Post.init(attributes, {
 });
 
 User.hasMany(Post); // regular getPosts association
-User.hasMany(Post.scope(&apos;deleted&apos;), { as: &apos;deletedPosts&apos; });
+User.hasMany(Post.scope('deleted'), { as: 'deletedPosts' });
 </code>
 </code></pre>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.getPosts(); // WHERE active = true

@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,19 +112,19 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/associations/has-many.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const Utils = require(&apos;./../utils&apos;);
-const Helpers = require(&apos;./helpers&apos;);
-const _ = require(&apos;lodash&apos;);
-const Association = require(&apos;./base&apos;);
-const Op = require(&apos;../operators&apos;);
+const Utils = require('./../utils');
+const Helpers = require('./helpers');
+const _ = require('lodash');
+const Association = require('./base');
+const Op = require('../operators');
 
 /**
  * One-to-many association
  *
  * In the API reference below, add the name of the association to the method, e.g. for `User.hasMany(Project)` the getter will be `user.getProjects()`.
- * If the association is aliased, use the alias instead, e.g. `User.hasMany(Project, { as: &apos;jobs&apos; })` will be `user.getJobs()`.
+ * If the association is aliased, use the alias instead, e.g. `User.hasMany(Project, { as: 'jobs' })` will be `user.getJobs()`.
  *
  * @see {@link Model.hasMany}
  */
@@ -132,14 +132,14 @@ class HasMany extends Association {
   constructor(source, target, options) {
     super(source, target, options);
 
-    this.associationType = &apos;HasMany&apos;;
+    this.associationType = 'HasMany';
     this.targetAssociation = null;
     this.sequelize = source.sequelize;
     this.isMultiAssociation = true;
     this.foreignKeyAttribute = {};
 
     if (this.options.through) {
-      throw new Error(&apos;N:M associations are not supported with hasMany. Use belongsToMany instead&apos;);
+      throw new Error('N:M associations are not supported with hasMany. Use belongsToMany instead');
     }
 
     /*
@@ -181,7 +181,7 @@ class HasMany extends Association {
         [
           this.source.options.name.singular,
           this.source.primaryKeyAttribute
-        ].join(&apos;_&apos;)
+        ].join('_')
       );
     }
 
@@ -237,8 +237,8 @@ class HasMany extends Association {
 
     if (this.options.constraints !== false) {
       const target = this.target.rawAttributes[this.foreignKey] || newAttributes[this.foreignKey];
-      constraintOptions.onDelete = constraintOptions.onDelete || (target.allowNull ? &apos;SET NULL&apos; : &apos;CASCADE&apos;);
-      constraintOptions.onUpdate = constraintOptions.onUpdate || &apos;CASCADE&apos;;
+      constraintOptions.onDelete = constraintOptions.onDelete || (target.allowNull ? 'SET NULL' : 'CASCADE');
+      constraintOptions.onUpdate = constraintOptions.onUpdate || 'CASCADE';
     }
 
     Helpers.addForeignKeyConstraints(newAttributes[this.foreignKey], this.source, this.target, constraintOptions, this.sourceKeyField);
@@ -257,12 +257,12 @@ class HasMany extends Association {
   }
 
   mixin(obj) {
-    const methods = [&apos;get&apos;, &apos;count&apos;, &apos;hasSingle&apos;, &apos;hasAll&apos;, &apos;set&apos;, &apos;add&apos;, &apos;addMultiple&apos;, &apos;remove&apos;, &apos;removeMultiple&apos;, &apos;create&apos;];
+    const methods = ['get', 'count', 'hasSingle', 'hasAll', 'set', 'add', 'addMultiple', 'remove', 'removeMultiple', 'create'];
     const aliases = {
-      hasSingle: &apos;has&apos;,
-      hasAll: &apos;has&apos;,
-      addMultiple: &apos;add&apos;,
-      removeMultiple: &apos;remove&apos;
+      hasSingle: 'has',
+      hasAll: 'has',
+      addMultiple: 'add',
+      removeMultiple: 'remove'
     };
 
     Helpers.mixinMethods(this, obj, methods, aliases);
@@ -325,7 +325,7 @@ class HasMany extends Association {
       { [Op.and]: [where, options.where] } :
       where;
 
-    if (Object.prototype.hasOwnProperty.call(options, &apos;scope&apos;)) {
+    if (Object.prototype.hasOwnProperty.call(options, 'scope')) {
       if (!options.scope) {
         Model = Model.unscoped();
       } else {
@@ -333,7 +333,7 @@ class HasMany extends Association {
       }
     }
 
-    if (Object.prototype.hasOwnProperty.call(options, &apos;schema&apos;)) {
+    if (Object.prototype.hasOwnProperty.call(options, 'schema')) {
       Model = Model.schema(options.schema, options.schemaDelimiter);
     }
 
@@ -369,10 +369,10 @@ class HasMany extends Association {
     options.attributes = [
       [
         this.sequelize.fn(
-          &apos;COUNT&apos;,
+          'COUNT',
           this.sequelize.col(`${this.target.name}.${this.target.primaryKeyField}`)
         ),
-        &apos;count&apos;
+        'count'
       ]
     ];
     options.raw = true;
@@ -584,7 +584,7 @@ class HasMany extends Association {
   }
 
   verifyAssociationAlias(alias) {
-    if (typeof alias === &apos;string&apos;) {
+    if (typeof alias === 'string') {
       return this.as === alias;
     }
 

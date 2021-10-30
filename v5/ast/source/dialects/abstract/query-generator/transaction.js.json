@@ -75,7 +75,7 @@
               "name": "uuidv4"
             },
             "init": {
-              "type": "CallExpression",
+              "type": "MemberExpression",
               "start": 30,
               "end": 48,
               "loc": {
@@ -88,10 +88,10 @@
                   "column": 33
                 }
               },
-              "callee": {
-                "type": "Identifier",
+              "object": {
+                "type": "CallExpression",
                 "start": 30,
-                "end": 37,
+                "end": 45,
                 "loc": {
                   "start": {
                     "line": 3,
@@ -99,34 +99,67 @@
                   },
                   "end": {
                     "line": 3,
-                    "column": 22
-                  },
-                  "identifierName": "require"
+                    "column": 30
+                  }
                 },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 38,
-                  "end": 47,
+                "callee": {
+                  "type": "Identifier",
+                  "start": 30,
+                  "end": 37,
                   "loc": {
                     "start": {
                       "line": 3,
-                      "column": 23
+                      "column": 15
                     },
                     "end": {
                       "line": 3,
-                      "column": 32
-                    }
+                      "column": 22
+                    },
+                    "identifierName": "require"
                   },
-                  "extra": {
-                    "rawValue": "uuid/v4",
-                    "raw": "'uuid/v4'"
+                  "name": "require"
+                },
+                "arguments": [
+                  {
+                    "type": "StringLiteral",
+                    "start": 38,
+                    "end": 44,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 23
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 29
+                      }
+                    },
+                    "extra": {
+                      "rawValue": "uuid",
+                      "raw": "'uuid'"
+                    },
+                    "value": "uuid"
+                  }
+                ]
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 46,
+                "end": 48,
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 31
                   },
-                  "value": "uuid/v4"
-                }
-              ]
+                  "end": {
+                    "line": 3,
+                    "column": 33
+                  },
+                  "identifierName": "v4"
+                },
+                "name": "v4"
+              },
+              "computed": false
             }
           }
         ],
@@ -2387,9 +2420,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "uuid/v4",
+      "value": "uuid",
       "start": 38,
-      "end": 47,
+      "end": 44,
       "loc": {
         "start": {
           "line": 3,
@@ -2397,7 +2430,7 @@
         },
         "end": {
           "line": 3,
-          "column": 32
+          "column": 29
         }
       }
     },
@@ -2413,12 +2446,64 @@
         "postfix": false,
         "binop": null
       },
-      "start": 47,
+      "start": 44,
+      "end": 45,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 29
+        },
+        "end": {
+          "line": 3,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 45,
+      "end": 46,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 30
+        },
+        "end": {
+          "line": 3,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "v4",
+      "start": 46,
       "end": 48,
       "loc": {
         "start": {
           "line": 3,
-          "column": 32
+          "column": 31
         },
         "end": {
           "line": 3,

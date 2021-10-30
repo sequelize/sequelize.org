@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mariadb/query-generator.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const MySQLQueryGenerator = require(&apos;../mysql/query-generator&apos;);
+const MySQLQueryGenerator = require('../mysql/query-generator');
 
 class MariaDBQueryGenerator extends MySQLQueryGenerator {
   createSchema(schema, options) {
@@ -123,8 +123,8 @@ class MariaDBQueryGenerator extends MySQLQueryGenerator {
       collate: null
     }, options || {});
 
-    const charset = options.charset ? ` DEFAULT CHARACTER SET ${this.escape(options.charset)}` : &apos;&apos;;
-    const collate = options.collate ? ` DEFAULT COLLATE ${this.escape(options.collate)}` : &apos;&apos;;
+    const charset = options.charset ? ` DEFAULT CHARACTER SET ${this.escape(options.charset)}` : '';
+    const collate = options.collate ? ` DEFAULT COLLATE ${this.escape(options.collate)}` : '';
 
     return `CREATE SCHEMA IF NOT EXISTS ${this.quoteIdentifier(schema)}${charset}${collate};`;
   }
@@ -135,15 +135,15 @@ class MariaDBQueryGenerator extends MySQLQueryGenerator {
 
   showSchemasQuery(options) {
     const skip = options.skip &amp;&amp; Array.isArray(options.skip) &amp;&amp; options.skip.length &gt; 0 ? options.skip : null;
-    return `SELECT SCHEMA_NAME as schema_name FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME NOT IN (&apos;MYSQL&apos;, &apos;INFORMATION_SCHEMA&apos;, &apos;PERFORMANCE_SCHEMA&apos;${skip ? skip.reduce( (sql, schemaName) =&gt; sql += `,${this.escape(schemaName)}`, &apos;&apos;) : &apos;&apos;});`;
+    return `SELECT SCHEMA_NAME as schema_name FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME NOT IN ('MYSQL', 'INFORMATION_SCHEMA', 'PERFORMANCE_SCHEMA'${skip ? skip.reduce( (sql, schemaName) =&gt; sql += `,${this.escape(schemaName)}`, '') : ''});`;
   }
 
   showTablesQuery(database) {
-    let query = &apos;SELECT TABLE_NAME, TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = \&apos;BASE TABLE\&apos;&apos;;
+    let query = 'SELECT TABLE_NAME, TABLE_SCHEMA FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = \'BASE TABLE\'';
     if (database) {
       query += ` AND TABLE_SCHEMA = ${this.escape(database)}`;
     } else {
-      query += &apos; AND TABLE_SCHEMA NOT IN (\&apos;MYSQL\&apos;, \&apos;INFORMATION_SCHEMA\&apos;, \&apos;PERFORMANCE_SCHEMA\&apos;)&apos;;
+      query += ' AND TABLE_SCHEMA NOT IN (\'MYSQL\', \'INFORMATION_SCHEMA\', \'PERFORMANCE_SCHEMA\')';
     }
     return `${query};`;
   }

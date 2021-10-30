@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,13 +112,13 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/postgres/range.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
+const _ = require('lodash');
 
 function stringifyRangeBound(bound) {
   if (bound === null) {
-    return &apos;&apos; ;
+    return '' ;
   }
   if (bound === Infinity || bound === -Infinity) {
     return bound.toString().toLowerCase();
@@ -130,10 +130,10 @@ function parseRangeBound(bound, parseType) {
   if (!bound) {
     return null;
   }
-  if (bound === &apos;infinity&apos;) {
+  if (bound === 'infinity') {
     return Infinity;
   }
-  if (bound === &apos;-infinity&apos;) {
+  if (bound === '-infinity') {
     return -Infinity;
   }
   return parseType(bound);
@@ -143,11 +143,11 @@ function parseRangeBound(bound, parseType) {
 function stringify(data) {
   if (data === null) return null;
 
-  if (!Array.isArray(data)) throw new Error(&apos;range must be an array&apos;);
-  if (!data.length) return &apos;empty&apos;;
-  if (data.length !== 2) throw new Error(&apos;range array length must be 0 (empty) or 2 (lower and upper bounds)&apos;);
+  if (!Array.isArray(data)) throw new Error('range must be an array');
+  if (!data.length) return 'empty';
+  if (data.length !== 2) throw new Error('range array length must be 0 (empty) or 2 (lower and upper bounds)');
 
-  if (Object.prototype.hasOwnProperty.call(data, &apos;inclusive&apos;)) {
+  if (Object.prototype.hasOwnProperty.call(data, 'inclusive')) {
     if (data.inclusive === false) data.inclusive = [false, false];
     else if (!data.inclusive) data.inclusive = [true, false];
     else if (data.inclusive === true) data.inclusive = [true, true];
@@ -157,34 +157,34 @@ function stringify(data) {
 
   _.each(data, (value, index) =&gt; {
     if (_.isObject(value)) {
-      if (Object.prototype.hasOwnProperty.call(value, &apos;inclusive&apos;)) data.inclusive[index] = !!value.inclusive;
-      if (Object.prototype.hasOwnProperty.call(value, &apos;value&apos;)) data[index] = value.value;
+      if (Object.prototype.hasOwnProperty.call(value, 'inclusive')) data.inclusive[index] = !!value.inclusive;
+      if (Object.prototype.hasOwnProperty.call(value, 'value')) data[index] = value.value;
     }
   });
 
   const lowerBound = stringifyRangeBound(data[0]);
   const upperBound = stringifyRangeBound(data[1]);
 
-  return `${(data.inclusive[0] ? &apos;[&apos; : &apos;(&apos;) + lowerBound},${upperBound}${data.inclusive[1] ? &apos;]&apos; : &apos;)&apos;}`;
+  return `${(data.inclusive[0] ? '[' : '(') + lowerBound},${upperBound}${data.inclusive[1] ? ']' : ')'}`;
 }
 exports.stringify = stringify;
 
 function parse(value, parser) {
   if (value === null) return null;
-  if (value === &apos;empty&apos;) {
+  if (value === 'empty') {
     return [];
   }
 
   let result = value
     .substring(1, value.length - 1)
-    .split(&apos;,&apos;, 2);
+    .split(',', 2);
 
   if (result.length !== 2) return value;
 
   result = result.map((item, index) =&gt; {
     return {
       value: parseRangeBound(item, parser),
-      inclusive: index === 0 ? value[0] === &apos;[&apos; : value[value.length - 1] === &apos;]&apos;
+      inclusive: index === 0 ? value[0] === '[' : value[value.length - 1] === ']'
     };
   });
 

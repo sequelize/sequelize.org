@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/errors/validation-error.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const BaseError = require(&apos;./base-error&apos;);
+const BaseError = require('./base-error');
 
 /**
  * Validation Error. Thrown when the sequelize validation has failed. The error contains an `errors` property,
@@ -128,8 +128,8 @@ const BaseError = require(&apos;./base-error&apos;);
 class ValidationError extends BaseError {
   constructor(message, errors) {
     super(message);
-    this.name = &apos;SequelizeValidationError&apos;;
-    this.message = &apos;Validation Error&apos;;
+    this.name = 'SequelizeValidationError';
+    this.message = 'Validation Error';
     /**
      *
      * @type {ValidationErrorItem[]}
@@ -142,7 +142,7 @@ class ValidationError extends BaseError {
 
       // ... otherwise create a concatenated message out of existing errors.
     } else if (this.errors.length &gt; 0 &amp;&amp; this.errors[0].message) {
-      this.message = this.errors.map(err =&gt; `${err.type || err.origin}: ${err.message}`).join(&apos;,\n&apos;);
+      this.message = this.errors.map(err =&gt; `${err.type || err.origin}: ${err.message}`).join(',\n');
     }
     Error.captureStackTrace(this, this.constructor);
   }
@@ -177,8 +177,8 @@ class ValidationErrorItem {
    * @param {string} path The field that triggered the validation error
    * @param {string} value The value that generated the error
    * @param {Object} [inst] the DAO instance that caused the validation error
-   * @param {Object} [validatorKey] a validation &quot;key&quot;, used for identification
-   * @param {string} [fnName] property name of the BUILT-IN validator function that caused the validation error (e.g. &quot;in&quot; or &quot;len&quot;), if applicable
+   * @param {Object} [validatorKey] a validation "key", used for identification
+   * @param {string} [fnName] property name of the BUILT-IN validator function that caused the validation error (e.g. "in" or "len"), if applicable
    * @param {string} [fnArgs] parameters used with the BUILT-IN validator function, if applicable
    */
   constructor(message, type, path, value, inst, validatorKey, fnName, fnArgs) {
@@ -187,7 +187,7 @@ class ValidationErrorItem {
      *
      * @type {string} message
      */
-    this.message = message || &apos;&apos;;
+    this.message = message || '';
 
     /**
      * The type/origin of the validation error
@@ -220,14 +220,14 @@ class ValidationErrorItem {
     this.instance = inst || null;
 
     /**
-     * A validation &quot;key&quot;, used for identification
+     * A validation "key", used for identification
      *
      * @type {string}
      */
     this.validatorKey = validatorKey || null;
 
     /**
-     * Property name of the BUILT-IN validator function that caused the validation error (e.g. &quot;in&quot; or &quot;len&quot;), if applicable
+     * Property name of the BUILT-IN validator function that caused the validation error (e.g. "in" or "len"), if applicable
      *
      * @type {string}
      */
@@ -254,18 +254,18 @@ class ValidationErrorItem {
       }
     }
 
-    // This doesn&apos;t need captureStackTrace because it&apos;s not a subclass of Error
+    // This doesn't need captureStackTrace because it's not a subclass of Error
   }
 
   /**
-   * return a lowercase, trimmed string &quot;key&quot; that identifies the validator.
+   * return a lowercase, trimmed string "key" that identifies the validator.
    *
    * Note: the string will be empty if the instance has neither a valid `validatorKey` property nor a valid `validatorName` property
    *
-   * @param   {boolean} [useTypeAsNS=true]      controls whether the returned value is &quot;namespace&quot;,
-   *                                            this parameter is ignored if the validator&apos;s `type` is not one of ValidationErrorItem.Origins
-   * @param   {string}  [NSSeparator=&apos;.&apos;]       a separator string for concatenating the namespace, must be not be empty,
-   *                                            defaults to &quot;.&quot; (fullstop). only used and validated if useTypeAsNS is TRUE.
+   * @param   {boolean} [useTypeAsNS=true]      controls whether the returned value is "namespace",
+   *                                            this parameter is ignored if the validator's `type` is not one of ValidationErrorItem.Origins
+   * @param   {string}  [NSSeparator='.']       a separator string for concatenating the namespace, must be not be empty,
+   *                                            defaults to "." (fullstop). only used and validated if useTypeAsNS is TRUE.
    * @throws  {Error}                           thrown if NSSeparator is found to be invalid.
    * @returns  {string}
    *
@@ -273,18 +273,18 @@ class ValidationErrorItem {
    */
   getValidatorKey(useTypeAsNS, NSSeparator) {
     const useTANS = useTypeAsNS === undefined || !!useTypeAsNS;
-    const NSSep = NSSeparator === undefined ? &apos;.&apos; : NSSeparator;
+    const NSSep = NSSeparator === undefined ? '.' : NSSeparator;
 
     const type = this.origin;
     const key = this.validatorKey || this.validatorName;
     const useNS = useTANS &amp;&amp; type &amp;&amp; ValidationErrorItem.Origins[ type ];
 
-    if (useNS &amp;&amp; (typeof NSSep !== &apos;string&apos; || !NSSep.length)) {
-      throw new Error(&apos;Invalid namespace separator given, must be a non-empty string&apos;);
+    if (useNS &amp;&amp; (typeof NSSep !== 'string' || !NSSep.length)) {
+      throw new Error('Invalid namespace separator given, must be a non-empty string');
     }
 
-    if (!(typeof key === &apos;string&apos; &amp;&amp; key.length)) {
-      return &apos;&apos;;
+    if (!(typeof key === 'string' &amp;&amp; key.length)) {
+      return '';
     }
 
     return (useNS ? [type, key].join(NSSep) : key).toLowerCase().trim();
@@ -295,14 +295,14 @@ class ValidationErrorItem {
  * An enum that defines valid ValidationErrorItem `origin` values
  *
  * @type {Object}
- * @property CORE       {string}  specifies errors that originate from the sequelize &quot;core&quot;
+ * @property CORE       {string}  specifies errors that originate from the sequelize "core"
  * @property DB         {string}  specifies validation errors that originate from the storage engine
  * @property FUNCTION   {string}  specifies validation errors that originate from validator functions (both built-in and custom) defined for a given attribute
  */
 ValidationErrorItem.Origins = {
-  CORE: &apos;CORE&apos;,
-  DB: &apos;DB&apos;,
-  FUNCTION: &apos;FUNCTION&apos;
+  CORE: 'CORE',
+  DB: 'DB',
+  FUNCTION: 'FUNCTION'
 };
 
 /**
@@ -313,10 +313,10 @@ ValidationErrorItem.Origins = {
  * @type {Object}
  */
 ValidationErrorItem.TypeStringMap = {
-  &apos;notnull violation&apos;: &apos;CORE&apos;,
-  &apos;string violation&apos;: &apos;CORE&apos;,
-  &apos;unique violation&apos;: &apos;DB&apos;,
-  &apos;validation error&apos;: &apos;FUNCTION&apos;
+  'notnull violation': 'CORE',
+  'string violation': 'CORE',
+  'unique violation': 'DB',
+  'validation error': 'FUNCTION'
 };
 
 module.exports = ValidationError;

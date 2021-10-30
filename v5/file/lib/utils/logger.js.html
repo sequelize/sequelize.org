@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,7 +112,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/utils/logger.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
 /**
  * Sequelize module for debug and deprecation messages.
@@ -122,14 +122,14 @@
  * @private
  */
 
-const debug = require(&apos;debug&apos;);
-const util = require(&apos;util&apos;);
+const debug = require('debug');
+const util = require('util');
 
 class Logger {
   constructor(config) {
 
     this.config = Object.assign({
-      context: &apos;sequelize&apos;,
+      context: 'sequelize',
       debug: true
     }, config);
   }

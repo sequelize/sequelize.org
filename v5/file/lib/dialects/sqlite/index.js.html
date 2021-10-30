@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,14 +112,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/sqlite/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const AbstractDialect = require(&apos;../abstract&apos;);
-const ConnectionManager = require(&apos;./connection-manager&apos;);
-const Query = require(&apos;./query&apos;);
-const QueryGenerator = require(&apos;./query-generator&apos;);
-const DataTypes = require(&apos;../../data-types&apos;).sqlite;
+const _ = require('lodash');
+const AbstractDialect = require('../abstract');
+const ConnectionManager = require('./connection-manager');
+const Query = require('./query');
+const QueryGenerator = require('./query-generator');
+const DataTypes = require('../../data-types').sqlite;
 
 class SqliteDialect extends AbstractDialect {
   constructor(sequelize) {
@@ -134,13 +134,13 @@ class SqliteDialect extends AbstractDialect {
 }
 
 SqliteDialect.prototype.supports = _.merge(_.cloneDeep(AbstractDialect.prototype.supports), {
-  &apos;DEFAULT&apos;: false,
-  &apos;DEFAULT VALUES&apos;: true,
-  &apos;UNION ALL&apos;: false,
-  &apos;RIGHT JOIN&apos;: false,
+  'DEFAULT': false,
+  'DEFAULT VALUES': true,
+  'UNION ALL': false,
+  'RIGHT JOIN': false,
   inserts: {
-    ignoreDuplicates: &apos; OR IGNORE&apos;,
-    updateOnDuplicate: &apos; ON CONFLICT DO UPDATE SET&apos;
+    ignoreDuplicates: ' OR IGNORE',
+    updateOnDuplicate: ' ON CONFLICT DO UPDATE SET'
   },
   index: {
     using: false,
@@ -159,11 +159,11 @@ SqliteDialect.prototype.supports = _.merge(_.cloneDeep(AbstractDialect.prototype
   JSON: true
 });
 
-ConnectionManager.prototype.defaultVersion = &apos;3.8.0&apos;;
+ConnectionManager.prototype.defaultVersion = '3.8.0';
 SqliteDialect.prototype.Query = Query;
 SqliteDialect.prototype.DataTypes = DataTypes;
-SqliteDialect.prototype.name = &apos;sqlite&apos;;
-SqliteDialect.prototype.TICK_CHAR = &apos;`&apos;;
+SqliteDialect.prototype.name = 'sqlite';
+SqliteDialect.prototype.TICK_CHAR = '`';
 SqliteDialect.prototype.TICK_CHAR_LEFT = SqliteDialect.prototype.TICK_CHAR;
 SqliteDialect.prototype.TICK_CHAR_RIGHT = SqliteDialect.prototype.TICK_CHAR;
 

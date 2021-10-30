@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,56 +112,56 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/sqlite/query-generator.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const Utils = require(&apos;../../utils&apos;);
-const Transaction = require(&apos;../../transaction&apos;);
-const _ = require(&apos;lodash&apos;);
-const MySqlQueryGenerator = require(&apos;../mysql/query-generator&apos;);
-const AbstractQueryGenerator = require(&apos;../abstract/query-generator&apos;);
+const Utils = require('../../utils');
+const Transaction = require('../../transaction');
+const _ = require('lodash');
+const MySqlQueryGenerator = require('../mysql/query-generator');
+const AbstractQueryGenerator = require('../abstract/query-generator');
 
 class SQLiteQueryGenerator extends MySqlQueryGenerator {
   createSchema() {
-    return &quot;SELECT name FROM `sqlite_master` WHERE type=&apos;table&apos; and name!=&apos;sqlite_sequence&apos;;&quot;;
+    return "SELECT name FROM `sqlite_master` WHERE type='table' and name!='sqlite_sequence';";
   }
 
   showSchemasQuery() {
-    return &quot;SELECT name FROM `sqlite_master` WHERE type=&apos;table&apos; and name!=&apos;sqlite_sequence&apos;;&quot;;
+    return "SELECT name FROM `sqlite_master` WHERE type='table' and name!='sqlite_sequence';";
   }
 
   versionQuery() {
-    return &apos;SELECT sqlite_version() as `version`&apos;;
+    return 'SELECT sqlite_version() as `version`';
   }
 
   createTableQuery(tableName, attributes, options) {
     options = options || {};
 
     const primaryKeys = [];
-    const needsMultiplePrimaryKeys = _.values(attributes).filter(definition =&gt; definition.includes(&apos;PRIMARY KEY&apos;)).length &gt; 1;
+    const needsMultiplePrimaryKeys = _.values(attributes).filter(definition =&gt; definition.includes('PRIMARY KEY')).length &gt; 1;
     const attrArray = [];
 
     for (const attr in attributes) {
       if (Object.prototype.hasOwnProperty.call(attributes, attr)) {
         const dataType = attributes[attr];
-        const containsAutoIncrement = dataType.includes(&apos;AUTOINCREMENT&apos;);
+        const containsAutoIncrement = dataType.includes('AUTOINCREMENT');
 
         let dataTypeString = dataType;
-        if (dataType.includes(&apos;PRIMARY KEY&apos;)) {
-          if (dataType.includes(&apos;INT&apos;)) {
+        if (dataType.includes('PRIMARY KEY')) {
+          if (dataType.includes('INT')) {
             // Only INTEGER is allowed for primary key, see https://github.com/sequelize/sequelize/issues/969 (no lenght, unsigned etc)
-            dataTypeString = containsAutoIncrement ? &apos;INTEGER PRIMARY KEY AUTOINCREMENT&apos; : &apos;INTEGER PRIMARY KEY&apos;;
+            dataTypeString = containsAutoIncrement ? 'INTEGER PRIMARY KEY AUTOINCREMENT' : 'INTEGER PRIMARY KEY';
 
-            if (dataType.includes(&apos; REFERENCES&apos;)) {
-              dataTypeString += dataType.substr(dataType.indexOf(&apos; REFERENCES&apos;));
+            if (dataType.includes(' REFERENCES')) {
+              dataTypeString += dataType.substr(dataType.indexOf(' REFERENCES'));
             }
           }
 
           if (needsMultiplePrimaryKeys) {
             primaryKeys.push(attr);
-            if (dataType.includes(&apos;NOT NULL&apos;)) {
-              dataTypeString = dataType.replace(&apos; PRIMARY KEY&apos;, &apos;&apos;);
+            if (dataType.includes('NOT NULL')) {
+              dataTypeString = dataType.replace(' PRIMARY KEY', '');
             } else {
-              dataTypeString = dataType.replace(&apos;PRIMARY KEY&apos;, &apos;NOT NULL&apos;);
+              dataTypeString = dataType.replace('PRIMARY KEY', 'NOT NULL');
             }
           }
         }
@@ -170,13 +170,13 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
     }
 
     const table = this.quoteTable(tableName);
-    let attrStr = attrArray.join(&apos;, &apos;);
-    const pkString = primaryKeys.map(pk =&gt; this.quoteIdentifier(pk)).join(&apos;, &apos;);
+    let attrStr = attrArray.join(', ');
+    const pkString = primaryKeys.map(pk =&gt; this.quoteIdentifier(pk)).join(', ');
 
     if (options.uniqueKeys) {
       _.each(options.uniqueKeys, columns =&gt; {
         if (columns.customIndex) {
-          attrStr += `, UNIQUE (${columns.fields.map(field =&gt; this.quoteIdentifier(field)).join(&apos;, &apos;)})`;
+          attrStr += `, UNIQUE (${columns.fields.map(field =&gt; this.quoteIdentifier(field)).join(', ')})`;
         }
       });
     }
@@ -201,13 +201,13 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
    * @throws  {Error}         throw if the statement looks like json function but has invalid token
    */
   _checkValidJsonStatement(stmt) {
-    if (typeof stmt !== &apos;string&apos;) {
+    if (typeof stmt !== 'string') {
       return false;
     }
 
     // https://sqlite.org/json1.html
     const jsonFunctionRegex = /^\s*(json(?:_[a-z]+){0,2})\([^)]*\)/i;
-    const tokenCaptureRegex = /^\s*((?:([`&quot;&apos;])(?:(?!\2).|\2{2})*\2)|[\w\d\s]+|[().,;+-])/i;
+    const tokenCaptureRegex = /^\s*((?:([`"'])(?:(?!\2).|\2{2})*\2)|[\w\d\s]+|[().,;+-])/i;
 
     let currentIndex = 0;
     let openingBrackets = 0;
@@ -219,7 +219,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
       const string = stmt.substr(currentIndex);
       const functionMatches = jsonFunctionRegex.exec(string);
       if (functionMatches) {
-        currentIndex += functionMatches[0].indexOf(&apos;(&apos;);
+        currentIndex += functionMatches[0].indexOf('(');
         hasJsonFunction = true;
         continue;
       }
@@ -227,11 +227,11 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
       const tokenMatches = tokenCaptureRegex.exec(string);
       if (tokenMatches) {
         const capturedToken = tokenMatches[1];
-        if (capturedToken === &apos;(&apos;) {
+        if (capturedToken === '(') {
           openingBrackets++;
-        } else if (capturedToken === &apos;)&apos;) {
+        } else if (capturedToken === ')') {
           closingBrackets++;
-        } else if (capturedToken === &apos;;&apos;) {
+        } else if (capturedToken === ';') {
           hasInvalidToken = true;
           break;
         }
@@ -252,7 +252,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
     return hasJsonFunction;
   }
 
-  //sqlite can&apos;t cast to datetime so we need to convert date values to their ISO strings
+  //sqlite can't cast to datetime so we need to convert date values to their ISO strings
   _toJSONValue(value) {
     if (value instanceof Date) {
       return value.toISOString();
@@ -271,7 +271,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
 
     if (smth instanceof Utils.Cast) {
       if (/timestamp/i.test(smth.type)) {
-        smth.type = &apos;datetime&apos;;
+        smth.type = 'datetime';
       }
     }
 
@@ -281,7 +281,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   addColumnQuery(table, key, dataType) {
     const attributes = {};
     attributes[key] = dataType;
-    const fields = this.attributesToSQL(attributes, { context: &apos;addColumn&apos; });
+    const fields = this.attributesToSQL(attributes, { context: 'addColumn' });
     const attribute = `${this.quoteIdentifier(key)} ${fields[key]}`;
 
     const sql = `ALTER TABLE ${this.quoteTable(table)} ADD ${attribute};`;
@@ -290,7 +290,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   }
 
   showTablesQuery() {
-    return &apos;SELECT name FROM `sqlite_master` WHERE type=\&apos;table\&apos; and name!=\&apos;sqlite_sequence\&apos;;&apos;;
+    return 'SELECT name FROM `sqlite_master` WHERE type=\'table\' and name!=\'sqlite_sequence\';';
   }
 
   upsertQuery(tableName, insertValues, updateValues, where, model, options) {
@@ -332,9 +332,9 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
       const value = attrValueHash[key];
 
       if (value instanceof Utils.SequelizeMethod || options.bindParam === false) {
-        values.push(`${this.quoteIdentifier(key)}=${this.escape(value, modelAttributeMap &amp;&amp; modelAttributeMap[key] || undefined, { context: &apos;UPDATE&apos; })}`);
+        values.push(`${this.quoteIdentifier(key)}=${this.escape(value, modelAttributeMap &amp;&amp; modelAttributeMap[key] || undefined, { context: 'UPDATE' })}`);
       } else {
-        values.push(`${this.quoteIdentifier(key)}=${this.format(value, modelAttributeMap &amp;&amp; modelAttributeMap[key] || undefined, { context: &apos;UPDATE&apos; }, bindParam)}`);
+        values.push(`${this.quoteIdentifier(key)}=${this.format(value, modelAttributeMap &amp;&amp; modelAttributeMap[key] || undefined, { context: 'UPDATE' }, bindParam)}`);
       }
     }
 
@@ -342,9 +342,9 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
     const whereOptions = _.defaults({ bindParam }, options);
 
     if (options.limit) {
-      query = `UPDATE ${this.quoteTable(tableName)} SET ${values.join(&apos;,&apos;)} WHERE rowid IN (SELECT rowid FROM ${this.quoteTable(tableName)} ${this.whereQuery(where, whereOptions)} LIMIT ${this.escape(options.limit)})`;
+      query = `UPDATE ${this.quoteTable(tableName)} SET ${values.join(',')} WHERE rowid IN (SELECT rowid FROM ${this.quoteTable(tableName)} ${this.whereQuery(where, whereOptions)} LIMIT ${this.escape(options.limit)})`;
     } else {
-      query = `UPDATE ${this.quoteTable(tableName)} SET ${values.join(&apos;,&apos;)} ${this.whereQuery(where, whereOptions)}`;
+      query = `UPDATE ${this.quoteTable(tableName)} SET ${values.join(',')} ${this.whereQuery(where, whereOptions)}`;
     }
 
     return { query, bind };
@@ -353,8 +353,8 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   truncateTableQuery(tableName, options = {}) {
     return [
       `DELETE FROM ${this.quoteTable(tableName)}`,
-      options.restartIdentity ? `; DELETE FROM ${this.quoteTable(&apos;sqlite_sequence&apos;)} WHERE ${this.quoteIdentifier(&apos;name&apos;)} = ${Utils.addTicks(Utils.removeTicks(this.quoteTable(tableName), &apos;`&apos;), &quot;&apos;&quot;)};` : &apos;&apos;
-    ].join(&apos;&apos;);
+      options.restartIdentity ? `; DELETE FROM ${this.quoteTable('sqlite_sequence')} WHERE ${this.quoteIdentifier('name')} = ${Utils.addTicks(Utils.removeTicks(this.quoteTable(tableName), '`'), "'")};` : ''
+    ].join('');
   }
 
   deleteQuery(tableName, where, options = {}, model) {
@@ -383,8 +383,8 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
       if (_.isObject(dataType)) {
         let sql = dataType.type.toString();
 
-        if (Object.prototype.hasOwnProperty.call(dataType, &apos;allowNull&apos;) &amp;&amp; !dataType.allowNull) {
-          sql += &apos; NOT NULL&apos;;
+        if (Object.prototype.hasOwnProperty.call(dataType, 'allowNull') &amp;&amp; !dataType.allowNull) {
+          sql += ' NOT NULL';
         }
 
         if (Utils.defaultValueSchemable(dataType.defaultValue)) {
@@ -395,14 +395,14 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
         }
 
         if (dataType.unique === true) {
-          sql += &apos; UNIQUE&apos;;
+          sql += ' UNIQUE';
         }
 
         if (dataType.primaryKey) {
-          sql += &apos; PRIMARY KEY&apos;;
+          sql += ' PRIMARY KEY';
 
           if (dataType.autoIncrement) {
-            sql += &apos; AUTOINCREMENT&apos;;
+            sql += ' AUTOINCREMENT';
           }
         }
 
@@ -413,7 +413,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
           if (dataType.references.key) {
             referencesKey = this.quoteIdentifier(dataType.references.key);
           } else {
-            referencesKey = this.quoteIdentifier(&apos;id&apos;);
+            referencesKey = this.quoteIdentifier('id');
           }
 
           sql += ` REFERENCES ${referencesTable} (${referencesKey})`;
@@ -442,10 +442,10 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   }
 
   showConstraintsQuery(tableName, constraintName) {
-    let sql = `SELECT sql FROM sqlite_master WHERE tbl_name=&apos;${tableName}&apos;`;
+    let sql = `SELECT sql FROM sqlite_master WHERE tbl_name='${tableName}'`;
 
     if (constraintName) {
-      sql += ` AND sql LIKE &apos;%${constraintName}%&apos;`;
+      sql += ` AND sql LIKE '%${constraintName}%'`;
     }
 
     return `${sql};`;
@@ -454,8 +454,8 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   removeIndexQuery(tableName, indexNameOrAttributes) {
     let indexName = indexNameOrAttributes;
 
-    if (typeof indexName !== &apos;string&apos;) {
-      indexName = Utils.underscore(`${tableName}_${indexNameOrAttributes.join(&apos;_&apos;)}`);
+    if (typeof indexName !== 'string') {
+      indexName = Utils.underscore(`${tableName}_${indexNameOrAttributes.join('_')}`);
     }
 
     return `DROP INDEX IF EXISTS ${this.quoteIdentifier(indexName)}`;
@@ -471,7 +471,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   }
 
   describeCreateTableQuery(tableName) {
-    return `SELECT sql FROM sqlite_master WHERE tbl_name=&apos;${tableName}&apos;;`;
+    return `SELECT sql FROM sqlite_master WHERE tbl_name='${tableName}';`;
   }
 
   removeColumnQuery(tableName, attributes) {
@@ -479,7 +479,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
     attributes = this.attributesToSQL(attributes);
 
     let backupTableName;
-    if (typeof tableName === &apos;object&apos;) {
+    if (typeof tableName === 'object') {
       backupTableName = {
         tableName: `${tableName.tableName}_backup`,
         schema: tableName.schema
@@ -490,7 +490,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
 
     const quotedTableName = this.quoteTable(tableName);
     const quotedBackupTableName = this.quoteTable(backupTableName);
-    const attributeNames = Object.keys(attributes).map(attr =&gt; this.quoteIdentifier(attr)).join(&apos;, &apos;);
+    const attributeNames = Object.keys(attributes).map(attr =&gt; this.quoteIdentifier(attr)).join(', ');
 
     // Temporary table cannot work for foreign keys.
     return `${this.createTableQuery(backupTableName, attributes)
@@ -506,7 +506,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
 
     attributes = this.attributesToSQL(attributes);
 
-    if (typeof tableName === &apos;object&apos;) {
+    if (typeof tableName === 'object') {
       backupTableName = {
         tableName: `${tableName.tableName}_backup`,
         schema: tableName.schema
@@ -516,11 +516,11 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
     }
     const quotedTableName = this.quoteTable(tableName);
     const quotedBackupTableName = this.quoteTable(backupTableName);
-    const attributeNames = Object.keys(attributes).map(attr =&gt; this.quoteIdentifier(attr)).join(&apos;, &apos;);
+    const attributeNames = Object.keys(attributes).map(attr =&gt; this.quoteIdentifier(attr)).join(', ');
 
     return `${createTableSql
       .replace(`CREATE TABLE ${quotedTableName}`, `CREATE TABLE ${quotedBackupTableName}`)
-      .replace(`CREATE TABLE ${quotedTableName.replace(/`/g, &apos;&quot;&apos;)}`, `CREATE TABLE ${quotedBackupTableName}`)
+      .replace(`CREATE TABLE ${quotedTableName.replace(/`/g, '"')}`, `CREATE TABLE ${quotedBackupTableName}`)
     }INSERT INTO ${quotedBackupTableName} SELECT ${attributeNames} FROM ${quotedTableName};`
       + `DROP TABLE ${quotedTableName};`
       + `ALTER TABLE ${quotedBackupTableName} RENAME TO ${quotedTableName};`;
@@ -532,7 +532,7 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
 
     attributes = this.attributesToSQL(attributes);
 
-    if (typeof tableName === &apos;object&apos;) {
+    if (typeof tableName === 'object') {
       backupTableName = {
         tableName: `${tableName.tableName}_backup`,
         schema: tableName.schema
@@ -545,10 +545,10 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
     const quotedBackupTableName = this.quoteTable(backupTableName);
     const attributeNamesImport = Object.keys(attributes).map(attr =&gt;
       attrNameAfter === attr ? `${this.quoteIdentifier(attrNameBefore)} AS ${this.quoteIdentifier(attr)}` : this.quoteIdentifier(attr)
-    ).join(&apos;, &apos;);
-    const attributeNamesExport = Object.keys(attributes).map(attr =&gt; this.quoteIdentifier(attr)).join(&apos;, &apos;);
+    ).join(', ');
+    const attributeNamesExport = Object.keys(attributes).map(attr =&gt; this.quoteIdentifier(attr)).join(', ');
 
-    // Temporary tables don&apos;t support foreign keys, so creating a temporary table will not allow foreign keys to be preserved
+    // Temporary tables don't support foreign keys, so creating a temporary table will not allow foreign keys to be preserved
     return `${this.createTableQuery(backupTableName, attributes)
     }INSERT INTO ${quotedBackupTableName} SELECT ${attributeNamesImport} FROM ${quotedTableName};`
       + `DROP TABLE ${quotedTableName};${
@@ -568,20 +568,20 @@ class SQLiteQueryGenerator extends MySqlQueryGenerator {
   setIsolationLevelQuery(value) {
     switch (value) {
       case Transaction.ISOLATION_LEVELS.REPEATABLE_READ:
-        return &apos;-- SQLite is not able to choose the isolation level REPEATABLE READ.&apos;;
+        return '-- SQLite is not able to choose the isolation level REPEATABLE READ.';
       case Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED:
-        return &apos;PRAGMA read_uncommitted = ON;&apos;;
+        return 'PRAGMA read_uncommitted = ON;';
       case Transaction.ISOLATION_LEVELS.READ_COMMITTED:
-        return &apos;PRAGMA read_uncommitted = OFF;&apos;;
+        return 'PRAGMA read_uncommitted = OFF;';
       case Transaction.ISOLATION_LEVELS.SERIALIZABLE:
-        return &apos;-- SQLite\&apos;s default isolation level is SERIALIZABLE. Nothing to do.&apos;;
+        return '-- SQLite\'s default isolation level is SERIALIZABLE. Nothing to do.';
       default:
         throw new Error(`Unknown isolation level: ${value}`);
     }
   }
 
   replaceBooleanDefaults(sql) {
-    return sql.replace(/DEFAULT &apos;?false&apos;?/g, &apos;DEFAULT 0&apos;).replace(/DEFAULT &apos;?true&apos;?/g, &apos;DEFAULT 1&apos;);
+    return sql.replace(/DEFAULT '?false'?/g, 'DEFAULT 0').replace(/DEFAULT '?true'?/g, 'DEFAULT 1');
   }
 
   /**

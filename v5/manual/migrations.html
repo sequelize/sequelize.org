@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -396,7 +396,7 @@
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="migrations">Migrations</h1><p>Just like you use Git / SVN to manage changes in your source code, you can use migrations to keep track of changes to the database. With migrations you can transfer your existing database into another state and vice versa: Those state transitions are saved in migration files, which describe how to get to the new state and how to revert the changes in order to get back to the old state.</p>
 <p>You will need <a href="https://github.com/sequelize/cli">Sequelize CLI</a>. The CLI ships support for migrations and project bootstrapping.</p>
-<h2 id="the-cli">The CLI</h2><h3 id="installing-cli">Installing CLI</h3><p>Let&apos;s start with installing CLI, you can find instructions <a href="https://github.com/sequelize/cli">here</a>. Most preferred way is installing locally like this</p>
+<h2 id="the-cli">The CLI</h2><h3 id="installing-cli">Installing CLI</h3><p>Let's start with installing CLI, you can find instructions <a href="https://github.com/sequelize/cli">here</a>. Most preferred way is installing locally like this</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npm install --save sequelize-cli</code>
 </code></pre>
 <h3 id="bootstrapping">Bootstrapping</h3><p>To create an empty project you will need to execute <code>init</code> command</p>
@@ -409,40 +409,40 @@
 <li><code>migrations</code>, contains all migration files</li>
 <li><code>seeders</code>, contains all seed files</li>
 </ul>
-<h4 id="configuration">Configuration</h4><p>Before continuing further we will need to tell CLI how to connect to database. To do that let&apos;s open default config file <code>config/config.json</code>. It looks something like this</p>
+<h4 id="configuration">Configuration</h4><p>Before continuing further we will need to tell CLI how to connect to database. To do that let's open default config file <code>config/config.json</code>. It looks something like this</p>
 <pre><code class="lang-json"><code class="source-code prettyprint">{
-  &quot;development&quot;: {
-    &quot;username&quot;: &quot;root&quot;,
-    &quot;password&quot;: null,
-    &quot;database&quot;: &quot;database_development&quot;,
-    &quot;host&quot;: &quot;127.0.0.1&quot;,
-    &quot;dialect&quot;: &quot;mysql&quot;
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "database_development",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
-  &quot;test&quot;: {
-    &quot;username&quot;: &quot;root&quot;,
-    &quot;password&quot;: null,
-    &quot;database&quot;: &quot;database_test&quot;,
-    &quot;host&quot;: &quot;127.0.0.1&quot;,
-    &quot;dialect&quot;: &quot;mysql&quot;
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
-  &quot;production&quot;: {
-    &quot;username&quot;: &quot;root&quot;,
-    &quot;password&quot;: null,
-    &quot;database&quot;: &quot;database_production&quot;,
-    &quot;host&quot;: &quot;127.0.0.1&quot;,
-    &quot;dialect&quot;: &quot;mysql&quot;
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }</code>
 </code></pre>
-<p>Now edit this file and set correct database credentials and dialect. The keys of the objects(ex. &quot;development&quot;) are used on <code>model/index.js</code> for matching <code>process.env.NODE_ENV</code> (When undefined, &quot;development&quot; is a default value.).</p>
-<p><strong>Note:</strong> <em>If your database doesn&apos;t exists yet, you can just call <code>db:create</code> command. With proper access it will create that database for you.</em></p>
-<h3 id="creating-first-model--and-migration-">Creating first Model (and Migration)</h3><p>Once you have properly configured CLI config file you are ready to create your first migration. It&apos;s as simple as executing a simple command.</p>
+<p>Now edit this file and set correct database credentials and dialect. The keys of the objects(ex. "development") are used on <code>model/index.js</code> for matching <code>process.env.NODE_ENV</code> (When undefined, "development" is a default value.).</p>
+<p><strong>Note:</strong> <em>If your database doesn't exists yet, you can just call <code>db:create</code> command. With proper access it will create that database for you.</em></p>
+<h3 id="creating-first-model--and-migration-">Creating first Model (and Migration)</h3><p>Once you have properly configured CLI config file you are ready to create your first migration. It's as simple as executing a simple command.</p>
 <p>We will use <code>model:generate</code> command. This command requires two options</p>
 <ul>
 <li><code>name</code>, Name of the model</li>
 <li><code>attributes</code>, List of model attributes</li>
 </ul>
-<p>Let&apos;s create a model named <code>User</code>.</p>
+<p>Let's create a model named <code>User</code>.</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string</code>
 </code></pre>
 <p>This will do following</p>
@@ -450,14 +450,14 @@
 <li>Create a model file <code>user</code> in <code>models</code> folder</li>
 <li>Create a migration file with name like <code>XXXXXXXXXXXXXX-create-user.js</code> in <code>migrations</code> folder</li>
 </ul>
-<p><strong>Note:</strong> <em>Sequelize will only use Model files, it&apos;s the table representation. On the other hand, the migration file is a change in that model or more specifically that table, used by CLI. Treat migrations like a commit or a log for some change in database.</em></p>
-<h3 id="running-migrations">Running Migrations</h3><p>Until this step, we haven&apos;t inserted anything into the database. We have just created required model and migration files for our first model <code>User</code>. Now to actually create that table in database you need to run <code>db:migrate</code> command.</p>
+<p><strong>Note:</strong> <em>Sequelize will only use Model files, it's the table representation. On the other hand, the migration file is a change in that model or more specifically that table, used by CLI. Treat migrations like a commit or a log for some change in database.</em></p>
+<h3 id="running-migrations">Running Migrations</h3><p>Until this step, we haven't inserted anything into the database. We have just created required model and migration files for our first model <code>User</code>. Now to actually create that table in database you need to run <code>db:migrate</code> command.</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli db:migrate</code>
 </code></pre>
 <p>This command will execute these steps:</p>
 <ul>
 <li>Will ensure a table called <code>SequelizeMeta</code> in database. This table is used to record which migrations have run on the current database</li>
-<li>Start looking for any migration files which haven&apos;t run yet. This is possible by checking <code>SequelizeMeta</code> table. In this case it will run <code>XXXXXXXXXXXXXX-create-user.js</code> migration, which we created in last step.</li>
+<li>Start looking for any migration files which haven't run yet. This is possible by checking <code>SequelizeMeta</code> table. In this case it will run <code>XXXXXXXXXXXXXX-create-user.js</code> migration, which we created in last step.</li>
 <li>Creates a table called <code>Users</code> with all columns as specified in its migration file.</li>
 </ul>
 <h3 id="undoing-migrations">Undoing Migrations</h3><p>Now our table has been created and saved in database. With migration you can revert to old state by just running a command.</p>
@@ -469,31 +469,31 @@
 </code></pre>
 <h3 id="creating-first-seed">Creating First Seed</h3><p>Suppose we want to insert some data into a few tables by default. If we follow up on previous example we can consider creating a demo user for <code>User</code> table.</p>
 <p>To manage all data migrations you can use seeders. Seed files are some change in data that can be used to populate database table with sample data or test data.</p>
-<p>Let&apos;s create a seed file which will add a demo user to our <code>User</code> table.</p>
+<p>Let's create a seed file which will add a demo user to our <code>User</code> table.</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli seed:generate --name demo-user</code>
 </code></pre>
 <p>This command will create a seed file in <code>seeders</code> folder. File name will look something like <code>XXXXXXXXXXXXXX-demo-user.js</code>. It follows the same <code>up / down</code> semantics as the migration files.</p>
 <p>Now we should edit this file to insert demo user to <code>User</code> table.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">&apos;use strict&apos;;
+<pre><code class="lang-js"><code class="source-code prettyprint">'use strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) =&gt; {
-    return queryInterface.bulkInsert(&apos;Users&apos;, [{
-        firstName: &apos;John&apos;,
-        lastName: &apos;Doe&apos;,
-        email: &apos;demo@demo.com&apos;,
+    return queryInterface.bulkInsert('Users', [{
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'demo@demo.com',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});
   },
 
   down: (queryInterface, Sequelize) =&gt; {
-    return queryInterface.bulkDelete(&apos;Users&apos;, null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
 </code>
 </code></pre>
-<h3 id="running-seeds">Running Seeds</h3><p>In last step you have create a seed file. It&apos;s still not committed to database. To do that we need to run a simple command.</p>
+<h3 id="running-seeds">Running Seeds</h3><p>In last step you have create a seed file. It's still not committed to database. To do that we need to run a simple command.</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli db:seed:all</code>
 </code></pre>
 <p>This will execute that seed file and you will have a demo user inserted into <code>User</code> table.</p>
@@ -522,10 +522,10 @@ module.exports = {
 <p>We can generate this file using <code>migration:generate</code>. This will create <code>xxx-migration-skeleton.js</code> in your migration folder.</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli migration:generate --name migration-skeleton</code>
 </code></pre>
-<p>The passed <code>queryInterface</code> object can be used to modify the database. The <code>Sequelize</code> object stores the available data types such as <code>STRING</code> or <code>INTEGER</code>. Function <code>up</code> or <code>down</code> should return a <code>Promise</code>. Let&apos;s look at an example:</p>
+<p>The passed <code>queryInterface</code> object can be used to modify the database. The <code>Sequelize</code> object stores the available data types such as <code>STRING</code> or <code>INTEGER</code>. Function <code>up</code> or <code>down</code> should return a <code>Promise</code>. Let's look at an example:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">module.exports = {
   up: (queryInterface, Sequelize) =&gt; {
-    return queryInterface.createTable(&apos;Person&apos;, {
+    return queryInterface.createTable('Person', {
         name: Sequelize.STRING,
         isBetaMember: {
           type: Sequelize.BOOLEAN,
@@ -535,7 +535,7 @@ module.exports = {
       });
   },
   down: (queryInterface, Sequelize) =&gt; {
-    return queryInterface.dropTable(&apos;Person&apos;);
+    return queryInterface.dropTable('Person');
   }
 }</code>
 </code></pre>
@@ -544,10 +544,10 @@ module.exports = {
     up: (queryInterface, Sequelize) =&gt; {
         return queryInterface.sequelize.transaction((t) =&gt; {
             return Promise.all([
-                queryInterface.addColumn(&apos;Person&apos;, &apos;petName&apos;, {
+                queryInterface.addColumn('Person', 'petName', {
                     type: Sequelize.STRING
                 }, { transaction: t }),
-                queryInterface.addColumn(&apos;Person&apos;, &apos;favoriteColor&apos;, {
+                queryInterface.addColumn('Person', 'favoriteColor', {
                     type: Sequelize.STRING,
                 }, { transaction: t })
             ])
@@ -557,8 +557,8 @@ module.exports = {
     down: (queryInterface, Sequelize) =&gt; {
         return queryInterface.sequelize.transaction((t) =&gt; {
             return Promise.all([
-                queryInterface.removeColumn(&apos;Person&apos;, &apos;petName&apos;, { transaction: t }),
-                queryInterface.removeColumn(&apos;Person&apos;, &apos;favoriteColor&apos;, { transaction: t })
+                queryInterface.removeColumn('Person', 'petName', { transaction: t }),
+                queryInterface.removeColumn('Person', 'favoriteColor', { transaction: t })
             ])
         })
     }
@@ -567,7 +567,7 @@ module.exports = {
 <p>The next is an example of a migration that has a foreign key. You can use references to specify a foreign key:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">module.exports = {
   up: (queryInterface, Sequelize) =&gt; {
-    return queryInterface.createTable(&apos;Person&apos;, {
+    return queryInterface.createTable('Person', {
       name: Sequelize.STRING,
       isBetaMember: {
         type: Sequelize.BOOLEAN,
@@ -578,10 +578,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: &apos;users&apos;,
-            schema: &apos;schema&apos;
+            tableName: 'users',
+            schema: 'schema'
           }
-          key: &apos;id&apos;
+          key: 'id'
         },
         allowNull: false
       },
@@ -589,7 +589,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) =&gt; {
-    return queryInterface.dropTable(&apos;Person&apos;);
+    return queryInterface.dropTable('Person');
   }
 }
 </code>
@@ -600,18 +600,18 @@ module.exports = {
     const transaction = await queryInterface.sequelize.transaction();
     try {
       await queryInterface.addColumn(
-        &apos;Person&apos;,
-        &apos;petName&apos;,
+        'Person',
+        'petName',
         {
           type: Sequelize.STRING,
         },
         { transaction }
       );
       await queryInterface.addIndex(
-        &apos;Person&apos;,
-        &apos;petName&apos;,
+        'Person',
+        'petName',
         {
-          fields: &apos;petName&apos;,
+          fields: 'petName',
           unique: true,
         },
         { transaction }
@@ -626,7 +626,7 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     const transaction = await queryInterface.sequelize.transaction();
     try {
-      await queryInterface.removeColumn(&apos;Person&apos;, &apos;petName&apos;, { transaction });
+      await queryInterface.removeColumn('Person', 'petName', { transaction });
       await transaction.commit();
     } catch (err) {
       await transaction.rollback();
@@ -651,18 +651,18 @@ module.exports = {
 <li>You want to override default path to <code>migrations</code>, <code>models</code>, <code>seeders</code> or <code>config</code> folder.</li>
 <li>You want to rename <code>config.json</code> to something else like <code>database.json</code></li>
 </ul>
-<p>And a whole lot more. Let&apos;s see how you can use this file for custom configuration.</p>
-<p>For starters, let&apos;s create an empty file in the root directory of your project.</p>
+<p>And a whole lot more. Let's see how you can use this file for custom configuration.</p>
+<p>For starters, let's create an empty file in the root directory of your project.</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ touch .sequelizerc</code>
 </code></pre>
-<p>Now let&apos;s work with an example config.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const path = require(&apos;path&apos;);
+<p>Now let's work with an example config.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const path = require('path');
 
 module.exports = {
-  &apos;config&apos;: path.resolve(&apos;config&apos;, &apos;database.json&apos;),
-  &apos;models-path&apos;: path.resolve(&apos;db&apos;, &apos;models&apos;),
-  &apos;seeders-path&apos;: path.resolve(&apos;db&apos;, &apos;seeders&apos;),
-  &apos;migrations-path&apos;: path.resolve(&apos;db&apos;, &apos;migrations&apos;)
+  'config': path.resolve('config', 'database.json'),
+  'models-path': path.resolve('db', 'models'),
+  'seeders-path': path.resolve('db', 'seeders'),
+  'migrations-path': path.resolve('db', 'migrations')
 }</code>
 </code></pre>
 <p>With this config you are telling CLI to</p>
@@ -675,62 +675,62 @@ module.exports = {
 <h3 id="dynamic-configuration">Dynamic Configuration</h3><p>Configuration file is by default a JSON file called <code>config.json</code>. But sometimes you want to execute some code or access environment variables which is not possible in JSON files.</p>
 <p>Sequelize CLI can read from both <code>JSON</code> and <code>JS</code> files. This can be setup with <code>.sequelizerc</code> file. Let see how</p>
 <p>First you need to create a <code>.sequelizerc</code> file in the root folder of your project. This file should override config path to a <code>JS</code> file. Like this</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const path = require(&apos;path&apos;);
+<pre><code class="lang-js"><code class="source-code prettyprint">const path = require('path');
 
 module.exports = {
-  &apos;config&apos;: path.resolve(&apos;config&apos;, &apos;config.js&apos;)
+  'config': path.resolve('config', 'config.js')
 }</code>
 </code></pre>
 <p>Now Sequelize CLI will load <code>config/config.js</code> for getting configuration options. Since this is a JS file you can have any code executed and export final dynamic configuration file.</p>
 <p>An example of <code>config/config.js</code> file</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const fs = require(&apos;fs&apos;);
+<pre><code class="lang-js"><code class="source-code prettyprint">const fs = require('fs');
 
 module.exports = {
   development: {
-    username: &apos;database_dev&apos;,
-    password: &apos;database_dev&apos;,
-    database: &apos;database_dev&apos;,
-    host: &apos;127.0.0.1&apos;,
-    dialect: &apos;mysql&apos;
+    username: 'database_dev',
+    password: 'database_dev',
+    database: 'database_dev',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
   test: {
-    username: &apos;database_test&apos;,
+    username: 'database_test',
     password: null,
-    database: &apos;database_test&apos;,
-    host: &apos;127.0.0.1&apos;,
-    dialect: &apos;mysql&apos;
+    database: 'database_test',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
   production: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOSTNAME,
-    dialect: &apos;mysql&apos;,
+    dialect: 'mysql',
     dialectOptions: {
       ssl: {
-        ca: fs.readFileSync(__dirname + &apos;/mysql-ca-master.crt&apos;)
+        ca: fs.readFileSync(__dirname + '/mysql-ca-master.crt')
       }
     }
   }
 };</code>
 </code></pre>
-<h3 id="using-babel">Using Babel</h3><p>Now you know how to use <code>.sequelizerc</code> file. Now let&apos;s see how to use this file to use babel with <code>sequelize-cli</code> setup. This will allow you to write migrations and seeders with ES6/ES7 syntax.</p>
+<h3 id="using-babel">Using Babel</h3><p>Now you know how to use <code>.sequelizerc</code> file. Now let's see how to use this file to use babel with <code>sequelize-cli</code> setup. This will allow you to write migrations and seeders with ES6/ES7 syntax.</p>
 <p>First install <code>babel-register</code></p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ npm i --save-dev babel-register</code>
 </code></pre>
-<p>Now let&apos;s create <code>.sequelizerc</code> file, it can include any configuration you may want to change for <code>sequelize-cli</code> but in addition to that we want it to register babel for our codebase. Something like this</p>
+<p>Now let's create <code>.sequelizerc</code> file, it can include any configuration you may want to change for <code>sequelize-cli</code> but in addition to that we want it to register babel for our codebase. Something like this</p>
 <pre><code class="lang-bash"><code class="source-code prettyprint">$ touch .sequelizerc # Create rc file</code>
 </code></pre>
 <p>Now include <code>babel-register</code> setup in this file</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">require(&quot;babel-register&quot;);
+<pre><code class="lang-js"><code class="source-code prettyprint">require("babel-register");
 
-const path = require(&apos;path&apos;);
+const path = require('path');
 
 module.exports = {
-  &apos;config&apos;: path.resolve(&apos;config&apos;, &apos;config.json&apos;),
-  &apos;models-path&apos;: path.resolve(&apos;models&apos;),
-  &apos;seeders-path&apos;: path.resolve(&apos;seeders&apos;),
-  &apos;migrations-path&apos;: path.resolve(&apos;migrations&apos;)
+  'config': path.resolve('config', 'config.json'),
+  'models-path': path.resolve('models'),
+  'seeders-path': path.resolve('seeders'),
+  'migrations-path': path.resolve('migrations')
 }</code>
 </code></pre>
 <p>Now CLI will be able to run ES6/ES7 code from migrations/seeders etc. Please keep in mind this depends upon your configuration of <code>.babelrc</code>. Please read more about that at <a href="https://babeljs.io">babeljs.io</a>.</p>
@@ -738,66 +738,66 @@ module.exports = {
 <p>Then you can just expose file with proper environment variables.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">module.exports = {
   development: {
-    username: &apos;database_dev&apos;,
-    password: &apos;database_dev&apos;,
-    database: &apos;database_dev&apos;,
-    host: &apos;127.0.0.1&apos;,
-    dialect: &apos;mysql&apos;
+    username: 'database_dev',
+    password: 'database_dev',
+    database: 'database_dev',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
   test: {
     username: process.env.CI_DB_USERNAME,
     password: process.env.CI_DB_PASSWORD,
     database: process.env.CI_DB_NAME,
-    host: &apos;127.0.0.1&apos;,
-    dialect: &apos;mysql&apos;
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
   production: {
     username: process.env.PROD_DB_USERNAME,
     password: process.env.PROD_DB_PASSWORD,
     database: process.env.PROD_DB_NAME,
     host: process.env.PROD_DB_HOSTNAME,
-    dialect: &apos;mysql&apos;
+    dialect: 'mysql'
   }
 };</code>
 </code></pre>
-<h3 id="specifying-dialect-options">Specifying Dialect Options</h3><p>Sometime you want to specify a dialectOption, if it&apos;s a general config you can just add it in <code>config/config.json</code>. Sometime you want to execute some code to get dialectOptions, you should use dynamic config file for those cases.</p>
+<h3 id="specifying-dialect-options">Specifying Dialect Options</h3><p>Sometime you want to specify a dialectOption, if it's a general config you can just add it in <code>config/config.json</code>. Sometime you want to execute some code to get dialectOptions, you should use dynamic config file for those cases.</p>
 <pre><code class="lang-json"><code class="source-code prettyprint">{
-    &quot;production&quot;: {
-        &quot;dialect&quot;:&quot;mysql&quot;,
-        &quot;dialectOptions&quot;: {
-            &quot;bigNumberStrings&quot;: true
+    "production": {
+        "dialect":"mysql",
+        "dialectOptions": {
+            "bigNumberStrings": true
         }
     }
 }</code>
 </code></pre>
 <h3 id="production-usages">Production Usages</h3><p>Some tips around using CLI and migration setup in production environment.</p>
 <p>1) Use environment variables for config settings. This is better achieved with dynamic configuration. A sample production safe configuration may look like.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const fs = require(&apos;fs&apos;);
+<pre><code class="lang-js"><code class="source-code prettyprint">const fs = require('fs');
 
 module.exports = {
   development: {
-    username: &apos;database_dev&apos;,
-    password: &apos;database_dev&apos;,
-    database: &apos;database_dev&apos;,
-    host: &apos;127.0.0.1&apos;,
-    dialect: &apos;mysql&apos;
+    username: 'database_dev',
+    password: 'database_dev',
+    database: 'database_dev',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
   test: {
-    username: &apos;database_test&apos;,
+    username: 'database_test',
     password: null,
-    database: &apos;database_test&apos;,
-    host: &apos;127.0.0.1&apos;,
-    dialect: &apos;mysql&apos;
+    database: 'database_test',
+    host: '127.0.0.1',
+    dialect: 'mysql'
   },
   production: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOSTNAME,
-    dialect: &apos;mysql&apos;,
+    dialect: 'mysql',
     dialectOptions: {
       ssl: {
-        ca: fs.readFileSync(__dirname + &apos;/mysql-ca-master.crt&apos;)
+        ca: fs.readFileSync(__dirname + '/mysql-ca-master.crt')
       }
     }
   }
@@ -819,58 +819,58 @@ database, using <code>sequelize</code>, but want to use a different table, you c
 <code>migrationStorageTableName</code>. Also you can define a different schema for the <code>SequelizeMeta</code> table by
 providing the <code>migrationStorageTableSchema</code> property.</p>
 <pre><code class="lang-json"><code class="source-code prettyprint">{
-  &quot;development&quot;: {
-    &quot;username&quot;: &quot;root&quot;,
-    &quot;password&quot;: null,
-    &quot;database&quot;: &quot;database_development&quot;,
-    &quot;host&quot;: &quot;127.0.0.1&quot;,
-    &quot;dialect&quot;: &quot;mysql&quot;,
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "database_development",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
 
     // Use a different storage type. Default: sequelize
-    &quot;migrationStorage&quot;: &quot;json&quot;,
+    "migrationStorage": "json",
 
     // Use a different file name. Default: sequelize-meta.json
-    &quot;migrationStoragePath&quot;: &quot;sequelizeMeta.json&quot;,
+    "migrationStoragePath": "sequelizeMeta.json",
 
     // Use a different table name. Default: SequelizeMeta
-    &quot;migrationStorageTableName&quot;: &quot;sequelize_meta&quot;,
+    "migrationStorageTableName": "sequelize_meta",
 
     // Use a different schema for the SequelizeMeta table
-    &quot;migrationStorageTableSchema&quot;: &quot;custom_schema&quot;
+    "migrationStorageTableSchema": "custom_schema"
   }
 }</code>
 </code></pre>
 <p><strong>Note:</strong> <em>The <code>none</code> storage is not recommended as a migration storage. If you decide to use it, be
-aware of the implications of having no record of what migrations did or didn&apos;t run.</em></p>
+aware of the implications of having no record of what migrations did or didn't run.</em></p>
 <h4 id="seed-storage">Seed Storage</h4><p>By default the CLI will not save any seed that is executed. If you choose to change this behavior (!),
 you can use <code>seederStorage</code> in the configuration file to change the storage type. If you choose <code>json</code>,
 you can specify the path of the file using <code>seederStoragePath</code> or the CLI will write to the file
 <code>sequelize-data.json</code>. If you want to keep the information in the database, using <code>sequelize</code>, you can
 specify the table name using <code>seederStorageTableName</code>, or it will default to <code>SequelizeData</code>.</p>
 <pre><code class="lang-json"><code class="source-code prettyprint">{
-  &quot;development&quot;: {
-    &quot;username&quot;: &quot;root&quot;,
-    &quot;password&quot;: null,
-    &quot;database&quot;: &quot;database_development&quot;,
-    &quot;host&quot;: &quot;127.0.0.1&quot;,
-    &quot;dialect&quot;: &quot;mysql&quot;,
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "database_development",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
     // Use a different storage. Default: none
-    &quot;seederStorage&quot;: &quot;json&quot;,
+    "seederStorage": "json",
     // Use a different file name. Default: sequelize-data.json
-    &quot;seederStoragePath&quot;: &quot;sequelizeData.json&quot;,
+    "seederStoragePath": "sequelizeData.json",
     // Use a different table name. Default: SequelizeData
-    &quot;seederStorageTableName&quot;: &quot;sequelize_data&quot;
+    "seederStorageTableName": "sequelize_data"
   }
 }</code>
 </code></pre>
 <h3 id="configuration-connection-string">Configuration Connection String</h3><p>As an alternative to the <code>--config</code> option with configuration files defining your database, you can
 use the <code>--url</code> option to pass in a connection string. For example:</p>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli db:migrate --url &apos;mysql://root:password@mysql_host.com/database_name&apos;</code>
+<pre><code class="lang-bash"><code class="source-code prettyprint">$ npx sequelize-cli db:migrate --url 'mysql://root:password@mysql_host.com/database_name'</code>
 </code></pre>
 <h3 id="passing-dialect-specific-options">Passing Dialect Specific Options</h3><pre><code class="lang-json"><code class="source-code prettyprint">{
-    &quot;production&quot;: {
-        &quot;dialect&quot;:&quot;postgres&quot;,
-        &quot;dialectOptions&quot;: {
+    "production": {
+        "dialect":"postgres",
+        "dialectOptions": {
             // dialect options like SSL etc here
         }
     }

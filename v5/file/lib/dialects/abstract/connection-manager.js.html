@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,15 +112,15 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/abstract/connection-manager.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const { Pool, TimeoutError } = require(&apos;sequelize-pool&apos;);
-const _ = require(&apos;lodash&apos;);
-const semver = require(&apos;semver&apos;);
-const Promise = require(&apos;../../promise&apos;);
-const errors = require(&apos;../../errors&apos;);
-const { logger } = require(&apos;../../utils/logger&apos;);
-const debug = logger.debugContext(&apos;pool&apos;);
+const { Pool, TimeoutError } = require('sequelize-pool');
+const _ = require('lodash');
+const semver = require('semver');
+const Promise = require('../../promise');
+const errors = require('../../errors');
+const { logger } = require('../../utils/logger');
+const debug = logger.debugContext('pool');
 
 /**
  * Abstract Connection Manager
@@ -141,7 +141,7 @@ class ConnectionManager {
     this.dialectName = this.sequelize.options.dialect;
 
     if (config.pool === false) {
-      throw new Error(&apos;Support for pool:false was removed in v4.0&apos;);
+      throw new Error('Support for pool:false was removed in v4.0');
     }
 
     config.pool = _.defaults(config.pool || {}, {
@@ -158,7 +158,7 @@ class ConnectionManager {
 
   refreshTypeParser(dataTypes) {
     _.each(dataTypes, dataType =&gt; {
-      if (Object.prototype.hasOwnProperty.call(dataType, &apos;parse&apos;)) {
+      if (Object.prototype.hasOwnProperty.call(dataType, 'parse')) {
         if (dataType.types[this.dialectName]) {
           this._refreshTypeParser(dataType);
         } else {
@@ -187,15 +187,15 @@ class ConnectionManager {
       }
       // This is needed so that bundlers (like webpack) know which library to include in the bundle
       switch (moduleName) {
-        case &apos;pg&apos;: return require(&apos;pg&apos;);
-        case &apos;mysql2&apos;: return require(&apos;mysql2&apos;);
-        case &apos;mariadb&apos;: return require(&apos;mariadb&apos;);
-        case &apos;sqlite3&apos;: return require(&apos;sqlite3&apos;);
-        case &apos;tedious&apos;: return require(&apos;tedious&apos;);
+        case 'pg': return require('pg');
+        case 'mysql2': return require('mysql2');
+        case 'mariadb': return require('mariadb');
+        case 'sqlite3': return require('sqlite3');
+        case 'tedious': return require('tedious');
         default: return require(moduleName);
       }
     } catch (err) {
-      if (err.code === &apos;MODULE_NOT_FOUND&apos;) {
+      if (err.code === 'MODULE_NOT_FOUND') {
         if (this.sequelize.config.dialectModulePath) {
           throw new Error(`Unable to find dialect at ${this.sequelize.config.dialectModulePath}`);
         }
@@ -218,7 +218,7 @@ class ConnectionManager {
     }
 
     return this.pool.drain().then(() =&gt; {
-      debug(&apos;connection drain due to process exit&apos;);
+      debug('connection drain due to process exit');
       return this.pool.destroyAllNow();
     });
   }
@@ -231,7 +231,7 @@ class ConnectionManager {
   close() {
     // Mark close of pool
     this.getConnection = function getConnection() {
-      return Promise.reject(new Error(&apos;ConnectionManager.getConnection was called after the connection manager was closed!&apos;));
+      return Promise.reject(new Error('ConnectionManager.getConnection was called after the connection manager was closed!'));
     };
 
     return this._onProcessExit();
@@ -246,11 +246,11 @@ class ConnectionManager {
 
     if (!config.replication) {
       this.pool = new Pool({
-        name: &apos;sequelize&apos;,
+        name: 'sequelize',
         create: () =&gt; this._connect(config),
         destroy: connection =&gt; {
           return this._disconnect(connection)
-            .tap(() =&gt; { debug(&apos;connection destroy&apos;); });
+            .tap(() =&gt; { debug('connection destroy'); });
         },
         validate: config.pool.validate,
         max: config.pool.max,
@@ -270,18 +270,18 @@ class ConnectionManager {
     }
 
     // Map main connection config
-    config.replication.write = _.defaults(config.replication.write, _.omit(config, &apos;replication&apos;));
+    config.replication.write = _.defaults(config.replication.write, _.omit(config, 'replication'));
 
     // Apply defaults to each read config
     config.replication.read = config.replication.read.map(readConfig =&gt;
-      _.defaults(readConfig, _.omit(this.config, &apos;replication&apos;))
+      _.defaults(readConfig, _.omit(this.config, 'replication'))
     );
 
     // custom pooling for replication (original author @janmeier)
     let reads = 0;
     this.pool = {
       release: client =&gt; {
-        if (client.queryType === &apos;read&apos;) {
+        if (client.queryType === 'read') {
           this.pool.read.release(client);
         } else {
           this.pool.write.release(client);
@@ -289,20 +289,20 @@ class ConnectionManager {
       },
       acquire: (queryType, useMaster) =&gt; {
         useMaster = useMaster === undefined ? false : useMaster;
-        if (queryType === &apos;SELECT&apos; &amp;&amp; !useMaster) {
+        if (queryType === 'SELECT' &amp;&amp; !useMaster) {
           return this.pool.read.acquire();
         }
         return this.pool.write.acquire();
       },
       destroy: connection =&gt; {
         this.pool[connection.queryType].destroy(connection);
-        debug(&apos;connection destroy&apos;);
+        debug('connection destroy');
       },
       destroyAllNow: () =&gt; {
         return Promise.join(
           this.pool.read.destroyAllNow(),
           this.pool.write.destroyAllNow()
-        ).tap(() =&gt; { debug(&apos;all connections destroyed&apos;); });
+        ).tap(() =&gt; { debug('all connections destroyed'); });
       },
       drain: () =&gt; {
         return Promise.join(
@@ -311,12 +311,12 @@ class ConnectionManager {
         );
       },
       read: new Pool({
-        name: &apos;sequelize:read&apos;,
+        name: 'sequelize:read',
         create: () =&gt; {
           // round robin config
           const nextRead = reads++ % config.replication.read.length;
           return this._connect(config.replication.read[nextRead]).tap(connection =&gt; {
-            connection.queryType = &apos;read&apos;;
+            connection.queryType = 'read';
           });
         },
         destroy: connection =&gt; this._disconnect(connection),
@@ -328,10 +328,10 @@ class ConnectionManager {
         reapIntervalMillis: config.pool.evict
       }),
       write: new Pool({
-        name: &apos;sequelize:write&apos;,
+        name: 'sequelize:write',
         create: () =&gt; {
           return this._connect(config.replication.write).tap(connection =&gt; {
-            connection.queryType = &apos;write&apos;;
+            connection.queryType = 'write';
           });
         },
         destroy: connection =&gt; this._disconnect(connection),
@@ -348,7 +348,7 @@ class ConnectionManager {
   }
 
   /**
-   * Get connection from pool. It sets database version if it&apos;s not already set.
+   * Get connection from pool. It sets database version if it's not already set.
    * Call pool.acquire to get a connection
    *
    * @param {Object}   [options]                 Pool options
@@ -377,7 +377,7 @@ class ConnectionManager {
             //avoiding a useless round trip
             if (this.sequelize.options.databaseVersion === 0) {
               return this.sequelize.databaseVersion(_options).then(version =&gt; {
-                const parsedVersion = _.get(semver.coerce(version), &apos;version&apos;) || version;
+                const parsedVersion = _.get(semver.coerce(version), 'version') || version;
                 this.sequelize.options.databaseVersion = semver.valid(parsedVersion)
                   ? parsedVersion
                   : this.defaultVersion;
@@ -403,7 +403,7 @@ class ConnectionManager {
           if (error instanceof TimeoutError) throw new errors.ConnectionAcquireTimeoutError(error);
           throw error;
         });
-    }).tap(() =&gt; { debug(&apos;connection acquired&apos;); });
+    }).tap(() =&gt; { debug('connection acquired'); });
   }
 
   /**
@@ -416,7 +416,7 @@ class ConnectionManager {
   releaseConnection(connection) {
     return Promise.try(() =&gt; {
       this.pool.release(connection);
-      debug(&apos;connection released&apos;);
+      debug('connection released');
     });
   }
 
@@ -428,9 +428,9 @@ class ConnectionManager {
    * @returns {Promise&lt;Connection&gt;}
    */
   _connect(config) {
-    return this.sequelize.runHooks(&apos;beforeConnect&apos;, config)
+    return this.sequelize.runHooks('beforeConnect', config)
       .then(() =&gt; this.dialect.connectionManager.connect(config))
-      .then(connection =&gt; this.sequelize.runHooks(&apos;afterConnect&apos;, connection, config).return(connection));
+      .then(connection =&gt; this.sequelize.runHooks('afterConnect', connection, config).return(connection));
   }
 
   /**
@@ -441,9 +441,9 @@ class ConnectionManager {
    * @returns {Promise}
    */
   _disconnect(connection) {
-    return this.sequelize.runHooks(&apos;beforeDisconnect&apos;, connection)
+    return this.sequelize.runHooks('beforeDisconnect', connection)
       .then(() =&gt; this.dialect.connectionManager.disconnect(connection))
-      .then(() =&gt; this.sequelize.runHooks(&apos;afterDisconnect&apos;, connection));
+      .then(() =&gt; this.sequelize.runHooks('afterDisconnect', connection));
   }
 
   /**

@@ -1,1562 +1,1562 @@
 <html><head><link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></head><body>window.esdocSearchIndex = [
   [
-    &quot;sequelize/lib/errors/index.js~accessdeniederror&quot;,
-    &quot;class/lib/errors/index.js~AccessDeniedError.html&quot;,
-    &quot;<span>AccessDeniedError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~accessdeniederror",
+    "class/lib/errors/index.js~AccessDeniedError.html",
+    "<span>AccessDeniedError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/associations/base.js~association&quot;,
-    &quot;class/lib/associations/base.js~Association.html&quot;,
-    &quot;<span>Association</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/base.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/associations/base.js~association",
+    "class/lib/associations/base.js~Association.html",
+    "<span>Association</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/base.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~associationerror&quot;,
-    &quot;class/lib/errors/index.js~AssociationError.html&quot;,
-    &quot;<span>AssociationError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~associationerror",
+    "class/lib/errors/index.js~AssociationError.html",
+    "<span>AssociationError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~baseerror&quot;,
-    &quot;class/lib/errors/index.js~BaseError.html&quot;,
-    &quot;<span>BaseError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~baseerror",
+    "class/lib/errors/index.js~BaseError.html",
+    "<span>BaseError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/associations/belongs-to.js~belongsto&quot;,
-    &quot;class/lib/associations/belongs-to.js~BelongsTo.html&quot;,
-    &quot;<span>BelongsTo</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/belongs-to.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/associations/belongs-to.js~belongsto",
+    "class/lib/associations/belongs-to.js~BelongsTo.html",
+    "<span>BelongsTo</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/belongs-to.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/associations/belongs-to-many.js~belongstomany&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html&quot;,
-    &quot;<span>BelongsToMany</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/belongs-to-many.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/associations/belongs-to-many.js~belongstomany",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html",
+    "<span>BelongsToMany</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/belongs-to-many.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~bulkrecorderror&quot;,
-    &quot;class/lib/errors/index.js~BulkRecordError.html&quot;,
-    &quot;<span>BulkRecordError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~bulkrecorderror",
+    "class/lib/errors/index.js~BulkRecordError.html",
+    "<span>BulkRecordError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~connectionerror&quot;,
-    &quot;class/lib/errors/index.js~ConnectionError.html&quot;,
-    &quot;<span>ConnectionError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~connectionerror",
+    "class/lib/errors/index.js~ConnectionError.html",
+    "<span>ConnectionError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~connectionrefusederror&quot;,
-    &quot;class/lib/errors/index.js~ConnectionRefusedError.html&quot;,
-    &quot;<span>ConnectionRefusedError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~connectionrefusederror",
+    "class/lib/errors/index.js~ConnectionRefusedError.html",
+    "<span>ConnectionRefusedError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~connectiontimedouterror&quot;,
-    &quot;class/lib/errors/index.js~ConnectionTimedOutError.html&quot;,
-    &quot;<span>ConnectionTimedOutError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~connectiontimedouterror",
+    "class/lib/errors/index.js~ConnectionTimedOutError.html",
+    "<span>ConnectionTimedOutError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/data-types.js~datatypes&quot;,
-    &quot;variable/index.html#static-variable-DataTypes&quot;,
-    &quot;<span>DataTypes</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/data-types.js</span>&quot;,
-    &quot;variable&quot;
+    "sequelize/lib/data-types.js~datatypes",
+    "variable/index.html#static-variable-DataTypes",
+    "<span>DataTypes</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/data-types.js</span>",
+    "variable"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~databaseerror&quot;,
-    &quot;class/lib/errors/index.js~DatabaseError.html&quot;,
-    &quot;<span>DatabaseError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~databaseerror",
+    "class/lib/errors/index.js~DatabaseError.html",
+    "<span>DatabaseError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/deferrable.js~deferrable&quot;,
-    &quot;variable/index.html#static-variable-Deferrable&quot;,
-    &quot;<span>Deferrable</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/deferrable.js</span>&quot;,
-    &quot;variable&quot;
+    "sequelize/lib/deferrable.js~deferrable",
+    "variable/index.html#static-variable-Deferrable",
+    "<span>Deferrable</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/deferrable.js</span>",
+    "variable"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~eagerloadingerror&quot;,
-    &quot;class/lib/errors/index.js~EagerLoadingError.html&quot;,
-    &quot;<span>EagerLoadingError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~eagerloadingerror",
+    "class/lib/errors/index.js~EagerLoadingError.html",
+    "<span>EagerLoadingError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~emptyresulterror&quot;,
-    &quot;class/lib/errors/index.js~EmptyResultError.html&quot;,
-    &quot;<span>EmptyResultError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~emptyresulterror",
+    "class/lib/errors/index.js~EmptyResultError.html",
+    "<span>EmptyResultError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~exclusionconstrainterror&quot;,
-    &quot;class/lib/errors/index.js~ExclusionConstraintError.html&quot;,
-    &quot;<span>ExclusionConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~exclusionconstrainterror",
+    "class/lib/errors/index.js~ExclusionConstraintError.html",
+    "<span>ExclusionConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~foreignkeyconstrainterror&quot;,
-    &quot;class/lib/errors/index.js~ForeignKeyConstraintError.html&quot;,
-    &quot;<span>ForeignKeyConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~foreignkeyconstrainterror",
+    "class/lib/errors/index.js~ForeignKeyConstraintError.html",
+    "<span>ForeignKeyConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/associations/has-many.js~hasmany&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html&quot;,
-    &quot;<span>HasMany</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/has-many.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/associations/has-many.js~hasmany",
+    "class/lib/associations/has-many.js~HasMany.html",
+    "<span>HasMany</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/has-many.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/associations/has-one.js~hasone&quot;,
-    &quot;class/lib/associations/has-one.js~HasOne.html&quot;,
-    &quot;<span>HasOne</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/has-one.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/associations/has-one.js~hasone",
+    "class/lib/associations/has-one.js~HasOne.html",
+    "<span>HasOne</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/associations/has-one.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~hostnotfounderror&quot;,
-    &quot;class/lib/errors/index.js~HostNotFoundError.html&quot;,
-    &quot;<span>HostNotFoundError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~hostnotfounderror",
+    "class/lib/errors/index.js~HostNotFoundError.html",
+    "<span>HostNotFoundError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~hostnotreachableerror&quot;,
-    &quot;class/lib/errors/index.js~HostNotReachableError.html&quot;,
-    &quot;<span>HostNotReachableError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~hostnotreachableerror",
+    "class/lib/errors/index.js~HostNotReachableError.html",
+    "<span>HostNotReachableError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~instanceerror&quot;,
-    &quot;class/lib/errors/index.js~InstanceError.html&quot;,
-    &quot;<span>InstanceError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~instanceerror",
+    "class/lib/errors/index.js~InstanceError.html",
+    "<span>InstanceError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~invalidconnectionerror&quot;,
-    &quot;class/lib/errors/index.js~InvalidConnectionError.html&quot;,
-    &quot;<span>InvalidConnectionError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~invalidconnectionerror",
+    "class/lib/errors/index.js~InvalidConnectionError.html",
+    "<span>InvalidConnectionError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/model.js~model&quot;,
-    &quot;class/lib/model.js~Model.html&quot;,
-    &quot;<span>Model</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/model.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/model.js~model",
+    "class/lib/model.js~Model.html",
+    "<span>Model</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/model.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/operators.js~op&quot;,
-    &quot;variable/index.html#static-variable-Op&quot;,
-    &quot;<span>Op</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/operators.js</span>&quot;,
-    &quot;variable&quot;
+    "sequelize/lib/operators.js~op",
+    "variable/index.html#static-variable-Op",
+    "<span>Op</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/operators.js</span>",
+    "variable"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~optimisticlockerror&quot;,
-    &quot;class/lib/errors/index.js~OptimisticLockError.html&quot;,
-    &quot;<span>OptimisticLockError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~optimisticlockerror",
+    "class/lib/errors/index.js~OptimisticLockError.html",
+    "<span>OptimisticLockError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~queryerror&quot;,
-    &quot;class/lib/errors/index.js~QueryError.html&quot;,
-    &quot;<span>QueryError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~queryerror",
+    "class/lib/errors/index.js~QueryError.html",
+    "<span>QueryError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/query-interface.js~queryinterface&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html&quot;,
-    &quot;<span>QueryInterface</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/query-interface.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/query-interface.js~queryinterface",
+    "class/lib/query-interface.js~QueryInterface.html",
+    "<span>QueryInterface</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/query-interface.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/query-types.js~querytypes&quot;,
-    &quot;variable/index.html#static-variable-QueryTypes&quot;,
-    &quot;<span>QueryTypes</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/query-types.js</span>&quot;,
-    &quot;variable&quot;
+    "sequelize/lib/query-types.js~querytypes",
+    "variable/index.html#static-variable-QueryTypes",
+    "<span>QueryTypes</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/query-types.js</span>",
+    "variable"
   ],
   [
-    &quot;sequelize/lib/sequelize.js~sequelize&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html&quot;,
-    &quot;<span>Sequelize</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/sequelize.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/sequelize.js~sequelize",
+    "class/lib/sequelize.js~Sequelize.html",
+    "<span>Sequelize</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/sequelize.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~sequelizescopeerror&quot;,
-    &quot;class/lib/errors/index.js~SequelizeScopeError.html&quot;,
-    &quot;<span>SequelizeScopeError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~sequelizescopeerror",
+    "class/lib/errors/index.js~SequelizeScopeError.html",
+    "<span>SequelizeScopeError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/table-hints.js~tablehints&quot;,
-    &quot;variable/index.html#static-variable-TableHints&quot;,
-    &quot;<span>TableHints</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/table-hints.js</span>&quot;,
-    &quot;variable&quot;
+    "sequelize/lib/table-hints.js~tablehints",
+    "variable/index.html#static-variable-TableHints",
+    "<span>TableHints</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/table-hints.js</span>",
+    "variable"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~timeouterror&quot;,
-    &quot;class/lib/errors/index.js~TimeoutError.html&quot;,
-    &quot;<span>TimeoutError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~timeouterror",
+    "class/lib/errors/index.js~TimeoutError.html",
+    "<span>TimeoutError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/transaction.js~transaction&quot;,
-    &quot;class/lib/transaction.js~Transaction.html&quot;,
-    &quot;<span>Transaction</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/transaction.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/transaction.js~transaction",
+    "class/lib/transaction.js~Transaction.html",
+    "<span>Transaction</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/transaction.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~uniqueconstrainterror&quot;,
-    &quot;class/lib/errors/index.js~UniqueConstraintError.html&quot;,
-    &quot;<span>UniqueConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~uniqueconstrainterror",
+    "class/lib/errors/index.js~UniqueConstraintError.html",
+    "<span>UniqueConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~unknownconstrainterror&quot;,
-    &quot;class/lib/errors/index.js~UnknownConstraintError.html&quot;,
-    &quot;<span>UnknownConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~unknownconstrainterror",
+    "class/lib/errors/index.js~UnknownConstraintError.html",
+    "<span>UnknownConstraintError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~validationerror&quot;,
-    &quot;class/lib/errors/index.js~ValidationError.html&quot;,
-    &quot;<span>ValidationError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~validationerror",
+    "class/lib/errors/index.js~ValidationError.html",
+    "<span>ValidationError</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/errors/index.js~validationerroritem&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html&quot;,
-    &quot;<span>ValidationErrorItem</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>&quot;,
-    &quot;class&quot;
+    "sequelize/lib/errors/index.js~validationerroritem",
+    "class/lib/errors/index.js~ValidationErrorItem.html",
+    "<span>ValidationErrorItem</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/errors/index.js</span>",
+    "class"
   ],
   [
-    &quot;sequelize/lib/utils/validator-extras.js~isimmutable&quot;,
-    &quot;function/index.html#static-function-isImmutable&quot;,
-    &quot;<span>isImmutable</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/utils/validator-extras.js</span>&quot;,
-    &quot;function&quot;
+    "sequelize/lib/utils/validator-extras.js~isimmutable",
+    "function/index.html#static-function-isImmutable",
+    "<span>isImmutable</span> <span class="\&quot;search-result-import-path\&quot;">sequelize/lib/utils/validator-extras.js</span>",
+    "function"
   ],
   [
-    &quot;lib/associations/base.js&quot;,
-    &quot;file/lib/associations/base.js.html&quot;,
-    &quot;lib/associations/base.js&quot;,
-    &quot;file&quot;
+    "lib/associations/base.js",
+    "file/lib/associations/base.js.html",
+    "lib/associations/base.js",
+    "file"
   ],
   [
-    &quot;lib/associations/base.js~association#associationtype&quot;,
-    &quot;class/lib/associations/base.js~Association.html#instance-member-associationType&quot;,
-    &quot;lib/associations/base.js~Association#associationType&quot;,
-    &quot;member&quot;
+    "lib/associations/base.js~association#associationtype",
+    "class/lib/associations/base.js~Association.html#instance-member-associationType",
+    "lib/associations/base.js~Association#associationType",
+    "member"
   ],
   [
-    &quot;lib/associations/base.js~association#source&quot;,
-    &quot;class/lib/associations/base.js~Association.html#instance-member-source&quot;,
-    &quot;lib/associations/base.js~Association#source&quot;,
-    &quot;member&quot;
+    "lib/associations/base.js~association#source",
+    "class/lib/associations/base.js~Association.html#instance-member-source",
+    "lib/associations/base.js~Association#source",
+    "member"
   ],
   [
-    &quot;lib/associations/base.js~association#target&quot;,
-    &quot;class/lib/associations/base.js~Association.html#instance-member-target&quot;,
-    &quot;lib/associations/base.js~Association#target&quot;,
-    &quot;member&quot;
+    "lib/associations/base.js~association#target",
+    "class/lib/associations/base.js~Association.html#instance-member-target",
+    "lib/associations/base.js~Association#target",
+    "member"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js&quot;,
-    &quot;file/lib/associations/belongs-to-many.js.html&quot;,
-    &quot;lib/associations/belongs-to-many.js&quot;,
-    &quot;file&quot;
+    "lib/associations/belongs-to-many.js",
+    "file/lib/associations/belongs-to-many.js.html",
+    "lib/associations/belongs-to-many.js",
+    "file"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#add&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-add&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#add&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#add",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-add",
+    "lib/associations/belongs-to-many.js~BelongsToMany#add",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#count&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-count&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#count&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#count",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-count",
+    "lib/associations/belongs-to-many.js~BelongsToMany#count",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#create&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-create&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#create&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#create",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-create",
+    "lib/associations/belongs-to-many.js~BelongsToMany#create",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#get&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-get&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#get&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#get",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-get",
+    "lib/associations/belongs-to-many.js~BelongsToMany#get",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#has&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-has&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#has&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#has",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-has",
+    "lib/associations/belongs-to-many.js~BelongsToMany#has",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#remove&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-remove&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#remove&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#remove",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-remove",
+    "lib/associations/belongs-to-many.js~BelongsToMany#remove",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to-many.js~belongstomany#set&quot;,
-    &quot;class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-set&quot;,
-    &quot;lib/associations/belongs-to-many.js~BelongsToMany#set&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to-many.js~belongstomany#set",
+    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-set",
+    "lib/associations/belongs-to-many.js~BelongsToMany#set",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to.js&quot;,
-    &quot;file/lib/associations/belongs-to.js.html&quot;,
-    &quot;lib/associations/belongs-to.js&quot;,
-    &quot;file&quot;
+    "lib/associations/belongs-to.js",
+    "file/lib/associations/belongs-to.js.html",
+    "lib/associations/belongs-to.js",
+    "file"
   ],
   [
-    &quot;lib/associations/belongs-to.js~belongsto#create&quot;,
-    &quot;class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-create&quot;,
-    &quot;lib/associations/belongs-to.js~BelongsTo#create&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to.js~belongsto#create",
+    "class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-create",
+    "lib/associations/belongs-to.js~BelongsTo#create",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to.js~belongsto#get&quot;,
-    &quot;class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-get&quot;,
-    &quot;lib/associations/belongs-to.js~BelongsTo#get&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to.js~belongsto#get",
+    "class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-get",
+    "lib/associations/belongs-to.js~BelongsTo#get",
+    "method"
   ],
   [
-    &quot;lib/associations/belongs-to.js~belongsto#set&quot;,
-    &quot;class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-set&quot;,
-    &quot;lib/associations/belongs-to.js~BelongsTo#set&quot;,
-    &quot;method&quot;
+    "lib/associations/belongs-to.js~belongsto#set",
+    "class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-set",
+    "lib/associations/belongs-to.js~BelongsTo#set",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js&quot;,
-    &quot;file/lib/associations/has-many.js.html&quot;,
-    &quot;lib/associations/has-many.js&quot;,
-    &quot;file&quot;
+    "lib/associations/has-many.js",
+    "file/lib/associations/has-many.js.html",
+    "lib/associations/has-many.js",
+    "file"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#add&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-add&quot;,
-    &quot;lib/associations/has-many.js~HasMany#add&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#add",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-add",
+    "lib/associations/has-many.js~HasMany#add",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#count&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-count&quot;,
-    &quot;lib/associations/has-many.js~HasMany#count&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#count",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-count",
+    "lib/associations/has-many.js~HasMany#count",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#create&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-create&quot;,
-    &quot;lib/associations/has-many.js~HasMany#create&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#create",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-create",
+    "lib/associations/has-many.js~HasMany#create",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#get&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-get&quot;,
-    &quot;lib/associations/has-many.js~HasMany#get&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#get",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-get",
+    "lib/associations/has-many.js~HasMany#get",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#has&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-has&quot;,
-    &quot;lib/associations/has-many.js~HasMany#has&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#has",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-has",
+    "lib/associations/has-many.js~HasMany#has",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#remove&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-remove&quot;,
-    &quot;lib/associations/has-many.js~HasMany#remove&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#remove",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-remove",
+    "lib/associations/has-many.js~HasMany#remove",
+    "method"
   ],
   [
-    &quot;lib/associations/has-many.js~hasmany#set&quot;,
-    &quot;class/lib/associations/has-many.js~HasMany.html#instance-method-set&quot;,
-    &quot;lib/associations/has-many.js~HasMany#set&quot;,
-    &quot;method&quot;
+    "lib/associations/has-many.js~hasmany#set",
+    "class/lib/associations/has-many.js~HasMany.html#instance-method-set",
+    "lib/associations/has-many.js~HasMany#set",
+    "method"
   ],
   [
-    &quot;lib/associations/has-one.js&quot;,
-    &quot;file/lib/associations/has-one.js.html&quot;,
-    &quot;lib/associations/has-one.js&quot;,
-    &quot;file&quot;
+    "lib/associations/has-one.js",
+    "file/lib/associations/has-one.js.html",
+    "lib/associations/has-one.js",
+    "file"
   ],
   [
-    &quot;lib/associations/has-one.js~hasone#create&quot;,
-    &quot;class/lib/associations/has-one.js~HasOne.html#instance-method-create&quot;,
-    &quot;lib/associations/has-one.js~HasOne#create&quot;,
-    &quot;method&quot;
+    "lib/associations/has-one.js~hasone#create",
+    "class/lib/associations/has-one.js~HasOne.html#instance-method-create",
+    "lib/associations/has-one.js~HasOne#create",
+    "method"
   ],
   [
-    &quot;lib/associations/has-one.js~hasone#get&quot;,
-    &quot;class/lib/associations/has-one.js~HasOne.html#instance-method-get&quot;,
-    &quot;lib/associations/has-one.js~HasOne#get&quot;,
-    &quot;method&quot;
+    "lib/associations/has-one.js~hasone#get",
+    "class/lib/associations/has-one.js~HasOne.html#instance-method-get",
+    "lib/associations/has-one.js~HasOne#get",
+    "method"
   ],
   [
-    &quot;lib/associations/has-one.js~hasone#set&quot;,
-    &quot;class/lib/associations/has-one.js~HasOne.html#instance-method-set&quot;,
-    &quot;lib/associations/has-one.js~HasOne#set&quot;,
-    &quot;method&quot;
+    "lib/associations/has-one.js~hasone#set",
+    "class/lib/associations/has-one.js~HasOne.html#instance-method-set",
+    "lib/associations/has-one.js~HasOne#set",
+    "method"
   ],
   [
-    &quot;lib/associations/helpers.js&quot;,
-    &quot;file/lib/associations/helpers.js.html&quot;,
-    &quot;lib/associations/helpers.js&quot;,
-    &quot;file&quot;
+    "lib/associations/helpers.js",
+    "file/lib/associations/helpers.js.html",
+    "lib/associations/helpers.js",
+    "file"
   ],
   [
-    &quot;lib/associations/index.js&quot;,
-    &quot;file/lib/associations/index.js.html&quot;,
-    &quot;lib/associations/index.js&quot;,
-    &quot;file&quot;
+    "lib/associations/index.js",
+    "file/lib/associations/index.js.html",
+    "lib/associations/index.js",
+    "file"
   ],
   [
-    &quot;lib/associations/mixin.js&quot;,
-    &quot;file/lib/associations/mixin.js.html&quot;,
-    &quot;lib/associations/mixin.js&quot;,
-    &quot;file&quot;
+    "lib/associations/mixin.js",
+    "file/lib/associations/mixin.js.html",
+    "lib/associations/mixin.js",
+    "file"
   ],
   [
-    &quot;lib/data-types.js&quot;,
-    &quot;file/lib/data-types.js.html&quot;,
-    &quot;lib/data-types.js&quot;,
-    &quot;file&quot;
+    "lib/data-types.js",
+    "file/lib/data-types.js.html",
+    "lib/data-types.js",
+    "file"
   ],
   [
-    &quot;lib/deferrable.js&quot;,
-    &quot;file/lib/deferrable.js.html&quot;,
-    &quot;lib/deferrable.js&quot;,
-    &quot;file&quot;
+    "lib/deferrable.js",
+    "file/lib/deferrable.js.html",
+    "lib/deferrable.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/abstract/connection-manager.js&quot;,
-    &quot;file/lib/dialects/abstract/connection-manager.js.html&quot;,
-    &quot;lib/dialects/abstract/connection-manager.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/abstract/connection-manager.js",
+    "file/lib/dialects/abstract/connection-manager.js.html",
+    "lib/dialects/abstract/connection-manager.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/abstract/index.js&quot;,
-    &quot;file/lib/dialects/abstract/index.js.html&quot;,
-    &quot;lib/dialects/abstract/index.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/abstract/index.js",
+    "file/lib/dialects/abstract/index.js.html",
+    "lib/dialects/abstract/index.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/abstract/query-generator.js&quot;,
-    &quot;file/lib/dialects/abstract/query-generator.js.html&quot;,
-    &quot;lib/dialects/abstract/query-generator.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/abstract/query-generator.js",
+    "file/lib/dialects/abstract/query-generator.js.html",
+    "lib/dialects/abstract/query-generator.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/abstract/query.js&quot;,
-    &quot;file/lib/dialects/abstract/query.js.html&quot;,
-    &quot;lib/dialects/abstract/query.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/abstract/query.js",
+    "file/lib/dialects/abstract/query.js.html",
+    "lib/dialects/abstract/query.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/connection-manager.js&quot;,
-    &quot;file/lib/dialects/mssql/connection-manager.js.html&quot;,
-    &quot;lib/dialects/mssql/connection-manager.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/connection-manager.js",
+    "file/lib/dialects/mssql/connection-manager.js.html",
+    "lib/dialects/mssql/connection-manager.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/data-types.js&quot;,
-    &quot;file/lib/dialects/mssql/data-types.js.html&quot;,
-    &quot;lib/dialects/mssql/data-types.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/data-types.js",
+    "file/lib/dialects/mssql/data-types.js.html",
+    "lib/dialects/mssql/data-types.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/index.js&quot;,
-    &quot;file/lib/dialects/mssql/index.js.html&quot;,
-    &quot;lib/dialects/mssql/index.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/index.js",
+    "file/lib/dialects/mssql/index.js.html",
+    "lib/dialects/mssql/index.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/query-generator.js&quot;,
-    &quot;file/lib/dialects/mssql/query-generator.js.html&quot;,
-    &quot;lib/dialects/mssql/query-generator.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/query-generator.js",
+    "file/lib/dialects/mssql/query-generator.js.html",
+    "lib/dialects/mssql/query-generator.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/query-interface.js&quot;,
-    &quot;file/lib/dialects/mssql/query-interface.js.html&quot;,
-    &quot;lib/dialects/mssql/query-interface.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/query-interface.js",
+    "file/lib/dialects/mssql/query-interface.js.html",
+    "lib/dialects/mssql/query-interface.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/query.js&quot;,
-    &quot;file/lib/dialects/mssql/query.js.html&quot;,
-    &quot;lib/dialects/mssql/query.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/query.js",
+    "file/lib/dialects/mssql/query.js.html",
+    "lib/dialects/mssql/query.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mssql/resource-lock.js&quot;,
-    &quot;file/lib/dialects/mssql/resource-lock.js.html&quot;,
-    &quot;lib/dialects/mssql/resource-lock.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mssql/resource-lock.js",
+    "file/lib/dialects/mssql/resource-lock.js.html",
+    "lib/dialects/mssql/resource-lock.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mysql/connection-manager.js&quot;,
-    &quot;file/lib/dialects/mysql/connection-manager.js.html&quot;,
-    &quot;lib/dialects/mysql/connection-manager.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mysql/connection-manager.js",
+    "file/lib/dialects/mysql/connection-manager.js.html",
+    "lib/dialects/mysql/connection-manager.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mysql/data-types.js&quot;,
-    &quot;file/lib/dialects/mysql/data-types.js.html&quot;,
-    &quot;lib/dialects/mysql/data-types.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mysql/data-types.js",
+    "file/lib/dialects/mysql/data-types.js.html",
+    "lib/dialects/mysql/data-types.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mysql/index.js&quot;,
-    &quot;file/lib/dialects/mysql/index.js.html&quot;,
-    &quot;lib/dialects/mysql/index.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mysql/index.js",
+    "file/lib/dialects/mysql/index.js.html",
+    "lib/dialects/mysql/index.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mysql/query-generator.js&quot;,
-    &quot;file/lib/dialects/mysql/query-generator.js.html&quot;,
-    &quot;lib/dialects/mysql/query-generator.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mysql/query-generator.js",
+    "file/lib/dialects/mysql/query-generator.js.html",
+    "lib/dialects/mysql/query-generator.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mysql/query-interface.js&quot;,
-    &quot;file/lib/dialects/mysql/query-interface.js.html&quot;,
-    &quot;lib/dialects/mysql/query-interface.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mysql/query-interface.js",
+    "file/lib/dialects/mysql/query-interface.js.html",
+    "lib/dialects/mysql/query-interface.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/mysql/query.js&quot;,
-    &quot;file/lib/dialects/mysql/query.js.html&quot;,
-    &quot;lib/dialects/mysql/query.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/mysql/query.js",
+    "file/lib/dialects/mysql/query.js.html",
+    "lib/dialects/mysql/query.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/parserstore.js&quot;,
-    &quot;file/lib/dialects/parserStore.js.html&quot;,
-    &quot;lib/dialects/parserStore.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/parserstore.js",
+    "file/lib/dialects/parserStore.js.html",
+    "lib/dialects/parserStore.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/connection-manager.js&quot;,
-    &quot;file/lib/dialects/postgres/connection-manager.js.html&quot;,
-    &quot;lib/dialects/postgres/connection-manager.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/connection-manager.js",
+    "file/lib/dialects/postgres/connection-manager.js.html",
+    "lib/dialects/postgres/connection-manager.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/data-types.js&quot;,
-    &quot;file/lib/dialects/postgres/data-types.js.html&quot;,
-    &quot;lib/dialects/postgres/data-types.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/data-types.js",
+    "file/lib/dialects/postgres/data-types.js.html",
+    "lib/dialects/postgres/data-types.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/hstore.js&quot;,
-    &quot;file/lib/dialects/postgres/hstore.js.html&quot;,
-    &quot;lib/dialects/postgres/hstore.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/hstore.js",
+    "file/lib/dialects/postgres/hstore.js.html",
+    "lib/dialects/postgres/hstore.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/index.js&quot;,
-    &quot;file/lib/dialects/postgres/index.js.html&quot;,
-    &quot;lib/dialects/postgres/index.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/index.js",
+    "file/lib/dialects/postgres/index.js.html",
+    "lib/dialects/postgres/index.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/query-generator.js&quot;,
-    &quot;file/lib/dialects/postgres/query-generator.js.html&quot;,
-    &quot;lib/dialects/postgres/query-generator.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/query-generator.js",
+    "file/lib/dialects/postgres/query-generator.js.html",
+    "lib/dialects/postgres/query-generator.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/query.js&quot;,
-    &quot;file/lib/dialects/postgres/query.js.html&quot;,
-    &quot;lib/dialects/postgres/query.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/query.js",
+    "file/lib/dialects/postgres/query.js.html",
+    "lib/dialects/postgres/query.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/postgres/range.js&quot;,
-    &quot;file/lib/dialects/postgres/range.js.html&quot;,
-    &quot;lib/dialects/postgres/range.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/postgres/range.js",
+    "file/lib/dialects/postgres/range.js.html",
+    "lib/dialects/postgres/range.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/sqlite/connection-manager.js&quot;,
-    &quot;file/lib/dialects/sqlite/connection-manager.js.html&quot;,
-    &quot;lib/dialects/sqlite/connection-manager.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/sqlite/connection-manager.js",
+    "file/lib/dialects/sqlite/connection-manager.js.html",
+    "lib/dialects/sqlite/connection-manager.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/sqlite/data-types.js&quot;,
-    &quot;file/lib/dialects/sqlite/data-types.js.html&quot;,
-    &quot;lib/dialects/sqlite/data-types.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/sqlite/data-types.js",
+    "file/lib/dialects/sqlite/data-types.js.html",
+    "lib/dialects/sqlite/data-types.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/sqlite/index.js&quot;,
-    &quot;file/lib/dialects/sqlite/index.js.html&quot;,
-    &quot;lib/dialects/sqlite/index.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/sqlite/index.js",
+    "file/lib/dialects/sqlite/index.js.html",
+    "lib/dialects/sqlite/index.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/sqlite/query-generator.js&quot;,
-    &quot;file/lib/dialects/sqlite/query-generator.js.html&quot;,
-    &quot;lib/dialects/sqlite/query-generator.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/sqlite/query-generator.js",
+    "file/lib/dialects/sqlite/query-generator.js.html",
+    "lib/dialects/sqlite/query-generator.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/sqlite/query-interface.js&quot;,
-    &quot;file/lib/dialects/sqlite/query-interface.js.html&quot;,
-    &quot;lib/dialects/sqlite/query-interface.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/sqlite/query-interface.js",
+    "file/lib/dialects/sqlite/query-interface.js.html",
+    "lib/dialects/sqlite/query-interface.js",
+    "file"
   ],
   [
-    &quot;lib/dialects/sqlite/query.js&quot;,
-    &quot;file/lib/dialects/sqlite/query.js.html&quot;,
-    &quot;lib/dialects/sqlite/query.js&quot;,
-    &quot;file&quot;
+    "lib/dialects/sqlite/query.js",
+    "file/lib/dialects/sqlite/query.js.html",
+    "lib/dialects/sqlite/query.js",
+    "file"
   ],
   [
-    &quot;lib/errors.js&quot;,
-    &quot;file/lib/errors.js.html&quot;,
-    &quot;lib/errors.js&quot;,
-    &quot;file&quot;
+    "lib/errors.js",
+    "file/lib/errors.js.html",
+    "lib/errors.js",
+    "file"
   ],
   [
-    &quot;lib/errors/index.js&quot;,
-    &quot;file/lib/errors/index.js.html&quot;,
-    &quot;lib/errors/index.js&quot;,
-    &quot;file&quot;
+    "lib/errors/index.js",
+    "file/lib/errors/index.js.html",
+    "lib/errors/index.js",
+    "file"
   ],
   [
-    &quot;lib/errors/index.js~connectionerror#parent&quot;,
-    &quot;class/lib/errors/index.js~ConnectionError.html#instance-member-parent&quot;,
-    &quot;lib/errors/index.js~ConnectionError#parent&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~connectionerror#parent",
+    "class/lib/errors/index.js~ConnectionError.html#instance-member-parent",
+    "lib/errors/index.js~ConnectionError#parent",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~databaseerror#original&quot;,
-    &quot;class/lib/errors/index.js~DatabaseError.html#instance-member-original&quot;,
-    &quot;lib/errors/index.js~DatabaseError#original&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~databaseerror#original",
+    "class/lib/errors/index.js~DatabaseError.html#instance-member-original",
+    "lib/errors/index.js~DatabaseError#original",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~databaseerror#parent&quot;,
-    &quot;class/lib/errors/index.js~DatabaseError.html#instance-member-parent&quot;,
-    &quot;lib/errors/index.js~DatabaseError#parent&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~databaseerror#parent",
+    "class/lib/errors/index.js~DatabaseError.html#instance-member-parent",
+    "lib/errors/index.js~DatabaseError#parent",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~databaseerror#sql&quot;,
-    &quot;class/lib/errors/index.js~DatabaseError.html#instance-member-sql&quot;,
-    &quot;lib/errors/index.js~DatabaseError#sql&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~databaseerror#sql",
+    "class/lib/errors/index.js~DatabaseError.html#instance-member-sql",
+    "lib/errors/index.js~DatabaseError#sql",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~optimisticlockerror#modelname&quot;,
-    &quot;class/lib/errors/index.js~OptimisticLockError.html#instance-member-modelName&quot;,
-    &quot;lib/errors/index.js~OptimisticLockError#modelName&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~optimisticlockerror#modelname",
+    "class/lib/errors/index.js~OptimisticLockError.html#instance-member-modelName",
+    "lib/errors/index.js~OptimisticLockError#modelName",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~optimisticlockerror#values&quot;,
-    &quot;class/lib/errors/index.js~OptimisticLockError.html#instance-member-values&quot;,
-    &quot;lib/errors/index.js~OptimisticLockError#values&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~optimisticlockerror#values",
+    "class/lib/errors/index.js~OptimisticLockError.html#instance-member-values",
+    "lib/errors/index.js~OptimisticLockError#values",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~optimisticlockerror#where&quot;,
-    &quot;class/lib/errors/index.js~OptimisticLockError.html#instance-member-where&quot;,
-    &quot;lib/errors/index.js~OptimisticLockError#where&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~optimisticlockerror#where",
+    "class/lib/errors/index.js~OptimisticLockError.html#instance-member-where",
+    "lib/errors/index.js~OptimisticLockError#where",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerror#errors&quot;,
-    &quot;class/lib/errors/index.js~ValidationError.html#instance-member-errors&quot;,
-    &quot;lib/errors/index.js~ValidationError#errors&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerror#errors",
+    "class/lib/errors/index.js~ValidationError.html#instance-member-errors",
+    "lib/errors/index.js~ValidationError#errors",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerror#get&quot;,
-    &quot;class/lib/errors/index.js~ValidationError.html#instance-method-get&quot;,
-    &quot;lib/errors/index.js~ValidationError#get&quot;,
-    &quot;method&quot;
+    "lib/errors/index.js~validationerror#get",
+    "class/lib/errors/index.js~ValidationError.html#instance-method-get",
+    "lib/errors/index.js~ValidationError#get",
+    "method"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#instance&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-instance&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#instance&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#instance",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-instance",
+    "lib/errors/index.js~ValidationErrorItem#instance",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#message&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-message&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#message&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#message",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-message",
+    "lib/errors/index.js~ValidationErrorItem#message",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#path&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-path&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#path&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#path",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-path",
+    "lib/errors/index.js~ValidationErrorItem#path",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#type&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-type&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#type&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#type",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-type",
+    "lib/errors/index.js~ValidationErrorItem#type",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#validatorargs&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-validatorArgs&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#validatorArgs&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#validatorargs",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-validatorArgs",
+    "lib/errors/index.js~ValidationErrorItem#validatorArgs",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#validatorkey&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-validatorKey&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#validatorKey&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#validatorkey",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-validatorKey",
+    "lib/errors/index.js~ValidationErrorItem#validatorKey",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#validatorname&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-validatorName&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#validatorName&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#validatorname",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-validatorName",
+    "lib/errors/index.js~ValidationErrorItem#validatorName",
+    "member"
   ],
   [
-    &quot;lib/errors/index.js~validationerroritem#value&quot;,
-    &quot;class/lib/errors/index.js~ValidationErrorItem.html#instance-member-value&quot;,
-    &quot;lib/errors/index.js~ValidationErrorItem#value&quot;,
-    &quot;member&quot;
+    "lib/errors/index.js~validationerroritem#value",
+    "class/lib/errors/index.js~ValidationErrorItem.html#instance-member-value",
+    "lib/errors/index.js~ValidationErrorItem#value",
+    "member"
   ],
   [
-    &quot;lib/hooks.js&quot;,
-    &quot;file/lib/hooks.js.html&quot;,
-    &quot;lib/hooks.js&quot;,
-    &quot;file&quot;
+    "lib/hooks.js",
+    "file/lib/hooks.js.html",
+    "lib/hooks.js",
+    "file"
   ],
   [
-    &quot;lib/instance-validator.js&quot;,
-    &quot;file/lib/instance-validator.js.html&quot;,
-    &quot;lib/instance-validator.js&quot;,
-    &quot;file&quot;
+    "lib/instance-validator.js",
+    "file/lib/instance-validator.js.html",
+    "lib/instance-validator.js",
+    "file"
   ],
   [
-    &quot;lib/model-manager.js&quot;,
-    &quot;file/lib/model-manager.js.html&quot;,
-    &quot;lib/model-manager.js&quot;,
-    &quot;file&quot;
+    "lib/model-manager.js",
+    "file/lib/model-manager.js.html",
+    "lib/model-manager.js",
+    "file"
   ],
   [
-    &quot;lib/model.js&quot;,
-    &quot;file/lib/model.js.html&quot;,
-    &quot;lib/model.js&quot;,
-    &quot;file&quot;
+    "lib/model.js",
+    "file/lib/model.js.html",
+    "lib/model.js",
+    "file"
   ],
   [
-    &quot;lib/model.js~model#changed&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-changed&quot;,
-    &quot;lib/model.js~Model#changed&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#changed",
+    "class/lib/model.js~Model.html#instance-method-changed",
+    "lib/model.js~Model#changed",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#constructor&quot;,
-    &quot;class/lib/model.js~Model.html#instance-constructor-constructor&quot;,
-    &quot;lib/model.js~Model#constructor&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#constructor",
+    "class/lib/model.js~Model.html#instance-constructor-constructor",
+    "lib/model.js~Model#constructor",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#decrement&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-decrement&quot;,
-    &quot;lib/model.js~Model#decrement&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#decrement",
+    "class/lib/model.js~Model.html#instance-method-decrement",
+    "lib/model.js~Model#decrement",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#destroy&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-destroy&quot;,
-    &quot;lib/model.js~Model#destroy&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#destroy",
+    "class/lib/model.js~Model.html#instance-method-destroy",
+    "lib/model.js~Model#destroy",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#equals&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-equals&quot;,
-    &quot;lib/model.js~Model#equals&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#equals",
+    "class/lib/model.js~Model.html#instance-method-equals",
+    "lib/model.js~Model#equals",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#equalsoneof&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-equalsOneOf&quot;,
-    &quot;lib/model.js~Model#equalsOneOf&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#equalsoneof",
+    "class/lib/model.js~Model.html#instance-method-equalsOneOf",
+    "lib/model.js~Model#equalsOneOf",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#get&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-get&quot;,
-    &quot;lib/model.js~Model#get&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#get",
+    "class/lib/model.js~Model.html#instance-method-get",
+    "lib/model.js~Model#get",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#getdatavalue&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-getDataValue&quot;,
-    &quot;lib/model.js~Model#getDataValue&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#getdatavalue",
+    "class/lib/model.js~Model.html#instance-method-getDataValue",
+    "lib/model.js~Model#getDataValue",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#increment&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-increment&quot;,
-    &quot;lib/model.js~Model#increment&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#increment",
+    "class/lib/model.js~Model.html#instance-method-increment",
+    "lib/model.js~Model#increment",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#isnewrecord&quot;,
-    &quot;class/lib/model.js~Model.html#instance-member-isNewRecord&quot;,
-    &quot;lib/model.js~Model#isNewRecord&quot;,
-    &quot;member&quot;
+    "lib/model.js~model#isnewrecord",
+    "class/lib/model.js~Model.html#instance-member-isNewRecord",
+    "lib/model.js~Model#isNewRecord",
+    "member"
   ],
   [
-    &quot;lib/model.js~model#issoftdeleted&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-isSoftDeleted&quot;,
-    &quot;lib/model.js~Model#isSoftDeleted&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#issoftdeleted",
+    "class/lib/model.js~Model.html#instance-method-isSoftDeleted",
+    "lib/model.js~Model#isSoftDeleted",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#previous&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-previous&quot;,
-    &quot;lib/model.js~Model#previous&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#previous",
+    "class/lib/model.js~Model.html#instance-method-previous",
+    "lib/model.js~Model#previous",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#reload&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-reload&quot;,
-    &quot;lib/model.js~Model#reload&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#reload",
+    "class/lib/model.js~Model.html#instance-method-reload",
+    "lib/model.js~Model#reload",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#restore&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-restore&quot;,
-    &quot;lib/model.js~Model#restore&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#restore",
+    "class/lib/model.js~Model.html#instance-method-restore",
+    "lib/model.js~Model#restore",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#save&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-save&quot;,
-    &quot;lib/model.js~Model#save&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#save",
+    "class/lib/model.js~Model.html#instance-method-save",
+    "lib/model.js~Model#save",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#sequelize&quot;,
-    &quot;class/lib/model.js~Model.html#instance-get-sequelize&quot;,
-    &quot;lib/model.js~Model#sequelize&quot;,
-    &quot;member&quot;
+    "lib/model.js~model#sequelize",
+    "class/lib/model.js~Model.html#instance-get-sequelize",
+    "lib/model.js~Model#sequelize",
+    "member"
   ],
   [
-    &quot;lib/model.js~model#set&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-set&quot;,
-    &quot;lib/model.js~Model#set&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#set",
+    "class/lib/model.js~Model.html#instance-method-set",
+    "lib/model.js~Model#set",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#setdatavalue&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-setDataValue&quot;,
-    &quot;lib/model.js~Model#setDataValue&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#setdatavalue",
+    "class/lib/model.js~Model.html#instance-method-setDataValue",
+    "lib/model.js~Model#setDataValue",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#tojson&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-toJSON&quot;,
-    &quot;lib/model.js~Model#toJSON&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#tojson",
+    "class/lib/model.js~Model.html#instance-method-toJSON",
+    "lib/model.js~Model#toJSON",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#update&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-update&quot;,
-    &quot;lib/model.js~Model#update&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#update",
+    "class/lib/model.js~Model.html#instance-method-update",
+    "lib/model.js~Model#update",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#validate&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-validate&quot;,
-    &quot;lib/model.js~Model#validate&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#validate",
+    "class/lib/model.js~Model.html#instance-method-validate",
+    "lib/model.js~Model#validate",
+    "method"
   ],
   [
-    &quot;lib/model.js~model#where&quot;,
-    &quot;class/lib/model.js~Model.html#instance-method-where&quot;,
-    &quot;lib/model.js~Model#where&quot;,
-    &quot;method&quot;
+    "lib/model.js~model#where",
+    "class/lib/model.js~Model.html#instance-method-where",
+    "lib/model.js~Model#where",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.addscope&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-addScope&quot;,
-    &quot;lib/model.js~Model.addScope&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.addscope",
+    "class/lib/model.js~Model.html#static-method-addScope",
+    "lib/model.js~Model.addScope",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.aggregate&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-aggregate&quot;,
-    &quot;lib/model.js~Model.aggregate&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.aggregate",
+    "class/lib/model.js~Model.html#static-method-aggregate",
+    "lib/model.js~Model.aggregate",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.belongsto&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-belongsTo&quot;,
-    &quot;lib/model.js~Model.belongsTo&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.belongsto",
+    "class/lib/model.js~Model.html#static-method-belongsTo",
+    "lib/model.js~Model.belongsTo",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.belongstomany&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-belongsToMany&quot;,
-    &quot;lib/model.js~Model.belongsToMany&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.belongstomany",
+    "class/lib/model.js~Model.html#static-method-belongsToMany",
+    "lib/model.js~Model.belongsToMany",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.build&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-build&quot;,
-    &quot;lib/model.js~Model.build&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.build",
+    "class/lib/model.js~Model.html#static-method-build",
+    "lib/model.js~Model.build",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.bulkcreate&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-bulkCreate&quot;,
-    &quot;lib/model.js~Model.bulkCreate&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.bulkcreate",
+    "class/lib/model.js~Model.html#static-method-bulkCreate",
+    "lib/model.js~Model.bulkCreate",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.count&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-count&quot;,
-    &quot;lib/model.js~Model.count&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.count",
+    "class/lib/model.js~Model.html#static-method-count",
+    "lib/model.js~Model.count",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.create&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-create&quot;,
-    &quot;lib/model.js~Model.create&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.create",
+    "class/lib/model.js~Model.html#static-method-create",
+    "lib/model.js~Model.create",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.decrement&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-decrement&quot;,
-    &quot;lib/model.js~Model.decrement&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.decrement",
+    "class/lib/model.js~Model.html#static-method-decrement",
+    "lib/model.js~Model.decrement",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.describe&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-describe&quot;,
-    &quot;lib/model.js~Model.describe&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.describe",
+    "class/lib/model.js~Model.html#static-method-describe",
+    "lib/model.js~Model.describe",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.destroy&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-destroy&quot;,
-    &quot;lib/model.js~Model.destroy&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.destroy",
+    "class/lib/model.js~Model.html#static-method-destroy",
+    "lib/model.js~Model.destroy",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.drop&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-drop&quot;,
-    &quot;lib/model.js~Model.drop&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.drop",
+    "class/lib/model.js~Model.html#static-method-drop",
+    "lib/model.js~Model.drop",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findall&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findAll&quot;,
-    &quot;lib/model.js~Model.findAll&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findall",
+    "class/lib/model.js~Model.html#static-method-findAll",
+    "lib/model.js~Model.findAll",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findandcountall&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findAndCountAll&quot;,
-    &quot;lib/model.js~Model.findAndCountAll&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findandcountall",
+    "class/lib/model.js~Model.html#static-method-findAndCountAll",
+    "lib/model.js~Model.findAndCountAll",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findbypk&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findByPk&quot;,
-    &quot;lib/model.js~Model.findByPk&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findbypk",
+    "class/lib/model.js~Model.html#static-method-findByPk",
+    "lib/model.js~Model.findByPk",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findcreatefind&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findCreateFind&quot;,
-    &quot;lib/model.js~Model.findCreateFind&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findcreatefind",
+    "class/lib/model.js~Model.html#static-method-findCreateFind",
+    "lib/model.js~Model.findCreateFind",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findone&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findOne&quot;,
-    &quot;lib/model.js~Model.findOne&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findone",
+    "class/lib/model.js~Model.html#static-method-findOne",
+    "lib/model.js~Model.findOne",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findorbuild&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findOrBuild&quot;,
-    &quot;lib/model.js~Model.findOrBuild&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findorbuild",
+    "class/lib/model.js~Model.html#static-method-findOrBuild",
+    "lib/model.js~Model.findOrBuild",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.findorcreate&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-findOrCreate&quot;,
-    &quot;lib/model.js~Model.findOrCreate&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.findorcreate",
+    "class/lib/model.js~Model.html#static-method-findOrCreate",
+    "lib/model.js~Model.findOrCreate",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.gettablename&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-getTableName&quot;,
-    &quot;lib/model.js~Model.getTableName&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.gettablename",
+    "class/lib/model.js~Model.html#static-method-getTableName",
+    "lib/model.js~Model.getTableName",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.hasmany&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-hasMany&quot;,
-    &quot;lib/model.js~Model.hasMany&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.hasmany",
+    "class/lib/model.js~Model.html#static-method-hasMany",
+    "lib/model.js~Model.hasMany",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.hasone&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-hasOne&quot;,
-    &quot;lib/model.js~Model.hasOne&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.hasone",
+    "class/lib/model.js~Model.html#static-method-hasOne",
+    "lib/model.js~Model.hasOne",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.increment&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-increment&quot;,
-    &quot;lib/model.js~Model.increment&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.increment",
+    "class/lib/model.js~Model.html#static-method-increment",
+    "lib/model.js~Model.increment",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.init&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-init&quot;,
-    &quot;lib/model.js~Model.init&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.init",
+    "class/lib/model.js~Model.html#static-method-init",
+    "lib/model.js~Model.init",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.max&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-max&quot;,
-    &quot;lib/model.js~Model.max&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.max",
+    "class/lib/model.js~Model.html#static-method-max",
+    "lib/model.js~Model.max",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.min&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-min&quot;,
-    &quot;lib/model.js~Model.min&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.min",
+    "class/lib/model.js~Model.html#static-method-min",
+    "lib/model.js~Model.min",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.removeattribute&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-removeAttribute&quot;,
-    &quot;lib/model.js~Model.removeAttribute&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.removeattribute",
+    "class/lib/model.js~Model.html#static-method-removeAttribute",
+    "lib/model.js~Model.removeAttribute",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.restore&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-restore&quot;,
-    &quot;lib/model.js~Model.restore&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.restore",
+    "class/lib/model.js~Model.html#static-method-restore",
+    "lib/model.js~Model.restore",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.schema&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-schema&quot;,
-    &quot;lib/model.js~Model.schema&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.schema",
+    "class/lib/model.js~Model.html#static-method-schema",
+    "lib/model.js~Model.schema",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.scope&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-scope&quot;,
-    &quot;lib/model.js~Model.scope&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.scope",
+    "class/lib/model.js~Model.html#static-method-scope",
+    "lib/model.js~Model.scope",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.sum&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-sum&quot;,
-    &quot;lib/model.js~Model.sum&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.sum",
+    "class/lib/model.js~Model.html#static-method-sum",
+    "lib/model.js~Model.sum",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.sync&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-sync&quot;,
-    &quot;lib/model.js~Model.sync&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.sync",
+    "class/lib/model.js~Model.html#static-method-sync",
+    "lib/model.js~Model.sync",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.truncate&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-truncate&quot;,
-    &quot;lib/model.js~Model.truncate&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.truncate",
+    "class/lib/model.js~Model.html#static-method-truncate",
+    "lib/model.js~Model.truncate",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.unscoped&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-unscoped&quot;,
-    &quot;lib/model.js~Model.unscoped&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.unscoped",
+    "class/lib/model.js~Model.html#static-method-unscoped",
+    "lib/model.js~Model.unscoped",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.update&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-update&quot;,
-    &quot;lib/model.js~Model.update&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.update",
+    "class/lib/model.js~Model.html#static-method-update",
+    "lib/model.js~Model.update",
+    "method"
   ],
   [
-    &quot;lib/model.js~model.upsert&quot;,
-    &quot;class/lib/model.js~Model.html#static-method-upsert&quot;,
-    &quot;lib/model.js~Model.upsert&quot;,
-    &quot;method&quot;
+    "lib/model.js~model.upsert",
+    "class/lib/model.js~Model.html#static-method-upsert",
+    "lib/model.js~Model.upsert",
+    "method"
   ],
   [
-    &quot;lib/operators.js&quot;,
-    &quot;file/lib/operators.js.html&quot;,
-    &quot;lib/operators.js&quot;,
-    &quot;file&quot;
+    "lib/operators.js",
+    "file/lib/operators.js.html",
+    "lib/operators.js",
+    "file"
   ],
   [
-    &quot;lib/promise.js&quot;,
-    &quot;file/lib/promise.js.html&quot;,
-    &quot;lib/promise.js&quot;,
-    &quot;file&quot;
+    "lib/promise.js",
+    "file/lib/promise.js.html",
+    "lib/promise.js",
+    "file"
   ],
   [
-    &quot;lib/query-interface.js&quot;,
-    &quot;file/lib/query-interface.js.html&quot;,
-    &quot;lib/query-interface.js&quot;,
-    &quot;file&quot;
+    "lib/query-interface.js",
+    "file/lib/query-interface.js.html",
+    "lib/query-interface.js",
+    "file"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#addcolumn&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-addColumn&quot;,
-    &quot;lib/query-interface.js~QueryInterface#addColumn&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#addcolumn",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-addColumn",
+    "lib/query-interface.js~QueryInterface#addColumn",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#addconstraint&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-addConstraint&quot;,
-    &quot;lib/query-interface.js~QueryInterface#addConstraint&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#addconstraint",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-addConstraint",
+    "lib/query-interface.js~QueryInterface#addConstraint",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#addindex&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-addIndex&quot;,
-    &quot;lib/query-interface.js~QueryInterface#addIndex&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#addindex",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-addIndex",
+    "lib/query-interface.js~QueryInterface#addIndex",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#bulkdelete&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-bulkDelete&quot;,
-    &quot;lib/query-interface.js~QueryInterface#bulkDelete&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#bulkdelete",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-bulkDelete",
+    "lib/query-interface.js~QueryInterface#bulkDelete",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#bulkinsert&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-bulkInsert&quot;,
-    &quot;lib/query-interface.js~QueryInterface#bulkInsert&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#bulkinsert",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-bulkInsert",
+    "lib/query-interface.js~QueryInterface#bulkInsert",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#changecolumn&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-changeColumn&quot;,
-    &quot;lib/query-interface.js~QueryInterface#changeColumn&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#changecolumn",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-changeColumn",
+    "lib/query-interface.js~QueryInterface#changeColumn",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#createfunction&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-createFunction&quot;,
-    &quot;lib/query-interface.js~QueryInterface#createFunction&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#createfunction",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-createFunction",
+    "lib/query-interface.js~QueryInterface#createFunction",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#createschema&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-createSchema&quot;,
-    &quot;lib/query-interface.js~QueryInterface#createSchema&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#createschema",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-createSchema",
+    "lib/query-interface.js~QueryInterface#createSchema",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#createtable&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-createTable&quot;,
-    &quot;lib/query-interface.js~QueryInterface#createTable&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#createtable",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-createTable",
+    "lib/query-interface.js~QueryInterface#createTable",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#describetable&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-describeTable&quot;,
-    &quot;lib/query-interface.js~QueryInterface#describeTable&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#describetable",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-describeTable",
+    "lib/query-interface.js~QueryInterface#describeTable",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#dropallschemas&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-dropAllSchemas&quot;,
-    &quot;lib/query-interface.js~QueryInterface#dropAllSchemas&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#dropallschemas",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-dropAllSchemas",
+    "lib/query-interface.js~QueryInterface#dropAllSchemas",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#dropalltables&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-dropAllTables&quot;,
-    &quot;lib/query-interface.js~QueryInterface#dropAllTables&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#dropalltables",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-dropAllTables",
+    "lib/query-interface.js~QueryInterface#dropAllTables",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#dropfunction&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-dropFunction&quot;,
-    &quot;lib/query-interface.js~QueryInterface#dropFunction&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#dropfunction",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-dropFunction",
+    "lib/query-interface.js~QueryInterface#dropFunction",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#dropschema&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-dropSchema&quot;,
-    &quot;lib/query-interface.js~QueryInterface#dropSchema&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#dropschema",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-dropSchema",
+    "lib/query-interface.js~QueryInterface#dropSchema",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#droptable&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-dropTable&quot;,
-    &quot;lib/query-interface.js~QueryInterface#dropTable&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#droptable",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-dropTable",
+    "lib/query-interface.js~QueryInterface#dropTable",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#getforeignkeyreferencesfortable&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-getForeignKeyReferencesForTable&quot;,
-    &quot;lib/query-interface.js~QueryInterface#getForeignKeyReferencesForTable&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#getforeignkeyreferencesfortable",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-getForeignKeyReferencesForTable",
+    "lib/query-interface.js~QueryInterface#getForeignKeyReferencesForTable",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#removecolumn&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-removeColumn&quot;,
-    &quot;lib/query-interface.js~QueryInterface#removeColumn&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#removecolumn",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-removeColumn",
+    "lib/query-interface.js~QueryInterface#removeColumn",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#removeconstraint&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-removeConstraint&quot;,
-    &quot;lib/query-interface.js~QueryInterface#removeConstraint&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#removeconstraint",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-removeConstraint",
+    "lib/query-interface.js~QueryInterface#removeConstraint",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#removeindex&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-removeIndex&quot;,
-    &quot;lib/query-interface.js~QueryInterface#removeIndex&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#removeindex",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-removeIndex",
+    "lib/query-interface.js~QueryInterface#removeIndex",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#renamecolumn&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-renameColumn&quot;,
-    &quot;lib/query-interface.js~QueryInterface#renameColumn&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#renamecolumn",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-renameColumn",
+    "lib/query-interface.js~QueryInterface#renameColumn",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#renamefunction&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-renameFunction&quot;,
-    &quot;lib/query-interface.js~QueryInterface#renameFunction&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#renamefunction",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-renameFunction",
+    "lib/query-interface.js~QueryInterface#renameFunction",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#renametable&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-renameTable&quot;,
-    &quot;lib/query-interface.js~QueryInterface#renameTable&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#renametable",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-renameTable",
+    "lib/query-interface.js~QueryInterface#renameTable",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#showallschemas&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-showAllSchemas&quot;,
-    &quot;lib/query-interface.js~QueryInterface#showAllSchemas&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#showallschemas",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-showAllSchemas",
+    "lib/query-interface.js~QueryInterface#showAllSchemas",
+    "method"
   ],
   [
-    &quot;lib/query-interface.js~queryinterface#upsert&quot;,
-    &quot;class/lib/query-interface.js~QueryInterface.html#instance-method-upsert&quot;,
-    &quot;lib/query-interface.js~QueryInterface#upsert&quot;,
-    &quot;method&quot;
+    "lib/query-interface.js~queryinterface#upsert",
+    "class/lib/query-interface.js~QueryInterface.html#instance-method-upsert",
+    "lib/query-interface.js~QueryInterface#upsert",
+    "method"
   ],
   [
-    &quot;lib/query-types.js&quot;,
-    &quot;file/lib/query-types.js.html&quot;,
-    &quot;lib/query-types.js&quot;,
-    &quot;file&quot;
+    "lib/query-types.js",
+    "file/lib/query-types.js.html",
+    "lib/query-types.js",
+    "file"
   ],
   [
-    &quot;lib/sequelize.js&quot;,
-    &quot;file/lib/sequelize.js.html&quot;,
-    &quot;lib/sequelize.js&quot;,
-    &quot;file&quot;
+    "lib/sequelize.js",
+    "file/lib/sequelize.js.html",
+    "lib/sequelize.js",
+    "file"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#authenticate&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-authenticate&quot;,
-    &quot;lib/sequelize.js~Sequelize#authenticate&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#authenticate",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-authenticate",
+    "lib/sequelize.js~Sequelize#authenticate",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#close&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-close&quot;,
-    &quot;lib/sequelize.js~Sequelize#close&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#close",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-close",
+    "lib/sequelize.js~Sequelize#close",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#constructor&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor&quot;,
-    &quot;lib/sequelize.js~Sequelize#constructor&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#constructor",
+    "class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor",
+    "lib/sequelize.js~Sequelize#constructor",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#createschema&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-createSchema&quot;,
-    &quot;lib/sequelize.js~Sequelize#createSchema&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#createschema",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-createSchema",
+    "lib/sequelize.js~Sequelize#createSchema",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#define&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-define&quot;,
-    &quot;lib/sequelize.js~Sequelize#define&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#define",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-define",
+    "lib/sequelize.js~Sequelize#define",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#drop&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-drop&quot;,
-    &quot;lib/sequelize.js~Sequelize#drop&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#drop",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-drop",
+    "lib/sequelize.js~Sequelize#drop",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#dropallschemas&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-dropAllSchemas&quot;,
-    &quot;lib/sequelize.js~Sequelize#dropAllSchemas&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#dropallschemas",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-dropAllSchemas",
+    "lib/sequelize.js~Sequelize#dropAllSchemas",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#dropschema&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-dropSchema&quot;,
-    &quot;lib/sequelize.js~Sequelize#dropSchema&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#dropschema",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-dropSchema",
+    "lib/sequelize.js~Sequelize#dropSchema",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#escape&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-escape&quot;,
-    &quot;lib/sequelize.js~Sequelize#escape&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#escape",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-escape",
+    "lib/sequelize.js~Sequelize#escape",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#getdialect&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-getDialect&quot;,
-    &quot;lib/sequelize.js~Sequelize#getDialect&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#getdialect",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-getDialect",
+    "lib/sequelize.js~Sequelize#getDialect",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#getqueryinterface&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-getQueryInterface&quot;,
-    &quot;lib/sequelize.js~Sequelize#getQueryInterface&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#getqueryinterface",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-getQueryInterface",
+    "lib/sequelize.js~Sequelize#getQueryInterface",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#import&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-import&quot;,
-    &quot;lib/sequelize.js~Sequelize#import&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#import",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-import",
+    "lib/sequelize.js~Sequelize#import",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#isdefined&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-isDefined&quot;,
-    &quot;lib/sequelize.js~Sequelize#isDefined&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#isdefined",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-isDefined",
+    "lib/sequelize.js~Sequelize#isDefined",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#model&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-model&quot;,
-    &quot;lib/sequelize.js~Sequelize#model&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#model",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-model",
+    "lib/sequelize.js~Sequelize#model",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#models&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-member-models&quot;,
-    &quot;lib/sequelize.js~Sequelize#models&quot;,
-    &quot;member&quot;
+    "lib/sequelize.js~sequelize#models",
+    "class/lib/sequelize.js~Sequelize.html#instance-member-models",
+    "lib/sequelize.js~Sequelize#models",
+    "member"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#query&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-query&quot;,
-    &quot;lib/sequelize.js~Sequelize#query&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#query",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-query",
+    "lib/sequelize.js~Sequelize#query",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#random&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-random&quot;,
-    &quot;lib/sequelize.js~Sequelize#random&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#random",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-random",
+    "lib/sequelize.js~Sequelize#random",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#set&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-set&quot;,
-    &quot;lib/sequelize.js~Sequelize#set&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#set",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-set",
+    "lib/sequelize.js~Sequelize#set",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#showallschemas&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-showAllSchemas&quot;,
-    &quot;lib/sequelize.js~Sequelize#showAllSchemas&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#showallschemas",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-showAllSchemas",
+    "lib/sequelize.js~Sequelize#showAllSchemas",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#sync&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-sync&quot;,
-    &quot;lib/sequelize.js~Sequelize#sync&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#sync",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-sync",
+    "lib/sequelize.js~Sequelize#sync",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#transaction&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-transaction&quot;,
-    &quot;lib/sequelize.js~Sequelize#transaction&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#transaction",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-transaction",
+    "lib/sequelize.js~Sequelize#transaction",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize#truncate&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#instance-method-truncate&quot;,
-    &quot;lib/sequelize.js~Sequelize#truncate&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize#truncate",
+    "class/lib/sequelize.js~Sequelize.html#instance-method-truncate",
+    "lib/sequelize.js~Sequelize#truncate",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.and&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-and&quot;,
-    &quot;lib/sequelize.js~Sequelize.and&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.and",
+    "class/lib/sequelize.js~Sequelize.html#static-method-and",
+    "lib/sequelize.js~Sequelize.and",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.cast&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-cast&quot;,
-    &quot;lib/sequelize.js~Sequelize.cast&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.cast",
+    "class/lib/sequelize.js~Sequelize.html#static-method-cast",
+    "lib/sequelize.js~Sequelize.cast",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.col&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-col&quot;,
-    &quot;lib/sequelize.js~Sequelize.col&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.col",
+    "class/lib/sequelize.js~Sequelize.html#static-method-col",
+    "lib/sequelize.js~Sequelize.col",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.fn&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-fn&quot;,
-    &quot;lib/sequelize.js~Sequelize.fn&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.fn",
+    "class/lib/sequelize.js~Sequelize.html#static-method-fn",
+    "lib/sequelize.js~Sequelize.fn",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.json&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-json&quot;,
-    &quot;lib/sequelize.js~Sequelize.json&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.json",
+    "class/lib/sequelize.js~Sequelize.html#static-method-json",
+    "lib/sequelize.js~Sequelize.json",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.literal&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-literal&quot;,
-    &quot;lib/sequelize.js~Sequelize.literal&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.literal",
+    "class/lib/sequelize.js~Sequelize.html#static-method-literal",
+    "lib/sequelize.js~Sequelize.literal",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.or&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-or&quot;,
-    &quot;lib/sequelize.js~Sequelize.or&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.or",
+    "class/lib/sequelize.js~Sequelize.html#static-method-or",
+    "lib/sequelize.js~Sequelize.or",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.usecls&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-useCLS&quot;,
-    &quot;lib/sequelize.js~Sequelize.useCLS&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.usecls",
+    "class/lib/sequelize.js~Sequelize.html#static-method-useCLS",
+    "lib/sequelize.js~Sequelize.useCLS",
+    "method"
   ],
   [
-    &quot;lib/sequelize.js~sequelize.where&quot;,
-    &quot;class/lib/sequelize.js~Sequelize.html#static-method-where&quot;,
-    &quot;lib/sequelize.js~Sequelize.where&quot;,
-    &quot;method&quot;
+    "lib/sequelize.js~sequelize.where",
+    "class/lib/sequelize.js~Sequelize.html#static-method-where",
+    "lib/sequelize.js~Sequelize.where",
+    "method"
   ],
   [
-    &quot;lib/sql-string.js&quot;,
-    &quot;file/lib/sql-string.js.html&quot;,
-    &quot;lib/sql-string.js&quot;,
-    &quot;file&quot;
+    "lib/sql-string.js",
+    "file/lib/sql-string.js.html",
+    "lib/sql-string.js",
+    "file"
   ],
   [
-    &quot;lib/table-hints.js&quot;,
-    &quot;file/lib/table-hints.js.html&quot;,
-    &quot;lib/table-hints.js&quot;,
-    &quot;file&quot;
+    "lib/table-hints.js",
+    "file/lib/table-hints.js.html",
+    "lib/table-hints.js",
+    "file"
   ],
   [
-    &quot;lib/transaction.js&quot;,
-    &quot;file/lib/transaction.js.html&quot;,
-    &quot;lib/transaction.js&quot;,
-    &quot;file&quot;
+    "lib/transaction.js",
+    "file/lib/transaction.js.html",
+    "lib/transaction.js",
+    "file"
   ],
   [
-    &quot;lib/transaction.js~transaction#lock&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#instance-get-LOCK&quot;,
-    &quot;lib/transaction.js~Transaction#LOCK&quot;,
-    &quot;member&quot;
+    "lib/transaction.js~transaction#lock",
+    "class/lib/transaction.js~Transaction.html#instance-get-LOCK",
+    "lib/transaction.js~Transaction#LOCK",
+    "member"
   ],
   [
-    &quot;lib/transaction.js~transaction#aftercommit&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#instance-method-afterCommit&quot;,
-    &quot;lib/transaction.js~Transaction#afterCommit&quot;,
-    &quot;method&quot;
+    "lib/transaction.js~transaction#aftercommit",
+    "class/lib/transaction.js~Transaction.html#instance-method-afterCommit",
+    "lib/transaction.js~Transaction#afterCommit",
+    "method"
   ],
   [
-    &quot;lib/transaction.js~transaction#commit&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#instance-method-commit&quot;,
-    &quot;lib/transaction.js~Transaction#commit&quot;,
-    &quot;method&quot;
+    "lib/transaction.js~transaction#commit",
+    "class/lib/transaction.js~Transaction.html#instance-method-commit",
+    "lib/transaction.js~Transaction#commit",
+    "method"
   ],
   [
-    &quot;lib/transaction.js~transaction#constructor&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#instance-constructor-constructor&quot;,
-    &quot;lib/transaction.js~Transaction#constructor&quot;,
-    &quot;method&quot;
+    "lib/transaction.js~transaction#constructor",
+    "class/lib/transaction.js~Transaction.html#instance-constructor-constructor",
+    "lib/transaction.js~Transaction#constructor",
+    "method"
   ],
   [
-    &quot;lib/transaction.js~transaction#rollback&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#instance-method-rollback&quot;,
-    &quot;lib/transaction.js~Transaction#rollback&quot;,
-    &quot;method&quot;
+    "lib/transaction.js~transaction#rollback",
+    "class/lib/transaction.js~Transaction.html#instance-method-rollback",
+    "lib/transaction.js~Transaction#rollback",
+    "method"
   ],
   [
-    &quot;lib/transaction.js~transaction.isolation_levels&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#static-get-ISOLATION_LEVELS&quot;,
-    &quot;lib/transaction.js~Transaction.ISOLATION_LEVELS&quot;,
-    &quot;member&quot;
+    "lib/transaction.js~transaction.isolation_levels",
+    "class/lib/transaction.js~Transaction.html#static-get-ISOLATION_LEVELS",
+    "lib/transaction.js~Transaction.ISOLATION_LEVELS",
+    "member"
   ],
   [
-    &quot;lib/transaction.js~transaction.lock&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#static-get-LOCK&quot;,
-    &quot;lib/transaction.js~Transaction.LOCK&quot;,
-    &quot;member&quot;
+    "lib/transaction.js~transaction.lock",
+    "class/lib/transaction.js~Transaction.html#static-get-LOCK",
+    "lib/transaction.js~Transaction.LOCK",
+    "member"
   ],
   [
-    &quot;lib/transaction.js~transaction.types&quot;,
-    &quot;class/lib/transaction.js~Transaction.html#static-get-TYPES&quot;,
-    &quot;lib/transaction.js~Transaction.TYPES&quot;,
-    &quot;member&quot;
+    "lib/transaction.js~transaction.types",
+    "class/lib/transaction.js~Transaction.html#static-get-TYPES",
+    "lib/transaction.js~Transaction.TYPES",
+    "member"
   ],
   [
-    &quot;lib/utils.js&quot;,
-    &quot;file/lib/utils.js.html&quot;,
-    &quot;lib/utils.js&quot;,
-    &quot;file&quot;
+    "lib/utils.js",
+    "file/lib/utils.js.html",
+    "lib/utils.js",
+    "file"
   ],
   [
-    &quot;lib/utils/inherits.js&quot;,
-    &quot;file/lib/utils/inherits.js.html&quot;,
-    &quot;lib/utils/inherits.js&quot;,
-    &quot;file&quot;
+    "lib/utils/inherits.js",
+    "file/lib/utils/inherits.js.html",
+    "lib/utils/inherits.js",
+    "file"
   ],
   [
-    &quot;lib/utils/logger.js&quot;,
-    &quot;file/lib/utils/logger.js.html&quot;,
-    &quot;lib/utils/logger.js&quot;,
-    &quot;file&quot;
+    "lib/utils/logger.js",
+    "file/lib/utils/logger.js.html",
+    "lib/utils/logger.js",
+    "file"
   ],
   [
-    &quot;lib/utils/parameter-validator.js&quot;,
-    &quot;file/lib/utils/parameter-validator.js.html&quot;,
-    &quot;lib/utils/parameter-validator.js&quot;,
-    &quot;file&quot;
+    "lib/utils/parameter-validator.js",
+    "file/lib/utils/parameter-validator.js.html",
+    "lib/utils/parameter-validator.js",
+    "file"
   ],
   [
-    &quot;lib/utils/validator-extras.js&quot;,
-    &quot;file/lib/utils/validator-extras.js.html&quot;,
-    &quot;lib/utils/validator-extras.js&quot;,
-    &quot;file&quot;
+    "lib/utils/validator-extras.js",
+    "file/lib/utils/validator-extras.js.html",
+    "lib/utils/validator-extras.js",
+    "file"
   ]
 ]</body></html>

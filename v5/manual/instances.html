@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -396,13 +396,13 @@
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="instances">Instances</h1><h2 id="building-a-non-persistent-instance">Building a non-persistent instance</h2><p>In order to create instances of defined classes just do as follows. You might recognize the syntax if you coded Ruby in the past. Using the <code>build</code>-method will return an unsaved object, which you explicitly have to save.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const project = Project.build({
-  title: &apos;my awesome project&apos;,
-  description: &apos;woot woot. this will make me a rich man&apos;
+  title: 'my awesome project',
+  description: 'woot woot. this will make me a rich man'
 })
 
 const task = Task.build({
-  title: &apos;specify the project idea&apos;,
-  description: &apos;bla&apos;,
+  title: 'specify the project idea',
+  description: 'bla',
   deadline: new Date()
 })</code>
 </code></pre>
@@ -412,12 +412,12 @@ class Task extends Model {}
 Task.init({
   title: Sequelize.STRING,
   rating: { type: Sequelize.TINYINT, defaultValue: 3 }
-}, { sequelize, modelName: &apos;task&apos; });
+}, { sequelize, modelName: 'task' });
 
 // now instantiate an object
-const task = Task.build({title: &apos;very important task&apos;})
+const task = Task.build({title: 'very important task'})
 
-task.title  // ==&gt; &apos;very important task&apos;
+task.title  // ==&gt; 'very important task'
 task.rating // ==&gt; 3</code>
 </code></pre>
 <p>To get it stored in the database, use the <code>save</code>-method and catch the events ... if needed:</p>
@@ -431,7 +431,7 @@ task.save().catch(error =&gt; {
 
 // you can also build, save and access the object with chaining:
 Task
-  .build({ title: &apos;foo&apos;, description: &apos;bar&apos;, deadline: new Date() })
+  .build({ title: 'foo', description: 'bar', deadline: new Date() })
   .save()
   .then(anotherTask =&gt; {
     // you can now access the currently saved task with the variable anotherTask... nice!
@@ -440,48 +440,48 @@ Task
     // Ooops, do some error-handling
   })</code>
 </code></pre>
-<h2 id="creating-persistent-instances">Creating persistent instances</h2><p>While an instance created with <code>.build()</code> requires an explicit <code>.save()</code> call to be stored in the database, <code>.create()</code> omits that requirement altogether and automatically stores your instance&apos;s data once called.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Task.create({ title: &apos;foo&apos;, description: &apos;bar&apos;, deadline: new Date() }).then(task =&gt; {
+<h2 id="creating-persistent-instances">Creating persistent instances</h2><p>While an instance created with <code>.build()</code> requires an explicit <code>.save()</code> call to be stored in the database, <code>.create()</code> omits that requirement altogether and automatically stores your instance's data once called.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">Task.create({ title: 'foo', description: 'bar', deadline: new Date() }).then(task =&gt; {
   // you can now access the newly created task via the variable task
 })</code>
 </code></pre>
 <p>It is also possible to define which attributes can be set via the create method. This can be especially very handy if you create database entries based on a form which can be filled by a user. Using that would for example allow you to restrict the <code>User</code> model to set only a username and an address but not an admin flag:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">User.create({ username: &apos;barfooz&apos;, isAdmin: true }, { fields: [ &apos;username&apos; ] }).then(user =&gt; {
-  // let&apos;s assume the default of isAdmin is false:
+<pre><code class="lang-js"><code class="source-code prettyprint">User.create({ username: 'barfooz', isAdmin: true }, { fields: [ 'username' ] }).then(user =&gt; {
+  // let's assume the default of isAdmin is false:
   console.log(user.get({
     plain: true
-  })) // =&gt; { username: &apos;barfooz&apos;, isAdmin: false }
+  })) // =&gt; { username: 'barfooz', isAdmin: false }
 })</code>
 </code></pre>
 <h2 id="updating---saving---persisting-an-instance">Updating / Saving / Persisting an instance</h2><p>Now lets change some values and save changes to the database... There are two ways to do that:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// way 1
-task.title = &apos;a very different title now&apos;
+task.title = 'a very different title now'
 task.save().then(() =&gt; {})
 
 // way 2
 task.update({
-  title: &apos;a very different title now&apos;
+  title: 'a very different title now'
 }).then(() =&gt; {})</code>
 </code></pre>
-<p>It&apos;s also possible to define which attributes should be saved when calling <code>save</code>, by passing an array of column names. This is useful when you set attributes based on a previously defined object. E.g. if you get the values of an object via a form of a web app. Furthermore this is used internally for <code>update</code>. This is how it looks like:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">task.title = &apos;foooo&apos;
-task.description = &apos;baaaaaar&apos;
-task.save({fields: [&apos;title&apos;]}).then(() =&gt; {
- // title will now be &apos;foooo&apos; but description is the very same as before
+<p>It's also possible to define which attributes should be saved when calling <code>save</code>, by passing an array of column names. This is useful when you set attributes based on a previously defined object. E.g. if you get the values of an object via a form of a web app. Furthermore this is used internally for <code>update</code>. This is how it looks like:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">task.title = 'foooo'
+task.description = 'baaaaaar'
+task.save({fields: ['title']}).then(() =&gt; {
+ // title will now be 'foooo' but description is the very same as before
 })
 
 // The equivalent call using update looks like this:
-task.update({ title: &apos;foooo&apos;, description: &apos;baaaaaar&apos;}, {fields: [&apos;title&apos;]}).then(() =&gt; {
- // title will now be &apos;foooo&apos; but description is the very same as before
+task.update({ title: 'foooo', description: 'baaaaaar'}, {fields: ['title']}).then(() =&gt; {
+ // title will now be 'foooo' but description is the very same as before
 })</code>
 </code></pre>
 <p>When you call <code>save</code> without changing any attribute, this method will execute nothing;</p>
 <h2 id="destroying---deleting-persistent-instances">Destroying / Deleting persistent instances</h2><p>Once you created an object and got a reference to it, you can delete it from the database. The relevant method is <code>destroy</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Task.create({ title: &apos;a task&apos; }).then(task =&gt; {
+<pre><code class="lang-js"><code class="source-code prettyprint">Task.create({ title: 'a task' }).then(task =&gt; {
   // now you see me...
   return task.destroy();
 }).then(() =&gt; {
- // now i&apos;m gone :)
+ // now i'm gone :)
 })</code>
 </code></pre>
 <p>If the <code>paranoid</code> options is true, the object will not be deleted, instead the <code>deletedAt</code> column will be set to the current timestamp. To force the deletion, you can pass <code>force: true</code> to the destroy call:</p>
@@ -490,11 +490,11 @@ task.update({ title: &apos;foooo&apos;, description: &apos;baaaaaar&apos;}, {fie
 <p>After an object is soft deleted in <code>paranoid</code> mode, you will not be able to create a new instance with the same primary key
 until you have force-deleted the old instance.</p>
 <h2 id="restoring-soft-deleted-instances">Restoring soft-deleted instances</h2><p>If you have soft-deleted an instance of a model with <code>paranoid: true</code>, and would like to undo the deletion, use the <code>restore</code> method:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Task.create({ title: &apos;a task&apos; }).then(task =&gt; {
+<pre><code class="lang-js"><code class="source-code prettyprint">Task.create({ title: 'a task' }).then(task =&gt; {
   // now you see me...
   return task.destroy();
 }).then((task) =&gt; {
-  // now i&apos;m gone, but wait...
+  // now i'm gone, but wait...
   return task.restore();
 })</code>
 </code></pre>
@@ -507,10 +507,10 @@ until you have force-deleted the old instance.</p>
 <p>Since you are working with multiple models, the callbacks will not return DAO instances. BulkCreate will return an array of model instances/DAOs, they will however, unlike <code>create</code>, not have the resulting values of autoIncrement attributes.<code>update</code> and <code>destroy</code> will return the number of affected rows.</p>
 <p>First lets look at bulkCreate</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.bulkCreate([
-  { username: &apos;barfooz&apos;, isAdmin: true },
-  { username: &apos;foo&apos;, isAdmin: true },
-  { username: &apos;bar&apos;, isAdmin: false }
-]).then(() =&gt; { // Notice: There are no arguments here, as of right now you&apos;ll have to...
+  { username: 'barfooz', isAdmin: true },
+  { username: 'foo', isAdmin: true },
+  { username: 'bar', isAdmin: false }
+]).then(() =&gt; { // Notice: There are no arguments here, as of right now you'll have to...
   return User.findAll();
 }).then(users =&gt; {
   console.log(users) // ... in order to get the array of user objects
@@ -518,9 +518,9 @@ until you have force-deleted the old instance.</p>
 </code></pre>
 <p>Insert several rows and return all columns (Postgres only):</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.bulkCreate([
-  { username: &apos;barfooz&apos;, isAdmin: true },
-  { username: &apos;foo&apos;, isAdmin: true },
-  { username: &apos;bar&apos;, isAdmin: false }
+  { username: 'barfooz', isAdmin: true },
+  { username: 'foo', isAdmin: true },
+  { username: 'bar', isAdmin: false }
 ], { returning: true }) // will return all columns for each row inserted
 .then((result) =&gt; {
   console.log(result);
@@ -528,23 +528,23 @@ until you have force-deleted the old instance.</p>
 </code></pre>
 <p>Insert several rows and return specific columns (Postgres only):</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.bulkCreate([
-  { username: &apos;barfooz&apos;, isAdmin: true },
-  { username: &apos;foo&apos;, isAdmin: true },
-  { username: &apos;bar&apos;, isAdmin: false }
-], { returning: [&apos;username&apos;] }) // will return only the specified columns for each row inserted
+  { username: 'barfooz', isAdmin: true },
+  { username: 'foo', isAdmin: true },
+  { username: 'bar', isAdmin: false }
+], { returning: ['username'] }) // will return only the specified columns for each row inserted
 .then((result) =&gt; {
   console.log(result);
 });</code>
 </code></pre>
 <p>To update several rows at once:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Task.bulkCreate([
-  {subject: &apos;programming&apos;, status: &apos;executing&apos;},
-  {subject: &apos;reading&apos;, status: &apos;executing&apos;},
-  {subject: &apos;programming&apos;, status: &apos;finished&apos;}
+  {subject: 'programming', status: 'executing'},
+  {subject: 'reading', status: 'executing'},
+  {subject: 'programming', status: 'finished'}
 ]).then(() =&gt; {
   return Task.update(
-    { status: &apos;inactive&apos; }, /* set attributes&apos; value */
-    { where: { subject: &apos;programming&apos; }} /* where criteria */
+    { status: 'inactive' }, /* set attributes' value */
+    { where: { subject: 'programming' }} /* where criteria */
   );
 }).then(([affectedCount, affectedRows]) =&gt; {
   // Notice that affectedRows will only be defined in dialects which support returning: true
@@ -552,18 +552,18 @@ until you have force-deleted the old instance.</p>
   // affectedCount will be 2
   return Task.findAll();
 }).then(tasks =&gt; {
-  console.log(tasks) // the &apos;programming&apos; tasks will both have a status of &apos;inactive&apos;
+  console.log(tasks) // the 'programming' tasks will both have a status of 'inactive'
 })</code>
 </code></pre>
 <p>And delete them:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Task.bulkCreate([
-  {subject: &apos;programming&apos;, status: &apos;executing&apos;},
-  {subject: &apos;reading&apos;, status: &apos;executing&apos;},
-  {subject: &apos;programming&apos;, status: &apos;finished&apos;}
+  {subject: 'programming', status: 'executing'},
+  {subject: 'reading', status: 'executing'},
+  {subject: 'programming', status: 'finished'}
 ]).then(() =&gt; {
   return Task.destroy({
     where: {
-      subject: &apos;programming&apos;
+      subject: 'programming'
     },
     truncate: true /* this will ignore where and truncate the table instead */
   });
@@ -576,10 +576,10 @@ until you have force-deleted the old instance.</p>
 </code></pre>
 <p>If you are accepting values directly from the user, it might be beneficial to limit the columns that you want to actually insert.<code>bulkCreate()</code>accepts an options object as the second parameter. The object can have a <code>fields</code> parameter, (an array) to let it know which fields you want to build explicitly</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.bulkCreate([
-  { username: &apos;foo&apos; },
-  { username: &apos;bar&apos;, admin: true}
-], { fields: [&apos;username&apos;] }).then(() =&gt; {
-  // nope bar, you can&apos;t be admin!
+  { username: 'foo' },
+  { username: 'bar', admin: true}
+], { fields: ['username'] }).then(() =&gt; {
+  // nope bar, you can't be admin!
 })</code>
 </code></pre>
 <p><code>bulkCreate</code> was originally made to be a mainstream/fast way of inserting records, however, sometimes you want the luxury of being able to insert multiple rows at once without sacrificing model validations even when you explicitly tell Sequelize which columns to sift through. You can do by adding a <code>validate: true</code> property to the options object.</p>
@@ -588,7 +588,7 @@ Tasks.init({
   name: {
     type: Sequelize.STRING,
     validate: {
-      notNull: { args: true, msg: &apos;name cannot be null&apos; }
+      notNull: { args: true, msg: 'name cannot be null' }
     }
   },
   code: {
@@ -597,30 +597,30 @@ Tasks.init({
       len: [3, 10]
     }
   }
-}, { sequelize, modelName: &apos;tasks&apos; })
+}, { sequelize, modelName: 'tasks' })
 
 Tasks.bulkCreate([
-  {name: &apos;foo&apos;, code: &apos;123&apos;},
-  {code: &apos;1234&apos;},
-  {name: &apos;bar&apos;, code: &apos;1&apos;}
+  {name: 'foo', code: '123'},
+  {code: '1234'},
+  {name: 'bar', code: '1'}
 ], { validate: true }).catch(errors =&gt; {
   /* console.log(errors) would look like:
   [
     { record:
     ...
-    name: &apos;SequelizeBulkRecordError&apos;,
-    message: &apos;Validation error&apos;,
+    name: 'SequelizeBulkRecordError',
+    message: 'Validation error',
     errors:
-      { name: &apos;SequelizeValidationError&apos;,
-        message: &apos;Validation error&apos;,
+      { name: 'SequelizeValidationError',
+        message: 'Validation error',
         errors: [Object] } },
     { record:
       ...
-      name: &apos;SequelizeBulkRecordError&apos;,
-      message: &apos;Validation error&apos;,
+      name: 'SequelizeBulkRecordError',
+      message: 'Validation error',
       errors:
-        { name: &apos;SequelizeValidationError&apos;,
-        message: &apos;Validation error&apos;,
+        { name: 'SequelizeValidationError',
+        message: 'Validation error',
         errors: [Object] } }
   ]
   */
@@ -628,8 +628,8 @@ Tasks.bulkCreate([
 </code></pre>
 <h2 id="values-of-an-instance">Values of an instance</h2><p>If you log an instance you will notice, that there is a lot of additional stuff. In order to hide such stuff and reduce it to the very interesting information, you can use the<code>get</code>-attribute. Calling it with the option <code>plain</code> = true will only return the values of an instance.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Person.create({
-  name: &apos;Rambow&apos;,
-  firstname: &apos;John&apos;
+  name: 'Rambow',
+  firstname: 'John'
 }).then(john =&gt; {
   console.log(john.get({
     plain: true
@@ -638,8 +638,8 @@ Tasks.bulkCreate([
 
 // result:
 
-// { name: &apos;Rambow&apos;,
-//   firstname: &apos;John&apos;,
+// { name: 'Rambow',
+//   firstname: 'John',
 //   id: 1,
 //   createdAt: Tue, 01 May 2012 19:12:16 GMT,
 //   updatedAt: Tue, 01 May 2012 19:12:16 GMT
@@ -647,56 +647,56 @@ Tasks.bulkCreate([
 </code></pre>
 <p><strong>Hint:</strong>You can also transform an instance into JSON by using <code>JSON.stringify(instance)</code>. This will basically return the very same as <code>values</code>.</p>
 <h2 id="reloading-instances">Reloading instances</h2><p>If you need to get your instance in sync, you can use the method<code>reload</code>. It will fetch the current data from the database and overwrite the attributes of the model on which the method has been called on.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">Person.findOne({ where: { name: &apos;john&apos; } }).then(person =&gt; {
-  person.name = &apos;jane&apos;
-  console.log(person.name) // &apos;jane&apos;
+<pre><code class="lang-js"><code class="source-code prettyprint">Person.findOne({ where: { name: 'john' } }).then(person =&gt; {
+  person.name = 'jane'
+  console.log(person.name) // 'jane'
 
   person.reload().then(() =&gt; {
-    console.log(person.name) // &apos;john&apos;
+    console.log(person.name) // 'john'
   })
 })</code>
 </code></pre>
 <h2 id="incrementing">Incrementing</h2><p>In order to increment values of an instance without running into concurrency issues, you may use <code>increment</code>.</p>
 <p>First of all you can define a field and the value you want to add to it.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findByPk(1).then(user =&gt; {
-  return user.increment(&apos;my-integer-field&apos;, {by: 2})
+  return user.increment('my-integer-field', {by: 2})
 }).then(user =&gt; {
   // Postgres will return the updated user by default (unless disabled by setting { returning: false })
-  // In other dialects, you&apos;ll want to call user.reload() to get the updated instance...
+  // In other dialects, you'll want to call user.reload() to get the updated instance...
 })</code>
 </code></pre>
 <p>Second, you can define multiple fields and the value you want to add to them.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findByPk(1).then(user =&gt; {
-  return user.increment([ &apos;my-integer-field&apos;, &apos;my-very-other-field&apos; ], {by: 2})
+  return user.increment([ 'my-integer-field', 'my-very-other-field' ], {by: 2})
 }).then(/* ... */)</code>
 </code></pre>
 <p>Third, you can define an object containing fields and its increment values.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findByPk(1).then(user =&gt; {
   return user.increment({
-    &apos;my-integer-field&apos;:    2,
-    &apos;my-very-other-field&apos;: 3
+    'my-integer-field':    2,
+    'my-very-other-field': 3
   })
 }).then(/* ... */)</code>
 </code></pre>
 <h2 id="decrementing">Decrementing</h2><p>In order to decrement values of an instance without running into concurrency issues, you may use <code>decrement</code>.</p>
 <p>First of all you can define a field and the value you want to add to it.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findByPk(1).then(user =&gt; {
-  return user.decrement(&apos;my-integer-field&apos;, {by: 2})
+  return user.decrement('my-integer-field', {by: 2})
 }).then(user =&gt; {
   // Postgres will return the updated user by default (unless disabled by setting { returning: false })
-  // In other dialects, you&apos;ll want to call user.reload() to get the updated instance...
+  // In other dialects, you'll want to call user.reload() to get the updated instance...
 })</code>
 </code></pre>
 <p>Second, you can define multiple fields and the value you want to add to them.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findByPk(1).then(user =&gt; {
-  return user.decrement([ &apos;my-integer-field&apos;, &apos;my-very-other-field&apos; ], {by: 2})
+  return user.decrement([ 'my-integer-field', 'my-very-other-field' ], {by: 2})
 }).then(/* ... */)</code>
 </code></pre>
 <p>Third, you can define an object containing fields and its decrement values.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">User.findByPk(1).then(user =&gt; {
   return user.decrement({
-    &apos;my-integer-field&apos;:    2,
-    &apos;my-very-other-field&apos;: 3
+    'my-integer-field':    2,
+    'my-very-other-field': 3
   })
 }).then(/* ... */)</code>
 </code></pre>

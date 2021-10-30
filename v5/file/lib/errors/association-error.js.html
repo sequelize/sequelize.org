@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/errors/association-error.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const BaseError = require(&apos;./base-error&apos;);
+const BaseError = require('./base-error');
 
 /**
  * Thrown when an association is improperly constructed (see message for details)
@@ -122,7 +122,7 @@ const BaseError = require(&apos;./base-error&apos;);
 class AssociationError extends BaseError {
   constructor(message) {
     super(message);
-    this.name = &apos;SequelizeAssociationError&apos;;
+    this.name = 'SequelizeAssociationError';
     Error.captureStackTrace(this, this.constructor);
   }
 }

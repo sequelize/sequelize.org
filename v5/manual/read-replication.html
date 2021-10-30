@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -395,15 +395,15 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="read-replication">Read replication</h1><p>Sequelize supports read replication, i.e. having multiple servers that you can connect to when you want to do a SELECT query. When you do read replication, you specify one or more servers to act as read replicas, and one server to act as the write master, which handles all writes and updates and propagates them to the replicas (note that the actual replication process is <strong>not</strong> handled by Sequelize, but should be set up by database backend).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, null, null, {
-  dialect: &apos;mysql&apos;,
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
+  dialect: 'mysql',
   port: 3306
   replication: {
     read: [
-      { host: &apos;8.8.8.8&apos;, username: &apos;read-username&apos;, password: &apos;some-password&apos; },
-      { host: &apos;9.9.9.9&apos;, username: &apos;another-username&apos;, password: null }
+      { host: '8.8.8.8', username: 'read-username', password: 'some-password' },
+      { host: '9.9.9.9', username: 'another-username', password: null }
     ],
-    write: { host: &apos;1.1.1.1&apos;, username: &apos;write-username&apos;, password: &apos;any-password&apos; }
+    write: { host: '1.1.1.1', username: 'write-username', password: 'any-password' }
   },
   pool: { // If you want to override the options used for the read/write pool you can do so here
     max: 20,

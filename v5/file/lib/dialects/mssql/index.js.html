@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,14 +112,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/dialects/mssql/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
-const AbstractDialect = require(&apos;../abstract&apos;);
-const ConnectionManager = require(&apos;./connection-manager&apos;);
-const Query = require(&apos;./query&apos;);
-const QueryGenerator = require(&apos;./query-generator&apos;);
-const DataTypes = require(&apos;../../data-types&apos;).mssql;
+const _ = require('lodash');
+const AbstractDialect = require('../abstract');
+const ConnectionManager = require('./connection-manager');
+const Query = require('./query');
+const QueryGenerator = require('./query-generator');
+const DataTypes = require('../../data-types').mssql;
 
 class MssqlDialect extends AbstractDialect {
   constructor(sequelize) {
@@ -134,10 +134,10 @@ class MssqlDialect extends AbstractDialect {
 }
 
 MssqlDialect.prototype.supports = _.merge(_.cloneDeep(AbstractDialect.prototype.supports), {
-  &apos;DEFAULT&apos;: true,
-  &apos;DEFAULT VALUES&apos;: true,
-  &apos;LIMIT ON UPDATE&apos;: true,
-  &apos;ORDER NULLS&apos;: false,
+  'DEFAULT': true,
+  'DEFAULT VALUES': true,
+  'LIMIT ON UPDATE': true,
+  'ORDER NULLS': false,
   lock: false,
   transactions: true,
   migrations: false,
@@ -166,12 +166,12 @@ MssqlDialect.prototype.supports = _.merge(_.cloneDeep(AbstractDialect.prototype.
   tmpTableTrigger: true
 });
 
-ConnectionManager.prototype.defaultVersion = &apos;12.0.2000&apos;; // SQL Server 2014 Express
+ConnectionManager.prototype.defaultVersion = '12.0.2000'; // SQL Server 2014 Express
 MssqlDialect.prototype.Query = Query;
-MssqlDialect.prototype.name = &apos;mssql&apos;;
-MssqlDialect.prototype.TICK_CHAR = &apos;&quot;&apos;;
-MssqlDialect.prototype.TICK_CHAR_LEFT = &apos;[&apos;;
-MssqlDialect.prototype.TICK_CHAR_RIGHT = &apos;]&apos;;
+MssqlDialect.prototype.name = 'mssql';
+MssqlDialect.prototype.TICK_CHAR = '"';
+MssqlDialect.prototype.TICK_CHAR_LEFT = '[';
+MssqlDialect.prototype.TICK_CHAR_RIGHT = ']';
 MssqlDialect.prototype.DataTypes = DataTypes;
 
 module.exports = MssqlDialect;

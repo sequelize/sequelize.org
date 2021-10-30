@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,20 +112,20 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/query-interface.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const _ = require(&apos;lodash&apos;);
+const _ = require('lodash');
 
-const Utils = require(&apos;./utils&apos;);
-const DataTypes = require(&apos;./data-types&apos;);
-const SQLiteQueryInterface = require(&apos;./dialects/sqlite/query-interface&apos;);
-const MSSQLQueryInterface = require(&apos;./dialects/mssql/query-interface&apos;);
-const MySQLQueryInterface = require(&apos;./dialects/mysql/query-interface&apos;);
-const PostgresQueryInterface = require(&apos;./dialects/postgres/query-interface&apos;);
-const Transaction = require(&apos;./transaction&apos;);
-const Promise = require(&apos;./promise&apos;);
-const QueryTypes = require(&apos;./query-types&apos;);
-const Op = require(&apos;./operators&apos;);
+const Utils = require('./utils');
+const DataTypes = require('./data-types');
+const SQLiteQueryInterface = require('./dialects/sqlite/query-interface');
+const MSSQLQueryInterface = require('./dialects/mssql/query-interface');
+const MySQLQueryInterface = require('./dialects/mysql/query-interface');
+const PostgresQueryInterface = require('./dialects/postgres/query-interface');
+const Transaction = require('./transaction');
+const Promise = require('./promise');
+const QueryTypes = require('./query-types');
+const Op = require('./operators');
 
 /**
  * The interface that Sequelize uses to talk to all databases
@@ -256,7 +256,7 @@ class QueryInterface {
    *
    * ```js
    * queryInterface.createTable(
-   *   &apos;nameOfTheNewTable&apos;,
+   *   'nameOfTheNewTable',
    *   {
    *     id: {
    *       type: Sequelize.INTEGER,
@@ -280,19 +280,19 @@ class QueryInterface {
    *     attr4: {
    *       type: Sequelize.INTEGER,
    *       references: {
-   *         model: &apos;another_table_name&apos;,
-   *         key: &apos;id&apos;
+   *         model: 'another_table_name',
+   *         key: 'id'
    *       },
-   *       onUpdate: &apos;cascade&apos;,
-   *       onDelete: &apos;cascade&apos;
+   *       onUpdate: 'cascade',
+   *       onDelete: 'cascade'
    *     }
    *   },
    *   {
-   *     engine: &apos;MYISAM&apos;,    // default: &apos;InnoDB&apos;
-   *     charset: &apos;latin1&apos;,   // default: null
-   *     schema: &apos;public&apos;,    // default: public, PostgreSQL only.
-   *     comment: &apos;my table&apos;, // comment for table
-   *     collate: &apos;latin1_danish_ci&apos; // collation, MYSQL only
+   *     engine: 'MYISAM',    // default: 'InnoDB'
+   *     charset: 'latin1',   // default: null
+   *     schema: 'public',    // default: public, PostgreSQL only.
+   *     comment: 'my table', // comment for table
+   *     collate: 'latin1_danish_ci' // collation, MYSQL only
    *   }
    * )
    * ```
@@ -305,7 +305,7 @@ class QueryInterface {
    * @returns {Promise}
    */
   createTable(tableName, attributes, options, model) {
-    let sql = &apos;&apos;;
+    let sql = '';
     let promise;
 
     options = _.clone(options) || {};
@@ -328,7 +328,7 @@ class QueryInterface {
     );
 
     // Postgres requires special SQL commands for ENUM/ENUM[]
-    if (this.sequelize.options.dialect === &apos;postgres&apos;) {
+    if (this.sequelize.options.dialect === 'postgres') {
       promise = PostgresQueryInterface.ensureEnums(this, tableName, attributes, options, model);
     } else {
       promise = Promise.resolve();
@@ -344,7 +344,7 @@ class QueryInterface {
       });
     }
 
-    attributes = this.QueryGenerator.attributesToSQL(attributes, { table: tableName, context: &apos;createTable&apos; });
+    attributes = this.QueryGenerator.attributesToSQL(attributes, { table: tableName, context: 'createTable' });
     sql = this.QueryGenerator.createTableQuery(tableName, attributes, options);
 
     return promise.then(() =&gt; this.sequelize.query(sql, options));
@@ -359,7 +359,7 @@ class QueryInterface {
    * @returns {Promise}
    */
   dropTable(tableName, options) {
-    // if we&apos;re forcing we should be cascading unless explicitly stated otherwise
+    // if we're forcing we should be cascading unless explicitly stated otherwise
     options = _.clone(options) || {};
     options.cascade = options.cascade || options.force || false;
 
@@ -370,11 +370,11 @@ class QueryInterface {
 
       // Since postgres has a special case for enums, we should drop the related
       // enum type within the table and attribute
-      if (this.sequelize.options.dialect === &apos;postgres&apos;) {
-        const instanceTable = this.sequelize.modelManager.getModel(tableName, { attribute: &apos;tableName&apos; });
+      if (this.sequelize.options.dialect === 'postgres') {
+        const instanceTable = this.sequelize.modelManager.getModel(tableName, { attribute: 'tableName' });
 
         if (instanceTable) {
-          const getTableName = (!options || !options.schema || options.schema === &apos;public&apos; ? &apos;&apos; : `${options.schema}_`) + tableName;
+          const getTableName = (!options || !options.schema || options.schema === 'public' ? '' : `${options.schema}_`) + tableName;
 
           const keys = Object.keys(instanceTable.rawAttributes);
           const keyLen = keys.length;
@@ -406,21 +406,21 @@ class QueryInterface {
     const skip = options.skip || [];
 
     const dropAllTables = tableNames =&gt; Promise.each(tableNames, tableName =&gt; {
-      // if tableName is not in the Array of tables names then don&apos;t drop it
+      // if tableName is not in the Array of tables names then don't drop it
       if (!skip.includes(tableName.tableName || tableName)) {
         return this.dropTable(tableName, Object.assign({}, options, { cascade: true }) );
       }
     });
 
     return this.showAllTables(options).then(tableNames =&gt; {
-      if (this.sequelize.options.dialect === &apos;sqlite&apos;) {
-        return this.sequelize.query(&apos;PRAGMA foreign_keys;&apos;, options).then(result =&gt; {
+      if (this.sequelize.options.dialect === 'sqlite') {
+        return this.sequelize.query('PRAGMA foreign_keys;', options).then(result =&gt; {
           const foreignKeysAreEnabled = result.foreign_keys === 1;
 
           if (foreignKeysAreEnabled) {
-            return this.sequelize.query(&apos;PRAGMA foreign_keys = OFF&apos;, options)
+            return this.sequelize.query('PRAGMA foreign_keys = OFF', options)
               .then(() =&gt; dropAllTables(tableNames))
-              .then(() =&gt; this.sequelize.query(&apos;PRAGMA foreign_keys = ON&apos;, options));
+              .then(() =&gt; this.sequelize.query('PRAGMA foreign_keys = ON', options));
           }
           return dropAllTables(tableNames);
         });
@@ -455,7 +455,7 @@ class QueryInterface {
    * @private
    */
   dropEnum(enumName, options) {
-    if (this.sequelize.getDialect() !== &apos;postgres&apos;) {
+    if (this.sequelize.getDialect() !== 'postgres') {
       return Promise.resolve();
     }
 
@@ -476,7 +476,7 @@ class QueryInterface {
    * @private
    */
   dropAllEnums(options) {
-    if (this.sequelize.getDialect() !== &apos;postgres&apos;) {
+    if (this.sequelize.getDialect() !== 'postgres') {
       return Promise.resolve();
     }
 
@@ -546,12 +546,12 @@ class QueryInterface {
    * ```js
    * {
    *    name: {
-   *      type:         &apos;VARCHAR(255)&apos;, // this will be &apos;CHARACTER VARYING&apos; for pg!
+   *      type:         'VARCHAR(255)', // this will be 'CHARACTER VARYING' for pg!
    *      allowNull:    true,
    *      defaultValue: null
    *    },
    *    isBetaMember: {
-   *      type:         &apos;TINYINT(1)&apos;, // this will be &apos;BOOLEAN&apos; for pg!
+   *      type:         'TINYINT(1)', // this will be 'BOOLEAN' for pg!
    *      allowNull:    false,
    *      defaultValue: false
    *    }
@@ -564,7 +564,7 @@ class QueryInterface {
    * @returns {Promise&lt;Object&gt;}
    */
   describeTable(tableName, options) {
-    if (this.sequelize.options.dialect === &apos;sqlite&apos;) {
+    if (this.sequelize.options.dialect === 'sqlite') {
       // sqlite needs some special treatment as it cannot rename a column
       return SQLiteQueryInterface.describeTable(this, tableName, options);
     }
@@ -572,14 +572,14 @@ class QueryInterface {
     let schema = null;
     let schemaDelimiter = null;
 
-    if (typeof options === &apos;string&apos;) {
+    if (typeof options === 'string') {
       schema = options;
-    } else if (typeof options === &apos;object&apos; &amp;&amp; options !== null) {
+    } else if (typeof options === 'object' &amp;&amp; options !== null) {
       schema = options.schema || null;
       schemaDelimiter = options.schemaDelimiter || null;
     }
 
-    if (typeof tableName === &apos;object&apos; &amp;&amp; tableName !== null) {
+    if (typeof tableName === 'object' &amp;&amp; tableName !== null) {
       schema = tableName.schema;
       tableName = tableName.tableName;
     }
@@ -594,13 +594,13 @@ class QueryInterface {
        * it will not throw an error like built-ins do (e.g. DESCRIBE on MySql).
        */
       if (_.isEmpty(data)) {
-        throw new Error(`No description found for &quot;${tableName}&quot; table. Check the table name and schema; remember, they _are_ case sensitive.`);
+        throw new Error(`No description found for "${tableName}" table. Check the table name and schema; remember, they _are_ case sensitive.`);
       }
 
       return data;
     }).catch(e =&gt; {
-      if (e.original &amp;&amp; e.original.code === &apos;ER_NO_SUCH_TABLE&apos;) {
-        throw Error(`No description found for &quot;${tableName}&quot; table. Check the table name and schema; remember, they _are_ case sensitive.`);
+      if (e.original &amp;&amp; e.original.code === 'ER_NO_SUCH_TABLE') {
+        throw Error(`No description found for "${tableName}" table. Check the table name and schema; remember, they _are_ case sensitive.`);
       }
 
       throw e;
@@ -611,8 +611,8 @@ class QueryInterface {
    * Add a new column to a table
    *
    * ```js
-   * queryInterface.addColumn(&apos;tableA&apos;, &apos;columnC&apos;, Sequelize.STRING, {
-   *    after: &apos;columnB&apos; // after option is only supported by MySQL
+   * queryInterface.addColumn('tableA', 'columnC', Sequelize.STRING, {
+   *    after: 'columnB' // after option is only supported by MySQL
    * });
    * ```
    *
@@ -625,7 +625,7 @@ class QueryInterface {
    */
   addColumn(table, key, attribute, options) {
     if (!table || !key || !attribute) {
-      throw new Error(&apos;addColumn takes at least 3 arguments (table, attribute name, attribute definition)&apos;);
+      throw new Error('addColumn takes at least 3 arguments (table, attribute name, attribute definition)');
     }
 
     options = options || {};
@@ -645,14 +645,14 @@ class QueryInterface {
   removeColumn(tableName, attributeName, options) {
     options = options || {};
     switch (this.sequelize.options.dialect) {
-      case &apos;sqlite&apos;:
+      case 'sqlite':
         // sqlite needs some special treatment as it cannot drop a column
         return SQLiteQueryInterface.removeColumn(this, tableName, attributeName, options);
-      case &apos;mssql&apos;:
+      case 'mssql':
         // mssql needs special treatment as it cannot drop a column with a default or foreign key constraint
         return MSSQLQueryInterface.removeColumn(this, tableName, attributeName, options);
-      case &apos;mysql&apos;:
-      case &apos;mariadb&apos;:
+      case 'mysql':
+      case 'mariadb':
         // mysql/mariadb need special treatment as it cannot drop a column with a foreign key constraint
         return MySQLQueryInterface.removeColumn(this, tableName, attributeName, options);
       default:
@@ -682,12 +682,12 @@ class QueryInterface {
 
     attributes[attributeName] = this.sequelize.normalizeAttribute(attributes[attributeName]);
 
-    if (this.sequelize.options.dialect === &apos;sqlite&apos;) {
+    if (this.sequelize.options.dialect === 'sqlite') {
       // sqlite needs some special treatment as it cannot change a column
       return SQLiteQueryInterface.changeColumn(this, tableName, attributes, options);
     }
     const query = this.QueryGenerator.attributesToSQL(attributes, {
-      context: &apos;changeColumn&apos;,
+      context: 'changeColumn',
       table: tableName
     });
     const sql = this.QueryGenerator.changeColumnQuery(tableName, query);
@@ -709,7 +709,7 @@ class QueryInterface {
     options = options || {};
     return this.describeTable(tableName, options).then(data =&gt; {
       if (!data[attrNameBefore]) {
-        throw new Error(`Table ${tableName} doesn&apos;t have the column ${attrNameBefore}`);
+        throw new Error(`Table ${tableName} doesn't have the column ${attrNameBefore}`);
       }
 
       data = data[attrNameBefore] || {};
@@ -728,7 +728,7 @@ class QueryInterface {
         delete _options[attrNameAfter].defaultValue;
       }
 
-      if (this.sequelize.options.dialect === &apos;sqlite&apos;) {
+      if (this.sequelize.options.dialect === 'sqlite') {
         // sqlite needs some special treatment as it cannot rename a column
         return SQLiteQueryInterface.renameColumn(this, tableName, attrNameBefore, attrNameAfter, options);
       }
@@ -826,7 +826,7 @@ class QueryInterface {
    * Those details contains constraintSchema, constraintName, constraintCatalog
    * tableCatalog, tableSchema, tableName, columnName,
    * referencedTableCatalog, referencedTableCatalog, referencedTableSchema, referencedTableName, referencedColumnName.
-   * Remind: constraint informations won&apos;t return if it&apos;s sqlite.
+   * Remind: constraint informations won't return if it's sqlite.
    *
    * @param {string} tableName table name
    * @param {Object} [options]  Query options
@@ -839,10 +839,10 @@ class QueryInterface {
     });
     const catalogName = this.sequelize.config.database;
     switch (this.sequelize.options.dialect) {
-      case &apos;sqlite&apos;:
+      case 'sqlite':
         // sqlite needs some special treatment.
         return SQLiteQueryInterface.getForeignKeyReferencesForTable(this, tableName, queryOptions);
-      case &apos;postgres&apos;:
+      case 'postgres':
       {
         // postgres needs some special treatment as those field names returned are all lowercase
         // in order to keep same result with other dialects.
@@ -850,9 +850,9 @@ class QueryInterface {
         return this.sequelize.query(query, queryOptions)
           .then(result =&gt; result.map(Utils.camelizeObjectKeys));
       }
-      case &apos;mssql&apos;:
-      case &apos;mysql&apos;:
-      case &apos;mariadb&apos;:
+      case 'mssql':
+      case 'mysql':
+      case 'mariadb':
       default: {
         const query = this.QueryGenerator.getForeignKeysQuery(tableName, catalogName);
         return this.sequelize.query(query, queryOptions);
@@ -886,41 +886,41 @@ class QueryInterface {
    * - PRIMARY KEY
    *
    * @example &lt;caption&gt;UNIQUE&lt;/caption&gt;
-   * queryInterface.addConstraint(&apos;Users&apos;, [&apos;email&apos;], {
-   *   type: &apos;unique&apos;,
-   *   name: &apos;custom_unique_constraint_name&apos;
+   * queryInterface.addConstraint('Users', ['email'], {
+   *   type: 'unique',
+   *   name: 'custom_unique_constraint_name'
    * });
    *
    * @example &lt;caption&gt;CHECK&lt;/caption&gt;
-   * queryInterface.addConstraint(&apos;Users&apos;, [&apos;roles&apos;], {
-   *   type: &apos;check&apos;,
+   * queryInterface.addConstraint('Users', ['roles'], {
+   *   type: 'check',
    *   where: {
-   *      roles: [&apos;user&apos;, &apos;admin&apos;, &apos;moderator&apos;, &apos;guest&apos;]
+   *      roles: ['user', 'admin', 'moderator', 'guest']
    *   }
    * });
    *
    * @example &lt;caption&gt;Default - MSSQL only&lt;/caption&gt;
-   * queryInterface.addConstraint(&apos;Users&apos;, [&apos;roles&apos;], {
-   *    type: &apos;default&apos;,
-   *    defaultValue: &apos;guest&apos;
+   * queryInterface.addConstraint('Users', ['roles'], {
+   *    type: 'default',
+   *    defaultValue: 'guest'
    * });
    *
    * @example &lt;caption&gt;Primary Key&lt;/caption&gt;
-   * queryInterface.addConstraint(&apos;Users&apos;, [&apos;username&apos;], {
-   *    type: &apos;primary key&apos;,
-   *    name: &apos;custom_primary_constraint_name&apos;
+   * queryInterface.addConstraint('Users', ['username'], {
+   *    type: 'primary key',
+   *    name: 'custom_primary_constraint_name'
    * });
    *
    * @example &lt;caption&gt;Foreign Key&lt;/caption&gt;
-   * queryInterface.addConstraint(&apos;Posts&apos;, [&apos;username&apos;], {
-   *   type: &apos;foreign key&apos;,
-   *   name: &apos;custom_fkey_constraint_name&apos;,
+   * queryInterface.addConstraint('Posts', ['username'], {
+   *   type: 'foreign key',
+   *   name: 'custom_fkey_constraint_name',
    *   references: { //Required field
-   *     table: &apos;target_table_name&apos;,
-   *     field: &apos;target_column_name&apos;
+   *     table: 'target_table_name',
+   *     field: 'target_column_name'
    *   },
-   *   onDelete: &apos;cascade&apos;,
-   *   onUpdate: &apos;cascade&apos;
+   *   onDelete: 'cascade',
+   *   onUpdate: 'cascade'
    * });
    *
    * @param {string} tableName                  Table name where you want to add a constraint
@@ -945,7 +945,7 @@ class QueryInterface {
     }
 
     if (!options.type) {
-      throw new Error(&apos;Constraint type must be specified through options.type&apos;);
+      throw new Error('Constraint type must be specified through options.type');
     }
 
     if (!rawTablename) {
@@ -956,7 +956,7 @@ class QueryInterface {
     options = Utils.cloneDeep(options);
     options.fields = attributes;
 
-    if (this.sequelize.dialect.name === &apos;sqlite&apos;) {
+    if (this.sequelize.dialect.name === 'sqlite') {
       return SQLiteQueryInterface.addConstraint(this, tableName, options, rawTablename);
     }
     const sql = this.QueryGenerator.addConstraintQuery(tableName, options, rawTablename);
@@ -981,11 +981,11 @@ class QueryInterface {
     options = options || {};
 
     switch (this.sequelize.options.dialect) {
-      case &apos;mysql&apos;:
-      case &apos;mariadb&apos;:
+      case 'mysql':
+      case 'mariadb':
         //does not support DROP CONSTRAINT. Instead DROP PRIMARY, FOREIGN KEY, INDEX should be used
         return MySQLQueryInterface.removeConstraint(this, tableName, constraintName, options);
-      case &apos;sqlite&apos;:
+      case 'sqlite':
         return SQLiteQueryInterface.removeConstraint(this, tableName, constraintName, options);
       default:
         const sql = this.QueryGenerator.removeConstraintQuery(tableName, constraintName);
@@ -1067,19 +1067,19 @@ class QueryInterface {
     const sql = this.QueryGenerator.upsertQuery(tableName, insertValues, updateValues, where, model, options);
     return this.sequelize.query(sql, options).then(result =&gt; {
       switch (this.sequelize.options.dialect) {
-        case &apos;postgres&apos;:
+        case 'postgres':
           return [result.created, result.primary_key];
 
-        case &apos;mssql&apos;:
+        case 'mssql':
           return [
-            result.$action === &apos;INSERT&apos;,
+            result.$action === 'INSERT',
             result[model.primaryKeyField]
           ];
 
         // MySQL returns 1 for inserted, 2 for updated
         // http://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html.
-        case &apos;mysql&apos;:
-        case &apos;mariadb&apos;:
+        case 'mysql':
+        case 'mariadb':
           return [result === 1, undefined];
 
         default:
@@ -1092,12 +1092,12 @@ class QueryInterface {
    * Insert multiple records into a table
    *
    * @example
-   * queryInterface.bulkInsert(&apos;roles&apos;, [{
-   *    label: &apos;user&apos;,
+   * queryInterface.bulkInsert('roles', [{
+   *    label: 'user',
    *    createdAt: new Date(),
    *    updatedAt: new Date()
    *  }, {
-   *    label: &apos;admin&apos;,
+   *    label: 'admin',
    *    createdAt: new Date(),
    *    updatedAt: new Date()
    *  }]);
@@ -1135,8 +1135,8 @@ class QueryInterface {
    * Update multiple records of a table
    *
    * @example
-   * queryInterface.bulkUpdate(&apos;roles&apos;, {
-   *     label: &apos;admin&apos;,
+   * queryInterface.bulkUpdate('roles', {
+   *     label: 'admin',
    *   }, {
    *     userType: 3,
    *   },
@@ -1152,7 +1152,7 @@ class QueryInterface {
    */
   bulkUpdate(tableName, values, identifier, options, attributes) {
     options = Utils.cloneDeep(options);
-    if (typeof identifier === &apos;object&apos;) identifier = Utils.cloneDeep(identifier);
+    if (typeof identifier === 'object') identifier = Utils.cloneDeep(identifier);
 
     const sql = this.QueryGenerator.updateQuery(tableName, values, identifier, options, attributes);
     const table = _.isObject(tableName) ? tableName : { tableName };
@@ -1178,7 +1178,7 @@ class QueryInterface {
       for (let i = 0; i &lt; length; i++) {
         association = instance.constructor.associations[keys[i]];
         if (association.options &amp;&amp; association.options.onDelete &amp;&amp;
-          association.options.onDelete.toLowerCase() === &apos;cascade&apos; &amp;&amp;
+          association.options.onDelete.toLowerCase() === 'cascade' &amp;&amp;
           association.options.useHooks === true) {
           cascades.push(association.accessors.get);
         }
@@ -1187,7 +1187,7 @@ class QueryInterface {
 
     return Promise.each(cascades, cascade =&gt; {
       return instance[cascade](options).then(instances =&gt; {
-        // Check for hasOne relationship with non-existing associate (&quot;has zero&quot;)
+        // Check for hasOne relationship with non-existing associate ("has zero")
         if (!instances) {
           return Promise.resolve();
         }
@@ -1226,7 +1226,7 @@ class QueryInterface {
       );
     }
 
-    if (typeof identifier === &apos;object&apos;) where = Utils.cloneDeep(where);
+    if (typeof identifier === 'object') where = Utils.cloneDeep(where);
 
     return this.sequelize.query(
       this.QueryGenerator.deleteQuery(tableName, where, options, model),
@@ -1246,7 +1246,7 @@ class QueryInterface {
   increment(model, tableName, values, identifier, options) {
     options = Utils.cloneDeep(options);
 
-    const sql = this.QueryGenerator.arithmeticQuery(&apos;+&apos;, tableName, values, identifier, options, options.attributes);
+    const sql = this.QueryGenerator.arithmeticQuery('+', tableName, values, identifier, options, options.attributes);
 
     options.type = QueryTypes.UPDATE;
     options.model = model;
@@ -1257,7 +1257,7 @@ class QueryInterface {
   decrement(model, tableName, values, identifier, options) {
     options = Utils.cloneDeep(options);
 
-    const sql = this.QueryGenerator.arithmeticQuery(&apos;-&apos;, tableName, values, identifier, options, options.attributes);
+    const sql = this.QueryGenerator.arithmeticQuery('-', tableName, values, identifier, options, options.attributes);
 
     options.type = QueryTypes.UPDATE;
     options.model = model;
@@ -1276,7 +1276,7 @@ class QueryInterface {
     const sql = this.QueryGenerator.selectQuery(tableName, options, Model);
 
     if (attributeSelector === undefined) {
-      throw new Error(&apos;Please pass an attribute selector!&apos;);
+      throw new Error('Please pass an attribute selector!');
     }
 
     return this.sequelize.query(sql, options).then(data =&gt; {
@@ -1343,21 +1343,21 @@ class QueryInterface {
    *
    * @example
    * queryInterface.createFunction(
-   *   &apos;someFunction&apos;,
+   *   'someFunction',
    *   [
-   *     {type: &apos;integer&apos;, name: &apos;param&apos;, direction: &apos;IN&apos;}
+   *     {type: 'integer', name: 'param', direction: 'IN'}
    *   ],
-   *   &apos;integer&apos;,
-   *   &apos;plpgsql&apos;,
-   *   &apos;RETURN param + 1;&apos;,
+   *   'integer',
+   *   'plpgsql',
+   *   'RETURN param + 1;',
    *   [
-   *     &apos;IMMUTABLE&apos;,
-   *     &apos;LEAKPROOF&apos;
+   *     'IMMUTABLE',
+   *     'LEAKPROOF'
    *   ],
    *   {
    *    variables:
    *      [
-   *        {type: &apos;integer&apos;, name: &apos;myVar&apos;, default: 100}
+   *        {type: 'integer', name: 'myVar', default: 100}
    *      ],
    *      force: true
    *   };
@@ -1390,10 +1390,10 @@ class QueryInterface {
    *
    * @example
    * queryInterface.dropFunction(
-   *   &apos;someFunction&apos;,
+   *   'someFunction',
    *   [
-   *     {type: &apos;varchar&apos;, name: &apos;param1&apos;, direction: &apos;IN&apos;},
-   *     {type: &apos;integer&apos;, name: &apos;param2&apos;, direction: &apos;INOUT&apos;}
+   *     {type: 'varchar', name: 'param1', direction: 'IN'},
+   *     {type: 'integer', name: 'param2', direction: 'INOUT'}
    *   ]
    * );
    *
@@ -1418,12 +1418,12 @@ class QueryInterface {
    *
    * @example
    * queryInterface.renameFunction(
-   *   &apos;fooFunction&apos;,
+   *   'fooFunction',
    *   [
-   *     {type: &apos;varchar&apos;, name: &apos;param1&apos;, direction: &apos;IN&apos;},
-   *     {type: &apos;integer&apos;, name: &apos;param2&apos;, direction: &apos;INOUT&apos;}
+   *     {type: 'varchar', name: 'param1', direction: 'IN'},
+   *     {type: 'integer', name: 'param2', direction: 'INOUT'}
    *   ],
-   *   &apos;barFunction&apos;
+   *   'barFunction'
    * );
    *
    * @param {string} oldFunctionName  Current name of function
@@ -1486,7 +1486,7 @@ class QueryInterface {
 
   setIsolationLevel(transaction, value, options) {
     if (!transaction || !(transaction instanceof Transaction)) {
-      throw new Error(&apos;Unable to set isolation level for a transaction without transaction object!&apos;);
+      throw new Error('Unable to set isolation level for a transaction without transaction object!');
     }
 
     if (transaction.parent || !value) {
@@ -1509,7 +1509,7 @@ class QueryInterface {
 
   startTransaction(transaction, options) {
     if (!transaction || !(transaction instanceof Transaction)) {
-      throw new Error(&apos;Unable to start a transaction without transaction object!&apos;);
+      throw new Error('Unable to start a transaction without transaction object!');
     }
 
     options = Object.assign({}, options, {
@@ -1537,7 +1537,7 @@ class QueryInterface {
 
   commitTransaction(transaction, options) {
     if (!transaction || !(transaction instanceof Transaction)) {
-      throw new Error(&apos;Unable to commit a transaction without transaction object!&apos;);
+      throw new Error('Unable to commit a transaction without transaction object!');
     }
     if (transaction.parent) {
       // Savepoints cannot be committed
@@ -1553,14 +1553,14 @@ class QueryInterface {
     const sql = this.QueryGenerator.commitTransactionQuery(transaction);
     const promise = this.sequelize.query(sql, options);
 
-    transaction.finished = &apos;commit&apos;;
+    transaction.finished = 'commit';
 
     return promise;
   }
 
   rollbackTransaction(transaction, options) {
     if (!transaction || !(transaction instanceof Transaction)) {
-      throw new Error(&apos;Unable to rollback a transaction without transaction object!&apos;);
+      throw new Error('Unable to rollback a transaction without transaction object!');
     }
 
     options = Object.assign({}, options, {
@@ -1572,7 +1572,7 @@ class QueryInterface {
     const sql = this.QueryGenerator.rollbackTransactionQuery(transaction);
     const promise = this.sequelize.query(sql, options);
 
-    transaction.finished = &apos;rollback&apos;;
+    transaction.finished = 'rollback';
 
     return promise;
   }

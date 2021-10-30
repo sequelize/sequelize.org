@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -224,7 +224,7 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw queries</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">&quot;Dotted&quot; attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes" data-ice="link">"Dotted" attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
 </ul>
@@ -379,7 +379,7 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
-    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who&apos;s using sequelize?</a></li>
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -394,56 +394,56 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="dialects">Dialects</h1><p>Sequelize is independent from specific dialects. This means that you&apos;ll have to install the respective connector library to your project yourself.</p>
-<h2 id="mysql">MySQL</h2><p>In order to get Sequelize working nicely together with MySQL, you&apos;ll need to install<code>mysql2@^1.5.2</code>or higher. Once that&apos;s done you can use it like this:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
-  dialect: &apos;mysql&apos;
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="dialects">Dialects</h1><p>Sequelize is independent from specific dialects. This means that you'll have to install the respective connector library to your project yourself.</p>
+<h2 id="mysql">MySQL</h2><p>In order to get Sequelize working nicely together with MySQL, you'll need to install<code>mysql2@^1.5.2</code>or higher. Once that's done you can use it like this:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'mysql'
 })</code>
 </code></pre>
 <p><strong>Note:</strong> You can pass options directly to dialect library by setting the
 <code>dialectOptions</code> parameter.</p>
 <h2 id="mariadb">MariaDB</h2><p>Library for MariaDB is <code>mariadb</code>.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
-  dialect: &apos;mariadb&apos;,
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'mariadb',
   dialectOptions: {connectTimeout: 1000} // mariadb connector option
 })</code>
 </code></pre>
 <p>or using connection String:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;mariadb://user:password@example.com:9821/database&apos;)</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('mariadb://user:password@example.com:9821/database')</code>
 </code></pre>
-<h2 id="sqlite">SQLite</h2><p>For SQLite compatibility you&apos;ll need<code>sqlite3@^4.0.0</code>. Configure Sequelize like this:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
+<h2 id="sqlite">SQLite</h2><p>For SQLite compatibility you'll need<code>sqlite3@^4.0.0</code>. Configure Sequelize like this:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   // sqlite! now!
-  dialect: &apos;sqlite&apos;,
+  dialect: 'sqlite',
 
   // the storage engine for sqlite
-  // - default &apos;:memory:&apos;
-  storage: &apos;path/to/database.sqlite&apos;
+  // - default ':memory:'
+  storage: 'path/to/database.sqlite'
 })</code>
 </code></pre>
 <p>Or you can use a connection string as well with a path:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;sqlite:/home/abs/path/dbname.db&apos;)
-const sequelize = new Sequelize(&apos;sqlite:relativePath/dbname.db&apos;)</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('sqlite:/home/abs/path/dbname.db')
+const sequelize = new Sequelize('sqlite:relativePath/dbname.db')</code>
 </code></pre>
-<h2 id="postgresql">PostgreSQL</h2><p>For PostgreSQL, two libraries are needed, <code>pg@^7.0.0</code> and <code>pg-hstore</code>. You&apos;ll just need to define the dialect:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
+<h2 id="postgresql">PostgreSQL</h2><p>For PostgreSQL, two libraries are needed, <code>pg@^7.0.0</code> and <code>pg-hstore</code>. You'll just need to define the dialect:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   // gimme postgres, please!
-  dialect: &apos;postgres&apos;
+  dialect: 'postgres'
 })</code>
 </code></pre>
 <p>To connect over a unix domain socket, specify the path to the socket directory
 in the <code>host</code> option.</p>
 <p>The socket path must start with <code>/</code>.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   // gimme postgres, please!
-  dialect: &apos;postgres&apos;,
-  host: &apos;/path/to/socket_directory&apos;
+  dialect: 'postgres',
+  host: '/path/to/socket_directory'
 })</code>
 </code></pre>
-<h2 id="mssql">MSSQL</h2><p>The library for MSSQL is<code>tedious@^6.0.0</code> You&apos;ll just need to define the dialect.
+<h2 id="mssql">MSSQL</h2><p>The library for MSSQL is<code>tedious@^6.0.0</code> You'll just need to define the dialect.
 Please note: <code>tedious@^6.0.0</code> requires you to nest MSSQL specific options inside an additional <code>options</code>-object inside the <code>dialectOptions</code>-object.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {
-  dialect: &apos;mssql&apos;,
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'mssql',
   dialectOptions: {
     options: {
       useUTC: false,

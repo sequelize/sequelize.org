@@ -150,7 +150,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="variable/index.html#static-variable-Op">Op</a></span></span><span data-ice="signature">: {&quot;eq&quot;: <span>*</span>, &quot;ne&quot;: <span>*</span>, &quot;gte&quot;: <span>*</span>, &quot;gt&quot;: <span>*</span>, &quot;lte&quot;: <span>*</span>, &quot;lt&quot;: <span>*</span>, &quot;not&quot;: <span>*</span>, &quot;is&quot;: <span>*</span>, &quot;in&quot;: <span>*</span>, &quot;notIn&quot;: <span>*</span>, &quot;like&quot;: <span>*</span>, &quot;notLike&quot;: <span>*</span>, &quot;iLike&quot;: <span>*</span>, &quot;notILike&quot;: <span>*</span>, &quot;regexp&quot;: <span>*</span>, &quot;notRegexp&quot;: <span>*</span>, &quot;iRegexp&quot;: <span>*</span>, &quot;notIRegexp&quot;: <span>*</span>, &quot;between&quot;: <span>*</span>, &quot;notBetween&quot;: <span>*</span>, &quot;overlap&quot;: <span>*</span>, &quot;contains&quot;: <span>*</span>, &quot;contained&quot;: <span>*</span>, &quot;adjacent&quot;: <span>*</span>, &quot;strictLeft&quot;: <span>*</span>, &quot;strictRight&quot;: <span>*</span>, &quot;noExtendRight&quot;: <span>*</span>, &quot;noExtendLeft&quot;: <span>*</span>, &quot;and&quot;: <span>*</span>, &quot;or&quot;: <span>*</span>, &quot;any&quot;: <span>*</span>, &quot;all&quot;: <span>*</span>, &quot;values&quot;: <span>*</span>, &quot;col&quot;: <span>*</span>, &quot;placeholder&quot;: <span>*</span>, &quot;join&quot;: <span>*</span>, &quot;raw&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="variable/index.html#static-variable-Op">Op</a></span></span><span data-ice="signature">: {"eq": <span>*</span>, "ne": <span>*</span>, "gte": <span>*</span>, "gt": <span>*</span>, "lte": <span>*</span>, "lt": <span>*</span>, "not": <span>*</span>, "is": <span>*</span>, "in": <span>*</span>, "notIn": <span>*</span>, "like": <span>*</span>, "notLike": <span>*</span>, "iLike": <span>*</span>, "notILike": <span>*</span>, "regexp": <span>*</span>, "notRegexp": <span>*</span>, "iRegexp": <span>*</span>, "notIRegexp": <span>*</span>, "between": <span>*</span>, "notBetween": <span>*</span>, "overlap": <span>*</span>, "contains": <span>*</span>, "contained": <span>*</span>, "adjacent": <span>*</span>, "strictLeft": <span>*</span>, "strictRight": <span>*</span>, "noExtendRight": <span>*</span>, "noExtendLeft": <span>*</span>, "and": <span>*</span>, "or": <span>*</span>, "any": <span>*</span>, "all": <span>*</span>, "values": <span>*</span>, "col": <span>*</span>, "placeholder": <span>*</span>, "join": <span>*</span>, "raw": <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -246,7 +246,7 @@
   
   
   <div data-ice="description"><p>A convenience class holding commonly used data types. The datatypes are used when defining a new model using <code>Sequelize.define</code>, like this:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('model', {
   column: DataTypes.INTEGER
 })</code>
 </code></pre>
@@ -262,7 +262,7 @@ The order you access the properties in do not matter, so <code>DataTypes.INTEGER
 </ul>
 <p>Three of the values provided here (<code>NOW</code>, <code>UUIDV1</code> and <code>UUIDV4</code>) are special default values, that should not be used to define types. Instead they are used as shorthands for
 defining default values. For example, to get a uuid field with a default value generated following v1 of the UUID standard:</p>
-<pre><code class="lang-js`"><code class="source-code prettyprint">sequelize.define(&apos;model&apos;,` {
+<pre><code class="lang-js`"><code class="source-code prettyprint">sequelize.define('model',` {
   uuid: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV1,
@@ -273,7 +273,7 @@ defining default values. For example, to get a uuid field with a default value g
 <p>There may be times when you want to generate your own UUID conforming to some other algorithm. This is accomplished
 using the defaultValue property as well, but instead of specifying one of the supplied UUID types, you return a value
 from a function.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('model', {
   uuid: {
     type: DataTypes.UUID,
     defaultValue: function() {
@@ -397,7 +397,7 @@ from a function.</p>
       <td data-ice="name" data-depth="0">ENUM</td>
       <td data-ice="type"><span><span>function</span><span>(values: <span><span>string</span><span>[]</span></span>)</span></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>An enumeration. <code>DataTypes.ENUM(&apos;value&apos;, &apos;another value&apos;)</code>.</p>
+      <td data-ice="description"><p>An enumeration. <code>DataTypes.ENUM('value', 'another value')</code>.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
@@ -481,7 +481,7 @@ from a function.</p>
       <td data-ice="name" data-depth="0">RANGE</td>
       <td data-ice="type"><span><span>function</span><span>(type: <span><a href="variable/index.html#static-variable-DataTypes">DataTypes</a></span>)</span></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Range types are data types representing a range of values of some element type (called the range&apos;s subtype).
+      <td data-ice="description"><p>Range types are data types representing a range of values of some element type (called the range's subtype).
 Only available in Postgres. See <a href="http://www.postgresql.org/docs/9.4/static/rangetypes.html">the Postgres documentation</a> for more details</p>
 </td>
     </tr>
@@ -496,31 +496,31 @@ In PostGIS, the GeoJSON is parsed using the PostGIS function <code>ST_GeomFromGe
 In MySQL it is parsed using the function <code>GeomFromText</code>.
 Therefore, one can just follow the <a href="http://geojson.org/geojson-spec.html">GeoJSON spec</a> for handling geometry objects.  See the following examples:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// Create a new point:
-const point = { type: &apos;Point&apos;, coordinates: [39.807222,-76.984722]};
+const point = { type: 'Point', coordinates: [39.807222,-76.984722]};
 
-User.create({username: &apos;username&apos;, geometry: point });
+User.create({username: 'username', geometry: point });
 
 // Create a new linestring:
-const line = { type: &apos;LineString&apos;, &apos;coordinates&apos;: [ [100.0, 0.0], [101.0, 1.0] ] };
+const line = { type: 'LineString', 'coordinates': [ [100.0, 0.0], [101.0, 1.0] ] };
 
-User.create({username: &apos;username&apos;, geometry: line });
+User.create({username: 'username', geometry: line });
 
 // Create a new polygon:
-const polygon = { type: &apos;Polygon&apos;, coordinates: [
+const polygon = { type: 'Polygon', coordinates: [
                 [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
                   [100.0, 1.0], [100.0, 0.0] ]
                 ]};
 
-User.create({username: &apos;username&apos;, geometry: polygon });
+User.create({username: 'username', geometry: polygon });
 
 // Create a new point with a custom SRID:
 const point = {
-  type: &apos;Point&apos;,
+  type: 'Point',
   coordinates: [39.807222,-76.984722],
-  crs: { type: &apos;name&apos;, properties: { name: &apos;EPSG:4326&apos;} }
+  crs: { type: 'name', properties: { name: 'EPSG:4326'} }
 };
 
-User.create({username: &apos;username&apos;, geometry: point })</code>
+User.create({username: 'username', geometry: point })</code>
 </code></pre>
 </td>
     </tr>
@@ -537,19 +537,19 @@ User.create({username: &apos;username&apos;, geometry: point })</code>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>A virtual value that is not stored in the DB. This could for example be useful if you want to provide a default value in your model that is returned to the user but not stored in the DB.</p>
 <p>You could also use it to validate a value before permuting and storing it. Checking password length before hashing it for example:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;user&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('user', {
   password_hash: DataTypes.STRING,
   password: {
     type: DataTypes.VIRTUAL,
     set: function (val) {
-       // Remember to set the data value, otherwise it won&apos;t be validated
-       this.setDataValue(&apos;password&apos;, val);
-       this.setDataValue(&apos;password_hash&apos;, this.salt + val);
+       // Remember to set the data value, otherwise it won't be validated
+       this.setDataValue('password', val);
+       this.setDataValue('password_hash', this.salt + val);
      },
      validate: {
         isLongEnough: function (val) {
           if (val.length &lt; 7) {
-            throw new Error(&quot;Please choose a longer password&quot;)
+            throw new Error("Please choose a longer password")
          }
       }
     }
@@ -562,9 +562,9 @@ If a virtual attribute is present in <code>attributes</code> it will automatical
 Return type is mostly useful for setups that rely on types like GraphQL.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">{
   active: {
-    type: new DataTypes.VIRTUAL(DataTypes.BOOLEAN, [&apos;createdAt&apos;]),
+    type: new DataTypes.VIRTUAL(DataTypes.BOOLEAN, ['createdAt']),
     get: function() {
-      return this.get(&apos;createdAt&apos;) &gt; Date.now() - (7 * 24 * 60 * 60 * 1000)
+      return this.get('createdAt') &gt; Date.now() - (7 * 24 * 60 * 60 * 1000)
     }
   }
 }</code>
@@ -617,12 +617,12 @@ make foreign key constraints deferrable and to set the constraints within a
 transaction. This is only supported in PostgreSQL.</p>
 <p>The foreign keys can be configured like this. It will create a foreign key
 that will check the constraints immediately when the data was inserted.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define(&apos;Model&apos;, {
+<pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('Model', {
   foreign_id: {
     type: Sequelize.INTEGER,
     references: {
       model: OtherModel,
-      key: &apos;id&apos;,
+      key: 'id',
       deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
     }
   }
@@ -710,7 +710,7 @@ to be checked at the very end of the transaction.</p>
     
     
     
-    <span data-ice="name">Op</span><span data-ice="signature">: {&quot;eq&quot;: <span>*</span>, &quot;ne&quot;: <span>*</span>, &quot;gte&quot;: <span>*</span>, &quot;gt&quot;: <span>*</span>, &quot;lte&quot;: <span>*</span>, &quot;lt&quot;: <span>*</span>, &quot;not&quot;: <span>*</span>, &quot;is&quot;: <span>*</span>, &quot;in&quot;: <span>*</span>, &quot;notIn&quot;: <span>*</span>, &quot;like&quot;: <span>*</span>, &quot;notLike&quot;: <span>*</span>, &quot;iLike&quot;: <span>*</span>, &quot;notILike&quot;: <span>*</span>, &quot;regexp&quot;: <span>*</span>, &quot;notRegexp&quot;: <span>*</span>, &quot;iRegexp&quot;: <span>*</span>, &quot;notIRegexp&quot;: <span>*</span>, &quot;between&quot;: <span>*</span>, &quot;notBetween&quot;: <span>*</span>, &quot;overlap&quot;: <span>*</span>, &quot;contains&quot;: <span>*</span>, &quot;contained&quot;: <span>*</span>, &quot;adjacent&quot;: <span>*</span>, &quot;strictLeft&quot;: <span>*</span>, &quot;strictRight&quot;: <span>*</span>, &quot;noExtendRight&quot;: <span>*</span>, &quot;noExtendLeft&quot;: <span>*</span>, &quot;and&quot;: <span>*</span>, &quot;or&quot;: <span>*</span>, &quot;any&quot;: <span>*</span>, &quot;all&quot;: <span>*</span>, &quot;values&quot;: <span>*</span>, &quot;col&quot;: <span>*</span>, &quot;placeholder&quot;: <span>*</span>, &quot;join&quot;: <span>*</span>, &quot;raw&quot;: <span>*</span>}</span>
+    <span data-ice="name">Op</span><span data-ice="signature">: {"eq": <span>*</span>, "ne": <span>*</span>, "gte": <span>*</span>, "gt": <span>*</span>, "lte": <span>*</span>, "lt": <span>*</span>, "not": <span>*</span>, "is": <span>*</span>, "in": <span>*</span>, "notIn": <span>*</span>, "like": <span>*</span>, "notLike": <span>*</span>, "iLike": <span>*</span>, "notILike": <span>*</span>, "regexp": <span>*</span>, "notRegexp": <span>*</span>, "iRegexp": <span>*</span>, "notIRegexp": <span>*</span>, "between": <span>*</span>, "notBetween": <span>*</span>, "overlap": <span>*</span>, "contains": <span>*</span>, "contained": <span>*</span>, "adjacent": <span>*</span>, "strictLeft": <span>*</span>, "strictRight": <span>*</span>, "noExtendRight": <span>*</span>, "noExtendLeft": <span>*</span>, "and": <span>*</span>, "or": <span>*</span>, "any": <span>*</span>, "all": <span>*</span>, "values": <span>*</span>, "col": <span>*</span>, "placeholder": <span>*</span>, "join": <span>*</span>, "raw": <span>*</span>}</span>
     <span class="right-info">
       
       

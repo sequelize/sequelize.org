@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,7 +112,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/errors/base-error.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
 /**
  * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.
@@ -124,7 +124,7 @@
 class BaseError extends Error {
   constructor(message) {
     super(message);
-    this.name = &apos;SequelizeBaseError&apos;;
+    this.name = 'SequelizeBaseError';
     Error.captureStackTrace(this, this.constructor);
   }
 }

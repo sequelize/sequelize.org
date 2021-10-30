@@ -22,7 +22,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
       <a href="http://sequelize-slack.herokuapp.com/">
         <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
       </a>
@@ -112,9 +112,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/errors/database/exclusion-constraint-error.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">'use strict';
 
-const DatabaseError = require(&apos;./../database-error&apos;);
+const DatabaseError = require('./../database-error');
 
 /**
  * Thrown when an exclusion constraint is violated in the database
@@ -122,12 +122,12 @@ const DatabaseError = require(&apos;./../database-error&apos;);
 class ExclusionConstraintError extends DatabaseError {
   constructor(options) {
     options = options || {};
-    options.parent = options.parent || { sql: &apos;&apos; };
+    options.parent = options.parent || { sql: '' };
 
     super(options.parent);
-    this.name = &apos;SequelizeExclusionConstraintError&apos;;
+    this.name = 'SequelizeExclusionConstraintError';
 
-    this.message = options.message || options.parent.message || &apos;&apos;;
+    this.message = options.message || options.parent.message || '';
     this.constraint = options.constraint;
     this.fields = options.fields;
     this.table = options.table;
