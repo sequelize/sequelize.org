@@ -1,4 +1,4 @@
-name: CI
+name: Sequelize.org Deployment
 
 on:
   push:
@@ -19,16 +19,20 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "10"
-      - name: Install
+      - name: Install Dependencies
         run: |
           pip install -r requirements.txt
           bundle install
           bundle exec jekyll build
+      - name: Build Documentation
+        run: |
           ./build.sh
           cp -R _site/. site/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          deploy_key: ${{ secrets.GH_DEPLOY_KEY }}
           publish_dir: ./site
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
