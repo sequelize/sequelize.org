@@ -720,11 +720,11 @@ sequelize.define('User', { name: DataTypes.STRING });</code>
   }
 });</code>
 </code></pre>
-<p>Some special values, such as <code>Sequelize.NOW</code>, are also accepted:</p>
+<p>Some special values, such as <code>DataTypes.NOW</code>, are also accepted:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('Foo', {
   bar: {
     type: DataTypes.DATETIME,
-    defaultValue: Sequelize.NOW
+    defaultValue: DataTypes.NOW
     // This way, the current date/time will be used to populate this column (at the moment of insertion)
   }
 });</code>
