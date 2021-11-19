@@ -2538,12 +2538,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/utils/logger.js",
-    "file/lib/utils/logger.js.html",
-    "lib/utils/logger.js",
-    "file"
-  ],
-  [
     "lib/utils/validator-extras.js",
     "file/lib/utils/validator-extras.js.html",
     "lib/utils/validator-extras.js",
