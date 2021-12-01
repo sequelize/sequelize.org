@@ -307,6 +307,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mariadb" data-ice="link">MariaDB</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#sqlite" data-ice="link">SQLite</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#postgresql" data-ice="link">PostgreSQL</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
@@ -3741,6 +3742,14 @@ WHERE (
 </code></pre><p>To connect over a unix domain socket, specify the path to the socket directory in the <code>host</code> option. The socket path must start with <code>/</code>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
   host: '/path/to/socket_directory'
+});</code>
+</code></pre><p>The default <code>client_min_messages</code> config in sequelize is <code>WARNING</code>.</p><h3>Redshift</h3><p>Most configuration is same as PostgreSQL above.</p><p>Redshift doesn't support <code>client_min_messages</code>, 'ignore' is needed to skip the configuration:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'postgres',
+  dialectOptions: {
+    // Your pg options here
+    // ...
+    clientMinMessages: 'ignore' // case insensitive
+  }
 });</code>
 </code></pre><h3>MSSQL</h3><p>The underlying connector library used by Sequelize for MSSQL is the <a href="https://www.npmjs.com/package/tedious">tedious</a> npm package (version 6.0.0 or above).</p><p>You can provide custom options to it using <code>dialectOptions.options</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'mssql',
