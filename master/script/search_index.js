@@ -402,6 +402,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "sequelize/lib/dialects/snowflake/query-interface.js~snowflakequeryinterface",
+    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html",
+    "<span>SnowflakeQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/snowflake/query-interface.js</span>",
+    "class"
+  ],
+  [
     "sequelize/lib/data-types.js~text",
     "class/lib/data-types.js~TEXT.html",
     "<span>TEXT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
@@ -1503,6 +1509,60 @@ window.esdocSearchIndex = [
     "lib/dialects/postgres/range.js",
     "file/lib/dialects/postgres/range.js.html",
     "lib/dialects/postgres/range.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/connection-manager.js",
+    "file/lib/dialects/snowflake/connection-manager.js.html",
+    "lib/dialects/snowflake/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/data-types.js",
+    "file/lib/dialects/snowflake/data-types.js.html",
+    "lib/dialects/snowflake/data-types.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/index.js",
+    "file/lib/dialects/snowflake/index.js.html",
+    "lib/dialects/snowflake/index.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-generator.js",
+    "file/lib/dialects/snowflake/query-generator.js.html",
+    "lib/dialects/snowflake/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-interface.js",
+    "file/lib/dialects/snowflake/query-interface.js.html",
+    "lib/dialects/snowflake/query-interface.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-interface.js~snowflakequeryinterface#removecolumn",
+    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-removeColumn",
+    "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#removeColumn",
+    "method"
+  ],
+  [
+    "lib/dialects/snowflake/query-interface.js~snowflakequeryinterface#removeconstraint",
+    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-removeConstraint",
+    "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#removeConstraint",
+    "method"
+  ],
+  [
+    "lib/dialects/snowflake/query-interface.js~snowflakequeryinterface#upsert",
+    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-upsert",
+    "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#upsert",
+    "method"
+  ],
+  [
+    "lib/dialects/snowflake/query.js",
+    "file/lib/dialects/snowflake/query.js.html",
+    "lib/dialects/snowflake/query.js",
     "file"
   ],
   [

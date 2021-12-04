@@ -86,6 +86,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/dialects/mssql/query-interface.js~MSSqlQueryInterface.html">MSSqlQueryInterface</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#dialects-mysql">dialects/mysql</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/dialects/mysql/query-interface.js~MySQLQueryInterface.html">MySQLQueryInterface</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#dialects-postgres">dialects/postgres</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html">PostgresQueryInterface</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#dialects-snowflake">dialects/snowflake</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html">SnowflakeQueryInterface</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#dialects-sqlite">dialects/sqlite</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html">SQLiteQueryInterface</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#errors">errors</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/errors/aggregate-error.js~AggregateError.html">AggregateError</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/errors/association-error.js~AssociationError.html">AssociationError</a></span></span></li>
@@ -239,7 +240,7 @@ This is almost the same as <code>belongsTo</code> with one exception - The forei
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="class/lib/associations/has-one.js~HasOne.html#instance-method-set">set</a></span></span><span class="code" data-ice="signature">(sourceInstance: <span><a href="class/lib/model.js~Model.html">Model</a></span>, associatedInstance: &lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>&gt; | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/associations/has-one.js~HasOne.html#instance-method-set">set</a></span></span><span class="code" data-ice="signature">(sourceInstance: <span><a href="class/lib/model.js~Model.html">Model</a></span>, associatedInstance: <span><a href="class/lib/model.js~Model.html">Model</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
         </p>
       </div>
       <div>
@@ -548,7 +549,7 @@ This is almost the same as <code>belongsTo</code> with one exception - The forei
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">set</span><span class="code" data-ice="signature">(sourceInstance: <span><a href="class/lib/model.js~Model.html">Model</a></span>, associatedInstance: &lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>&gt; | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
+    <span class="code" data-ice="name">set</span><span class="code" data-ice="signature">(sourceInstance: <span><a href="class/lib/model.js~Model.html">Model</a></span>, associatedInstance: <span><a href="class/lib/model.js~Model.html">Model</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
     <span class="right-info">
       
       
@@ -581,7 +582,7 @@ This is almost the same as <code>belongsTo</code> with one exception - The forei
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">associatedInstance</td>
-      <td data-ice="type" class="code">&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>&gt; | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/model.js~Model.html">Model</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>nullable: true</li></ul></td>
       <td data-ice="description"><p>An persisted instance or the primary key of an instance to associate with this. Pass <code>null</code> or <code>undefined</code> to remove the association.</p>
