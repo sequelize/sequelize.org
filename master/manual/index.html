@@ -310,6 +310,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#table-hints---mssql-only" data-ice="link">Table Hints - MSSQL only</a></li>
@@ -598,7 +599,7 @@
 <a href="https://www.npmjs.com/package/sequelize"><img src="https://badgen.net/npm/node/sequelize" alt="node"></a>
 <a href="https://github.com/sequelize/sequelize/blob/main/LICENSE"><img src="https://badgen.net/github/license/sequelize/sequelize" alt="License"></a>
 <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
-<p>Sequelize is a promise-based <a href="https://nodejs.org/en/about/">Node.js</a> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM tool</a> for <a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a>, <a href="https://en.wikipedia.org/wiki/MySQL">MySQL</a>, <a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a>, <a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a> and <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server">Microsoft SQL Server</a>. It features solid transaction support, relations, eager and lazy loading, read replication and more.</p>
+<p>Sequelize is a promise-based <a href="https://nodejs.org/en/about/">Node.js</a> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM tool</a> for <a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a>, <a href="https://en.wikipedia.org/wiki/MySQL">MySQL</a>, <a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a>, <a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server">Microsoft SQL Server</a>, <a href="https://docs.aws.amazon.com/redshift/index.html">Amazon Redshift</a> and <a href="https://docs.snowflake.com/en/user-guide/intro-key-concepts.html">Snowflake’s Data Cloud</a>. It features solid transaction support, relations, eager and lazy loading, read replication and more.</p>
 <p>Sequelize follows <a href="http://semver.org">Semantic Versioning</a> and supports Node v10 and above.</p>
 <p>You are currently looking at the <strong>Tutorials and Guides</strong> for Sequelize. You might also be interested in the <a href="identifiers.html">API Reference</a>.</p>
 <h2 id="quick-example">Quick example</h2><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require('sequelize');
@@ -3778,6 +3779,23 @@ WHERE (
     }
   }
 })</code>
+</code></pre><h3>Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> npm package.</p><p>In order to connect with an account, use the following format:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
+  dialect: 'snowflake',
+  dialectOptions: {
+    // put your snowflake account here,
+    account: 'myAccount',  // my-app.us-east-1
+
+    // below option should be optional
+    role: 'myRole',
+    warehouse: 'myWarehouse',
+    schema: 'mySchema'
+  },
+  // same as other dialect
+  username: 'myUserName',
+  password: 'myPassword',
+  database: 'myDatabaseName'
+})</code>
+</code></pre><p><strong>NOTE</strong> There is no test sandbox provided so the snowflake integration test is not part of the pipeline. Also it is difficult for core team to triage and debug. This dialect needs to be maintained by the snowflake user/community for now.</p><p>For running integration test:</p><pre><code class="lang-sh"><code class="source-code prettyprint">SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=myDatabaseName SEQ_SCHEMA=mySchema SEQ_WH=myWareHouse npm run test-integration-snowflake</code>
 </code></pre><h2>Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</h2><p>If you are working with the PostgreSQL <code>TIMESTAMP WITHOUT TIME ZONE</code> and you need to parse it to a different timezone, please use the pg library's own parser:</p><pre><code class="lang-js"><code class="source-code prettyprint">require('pg').types.setTypeParser(1114, stringValue =&gt; {
   return new Date(stringValue + '+0000');
   // e.g., UTC offset. Use any offset that you would like.

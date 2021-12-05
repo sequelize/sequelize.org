@@ -310,6 +310,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#table-hints---mssql-only" data-ice="link">Table Hints - MSSQL only</a></li>
@@ -668,6 +669,29 @@
     }
   }
 })</code>
+</code></pre>
+<h3 id="snowflake--experiment-">Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> npm package.</p>
+<p>In order to connect with an account, use the following format:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
+  dialect: 'snowflake',
+  dialectOptions: {
+    // put your snowflake account here,
+    account: 'myAccount',  // my-app.us-east-1
+
+    // below option should be optional
+    role: 'myRole',
+    warehouse: 'myWarehouse',
+    schema: 'mySchema'
+  },
+  // same as other dialect
+  username: 'myUserName',
+  password: 'myPassword',
+  database: 'myDatabaseName'
+})</code>
+</code></pre>
+<p><strong>NOTE</strong> There is no test sandbox provided so the snowflake integration test is not part of the pipeline. Also it is difficult for core team to triage and debug. This dialect needs to be maintained by the snowflake user/community for now.</p>
+<p>For running integration test:</p>
+<pre><code class="lang-sh"><code class="source-code prettyprint">SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=myDatabaseName SEQ_SCHEMA=mySchema SEQ_WH=myWareHouse npm run test-integration-snowflake</code>
 </code></pre>
 <h2 id="data-type--timestamp-without-time-zone---postgresql-only">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</h2><p>If you are working with the PostgreSQL <code>TIMESTAMP WITHOUT TIME ZONE</code> and you need to parse it to a different timezone, please use the pg library's own parser:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">require('pg').types.setTypeParser(1114, stringValue =&gt; {
