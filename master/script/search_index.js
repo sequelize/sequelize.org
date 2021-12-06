@@ -6,33 +6,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/errors/connection/access-denied-error.js~accessdeniederror",
-    "class/lib/errors/connection/access-denied-error.js~AccessDeniedError.html",
-    "<span>AccessDeniedError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/access-denied-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/aggregate-error.js~aggregateerror",
-    "class/lib/errors/aggregate-error.js~AggregateError.html",
-    "<span>AggregateError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/aggregate-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/associations/base.js~association",
     "class/lib/associations/base.js~Association.html",
     "<span>Association</span> <span class=\"search-result-import-path\">sequelize/lib/associations/base.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/association-error.js~associationerror",
-    "class/lib/errors/association-error.js~AssociationError.html",
-    "<span>AssociationError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/association-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/mssql/async-queue.js~asyncqueueerror",
-    "class/lib/dialects/mssql/async-queue.js~AsyncQueueError.html",
-    "<span>AsyncQueueError</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/mssql/async-queue.js</span>",
     "class"
   ],
   [
@@ -54,12 +30,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/errors/base-error.js~baseerror",
-    "class/lib/errors/base-error.js~BaseError.html",
-    "<span>BaseError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/base-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/associations/belongs-to.js~belongsto",
     "class/lib/associations/belongs-to.js~BelongsTo.html",
     "<span>BelongsTo</span> <span class=\"search-result-import-path\">sequelize/lib/associations/belongs-to.js</span>",
@@ -69,12 +39,6 @@ window.esdocSearchIndex = [
     "sequelize/lib/associations/belongs-to-many.js~belongstomany",
     "class/lib/associations/belongs-to-many.js~BelongsToMany.html",
     "<span>BelongsToMany</span> <span class=\"search-result-import-path\">sequelize/lib/associations/belongs-to-many.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/bulk-record-error.js~bulkrecorderror",
-    "class/lib/errors/bulk-record-error.js~BulkRecordError.html",
-    "<span>BulkRecordError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/bulk-record-error.js</span>",
     "class"
   ],
   [
@@ -93,30 +57,6 @@ window.esdocSearchIndex = [
     "sequelize/lib/data-types.js~citext",
     "class/lib/data-types.js~CITEXT.html",
     "<span>CITEXT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/connection-acquire-timeout-error.js~connectionacquiretimeouterror",
-    "class/lib/errors/connection/connection-acquire-timeout-error.js~ConnectionAcquireTimeoutError.html",
-    "<span>ConnectionAcquireTimeoutError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/connection-acquire-timeout-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection-error.js~connectionerror",
-    "class/lib/errors/connection-error.js~ConnectionError.html",
-    "<span>ConnectionError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/connection-refused-error.js~connectionrefusederror",
-    "class/lib/errors/connection/connection-refused-error.js~ConnectionRefusedError.html",
-    "<span>ConnectionRefusedError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/connection-refused-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/connection-timed-out-error.js~connectiontimedouterror",
-    "class/lib/errors/connection/connection-timed-out-error.js~ConnectionTimedOutError.html",
-    "<span>ConnectionTimedOutError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/connection-timed-out-error.js</span>",
     "class"
   ],
   [
@@ -150,12 +90,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "sequelize/lib/errors/database-error.js~databaseerror",
-    "class/lib/errors/database-error.js~DatabaseError.html",
-    "<span>DatabaseError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/deferrable.js~deferrable",
     "variable/index.html#static-variable-Deferrable",
     "<span>Deferrable</span> <span class=\"search-result-import-path\">sequelize/lib/deferrable.js</span>",
@@ -168,33 +102,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/errors/eager-loading-error.js~eagerloadingerror",
-    "class/lib/errors/eager-loading-error.js~EagerLoadingError.html",
-    "<span>EagerLoadingError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/eager-loading-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/empty-result-error.js~emptyresulterror",
-    "class/lib/errors/empty-result-error.js~EmptyResultError.html",
-    "<span>EmptyResultError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/empty-result-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/database/exclusion-constraint-error.js~exclusionconstrainterror",
-    "class/lib/errors/database/exclusion-constraint-error.js~ExclusionConstraintError.html",
-    "<span>ExclusionConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/exclusion-constraint-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/data-types.js~float",
     "class/lib/data-types.js~FLOAT.html",
     "<span>FLOAT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/database/foreign-key-constraint-error.js~foreignkeyconstrainterror",
-    "class/lib/errors/database/foreign-key-constraint-error.js~ForeignKeyConstraintError.html",
-    "<span>ForeignKeyConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/foreign-key-constraint-error.js</span>",
     "class"
   ],
   [
@@ -228,18 +138,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/errors/connection/host-not-found-error.js~hostnotfounderror",
-    "class/lib/errors/connection/host-not-found-error.js~HostNotFoundError.html",
-    "<span>HostNotFoundError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/host-not-found-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/host-not-reachable-error.js~hostnotreachableerror",
-    "class/lib/errors/connection/host-not-reachable-error.js~HostNotReachableError.html",
-    "<span>HostNotReachableError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/host-not-reachable-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/data-types.js~inet",
     "class/lib/data-types.js~INET.html",
     "<span>INET</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
@@ -256,18 +154,6 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-IndexHints",
     "<span>IndexHints</span> <span class=\"search-result-import-path\">sequelize/lib/index-hints.js</span>",
     "variable"
-  ],
-  [
-    "sequelize/lib/errors/instance-error.js~instanceerror",
-    "class/lib/errors/instance-error.js~InstanceError.html",
-    "<span>InstanceError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/instance-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/invalid-connection-error.js~invalidconnectionerror",
-    "class/lib/errors/connection/invalid-connection-error.js~InvalidConnectionError.html",
-    "<span>InvalidConnectionError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/invalid-connection-error.js</span>",
-    "class"
   ],
   [
     "sequelize/lib/data-types.js~jsonb",
@@ -330,21 +216,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "sequelize/lib/errors/optimistic-lock-error.js~optimisticlockerror",
-    "class/lib/errors/optimistic-lock-error.js~OptimisticLockError.html",
-    "<span>OptimisticLockError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/optimistic-lock-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/dialects/postgres/query-interface.js~postgresqueryinterface",
     "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html",
     "<span>PostgresQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/postgres/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/query-error.js~queryerror",
-    "class/lib/errors/query-error.js~QueryError.html",
-    "<span>QueryError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/query-error.js</span>",
     "class"
   ],
   [
@@ -396,12 +270,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/errors/sequelize-scope-error.js~sequelizescopeerror",
-    "class/lib/errors/sequelize-scope-error.js~SequelizeScopeError.html",
-    "<span>SequelizeScopeError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/sequelize-scope-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/dialects/snowflake/query-interface.js~snowflakequeryinterface",
     "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html",
     "<span>SnowflakeQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/snowflake/query-interface.js</span>",
@@ -438,12 +306,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "sequelize/lib/errors/database/timeout-error.js~timeouterror",
-    "class/lib/errors/database/timeout-error.js~TimeoutError.html",
-    "<span>TimeoutError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/timeout-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/transaction.js~transaction",
     "class/lib/transaction.js~Transaction.html",
     "<span>Transaction</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.js</span>",
@@ -468,33 +330,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/errors/validation/unique-constraint-error.js~uniqueconstrainterror",
-    "class/lib/errors/validation/unique-constraint-error.js~UniqueConstraintError.html",
-    "<span>UniqueConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation/unique-constraint-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/database/unknown-constraint-error.js~unknownconstrainterror",
-    "class/lib/errors/database/unknown-constraint-error.js~UnknownConstraintError.html",
-    "<span>UnknownConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/unknown-constraint-error.js</span>",
-    "class"
-  ],
-  [
     "sequelize/lib/data-types.js~virtual",
     "class/lib/data-types.js~VIRTUAL.html",
     "<span>VIRTUAL</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/validation-error.js~validationerror",
-    "class/lib/errors/validation-error.js~ValidationError.html",
-    "<span>ValidationError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/validation-error.js~validationerroritem",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html",
-    "<span>ValidationErrorItem</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.js</span>",
     "class"
   ],
   [
@@ -1320,12 +1158,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/mssql/async-queue.js",
-    "file/lib/dialects/mssql/async-queue.js.html",
-    "lib/dialects/mssql/async-queue.js",
-    "file"
-  ],
-  [
     "lib/dialects/mssql/connection-manager.js",
     "file/lib/dialects/mssql/connection-manager.js.html",
     "lib/dialects/mssql/connection-manager.js",
@@ -1647,276 +1479,6 @@ window.esdocSearchIndex = [
     "lib/dialects/sqlite/query.js",
     "file/lib/dialects/sqlite/query.js.html",
     "lib/dialects/sqlite/query.js",
-    "file"
-  ],
-  [
-    "lib/errors/aggregate-error.js",
-    "file/lib/errors/aggregate-error.js.html",
-    "lib/errors/aggregate-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/association-error.js",
-    "file/lib/errors/association-error.js.html",
-    "lib/errors/association-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/base-error.js",
-    "file/lib/errors/base-error.js.html",
-    "lib/errors/base-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/bulk-record-error.js",
-    "file/lib/errors/bulk-record-error.js.html",
-    "lib/errors/bulk-record-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection-error.js",
-    "file/lib/errors/connection-error.js.html",
-    "lib/errors/connection-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection-error.js~connectionerror#parent",
-    "class/lib/errors/connection-error.js~ConnectionError.html#instance-member-parent",
-    "lib/errors/connection-error.js~ConnectionError#parent",
-    "member"
-  ],
-  [
-    "lib/errors/connection/access-denied-error.js",
-    "file/lib/errors/connection/access-denied-error.js.html",
-    "lib/errors/connection/access-denied-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection/connection-acquire-timeout-error.js",
-    "file/lib/errors/connection/connection-acquire-timeout-error.js.html",
-    "lib/errors/connection/connection-acquire-timeout-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection/connection-refused-error.js",
-    "file/lib/errors/connection/connection-refused-error.js.html",
-    "lib/errors/connection/connection-refused-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection/connection-timed-out-error.js",
-    "file/lib/errors/connection/connection-timed-out-error.js.html",
-    "lib/errors/connection/connection-timed-out-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection/host-not-found-error.js",
-    "file/lib/errors/connection/host-not-found-error.js.html",
-    "lib/errors/connection/host-not-found-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection/host-not-reachable-error.js",
-    "file/lib/errors/connection/host-not-reachable-error.js.html",
-    "lib/errors/connection/host-not-reachable-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/connection/invalid-connection-error.js",
-    "file/lib/errors/connection/invalid-connection-error.js.html",
-    "lib/errors/connection/invalid-connection-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/database-error.js",
-    "file/lib/errors/database-error.js.html",
-    "lib/errors/database-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/database-error.js~databaseerror#original",
-    "class/lib/errors/database-error.js~DatabaseError.html#instance-member-original",
-    "lib/errors/database-error.js~DatabaseError#original",
-    "member"
-  ],
-  [
-    "lib/errors/database-error.js~databaseerror#parameters",
-    "class/lib/errors/database-error.js~DatabaseError.html#instance-member-parameters",
-    "lib/errors/database-error.js~DatabaseError#parameters",
-    "member"
-  ],
-  [
-    "lib/errors/database-error.js~databaseerror#parent",
-    "class/lib/errors/database-error.js~DatabaseError.html#instance-member-parent",
-    "lib/errors/database-error.js~DatabaseError#parent",
-    "member"
-  ],
-  [
-    "lib/errors/database-error.js~databaseerror#sql",
-    "class/lib/errors/database-error.js~DatabaseError.html#instance-member-sql",
-    "lib/errors/database-error.js~DatabaseError#sql",
-    "member"
-  ],
-  [
-    "lib/errors/database/exclusion-constraint-error.js",
-    "file/lib/errors/database/exclusion-constraint-error.js.html",
-    "lib/errors/database/exclusion-constraint-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/database/foreign-key-constraint-error.js",
-    "file/lib/errors/database/foreign-key-constraint-error.js.html",
-    "lib/errors/database/foreign-key-constraint-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/database/timeout-error.js",
-    "file/lib/errors/database/timeout-error.js.html",
-    "lib/errors/database/timeout-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/database/unknown-constraint-error.js",
-    "file/lib/errors/database/unknown-constraint-error.js.html",
-    "lib/errors/database/unknown-constraint-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/eager-loading-error.js",
-    "file/lib/errors/eager-loading-error.js.html",
-    "lib/errors/eager-loading-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/empty-result-error.js",
-    "file/lib/errors/empty-result-error.js.html",
-    "lib/errors/empty-result-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/index.js",
-    "file/lib/errors/index.js.html",
-    "lib/errors/index.js",
-    "file"
-  ],
-  [
-    "lib/errors/instance-error.js",
-    "file/lib/errors/instance-error.js.html",
-    "lib/errors/instance-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/optimistic-lock-error.js",
-    "file/lib/errors/optimistic-lock-error.js.html",
-    "lib/errors/optimistic-lock-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/optimistic-lock-error.js~optimisticlockerror#modelname",
-    "class/lib/errors/optimistic-lock-error.js~OptimisticLockError.html#instance-member-modelName",
-    "lib/errors/optimistic-lock-error.js~OptimisticLockError#modelName",
-    "member"
-  ],
-  [
-    "lib/errors/optimistic-lock-error.js~optimisticlockerror#values",
-    "class/lib/errors/optimistic-lock-error.js~OptimisticLockError.html#instance-member-values",
-    "lib/errors/optimistic-lock-error.js~OptimisticLockError#values",
-    "member"
-  ],
-  [
-    "lib/errors/optimistic-lock-error.js~optimisticlockerror#where",
-    "class/lib/errors/optimistic-lock-error.js~OptimisticLockError.html#instance-member-where",
-    "lib/errors/optimistic-lock-error.js~OptimisticLockError#where",
-    "member"
-  ],
-  [
-    "lib/errors/query-error.js",
-    "file/lib/errors/query-error.js.html",
-    "lib/errors/query-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/sequelize-scope-error.js",
-    "file/lib/errors/sequelize-scope-error.js.html",
-    "lib/errors/sequelize-scope-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/validation-error.js",
-    "file/lib/errors/validation-error.js.html",
-    "lib/errors/validation-error.js",
-    "file"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerror#errors",
-    "class/lib/errors/validation-error.js~ValidationError.html#instance-member-errors",
-    "lib/errors/validation-error.js~ValidationError#errors",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerror#get",
-    "class/lib/errors/validation-error.js~ValidationError.html#instance-method-get",
-    "lib/errors/validation-error.js~ValidationError#get",
-    "method"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#constructor",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-constructor-constructor",
-    "lib/errors/validation-error.js~ValidationErrorItem#constructor",
-    "method"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#instance",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-instance",
-    "lib/errors/validation-error.js~ValidationErrorItem#instance",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#message",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-message",
-    "lib/errors/validation-error.js~ValidationErrorItem#message",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#path",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-path",
-    "lib/errors/validation-error.js~ValidationErrorItem#path",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#type",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-type",
-    "lib/errors/validation-error.js~ValidationErrorItem#type",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#validatorargs",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-validatorArgs",
-    "lib/errors/validation-error.js~ValidationErrorItem#validatorArgs",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#validatorkey",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-validatorKey",
-    "lib/errors/validation-error.js~ValidationErrorItem#validatorKey",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#validatorname",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-validatorName",
-    "lib/errors/validation-error.js~ValidationErrorItem#validatorName",
-    "member"
-  ],
-  [
-    "lib/errors/validation-error.js~validationerroritem#value",
-    "class/lib/errors/validation-error.js~ValidationErrorItem.html#instance-member-value",
-    "lib/errors/validation-error.js~ValidationErrorItem#value",
-    "member"
-  ],
-  [
-    "lib/errors/validation/unique-constraint-error.js",
-    "file/lib/errors/validation/unique-constraint-error.js.html",
-    "lib/errors/validation/unique-constraint-error.js",
     "file"
   ],
   [
