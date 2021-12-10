@@ -90,6 +90,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "sequelize/lib/dialects/db2/query-interface.js~db2queryinterface",
+    "class/lib/dialects/db2/query-interface.js~Db2QueryInterface.html",
+    "<span>Db2QueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/db2/query-interface.js</span>",
+    "class"
+  ],
+  [
     "sequelize/lib/deferrable.js~deferrable",
     "variable/index.html#static-variable-Deferrable",
     "<span>Deferrable</span> <span class=\"search-result-import-path\">sequelize/lib/deferrable.js</span>",
@@ -1125,6 +1131,42 @@ window.esdocSearchIndex = [
     "lib/dialects/abstract/query.js",
     "file/lib/dialects/abstract/query.js.html",
     "lib/dialects/abstract/query.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/connection-manager.js",
+    "file/lib/dialects/db2/connection-manager.js.html",
+    "lib/dialects/db2/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/data-types.js",
+    "file/lib/dialects/db2/data-types.js.html",
+    "lib/dialects/db2/data-types.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/index.js",
+    "file/lib/dialects/db2/index.js.html",
+    "lib/dialects/db2/index.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query-generator.js",
+    "file/lib/dialects/db2/query-generator.js.html",
+    "lib/dialects/db2/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query-interface.js",
+    "file/lib/dialects/db2/query-interface.js.html",
+    "lib/dialects/db2/query-interface.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query.js",
+    "file/lib/dialects/db2/query.js.html",
+    "lib/dialects/db2/query.js",
     "file"
   ],
   [
