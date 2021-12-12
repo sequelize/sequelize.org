@@ -1110,12 +1110,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/abstract/query-generator/helpers/quote.js",
-    "file/lib/dialects/abstract/query-generator/helpers/quote.js.html",
-    "lib/dialects/abstract/query-generator/helpers/quote.js",
-    "file"
-  ],
-  [
     "lib/dialects/abstract/query-generator/operators.js",
     "file/lib/dialects/abstract/query-generator/operators.js.html",
     "lib/dialects/abstract/query-generator/operators.js",
@@ -2133,6 +2127,12 @@ window.esdocSearchIndex = [
     "lib/model.js~model.findorcreate",
     "class/lib/model.js~Model.html#static-method-findOrCreate",
     "lib/model.js~Model.findOrCreate",
+    "method"
+  ],
+  [
+    "lib/model.js~model.getattributes",
+    "class/lib/model.js~Model.html#static-method-getAttributes",
+    "lib/model.js~Model.getAttributes",
     "method"
   ],
   [
