@@ -1854,6 +1854,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/generic/falsy.ts",
+    "file/lib/generic/falsy.ts.html",
+    "lib/generic/falsy.ts",
+    "file"
+  ],
+  [
+    "lib/generic/sql-fragment.ts",
+    "file/lib/generic/sql-fragment.ts.html",
+    "lib/generic/sql-fragment.ts",
+    "file"
+  ],
+  [
     "lib/hooks.js",
     "file/lib/hooks.js.html",
     "lib/hooks.js",
@@ -2520,21 +2532,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/utils/class-to-invokable.js",
-    "file/lib/utils/class-to-invokable.js.html",
-    "lib/utils/class-to-invokable.js",
+    "lib/utils/class-to-invokable.ts",
+    "file/lib/utils/class-to-invokable.ts.html",
+    "lib/utils/class-to-invokable.ts",
     "file"
   ],
   [
-    "lib/utils/deprecations.js",
-    "file/lib/utils/deprecations.js.html",
-    "lib/utils/deprecations.js",
+    "lib/utils/deprecations.ts",
+    "file/lib/utils/deprecations.ts.html",
+    "lib/utils/deprecations.ts",
     "file"
   ],
   [
-    "lib/utils/join-sql-fragments.js",
-    "file/lib/utils/join-sql-fragments.js.html",
-    "lib/utils/join-sql-fragments.js",
+    "lib/utils/join-sql-fragments.ts",
+    "file/lib/utils/join-sql-fragments.ts.html",
+    "lib/utils/join-sql-fragments.ts",
     "file"
   ],
   [
