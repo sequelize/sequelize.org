@@ -330,12 +330,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/operators.js~op",
-    "variable/index.html#static-variable-Op",
-    "<span>Op</span> <span class=\"search-result-import-path\">sequelize/lib/operators.js</span>",
-    "variable"
-  ],
-  [
     "sequelize/lib/errors/optimistic-lock-error.ts~optimisticlockerror",
     "class/lib/errors/optimistic-lock-error.ts~OptimisticLockError.html",
     "<span>OptimisticLockError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/optimistic-lock-error.ts</span>",
@@ -2250,9 +2244,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/operators.js",
-    "file/lib/operators.js.html",
-    "lib/operators.js",
+    "lib/operators.ts",
+    "file/lib/operators.ts.html",
+    "lib/operators.ts",
     "file"
   ],
   [

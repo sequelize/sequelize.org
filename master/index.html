@@ -145,7 +145,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#setters" data-ice="link">Setters</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#combining-getters-and-setters" data-ice="link">Combining getters and setters</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#virtual-fields" data-ice="link">Virtual fields</a></li>
-<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#-code-gettermethods--code--and--code-settermethods--code-" data-ice="link">getterMethods and setterMethods</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#deprecated-in-sequelize-v7---code-gettermethods--code--and--code-settermethods--code-" data-ice="link">Deprecated in Sequelize v7: getterMethods and setterMethods</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -1510,7 +1510,7 @@ console.log(rows);</code>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Getters, Setters &amp; Virtuals</h1><p>Sequelize allows you to define custom getters and setters for the attributes of your models.</p><p>Sequelize also allows you to specify the so-called <em>virtual attributes</em>, which are attributes on the Sequelize Model that doesn't really exist in the underlying SQL table, but instead are populated automatically by Sequelize. They are very useful for simplifying code, for example.</p><h2>Getters</h2><p>A getter is a <code>get()</code> function defined for one column in the model definition:</p><pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define('user', {
+        <div data-ice="card"><h1>Getters, Setters &amp; Virtuals</h1><p>Sequelize allows you to define custom getters and setters for the attributes of your models.</p><p>Sequelize also allows you to specify the so-called <em>virtual attributes</em>, which are attributes on the Sequelize Model that doesn't really exist in the underlying SQL table, but instead are populated automatically by Sequelize. They are very useful to create custom attributes which also could simplify your code, for example.</p><h2>Getters</h2><p>A getter is a <code>get()</code> function defined for one column in the model definition:</p><pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define('user', {
   // Let's say we wanted to see every username in uppercase, even
   // though they are not necessarily uppercase in the database itself
   username: {
@@ -1593,7 +1593,7 @@ const User = sequelize.define('user', {
 });</code>
 </code></pre><p>The <code>VIRTUAL</code> field does not cause a column in the table to exist. In other words, the model above will not have a <code>fullName</code> column. However, it will appear to have it!</p><pre><code class="lang-js"><code class="source-code prettyprint">const user = await User.create({ firstName: 'John', lastName: 'Doe' });
 console.log(user.fullName); // 'John Doe'</code>
-</code></pre><h2><code>getterMethods</code> and <code>setterMethods</code></h2><p>Sequelize also provides the <code>getterMethods</code> and <code>setterMethods</code> options in the model definition to specify things that look like, but aren't exactly the same as, virtual attributes. This usage is discouraged and likely to be deprecated in the future (in favor of using virtual attributes directly).</p><p>Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+</code></pre><h2>Deprecated in Sequelize v7: <code>getterMethods</code> and <code>setterMethods</code></h2><p>Sequelize also provides the <code>getterMethods</code> and <code>setterMethods</code> options in the model definition to specify things that look like, but aren't exactly the same as, virtual attributes. This usage is discouraged and likely to be <strong>deprecated</strong> in the future (in favor of using virtual attributes directly).</p><p>Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('user', {
@@ -4098,7 +4098,19 @@ Book.addHook('afterCreate', 'notifyUsers', (book, options) =&gt; {
 });
 
 Book.removeHook('afterCreate', 'notifyUsers');</code>
-</code></pre><p>You can have many hooks with same name. Calling <code>.removeHook()</code> will remove all of them.</p><h2>Global / universal hooks</h2><p>Global hooks are hooks which are run for all models. They can define behaviours that you want for all your models, and are especially useful for plugins. They can be defined in two ways, which have slightly different semantics:</p><h3>Default Hooks (on Sequelize constructor options)</h3><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(..., {
+</code></pre><p>You can have many hooks with same name. Calling <code>.removeHook()</code> will remove all of them.</p><h2>Global / universal hooks</h2><p>Global hooks are hooks that are run for all models. They are especially useful for plugins and can define behaviours that you want for all your models, for example to allow customization on timestamps using <code>sequelize.define</code> on your models:</p><pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define('User', {}, {
+    tableName: 'users',
+    hooks : {
+        beforeCreate : (record, options) =&gt; {
+            record.dataValues.createdAt = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
+            record.dataValues.updatedAt = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
+        },
+        beforeUpdate : (record, options) =&gt; {
+            record.dataValues.updatedAt = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
+        }
+    }
+});</code>
+</code></pre><p>They can be defined in many ways, which have slightly different semantics:</p><h3>Default Hooks (on Sequelize constructor options)</h3><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize(..., {
   define: {
     hooks: {
       beforeCreate() {
