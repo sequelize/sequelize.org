@@ -1242,6 +1242,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/dialects/abstract/query-interface.js~queryinterface#quoteidentifier",
+    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-quoteIdentifier",
+    "lib/dialects/abstract/query-interface.js~QueryInterface#quoteIdentifier",
+    "method"
+  ],
+  [
+    "lib/dialects/abstract/query-interface.js~queryinterface#quoteidentifiers",
+    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-quoteIdentifiers",
+    "lib/dialects/abstract/query-interface.js~QueryInterface#quoteIdentifiers",
+    "method"
+  ],
+  [
     "lib/dialects/abstract/query-interface.js~queryinterface#removecolumn",
     "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-removeColumn",
     "lib/dialects/abstract/query-interface.js~QueryInterface#removeColumn",
