@@ -15,6 +15,7 @@ build_branch () {
         mv ./site ../$BUILD_DIR/$1
     else
         if [ $1 == "main" ]; then
+          cp ./esdoc ../$BUILD_DIR/master
           mv ./esdoc ../$BUILD_DIR/main
         else
           mv ./esdoc ../$BUILD_DIR/$1
