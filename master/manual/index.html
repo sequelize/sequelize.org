@@ -548,6 +548,15 @@
 <div data-ice="manual">
     <ul class="manual-toc">
       
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
     <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
 </ul>
   </div>
@@ -600,7 +609,7 @@
 <a href="https://github.com/sequelize/sequelize/blob/main/LICENSE"><img src="https://badgen.net/github/license/sequelize/sequelize" alt="License"></a>
 <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
 <p>Sequelize is a promise-based <a href="https://nodejs.org/en/about/">Node.js</a> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM tool</a> for <a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a>, <a href="https://en.wikipedia.org/wiki/MySQL">MySQL</a>, <a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a>, <a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server">Microsoft SQL Server</a>, <a href="https://docs.aws.amazon.com/redshift/index.html">Amazon Redshift</a> and <a href="https://docs.snowflake.com/en/user-guide/intro-key-concepts.html">Snowflake’s Data Cloud</a>. It features solid transaction support, relations, eager and lazy loading, read replication and more.</p>
-<p>Sequelize follows <a href="http://semver.org">Semantic Versioning</a> and supports Node v12 and above.</p>
+<p>Sequelize follows <a href="http://semver.org">Semantic Versioning</a> and the <a href="https://nodejs.org/en/about/releases/">official Node.js LTS schedule</a>. Version 7 of Sequelize officially supports the Node.js versions <code>^12.22.0</code>, <code>^14.17,0</code>, <code>^16.0.0</code>. Other version might be working as well.</p>
 <p>You are currently looking at the <strong>Tutorials and Guides</strong> for Sequelize. You might also be interested in the <a href="identifiers.html">API Reference</a>.</p>
 <h2 id="quick-example">Quick example</h2><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
@@ -4998,7 +5007,7 @@ Trainer.hasMany(Series);</code>
       fields: [
         'author',
         {
-          attribute: 'title',
+          name: 'title',
           collate: 'en_US',
           order: 'DESC',
           length: 5
@@ -5972,6 +5981,12 @@ await instance.save(); // will save</code>
 <li>change: use node 10 <a href="https://github.com/sequelize/sequelize/pull/11580">#11580</a></li>
 </ul></div>
         <a data-ice="link" href="manual/upgrade-to-v6.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Upgrade to v7</h1><p>Sequelize v7 is the next major release after v6. Below is a list of breaking changes to help you upgrade.</p><h2>Breaking Changes</h2><h3>Support for Node 12 and up</h3><p>Sequelize v7 will only support those versions of Node.js that are compatible with the ES module specification, namingly version 12 and upwards <a href="https://github.com/sequelize/meetings/issues/5">#5</a>.</p><h3>TypeScript conversion</h3><p>One of the major foundational code changes of v7 is the migration to TypeScript. As a result, the manual typings that were formerly best-effort guesses on top of the JavaScript code base, have been removed and all typings are now directly retrieved from the actual TypeScript code. You'll likely find many tiny differences which however should be easy to fix.</p></div>
+        <a data-ice="link" href="manual/upgrade-to-v7.html"></a>
       </div>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
