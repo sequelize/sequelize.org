@@ -2,8 +2,11 @@
 
 *NOTE: Do not send pull requests to this repository. Send them to the [main repository](https://github.com/sequelize/sequelize) instead.*
 
+### docs based on the main branch:
+https://sequelize.org/main
+
 ### v6 docs:
-https://sequelize.org/master
+https://sequelize.org/v6
 
 ### v5 docs:
 https://sequelize.org/v5

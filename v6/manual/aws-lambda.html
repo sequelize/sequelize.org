@@ -1,0 +1,1298 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | Sequelize</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<link rel="stylesheet" href="./inject/css/0-style.css"><link rel="stylesheet" href="./inject/css/0-theme.css"><meta name="description" content="An easy-to-use multi SQL dialect ORM for Node.js"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Sequelize"><meta property="twitter:description" content="An easy-to-use multi SQL dialect ORM for Node.js"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html" class="api-reference-link">API Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="" href="https://github.com/sequelize/sequelize"><img width="30px" src="./image/github.png" style="width: 30px;"></a>
+      <a href="http://sequelize-slack.herokuapp.com/">
+        <img src="manual/asset/slack.svg" style="width: 60px; margin-left: -15px;">
+      </a>
+    </header>
+
+<nav class="navigation" data-ice="nav"><button id="navigationHamburger" class="hamburger" type="button"><span class="line"></span><span class="line"></span><span class="line"></span></button><div class="manual-toc-root">
+  
+
+    <div class="manual-group">
+      <a href="index.html" style="color: black">Home</a>
+    </div>
+  <div class="manual-group no-mouse">Core Concepts</div><div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/getting-started.html"><a href="manual/getting-started.html" data-ice="link">Getting Started</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#installing" data-ice="link">Installing</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#connecting-to-a-database" data-ice="link">Connecting to a database</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/getting-started.html"><a href="manual/getting-started.html#testing-the-connection" data-ice="link">Testing the connection</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/getting-started.html"><a href="manual/getting-started.html#closing-the-connection" data-ice="link">Closing the connection</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#terminology-convention" data-ice="link">Terminology convention</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#tip-for-reading-the-docs" data-ice="link">Tip for reading the docs</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#new-databases-versus-existing-databases" data-ice="link">New databases versus existing databases</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#logging" data-ice="link">Logging</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#promises-and-async-await" data-ice="link">Promises and async/await</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#providing-the-table-name-directly" data-ice="link">Providing the table name directly</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-synchronization" data-ice="link">Model synchronization</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#synchronizing-all-models-at-once" data-ice="link">Synchronizing all models at once</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#dropping-tables" data-ice="link">Dropping tables</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#database-safety-check" data-ice="link">Database safety check</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#synchronization-in-production" data-ice="link">Synchronization in production</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#timestamps" data-ice="link">Timestamps</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#column-declaration-shorthand-syntax" data-ice="link">Column declaration shorthand syntax</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#default-values" data-ice="link">Default Values</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#data-types" data-ice="link">Data Types</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#strings" data-ice="link">Strings</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#boolean" data-ice="link">Boolean</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#numbers" data-ice="link">Numbers</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#unsigned--amp--zerofill-integers---mysql-mariadb-only" data-ice="link">Unsigned &amp; Zerofill integers - MySQL/MariaDB only</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#dates" data-ice="link">Dates</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#uuids" data-ice="link">UUIDs</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#others" data-ice="link">Others</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#column-options" data-ice="link">Column Options</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#taking-advantage-of-models-being-classes" data-ice="link">Taking advantage of Models being classes</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/model-instances.html"><a href="manual/model-instances.html" data-ice="link">Model Instances</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#creating-an-instance" data-ice="link">Creating an instance</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-instances.html"><a href="manual/model-instances.html#a-very-useful-shortcut--the--code-create--code--method" data-ice="link">A very useful shortcut: the create method</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#note--logging-instances" data-ice="link">Note: logging instances</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#default-values" data-ice="link">Default values</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#updating-an-instance" data-ice="link">Updating an instance</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#deleting-an-instance" data-ice="link">Deleting an instance</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#reloading-an-instance" data-ice="link">Reloading an instance</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#saving-only-some-fields" data-ice="link">Saving only some fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#change-awareness-of-save" data-ice="link">Change-awareness of save</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-instances.html"><a href="manual/model-instances.html#incrementing-and-decrementing-integer-values" data-ice="link">Incrementing and decrementing integer values</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html" data-ice="link">Model Querying - Basics</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#simple-insert-queries" data-ice="link">Simple INSERT queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#simple-select-queries" data-ice="link">Simple SELECT queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#specifying-attributes-for-select-queries" data-ice="link">Specifying attributes for SELECT queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#applying-where-clauses" data-ice="link">Applying WHERE clauses</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#the-basics" data-ice="link">The basics</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#operators" data-ice="link">Operators</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#shorthand-syntax-for--code-op-in--code-" data-ice="link">Shorthand syntax for Op.in</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#logical-combinations-with-operators" data-ice="link">Logical combinations with operators</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#examples-with--code-op-and--code--and--code-op-or--code-" data-ice="link">Examples with Op.and and Op.or</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#examples-with--code-op-not--code-" data-ice="link">Examples with Op.not</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#advanced-queries-with-functions--not-just-columns-" data-ice="link">Advanced queries with functions (not just columns)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#postgres-only-range-operators" data-ice="link">Postgres-only Range Operators</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#deprecated--operator-aliases" data-ice="link">Deprecated: Operator Aliases</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#simple-update-queries" data-ice="link">Simple UPDATE queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#simple-delete-queries" data-ice="link">Simple DELETE queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#creating-in-bulk" data-ice="link">Creating in bulk</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#ordering-and-grouping" data-ice="link">Ordering and Grouping</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#ordering" data-ice="link">Ordering</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#grouping" data-ice="link">Grouping</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#limits-and-pagination" data-ice="link">Limits and Pagination</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#utility-methods" data-ice="link">Utility methods</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#-code-count--code-" data-ice="link">count</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#-code-max--code----code-min--code--and--code-sum--code-" data-ice="link">max, min and sum</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-querying-basics.html"><a href="manual/model-querying-basics.html#-code-increment--code----code-decrement--code-" data-ice="link">increment, decrement</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/model-querying-finders.html"><a href="manual/model-querying-finders.html" data-ice="link">Model Querying - Finders</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-finders.html"><a href="manual/model-querying-finders.html#-code-findall--code-" data-ice="link">findAll</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-finders.html"><a href="manual/model-querying-finders.html#-code-findbypk--code-" data-ice="link">findByPk</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-finders.html"><a href="manual/model-querying-finders.html#-code-findone--code-" data-ice="link">findOne</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-finders.html"><a href="manual/model-querying-finders.html#-code-findorcreate--code-" data-ice="link">findOrCreate</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/model-querying-finders.html"><a href="manual/model-querying-finders.html#-code-findandcountall--code-" data-ice="link">findAndCountAll</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html" data-ice="link">Getters, Setters &amp; Virtuals</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#getters" data-ice="link">Getters</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#setters" data-ice="link">Setters</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#combining-getters-and-setters" data-ice="link">Combining getters and setters</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#virtual-fields" data-ice="link">Virtual fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getters-setters-virtuals.html"><a href="manual/getters-setters-virtuals.html#deprecated-in-sequelize-v7---code-gettermethods--code--and--code-settermethods--code-" data-ice="link">Deprecated in Sequelize v7: getterMethods and setterMethods</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html" data-ice="link">Validations &amp; Constraints</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#difference-between-validations-and-constraints" data-ice="link">Difference between Validations and Constraints</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#unique-constraint" data-ice="link">Unique Constraint</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#allowing-disallowing-null-values" data-ice="link">Allowing/disallowing null values</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#note-about--code-allownull--code--implementation" data-ice="link">Note about allowNull implementation</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#validators" data-ice="link">Validators</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#per-attribute-validations" data-ice="link">Per-attribute validations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#-code-allownull--code--interaction-with-other-validators" data-ice="link">allowNull interaction with other validators</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/validations-and-constraints.html"><a href="manual/validations-and-constraints.html#model-wide-validations" data-ice="link">Model-wide validations</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html" data-ice="link">Raw Queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#-quot-dotted-quot--attributes-and-the--code-nest--code--option" data-ice="link">"Dotted" attributes and the nest option</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#replacements" data-ice="link">Replacements</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/raw-queries.html"><a href="manual/raw-queries.html#bind-parameter" data-ice="link">Bind Parameter</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/assocs.html"><a href="manual/assocs.html" data-ice="link">Associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#defining-the-sequelize-associations" data-ice="link">Defining the Sequelize associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#creating-the-standard-relationships" data-ice="link">Creating the standard relationships</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#one-to-one-relationships" data-ice="link">One-To-One relationships</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#philosophy" data-ice="link">Philosophy</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#goal" data-ice="link">Goal</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#implementation" data-ice="link">Implementation</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#options" data-ice="link">Options</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/assocs.html"><a href="manual/assocs.html#-code-ondelete--code--and--code-onupdate--code-" data-ice="link">onDelete and onUpdate</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/assocs.html"><a href="manual/assocs.html#customizing-the-foreign-key" data-ice="link">Customizing the foreign key</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/assocs.html"><a href="manual/assocs.html#mandatory-versus-optional-associations" data-ice="link">Mandatory versus optional associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#one-to-many-relationships" data-ice="link">One-To-Many relationships</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#philosophy" data-ice="link">Philosophy</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#goal" data-ice="link">Goal</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#implementation" data-ice="link">Implementation</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#options" data-ice="link">Options</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#many-to-many-relationships" data-ice="link">Many-To-Many relationships</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#philosophy" data-ice="link">Philosophy</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#goal" data-ice="link">Goal</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#implementation" data-ice="link">Implementation</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#options" data-ice="link">Options</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#basics-of-queries-involving-associations" data-ice="link">Basics of queries involving associations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#fetching-associations---eager-loading-vs-lazy-loading" data-ice="link">Fetching associations - Eager Loading vs Lazy Loading</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/assocs.html"><a href="manual/assocs.html#lazy-loading-example" data-ice="link">Lazy Loading example</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/assocs.html"><a href="manual/assocs.html#eager-loading-example" data-ice="link">Eager Loading Example</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#creating--updating-and-deleting" data-ice="link">Creating, updating and deleting</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#association-aliases--amp--custom-foreign-keys" data-ice="link">Association Aliases &amp; Custom Foreign Keys</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#recap--the-default-setup" data-ice="link">Recap: the default setup</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#providing-the-foreign-key-name-directly" data-ice="link">Providing the foreign key name directly</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#defining-an-alias" data-ice="link">Defining an Alias</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#doing-both-things" data-ice="link">Doing both things</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#special-methods-mixins-added-to-instances" data-ice="link">Special methods/mixins added to instances</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#-code-foo-hasone-bar---code-" data-ice="link">Foo.hasOne(Bar)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#-code-foo-belongsto-bar---code-" data-ice="link">Foo.belongsTo(Bar)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#-code-foo-hasmany-bar---code-" data-ice="link">Foo.hasMany(Bar)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#-code-foo-belongstomany-bar----through--baz-----code-" data-ice="link">Foo.belongsToMany(Bar, { through: Baz })</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#note--method-names" data-ice="link">Note: Method names</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#why-associations-are-defined-in-pairs-" data-ice="link">Why associations are defined in pairs?</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#multiple-associations-involving-the-same-models" data-ice="link">Multiple associations involving the same models</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/assocs.html"><a href="manual/assocs.html#creating-associations-referencing-a-field-which-is-not-the-primary-key" data-ice="link">Creating associations referencing a field which is not the primary key</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#for--code-belongsto--code--relationships" data-ice="link">For belongsTo relationships</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#for--code-hasone--code--and--code-hasmany--code--relationships" data-ice="link">For hasOne and hasMany relationships</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#for--code-belongstomany--code--relationships" data-ice="link">For belongsToMany relationships</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/assocs.html"><a href="manual/assocs.html#notes" data-ice="link">Notes</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/paranoid.html"><a href="manual/paranoid.html" data-ice="link">Paranoid</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/paranoid.html"><a href="manual/paranoid.html#defining-a-model-as-paranoid" data-ice="link">Defining a model as paranoid</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/paranoid.html"><a href="manual/paranoid.html#deleting" data-ice="link">Deleting</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/paranoid.html"><a href="manual/paranoid.html#restoring" data-ice="link">Restoring</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/paranoid.html"><a href="manual/paranoid.html#behavior-with-other-queries" data-ice="link">Behavior with other queries</a></li>
+</ul>
+  </div>
+<div class="manual-group no-mouse">Advanced Association Concepts</div><div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html" data-ice="link">Eager Loading</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#basic-example" data-ice="link">Basic example</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#fetching-a-single-associated-element" data-ice="link">Fetching a single associated element</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#fetching-all-associated-elements" data-ice="link">Fetching all associated elements</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#fetching-an-aliased-association" data-ice="link">Fetching an Aliased association</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#required-eager-loading" data-ice="link">Required eager loading</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#eager-loading-filtered-at-the-associated-model-level" data-ice="link">Eager loading filtered at the associated model level</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#referring-to-other-columns" data-ice="link">Referring to other columns</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#complex-where-clauses-at-the-top-level" data-ice="link">Complex where clauses at the top-level</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#fetching-with--code-right-outer-join--code---mysql--mariadb--postgresql-and-mssql-only-" data-ice="link">Fetching with RIGHT OUTER JOIN (MySQL, MariaDB, PostgreSQL and MSSQL only)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#multiple-eager-loading" data-ice="link">Multiple eager loading</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#eager-loading-with-many-to-many-relationships" data-ice="link">Eager loading with Many-to-Many relationships</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#including-everything" data-ice="link">Including everything</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#including-soft-deleted-records" data-ice="link">Including soft deleted records</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#ordering-eager-loaded-associations" data-ice="link">Ordering eager loaded associations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#complex-ordering-involving-sub-queries" data-ice="link">Complex ordering involving sub-queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#nested-eager-loading" data-ice="link">Nested eager loading</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/eager-loading.html"><a href="manual/eager-loading.html#using--code-findandcountall--code--with-includes" data-ice="link">Using findAndCountAll with includes</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/creating-with-associations.html"><a href="manual/creating-with-associations.html" data-ice="link">Creating with Associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/creating-with-associations.html"><a href="manual/creating-with-associations.html#belongsto---hasmany---hasone-association" data-ice="link">BelongsTo / HasMany / HasOne association</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/creating-with-associations.html"><a href="manual/creating-with-associations.html#belongsto-association-with-an-alias" data-ice="link">BelongsTo association with an alias</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/creating-with-associations.html"><a href="manual/creating-with-associations.html#hasmany---belongstomany-association" data-ice="link">HasMany / BelongsToMany association</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html" data-ice="link">Advanced M:N Associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#through-tables-versus-normal-tables-and-the--quot-super-many-to-many-association-quot-" data-ice="link">Through tables versus normal tables and the "Super Many-to-Many association"</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#models-recap--with-minor-rename-" data-ice="link">Models recap (with minor rename)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#using-one-to-many-relationships-instead" data-ice="link">Using One-to-Many relationships instead</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#the-best-of-both-worlds--the-super-many-to-many-relationship" data-ice="link">The best of both worlds: the Super Many-to-Many relationship</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#aliases-and-custom-key-names" data-ice="link">Aliases and custom key names</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#self-references" data-ice="link">Self-references</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#specifying-attributes-from-the-through-table" data-ice="link">Specifying attributes from the through table</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/advanced-many-to-many.html"><a href="manual/advanced-many-to-many.html#many-to-many-to-many-relationships-and-beyond" data-ice="link">Many-to-many-to-many relationships and beyond</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/association-scopes.html"><a href="manual/association-scopes.html" data-ice="link">Association Scopes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/association-scopes.html"><a href="manual/association-scopes.html#concept" data-ice="link">Concept</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/association-scopes.html"><a href="manual/association-scopes.html#example" data-ice="link">Example</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/association-scopes.html"><a href="manual/association-scopes.html#achieving-the-same-behavior-with-standard-scopes" data-ice="link">Achieving the same behavior with standard scopes</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html" data-ice="link">Polymorphic Associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#concept" data-ice="link">Concept</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#configuring-a-one-to-many-polymorphic-association" data-ice="link">Configuring a One-to-Many polymorphic association</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#polymorphic-lazy-loading" data-ice="link">Polymorphic lazy loading</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#polymorphic-eager-loading" data-ice="link">Polymorphic eager loading</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#caution---possibly-invalid-eager-lazy-loading-" data-ice="link">Caution - possibly invalid eager/lazy loading!</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#configuring-a-many-to-many-polymorphic-association" data-ice="link">Configuring a Many-to-Many polymorphic association</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/polymorphic-associations.html"><a href="manual/polymorphic-associations.html#applying-scopes-on-the-target-model" data-ice="link">Applying scopes on the target model</a></li>
+</ul>
+  </div>
+<div class="manual-group no-mouse">Other Topics</div><div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html" data-ice="link">Dialect-Specific Things</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#underlying-connector-libraries" data-ice="link">Underlying Connector Libraries</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mysql" data-ice="link">MySQL</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mariadb" data-ice="link">MariaDB</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#sqlite" data-ice="link">SQLite</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#postgresql" data-ice="link">PostgreSQL</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#table-hints---mssql-only" data-ice="link">Table Hints - MSSQL only</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#index-hints---mysql-mariadb-only" data-ice="link">Index Hints - MySQL/MariaDB only</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#engines---mysql-mariadb-only" data-ice="link">Engines - MySQL/MariaDB only</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#table-comments---mysql-mariadb-postgresql-only" data-ice="link">Table comments - MySQL/MariaDB/PostgreSQL only</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/transactions.html"><a href="manual/transactions.html" data-ice="link">Transactions</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#unmanaged-transactions" data-ice="link">Unmanaged transactions</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#managed-transactions" data-ice="link">Managed transactions</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/transactions.html"><a href="manual/transactions.html#throw-errors-to-rollback" data-ice="link">Throw errors to rollback</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/transactions.html"><a href="manual/transactions.html#automatically-pass-transactions-to-all-queries" data-ice="link">Automatically pass transactions to all queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#concurrent-partial-transactions" data-ice="link">Concurrent/Partial transactions</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/transactions.html"><a href="manual/transactions.html#with-cls-enabled" data-ice="link">With CLS enabled</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#passing-options" data-ice="link">Passing options</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#isolation-levels" data-ice="link">Isolation levels</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#usage-with-other-sequelize-methods" data-ice="link">Usage with other sequelize methods</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#the--code-aftercommit--code--hook" data-ice="link">The afterCommit hook</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/transactions.html"><a href="manual/transactions.html#locks" data-ice="link">Locks</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/hooks.html"><a href="manual/hooks.html" data-ice="link">Hooks</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#available-hooks" data-ice="link">Available hooks</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#hooks-firing-order" data-ice="link">Hooks firing order</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#declaring-hooks" data-ice="link">Declaring Hooks</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#removing-hooks" data-ice="link">Removing hooks</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#global---universal-hooks" data-ice="link">Global / universal hooks</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#default-hooks--on-sequelize-constructor-options-" data-ice="link">Default Hooks (on Sequelize constructor options)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#permanent-hooks--with--code-sequelize-addhook--code--" data-ice="link">Permanent Hooks (with sequelize.addHook)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#connection-hooks" data-ice="link">Connection Hooks</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#instance-hooks" data-ice="link">Instance hooks</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#model-hooks" data-ice="link">Model hooks</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#associations" data-ice="link">Associations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#one-to-one-and-one-to-many-associations" data-ice="link">One-to-One and One-to-Many associations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#many-to-many-associations" data-ice="link">Many-to-Many associations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/hooks.html"><a href="manual/hooks.html#hooks-and-transactions" data-ice="link">Hooks and Transactions</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/hooks.html"><a href="manual/hooks.html#internal-transactions" data-ice="link">Internal Transactions</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/query-interface.html"><a href="manual/query-interface.html" data-ice="link">Query Interface</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#obtaining-the-query-interface" data-ice="link">Obtaining the query interface</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#creating-a-table" data-ice="link">Creating a table</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#adding-a-column-to-a-table" data-ice="link">Adding a column to a table</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#changing-the-datatype-of-a-column" data-ice="link">Changing the datatype of a column</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#removing-a-column" data-ice="link">Removing a column</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#changing-and-removing-columns-in-sqlite" data-ice="link">Changing and removing columns in SQLite</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/query-interface.html"><a href="manual/query-interface.html#other" data-ice="link">Other</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html" data-ice="link">Naming Strategies</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html#the--code-underscored--code--option" data-ice="link">The underscored option</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html#singular-vs--plural" data-ice="link">Singular vs. Plural</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html#when-defining-models" data-ice="link">When defining models</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html#when-defining-a-reference-key-in-a-model" data-ice="link">When defining a reference key in a model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html#when-retrieving-data-from-eager-loading" data-ice="link">When retrieving data from eager loading</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/naming-strategies.html"><a href="manual/naming-strategies.html#overriding-singulars-and-plurals-when-defining-aliases" data-ice="link">Overriding singulars and plurals when defining aliases</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/scopes.html"><a href="manual/scopes.html" data-ice="link">Scopes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/scopes.html"><a href="manual/scopes.html#definition" data-ice="link">Definition</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/scopes.html"><a href="manual/scopes.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/scopes.html"><a href="manual/scopes.html#merging" data-ice="link">Merging</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/scopes.html"><a href="manual/scopes.html#merging-includes" data-ice="link">Merging includes</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/sub-queries.html"><a href="manual/sub-queries.html" data-ice="link">Sub Queries</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/sub-queries.html"><a href="manual/sub-queries.html#using-sub-queries-for-complex-ordering" data-ice="link">Using sub-queries for complex ordering</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html" data-ice="link">Other Data Types</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#ranges--postgresql-only-" data-ice="link">Ranges (PostgreSQL only)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#special-cases" data-ice="link">Special Cases</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#blobs" data-ice="link">BLOBs</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#enums" data-ice="link">ENUMs</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#json--sqlite--mysql--mariadb-and-postgresql-only-" data-ice="link">JSON (SQLite, MySQL, MariaDB and PostgreSQL only)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#note-for-postgresql" data-ice="link">Note for PostgreSQL</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#jsonb--postgresql-only-" data-ice="link">JSONB (PostgreSQL only)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#mssql" data-ice="link">MSSQL</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/other-data-types.html"><a href="manual/other-data-types.html#others" data-ice="link">Others</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/constraints-and-circularities.html"><a href="manual/constraints-and-circularities.html" data-ice="link">Constraints &amp; Circularities</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/constraints-and-circularities.html"><a href="manual/constraints-and-circularities.html#enforcing-a-foreign-key-reference-without-constraints" data-ice="link">Enforcing a foreign key reference without constraints</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/extending-data-types.html"><a href="manual/extending-data-types.html" data-ice="link">Extending Data Types</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/extending-data-types.html"><a href="manual/extending-data-types.html#example" data-ice="link">Example</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/extending-data-types.html"><a href="manual/extending-data-types.html#postgresql" data-ice="link">PostgreSQL</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/extending-data-types.html"><a href="manual/extending-data-types.html#ranges" data-ice="link">Ranges</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/indexes.html"><a href="manual/indexes.html" data-ice="link">Indexes</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/optimistic-locking.html"><a href="manual/optimistic-locking.html" data-ice="link">Optimistic Locking</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/read-replication.html"><a href="manual/read-replication.html" data-ice="link">Read Replication</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/connection-pool.html"><a href="manual/connection-pool.html" data-ice="link">Connection Pool</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/legacy.html"><a href="manual/legacy.html" data-ice="link">Working with Legacy Tables</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legacy.html"><a href="manual/legacy.html#tables" data-ice="link">Tables</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legacy.html"><a href="manual/legacy.html#fields" data-ice="link">Fields</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legacy.html"><a href="manual/legacy.html#primary-keys" data-ice="link">Primary keys</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legacy.html"><a href="manual/legacy.html#foreign-keys" data-ice="link">Foreign keys</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/migrations.html"><a href="manual/migrations.html" data-ice="link">Migrations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#installing-the-cli" data-ice="link">Installing the CLI</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#project-bootstrapping" data-ice="link">Project bootstrapping</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#configuration" data-ice="link">Configuration</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#creating-the-first-model--and-migration-" data-ice="link">Creating the first Model (and Migration)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#running-migrations" data-ice="link">Running Migrations</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#undoing-migrations" data-ice="link">Undoing Migrations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#creating-the-first-seed" data-ice="link">Creating the first Seed</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#running-seeds" data-ice="link">Running Seeds</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#undoing-seeds" data-ice="link">Undoing Seeds</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/migrations.html"><a href="manual/migrations.html#migration-skeleton" data-ice="link">Migration Skeleton</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#the--code--sequelizerc--code--file" data-ice="link">The .sequelizerc file</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#dynamic-configuration" data-ice="link">Dynamic configuration</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#using-babel" data-ice="link">Using Babel</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#security-tip" data-ice="link">Security tip</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#storage" data-ice="link">Storage</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/migrations.html"><a href="manual/migrations.html#migration-storage" data-ice="link">Migration Storage</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/migrations.html"><a href="manual/migrations.html#seed-storage" data-ice="link">Seed Storage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#configuration-connection-string" data-ice="link">Configuration Connection String</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/migrations.html"><a href="manual/migrations.html#programmatic-usage" data-ice="link">Programmatic usage</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/typescript.html"><a href="manual/typescript.html" data-ice="link">TypeScript</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#installation" data-ice="link">Installation</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-without-strict-types-for-attributes" data-ice="link">Usage without strict types for attributes</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-of--code-sequelize-define--code-" data-ice="link">Usage of sequelize.define</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/resources.html"><a href="manual/resources.html" data-ice="link">Resources</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/resources.html"><a href="manual/resources.html#addons--amp--plugins" data-ice="link">Addons &amp; Plugins</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#acl" data-ice="link">ACL</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#auto-code-generation--amp--scaffolding" data-ice="link">Auto Code Generation &amp; Scaffolding</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#autoloader" data-ice="link">Autoloader</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#bcrypt" data-ice="link">Bcrypt</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#caching" data-ice="link">Caching</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#filters" data-ice="link">Filters</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#fixtures---mock-data" data-ice="link">Fixtures / mock data</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#hierarchies" data-ice="link">Hierarchies</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#historical-records---time-travel" data-ice="link">Historical records / Time travel</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#joi" data-ice="link">Joi</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#migrations" data-ice="link">Migrations</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#slugification" data-ice="link">Slugification</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#tokens" data-ice="link">Tokens</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/resources.html"><a href="manual/resources.html#miscellaneous" data-ice="link">Miscellaneous</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html" data-ice="link">Upgrade to v6</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#support-for-node-10-and-up" data-ice="link">Support for Node 10 and up</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#cls" data-ice="link">CLS</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#database-engine-support" data-ice="link">Database Engine Support</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#sequelize" data-ice="link">Sequelize</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#model" data-ice="link">Model</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#-code-options-returning--code-" data-ice="link">options.returning</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#-code-model-changed----code-" data-ice="link">Model.changed()</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#-code-model-bulkcreate----code-" data-ice="link">Model.bulkCreate()</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#-code-model-upsert----code-" data-ice="link">Model.upsert()</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#queryinterface" data-ice="link">QueryInterface</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#-code-addconstraint--code-" data-ice="link">addConstraint</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#changelog" data-ice="link">Changelog</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#6-0-0-beta-7" data-ice="link">6.0.0-beta.7</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#6-0-0-beta-6" data-ice="link">6.0.0-beta.6</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#6-0-0-beta-5" data-ice="link">6.0.0-beta.5</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#6-0-0-beta-4" data-ice="link">6.0.0-beta.4</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#6-0-0-beta-3" data-ice="link">6.0.0-beta.3</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v6.html"><a href="manual/upgrade-to-v6.html#6-0-0-beta-2" data-ice="link">6.0.0-beta.2</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/whos-using.html"><a href="manual/whos-using.html" data-ice="link">Who's using sequelize?</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html" data-ice="link">Using sequelize in AWS Lambda</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#tl-dr" data-ice="link">TL;DR</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#using-aws-rds-proxy" data-ice="link">Using AWS RDS Proxy</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#the-node-js-event-loop" data-ice="link">The Node.js event loop</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#aws-lambda-function-handler-types-in-node-js" data-ice="link">AWS Lambda function handler types in Node.js</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#aws-lambda-execution-environments--i-e--containers-" data-ice="link">AWS Lambda execution environments (i.e. containers)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#sequelize-connection-pooling-in-aws-lambda" data-ice="link">Sequelize connection pooling in AWS Lambda</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/aws-lambda.html"><a href="manual/aws-lambda.html#detailed-race-condition-example" data-ice="link">Detailed race condition example</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/legal.html"><a href="manual/legal.html" data-ice="link">Legal Notice</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legal.html"><a href="manual/legal.html#license" data-ice="link">License</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legal.html"><a href="manual/legal.html#author-s-" data-ice="link">AUTHOR(S)</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/legal.html"><a href="manual/legal.html#inhaltliche-verantwortung" data-ice="link">INHALTLICHE VERANTWORTUNG</a></li>
+</ul>
+  </div>
+
+
+
+
+
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="using-sequelize-in-aws-lambda">Using sequelize in AWS Lambda</h1><p><a href="https://aws.amazon.com/lambda/">AWS Lambda</a> is a serverless computing service that allows customers
+to run code without having to worry about the underlying servers. Using <code>sequelize</code> in AWS Lambda
+can be tricky if certain concepts are not properly understood and an appropriate configuration is
+not used. This guide seeks to clarify some of these concepts so users of the library can properly
+configure <code>sequelize</code> for AWS Lambda and troubleshoot issues.</p>
+<h2 id="tl-dr">TL;DR</h2><p>If you just want to learn how to properly configure <code>sequelize</code>
+<a href="./manual/./connection-pool.html">connection pooling</a> for AWS Lambda, all you need to know is that
+<code>sequelize</code> connection pooling does not get along well with AWS Lambda's Node.js runtime and it ends
+up causing more problems than it solves. Therefore, the most appropriate configuration is to <strong>use
+pooling within the same invocation</strong> and <strong>avoid pooling across invocations</strong> (i.e. close all
+connections at the end):</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require("sequelize");
+
+let sequelize = null;
+
+async function loadSequelize() {
+  const sequelize = new Sequelize(/* (...) */, {
+    // (...)
+    pool: {
+      /*
+       * Lambda functions process one request at a time but your code may issue multiple queries
+       * concurrently. Be wary that `sequelize` has methods that issue 2 queries concurrently
+       * (e.g. `Model.findAndCountAll()`). Using a value higher than 1 allows concurrent queries to
+       * be executed in parallel rather than serialized. Careful with executing too many queries in
+       * parallel per Lambda function execution since that can bring down your database with an
+       * excessive number of connections.
+       *
+       * Ideally you want to choose a `max` number where this holds true:
+       * max * EXPECTED_MAX_CONCURRENT_LAMBDA_INVOCATIONS &lt; MAX_ALLOWED_DATABASE_CONNECTIONS * 0.8
+       */
+      max: 2,
+      /*
+       * Set this value to 0 so connection pool eviction logic eventually cleans up all connections
+       * in the event of a Lambda function timeout.
+       */
+      min: 0,
+      /*
+       * Set this value to 0 so connections are eligible for cleanup immediately after they're
+       * returned to the pool.
+       */
+      idle: 0,
+      // Choose a small enough value that fails fast if a connection takes too long to be established.
+      acquire: 3000,
+      /*
+       * Ensures the connection pool attempts to be cleaned up automatically on the next Lambda
+       * function invocation, if the previous invocation timed out.
+       */
+      evict: CURRENT_LAMBDA_FUNCTION_TIMEOUT
+    }
+  });
+
+  // or `sequelize.sync()`
+  await sequelize.authenticate();
+
+  return sequelize;
+}
+
+module.exports.handler = async function (event, callback) {
+  // re-use the sequelize instance across invocations to improve performance
+  if (!sequelize) {
+    sequelize = await loadSequelize();
+  } else {
+    // restart connection pool to ensure connections are not re-used across invocations
+    sequelize.connectionManager.initPools();
+
+    // restore `getConnection()` if it has been overwritten by `close()`
+    if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
+      delete sequelize.connectionManager.getConnection;
+    }
+  }
+
+  try {
+    return await doSomethingWithSequelize(sequelize);
+  } finally {
+    // close any opened connections during the invocation
+    // this will wait for any in-progress queries to finish before closing the connections
+    await sequelize.connectionManager.close();
+  }
+};</code>
+</code></pre>
+<h3 id="using-aws-rds-proxy">Using AWS RDS Proxy</h3><p>If your are using <a href="https://aws.amazon.com/rds/">AWS RDS</a> and you are using
+<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html">Aurora</a> or a
+<a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html">supported database engine</a>,
+then connect to your database using <a href="https://aws.amazon.com/rds/proxy/">AWS RDS Proxy</a>. This will
+make sure that opening/closing connections on each invocation is not an expensive operation for
+your underlying database server.</p>
+<hr>
+<p>If you want to understand why you must use sequelize this way in AWS Lambda, continue reading the
+rest of this document:</p>
+<h2 id="the-node-js-event-loop">The Node.js event loop</h2><p>The <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/">Node.js event loop</a> is:</p>
+<blockquote>
+<p>what allows Node.js to perform non-blocking I/O operations — despite the fact that JavaScript is
+single-threaded —</p>
+</blockquote>
+<p>While the event loop implementation is in C++, here's a simplified JavaScript pseudo-implementation
+that illustrates how Node.js would execute a script named <code>index.js</code>:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">// see: https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
+// see: https://www.youtube.com/watch?v=P9csgxBgaZ8
+// see: https://www.youtube.com/watch?v=PNa9OMajw9w
+const process = require('process');
+
+/*
+ * counter of pending events
+ *
+ * reference counter is increased for every:
+ *
+ * 1. scheduled timer: `setTimeout()`, `setInterval()`, etc.
+ * 2. scheduled immediate: `setImmediate()`.
+ * 3. syscall of non-blocking IO: `require('net').Server.listen()`, etc.
+ * 4. scheduled task to the thread pool: `require('fs').WriteStream.write()`, etc.
+ *
+ * reference counter is decreased for every:
+ *
+ * 1. elapsed timer
+ * 2. executed immediate
+ * 3. completed non-blocking IO
+ * 4. completed thread pool task
+ *
+ * references can be explicitly decreased by invoking `.unref()` on some
+ * objects like: `require('net').Socket.unref()`
+ */
+let refs = 0;
+
+/*
+ * a heap of timers, sorted by next ocurrence
+ *
+ * whenever `setTimeout()` or `setInterval()` is invoked, a timer gets added here
+ */
+const timersHeap = /* (...) */;
+
+/*
+ * a FIFO queue of immediates
+ *
+ * whenever `setImmediate()` is invoked, it gets added here
+ */
+const immediates = /* (...) */;
+
+/*
+ * a FIFO queue of next tick callbacks
+ *
+ * whenever `require('process').nextTick()` is invoked, the callback gets added here
+ */
+const nextTickCallbacks = [];
+
+/*
+ * a heap of Promise-related callbacks, sorted by promise constructors callbacks first,
+ * and then resolved/rejected callbacks
+ *
+ * whenever a new Promise instance is created via `new Promise` or a promise resolves/rejects
+ * the appropriate callback (if any) gets added here
+ */
+const promiseCallbacksHeap = /* ... */;
+
+function execTicksAndPromises() {
+  while (nextTickCallbacks.length || promiseCallbacksHeap.size()) {
+    // execute all callbacks scheduled with `process.nextTick()`
+    while (nextTickCallbacks.length) {
+      const callback = nextTickCallbacks.shift();
+      callback();
+    }
+
+    // execute all promise-related callbacks
+    while (promiseCallbacksHeap.size()) {
+      const callback = promiseCallbacksHeap.pop();
+      callback();
+    }
+  }
+}
+
+try {
+  // execute index.js
+  require('./index');
+  execTicksAndPromises();
+
+  do {
+    // timers phase: executes all elapsed timers
+    getElapsedTimerCallbacks(timersHeap).forEach(callback =&gt; {
+      callback();
+      execTicksAndPromises();
+    });
+
+    // pending callbacks phase: executes some system operations (like `TCP errors`) that are not
+    //                          executed in the poll phase
+    getPendingCallbacks().forEach(callback =&gt; {
+      callback();
+      execTicksAndPromises();
+    })
+
+    // poll phase: gets completed non-blocking I/O events or thread pool tasks and invokes the
+    //             corresponding callbacks; if there are none and there's no pending immediates,
+    //             it blocks waiting for events/completed tasks for a maximum of `maxWait`
+    const maxWait = computeWhenNextTimerElapses(timersHeap);
+    pollForEventsFromKernelOrThreadPool(maxWait, immediates).forEach(callback =&gt; {
+      callback();
+      execTicksAndPromises();
+    });
+
+    // check phase: execute available immediates; if an immediate callback invokes `setImmediate()`
+    //              it will be invoked on the next event loop iteration
+    getImmediateCallbacks(immediates).forEach(callback =&gt; {
+      callback();
+      execTicksAndPromises();
+    });
+
+    // close callbacks phase: execute special `.on('close')` callbacks
+    getCloseCallbacks().forEach(callback =&gt; {
+      callback();
+      execTicksAndPromises();
+    });
+
+    if (refs === 0) {
+      // listeners of this event may execute code that increments `refs`
+      process.emit('beforeExit');
+    }
+  } while (refs &gt; 0);
+} catch (err) {
+  if (!process.listenerCount('uncaughtException')) {
+    // default behavior: print stack and exit with status code 1
+    console.error(err.stack);
+    process.exit(1);
+  } else {
+    // there are listeners: emit the event and exit using `process.exitCode || 0`
+    process.emit('uncaughtException');
+    process.exit();
+  }
+}</code>
+</code></pre>
+<h2 id="aws-lambda-function-handler-types-in-node-js">AWS Lambda function handler types in Node.js</h2><p>AWS Lambda handlers come in two flavors in Node.js:</p>
+<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html#nodejs-handler-sync">Non-async handlers</a>
+(i.e. <code>callback</code>):</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">module.exports.handler = function (event, context, callback) {
+  try {
+    doSomething();
+    callback(null, "Hello World!"); // Lambda returns "Hello World!"
+  } catch (err) {
+    // try/catch is not required, uncaught exceptions invoke `callback(err)` implicitly
+    callback(err); // Lambda fails with `err`
+  }
+};</code>
+</code></pre>
+<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html#nodejs-handler-async">Async handlers</a>
+(i.e. use <code>async</code>/<code>await</code> or <code>Promise</code>s):</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">// async/await
+module.exports.handler = async function (event, context) {
+  try {
+    await doSomethingAsync();
+    return "Hello World!"; // equivalent of: callback(null, "Hello World!");
+  } catch (err) {
+    // try/cath is not required, async functions always return a Promise
+    throw err; // equivalent of: callback(err);
+  }
+};
+
+// Promise
+module.exports.handler = function (event, context) {
+  /*
+   * must return a `Promise` to be considered an async handler
+   *
+   * an uncaught exception that prevents a `Promise` to be returned
+   * by the handler will "downgrade" the handler to non-async
+   */
+  return Promise.resolve()
+    .then(() =&gt; doSomethingAsync())
+    .then(() =&gt; "Hello World!");
+};</code>
+</code></pre>
+<p>While at first glance it seems like async VS non-async handlers are simply a code styling choice,
+there is a fundamental difference between the two:</p>
+<ul>
+<li>In async handlers, a Lambda function execution finishes when the <code>Promise</code> returned by the handler
+resolves or rejects, regardless of whether the event loop is empty or not.</li>
+<li>In non-async handlers, a Lambda function execution finishes when one of the following conditions
+occur:<ul>
+<li>The event loop is empty
+(<a href="https://nodejs.org/dist/latest-v12.x/docs/api/process.html#process_event_beforeexit">process <code>'beforeExit'</code> event</a>
+is used to detect this).</li>
+<li>The <code>callback</code> argument is invoked and
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/nodejs-context.html"><code>context.callbackWaitsForEmptyEventLoop</code></a>
+is set to <code>false</code>.</li>
+</ul>
+</li>
+</ul>
+<p>This fundamental difference is very important to understand in order to rationalize how <code>sequelize</code>
+may be affected by it. Here are a few examples to illustrate the difference:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">// no callback invoked
+module.exports.handler = function () {
+  // Lambda finishes AFTER `doSomething()` is invoked
+  setTimeout(() =&gt; doSomething(), 1000);
+};
+
+// callback invoked
+module.exports.handler = function (event, context, callback) {
+  // Lambda finishes AFTER `doSomething()` is invoked
+  setTimeout(() =&gt; doSomething(), 1000);
+  callback(null, "Hello World!");
+};
+
+// callback invoked, context.callbackWaitsForEmptyEventLoop = false
+module.exports.handler = function (event, context, callback) {
+  // Lambda finishes BEFORE `doSomething()` is invoked
+  context.callbackWaitsForEmptyEventLoop = false;
+  setTimeout(() =&gt; doSomething(), 2000);
+  setTimeout(() =&gt; callback(null, "Hello World!"), 1000);
+};
+
+// async/await
+module.exports.handler = async function () {
+  // Lambda finishes BEFORE `doSomething()` is invoked
+  setTimeout(() =&gt; doSomething(), 1000);
+  return "Hello World!";
+};
+
+// Promise
+module.exports.handler = function () {
+  // Lambda finishes BEFORE `doSomething()` is invoked
+  setTimeout(() =&gt; doSomething(), 1000);
+  return Promise.resolve("Hello World!");
+};</code>
+</code></pre>
+<h2 id="aws-lambda-execution-environments--i-e--containers-">AWS Lambda execution environments (i.e. containers)</h2><p>AWS Lambda function handlers are invoked by built-in or custom
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtimes</a> which run in
+execution environments (i.e. containers) that
+<a href="https://aws.amazon.com/blogs/compute/container-reuse-in-lambda/">may or may not be re-used</a>
+across invocations. Containers can only process
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">one request at a time</a>.
+Concurrent invocations of a Lambda function means that a container instance will be created for each
+concurrent request.</p>
+<p>In practice, this means that Lambda functions should be designed to be stateless but developers can
+use state for caching purposes:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">let sequelize = null;
+
+module.exports.handler = async function () {
+  /*
+   * sequelize will already be loaded if the container is re-used
+   *
+   * containers are never re-used when a Lambda function's code change
+   *
+   * while the time elapsed between Lambda invocations is used as a factor to determine whether
+   * a container is re-used, no assumptions should be made of when a container is actually re-used
+   *
+   * AWS does not publicly document the rules of container re-use "by design" since containers
+   * can be recycled in response to internal AWS Lambda events (e.g. a Lambda function container
+   * may be recycled even if the function is constanly invoked)
+   */
+  if (!sequelize) {
+    sequelize = await loadSequelize();
+  }
+
+  return await doSomethingWithSequelize(sequelize);
+};</code>
+</code></pre>
+<p>When a Lambda function doesn't wait for the event loop to be empty and a container is re-used,
+the event loop will be "paused" until the next invocation occurs. For example:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">let counter = 0;
+
+module.exports.handler = function (event, context, callback) {
+  /*
+   * The first invocation (i.e. container initialized) will:
+   * - log:
+   *   - Fast timeout invoked. Request id: 00000000-0000-0000-0000-000000000000 | Elapsed ms: 5XX
+   * - return: 1
+   *
+   * Wait 3 seconds and invoke the Lambda again. The invocation (i.e. container re-used) will:
+   * - log:
+   *   - Slow timeout invoked. Request id: 00000000-0000-0000-0000-000000000000 | Elapsed ms: 3XXX
+   *   - Fast timeout invoked. Request id: 11111111-1111-1111-1111-111111111111 | Elapsed ms: 5XX
+   * - return: 3
+   */
+  const now = Date.now();
+
+  context.callbackWaitsForEmptyEventLoop = false;
+
+  setTimeout(() =&gt; {
+    console.log(
+      "Slow timeout invoked. Request id:",
+      context.awsRequestId,
+      "| Elapsed ms:",
+      Date.now() - now
+    );
+    counter++;
+  }, 1000);
+
+  setTimeout(() =&gt; {
+    console.log(
+      "Fast timeout invoked. Request id:",
+      context.awsRequestId,
+      "| Elapsed ms:",
+      Date.now() - now
+    );
+    counter++;
+    callback(null, counter);
+  }, 500);
+};</code>
+</code></pre>
+<h2 id="sequelize-connection-pooling-in-aws-lambda">Sequelize connection pooling in AWS Lambda</h2><p><code>sequelize</code> uses connection pooling for optimizing usage of database connections. The connection
+pool used by <code>sequelize</code> is implemented using <code>setTimeout()</code> callbacks (which are processed by the
+Node.js event loop).</p>
+<p>Given the fact that AWS Lambda containers process one request at a time, one would be tempted to
+configure <code>sequelize</code> as follows:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize(/* (...) */, {
+  // (...)
+  pool: { min: 1, max: 1 }
+});</code>
+</code></pre>
+<p>This configuration prevents Lambda containers from overwhelming the database server with an
+excessive number of connections (since each container takes at most 1 connection). It also makes
+sure that the container's connection is not garbage collected when idle so the connection does not
+need to be re-established when the Lambda container is re-used. Unfortunately, this configuration
+presents a set of issues:</p>
+<ol>
+<li>Lambdas that wait for the event loop to be empty will always time out. <code>sequelize</code> connection
+pools schedule a <code>setTimeout</code> every
+<a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor"><code>options.pool.evict</code></a>
+ms until <strong>all idle connections have been closed</strong>. However, since <code>min</code> is set to <code>1</code>, there
+will always be at least one idle connection in the pool, resulting in an infinite event loop.</li>
+<li>Some operations like
+<a href="./manual/../class/lib/model.js~Model.html#static-method-findAndCountAll"><code>Model.findAndCountAll()</code></a>
+execute multiple queries asynchronously (e.g.
+<a href="./manual/..class/lib/model.js~Model.html#static-method-count"><code>Model.count()</code></a> and
+<a href="./manual/../class/lib/model.js~Model.html#static-method-findAll"><code>Model.findAll()</code></a>). Using a maximum of
+one connection forces the queries to be exectued serially (rather than in parallel using two
+connections). While this may be an acceptable performance compromise in order to
+maintain a manageable number of database connections, long running queries may result in
+<a href="./manual/../class/lib/errors/connection/connection-acquire-timeout-error.js~ConnectionAcquireTimeoutError.html"><code>ConnectionAcquireTimeoutError</code></a>
+if a query takes more than the default or configured
+<a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor"><code>options.pool.acquire</code></a>
+timeout to complete. This is because the serialized query will be stuck waiting on the pool until
+the connection used by the other query is released.</li>
+<li>If the AWS Lambda function times out (i.e. the configured AWS Lambda timeout is exceeded), the
+Node.js event loop will be "paused" regardless of its state. This can cause race conditions that
+result in connection errors. For example, you may encounter situations where a very expensive
+query causes a Lambda function to time out, the event loop is "paused" before the expensive query
+finishes and the connection is released back to the pool, and subsequent Lambda invocations fail
+with a <code>ConnectionAcquireTimeoutError</code> if the container is re-used and the connection has not
+been returned after <code>options.pool.acquire</code> ms.</li>
+</ol>
+<p>You can attempt to mitigate issue <strong>#2</strong> by using <code>{ min: 1, max: 2 }</code>. However, this will still
+suffer from issues <strong>#1</strong> and <strong>#3</strong> whilst introducing additional ones:</p>
+<ol>
+<li>Race conditions may occur where the even loop "pauses" before a connection pool eviction callback
+executes or more than <code>options.pool.evict</code> time elapses between Lambda invocations. This can
+result in timeout errors, handshake errors, and other connection-related errors.</li>
+<li>If you use an operation like <code>Model.findAndCountAll()</code> and either the underlying <code>Model.count()</code>
+or <code>Model.findAll()</code> queries fail, you won't be able to ensure that the other query has finished
+executing (and the connection is put back into the pool) before the Lambda function execution
+finishes and the event loop is "paused". This can leave connections in a stale state which can
+result in prematurely closed TCP connections and other connection-related errors.</li>
+</ol>
+<p>Using <code>{ min: 2, max: 2 }</code> mitigates additional issue <strong>#1</strong>. However, the configuration still
+suffers from all the other issues (original <strong>#1</strong>, <strong>#3</strong>, and additional <strong>#2</strong>).</p>
+<h3 id="detailed-race-condition-example">Detailed race condition example</h3><p>In order to make sense of the example, you'll need a bit more context of how certain parts of
+Lambda and <code>sequelize</code> are implemented.</p>
+<p>The built-in AWS Lambda runtime for <code>nodejs.12x</code> is implemented in Node.js. You can access the
+entire source code of the runtime by reading the contents of <code>/var/runtime/</code> inside a Node.js Lambda
+function. The relevant subset of the code is as follows:</p>
+<p><strong>runtime/Runtime.js</strong></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">class Runtime {
+  // (...)
+
+  // each iteration is executed in the event loop `check` phase
+  scheduleIteration() {
+    setImmediate(() =&gt; this.handleOnce().then(/* (...) */));
+  }
+
+  async handleOnce() {
+    // get next invocation. see: https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html#runtimes-api-next
+    let { bodyJson, headers } = await this.client.nextInvocation();
+
+    // prepare `context` handler parameter
+    let invokeContext = new InvokeContext(headers);
+    invokeContext.updateLoggingContext();
+
+    // prepare `callback` handler parameter
+    let [callback, callbackContext] = CallbackContext.build(
+      this.client,
+      invokeContext.invokeId,
+      this.scheduleIteration.bind(this)
+    );
+
+    try {
+      // this listener is subscribed to process.on('beforeExit')
+      // so that when when `context.callbackWaitsForEmptyEventLoop === true`
+      // the Lambda execution finishes after the event loop is empty
+      this._setDefaultExitListener(invokeContext.invokeId);
+
+      // execute handler
+      const result = this.handler(
+        JSON.parse(bodyJson),
+        invokeContext.attachEnvironmentData(callbackContext),
+        callback
+      );
+
+      // finish the execution if the handler is async
+      if (_isPromise(result)) {
+        result
+          .then(callbackContext.succeed, callbackContext.fail)
+          .catch(callbackContext.fail);
+      }
+    } catch (err) {
+      callback(err);
+    }
+  }
+}</code>
+</code></pre>
+<p>The runtime schedules an iteration at the end of the initialization code:</p>
+<p><strong>runtime/index.js</strong></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">// (...)
+
+new Runtime(client, handler, errorCallbacks).scheduleIteration();</code>
+</code></pre>
+<p>All SQL queries invoked by a Lambda handler using <code>sequelize</code> are ultimately executed using
+<a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-query">Sequelize.prototype.query()</a>.
+This method is responsible for obtaining a connection from the pool, executing the query, and
+releasing the connection back to the pool when the query completes. The following snippet shows
+a simplification of the method's logic for queries without transactions:</p>
+<p><strong>sequelize.js</strong></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">class Sequelize {
+  // (...)
+
+  query(sql, options) {
+    // (...)
+
+    const connection = await this.connectionManager.getConnection(options);
+    const query = new this.dialect.Query(connection, this, options);
+
+    try {
+      return await query.run(sql, bindParameters);
+    } finally {
+      await this.connectionManager.releaseConnection(connection);
+    }
+  }
+}</code>
+</code></pre>
+<p>The field <code>this.connectionManager</code> is an instance of a dialect-specific <code>ConnectionManager</code> class.
+All dialect-specific managers inherit from an abstract <code>ConnectionManager</code> class which initializes
+the connection pool and configures it to invoke the dialect-specific class' <code>connect()</code> method
+everytime a new connection needs to be created. The following snippet shows a simplification of the
+<code>mysql</code> dialect <code>connect()</code> method:</p>
+<p><strong>mysql/connection-manager.js</strong></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">class ConnectionManager {
+  // (...)
+
+  async connect(config) {
+    // (...)
+    return await new Promise((resolve, reject) =&gt; {
+      // uses mysql2's `new Connection()`
+      const connection = this.lib.createConnection(connectionConfig);
+
+      const errorHandler = (e) =&gt; {
+        connection.removeListener("connect", connectHandler);
+        connection.removeListener("error", connectHandler);
+        reject(e);
+      };
+
+      const connectHandler = () =&gt; {
+        connection.removeListener("error", errorHandler);
+        resolve(connection);
+      };
+
+      connection.on("error", errorHandler);
+      connection.once("connect", connectHandler);
+    });
+  }
+}</code>
+</code></pre>
+<p>The field <code>this.lib</code> refers to <a href="https://www.npmjs.com/package/mysql2"><code>mysql2</code></a> and the function
+<code>createConnection()</code> creates a connection by creating an instance of a <code>Connection</code> class. The
+relevant subset of this class is as follows:</p>
+<p><strong>mysql2/connection.js</strong></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">class Connection extends EventEmitter {
+  constructor(opts) {
+    // (...)
+
+    // create Socket
+    this.stream = /* (...) */;
+
+    // when data is received, clear timeout
+    this.stream.on('data', data =&gt; {
+      if (this.connectTimeout) {
+        Timers.clearTimeout(this.connectTimeout);
+        this.connectTimeout = null;
+      }
+      this.packetParser.execute(data);
+    });
+
+    // (...)
+
+    // when handshake is completed, emit the 'connect' event
+    handshakeCommand.on('end', () =&gt; {
+      this.emit('connect', handshakeCommand.handshake);
+    });
+
+    // set a timeout to trigger if no data is received on the socket
+    if (this.config.connectTimeout) {
+      const timeoutHandler = this._handleTimeoutError.bind(this);
+      this.connectTimeout = Timers.setTimeout(
+        timeoutHandler,
+        this.config.connectTimeout
+      );
+    }
+  }
+
+  // (...)
+
+  _handleTimeoutError() {
+    if (this.connectTimeout) {
+      Timers.clearTimeout(this.connectTimeout);
+      this.connectTimeout = null;
+    }
+    this.stream.destroy &amp;&amp; this.stream.destroy();
+    const err = new Error('connect ETIMEDOUT');
+    err.errorno = 'ETIMEDOUT';
+    err.code = 'ETIMEDOUT';
+    err.syscall = 'connect';
+
+    // this will emit the 'error' event
+    this._handleNetworkError(err);
+  }
+}</code>
+</code></pre>
+<p>Based on the previous code, the following sequence of events shows how a connection pooling
+race condition with <code>{ min: 1, max: 1 }</code> can result with in a <code>ETIMEDOUT</code> error:</p>
+<ol>
+<li>A Lambda invocation is received (new container):<ol>
+<li>The event loop enters the <code>check</code> phase and <code>runtime/Runtime.js</code>'s <code>handleOnce()</code> method is
+invoked.<ol>
+<li>The <code>handleOnce()</code> method invokes <code>await this.client.nextInvocation()</code> and waits.</li>
+</ol>
+</li>
+<li>The event loop skips the <code>timers</code> phase since there no pending timers.</li>
+<li>The event loop enters the <code>poll</code> phase and the <code>handleOnce()</code> method continues.</li>
+<li>The Lambda handler is invoked.</li>
+<li>The Lambda handler invokes <code>Model.count()</code> which invokes <code>sequelize.js</code>'s <code>query()</code> which
+invokes <code>connectionManager.getConnection()</code>.</li>
+<li>The connection pool initializes a <code>setTimeout(..., config.pool.acquire)</code> for <code>Model.count()</code>
+and invokes <code>mysql/connection-manager.js</code>'s <code>connect()</code> to create a new connection.</li>
+<li><code>mysql2/connection.js</code> creates the TCP socket and initializes a <code>setTimeout()</code> for failing
+the connection with <code>ETIMEDOUT</code>.</li>
+<li>The promise returned by the handler rejects (for reasons not detailed here) so the Lambda
+function execution finishes and the Node.js event loop is "paused".</li>
+</ol>
+</li>
+<li>Enough time elapses beween invocations so that:<ol>
+<li><code>config.pool.acquire</code> timer elapses.</li>
+<li><code>mysql2</code> connection timer has not elapsed yet but has almost elapsed (i.e. race condition).</li>
+</ol>
+</li>
+<li>A second Lambda invocation is received (container re-used):<ol>
+<li>The event loop is "resumed".</li>
+<li>The event loop enters the <code>check</code> phase and <code>runtime/Runtime.js</code>'s <code>handleOnce()</code> method is
+invoked.</li>
+<li>The event loop enters the <code>timers</code> phase and the <code>config.pool.acquire</code> timer elapses, causing
+the previous invocation's <code>Model.count()</code> promise to reject with
+<code>ConnectionAcquireTimeoutError</code>.</li>
+<li>The event loop enters the <code>poll</code> phase and the <code>handleOnce()</code> method continues.</li>
+<li>The Lambda handler is invoked.</li>
+<li>The Lambda handler invokes <code>Model.count()</code> which invokes <code>sequelize.js</code>'s <code>query()</code> which
+invokes <code>connectionManager.getConnection()</code>.</li>
+<li>The connection pool initializes a <code>setTimeout(..., config.pool.acquire)</code> for <code>Model.count()</code>
+and since <code>{ max : 1 }</code> it waits for the pending <code>connect()</code> promise to complete.</li>
+<li>The event loop skips the <code>check</code> phase since there are no pending immediates.</li>
+<li><strong>Race condition:</strong> The event loop enters the <code>timers</code> phase and the <code>mysql2</code> connection
+timeout elapses, resulting in a <code>ETIMEDOUT</code> error that is emitted using
+<code>connection.emit('error')</code>.</li>
+<li>The emitted event rejects the promise in <code>mysql/connection-manager.js</code>'s <code>connect()</code> which
+in turn forwards the rejected promise to the <code>Model.count()</code> query's promise.</li>
+<li>The lambda function fails with an <code>ETIMEDOUT</code> error.</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+
+
+<script>'use strict';
+
+(() => {
+  function toggleNavigationBar() {
+    const navigationElements = document.getElementsByClassName('navigation');
+    for (let i = 0; i < navigationElements.length; ++i) {
+      const navigationElement = navigationElements[i];
+      navigationElement.classList.toggle('open');
+    }
+  }
+
+  // Hamburger button - toggles the navigation bar
+  const hamburger = document.getElementById('navigationHamburger');
+  hamburger.addEventListener('click', () => {
+    toggleNavigationBar();
+  });
+
+  // Each link in the navigation bar - closes the navigation bar
+  const navigationLinks = document.querySelectorAll('.navigation a');
+  for (let i = 0; i < navigationLinks.length; ++i) {
+    const linkElement = navigationLinks[i];
+    linkElement.addEventListener('click', () => {
+      toggleNavigationBar();
+    });
+  }
+})();
+</script></body></html>
