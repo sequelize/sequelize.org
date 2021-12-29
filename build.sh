@@ -15,7 +15,8 @@ build_branch () {
         mv ./site ../$BUILD_DIR/$1
     else
         if [ $1 == "main" ]; then
-          mv ./esdoc ../$BUILD_DIR/master
+          cp ./esdoc ../$BUILD_DIR/master
+          mv ./esdoc ../$BUILD_DIR/main
         else
           mv ./esdoc ../$BUILD_DIR/$1
         fi
@@ -28,6 +29,7 @@ git clone $CLONE_URL
 cd $REPO_NAME
 
 build_branch main
+build_branch v6
 build_branch v5
 build_branch v4
 build_branch v3
