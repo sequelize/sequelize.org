@@ -15,10 +15,11 @@ build_branch () {
         mv ./site ../$BUILD_DIR/$1
     else
         if [ $1 == "main" ]; then
-          cp ./esdoc ../$BUILD_DIR/master
-          mv ./esdoc ../$BUILD_DIR/main
+            mkdir ../$BUILD_DIR/master
+            cp ../assets/redirect-master.html ../$BUILD_DIR/master/index.html
+            mv ./esdoc ../$BUILD_DIR/main
         else
-          mv ./esdoc ../$BUILD_DIR/$1
+            mv ./esdoc ../$BUILD_DIR/$1
         fi
     fi
 }
