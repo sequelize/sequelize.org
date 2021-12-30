@@ -4,11 +4,11 @@ BUILD_DIR=site
 
 build_branch () {
     git checkout $1
-
+    
     npm install
     npm run docs
     git stash
-
+    
     rm -rf ../$1
     if [ $1 == "v3" ];then
         mkdocs build --clean
@@ -16,11 +16,10 @@ build_branch () {
     else
         if [ $1 == "main" ]; then
             mkdir ../$BUILD_DIR/master
-            cp ../assets/redirect-master.html ../$BUILD_DIR/master/index.html
-            mv ./esdoc ../$BUILD_DIR/main
-        else
-            mv ./esdoc ../$BUILD_DIR/$1
+            cp -r ./esdoc/* ../$BUILD_DIR/master/
         fi
+
+        mv ./esdoc ../$BUILD_DIR/$1
     fi
 }
 
@@ -30,6 +29,7 @@ git clone $CLONE_URL
 cd $REPO_NAME
 
 build_branch main
+build_branch v7
 build_branch v6
 build_branch v5
 build_branch v4
