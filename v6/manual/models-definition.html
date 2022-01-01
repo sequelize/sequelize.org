@@ -57,6 +57,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#providing-the-table-name-directly" data-ice="link">Providing the table name directly</a></li>
@@ -585,9 +586,10 @@
 <p>The only exception is the guide on <code>sequelize.import</code>, which is deprecated and was removed from the docs. However, if you really need it, it was kept here.</p>
 <hr>
 <h2 id="deprecated---code-sequelize-import--code-">Deprecated: <code>sequelize.import</code></h2><blockquote>
-<p><em><strong>Note:</strong> You should not use <code>sequelize.import</code>. Please just use <code>require</code> instead.</em></p>
+<p>_<strong>Note:</strong> You should not use <code>sequelize.import</code>. Please just use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports"><code>import()</code></a>, or <a href="https://nodejs.org/api/modules.html#requireid"><code>require</code></a> instead._</p>
 <p><em>This documentation has been kept just in case you really need to maintain old code that uses it.</em></p>
 </blockquote>
+<p><code>sequelize.import</code> can only load <a href="https://nodejs.org/api/modules.html">CommonJS</a> files, and is not capable of loading <a href="https://nodejs.org/api/esm.html"><code>ecmascript modules</code></a>. Use native <code>import</code> if you need to load ecmascript modules.</p>
 <p>You can store your model definitions in a single file using the <code>sequelize.import</code> method. The returned object is exactly the same as defined in the imported file's function. The import is cached, just like <code>require</code>, so you won't run into trouble if importing a file more than once.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// in your server file - e.g. app.js
 const Project = sequelize.import(__dirname + "/path/to/models/project");

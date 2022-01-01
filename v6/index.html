@@ -57,6 +57,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#providing-the-table-name-directly" data-ice="link">Providing the table name directly</a></li>
@@ -724,7 +725,55 @@ User.init({
 
 // the defined model is the class itself
 console.log(User === sequelize.models.User); // true</code>
-</code></pre><p>Internally, <code>sequelize.define</code> calls <code>Model.init</code>, so both approaches are essentially equivalent.</p><h2>Table name inference</h2><p>Observe that, in both methods above, the table name (<code>Users</code>) was never explicitly defined. However, the model name was given (<code>User</code>).</p><p>By default, when the table name is not given, Sequelize automatically pluralizes the model name and uses that as the table name. This pluralization is done under the hood by a library called <a href="https://www.npmjs.com/package/inflection">inflection</a>, so that irregular plurals (such as <code>person -&gt; people</code>) are computed correctly.</p><p>Of course, this behavior is easily configurable.</p><h3>Enforcing the table name to be equal to the model name</h3><p>You can stop the auto-pluralization performed by Sequelize using the <code>freezeTableName: true</code> option. This way, Sequelize will infer the table name to be equal to the model name, without any modifications:</p><pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('User', {
+</code></pre><p>Internally, <code>sequelize.define</code> calls <code>Model.init</code>, so both approaches are essentially equivalent.</p><h4>Caveat with Public Class Fields</h4><p>Adding a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields">Public Class Field</a> with the same name as one of the model's attribute is going to cause issues.
+Sequelize adds a getter &amp; a setter for each attribute defined through <code>Model.init</code>.
+Adding a Public Class Field will shadow those getter and setters, blocking access to the model's actual data.</p><pre><code class="lang-typescript"><code class="source-code prettyprint">// Invalid
+class User extends Model {
+  id; // this field will shadow sequelize's getter &amp; setter. It should be removed.
+  otherPublicField; // this field does not shadow anything. It is fine.
+}
+
+User.init({
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  }
+}, { sequelize });
+
+const user = new User({ id: 1 });
+user.id; // undefined</code>
+</code></pre><pre><code class="lang-typescript"><code class="source-code prettyprint">// Valid
+class User extends Model {
+  otherPublicField;
+}
+
+User.init({
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  }
+}, { sequelize });
+
+const user = new User({ id: 1 });
+user.id; // 1</code>
+</code></pre><p>In TypeScript, you can add typing information without adding an actual public class field by using the <code>declare</code> keyword:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">// Valid
+class User extends Model {
+  declare id: number; // this is ok! The 'declare' keyword ensures this field will not be emitted by TypeScript.
+}
+
+User.init({
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  }
+}, { sequelize });
+
+const user = new User({ id: 1 });
+user.id; // 1</code>
+</code></pre><h2>Table name inference</h2><p>Observe that, in both methods above, the table name (<code>Users</code>) was never explicitly defined. However, the model name was given (<code>User</code>).</p><p>By default, when the table name is not given, Sequelize automatically pluralizes the model name and uses that as the table name. This pluralization is done under the hood by a library called <a href="https://www.npmjs.com/package/inflection">inflection</a>, so that irregular plurals (such as <code>person -&gt; people</code>) are computed correctly.</p><p>Of course, this behavior is easily configurable.</p><h3>Enforcing the table name to be equal to the model name</h3><p>You can stop the auto-pluralization performed by Sequelize using the <code>freezeTableName: true</code> option. This way, Sequelize will infer the table name to be equal to the model name, without any modifications:</p><pre><code class="lang-js"><code class="source-code prettyprint">sequelize.define('User', {
   // ... (attributes)
 }, {
   freezeTableName: true
@@ -5434,18 +5483,14 @@ module.exports = {
         <div data-ice="card"><h1>TypeScript</h1><p>Since v5, Sequelize provides its own TypeScript definitions. Please note that only TS &gt;= 3.1 is supported.</p><p>As Sequelize heavily relies on runtime property assignments, TypeScript won't be very useful out of the box. A decent amount of manual type declarations are needed to make models workable.</p><h2>Installation</h2><p>In order to avoid installation bloat for non TS users, you must install the following typing packages manually:</p><ul>
 <li><code>@types/node</code> (this is universally required in node projects)</li>
 <li><code>@types/validator</code></li>
-</ul><h2>Usage</h2><p>Example of a minimal TypeScript project with strict type-checking for attributes.</p><p><strong>NOTE:</strong> Keep the following code in sync with <code>/types/test/typescriptDocs/ModelInit.ts</code> to ensure it typechecks correctly.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import {
-  Sequelize,
-  Model,
-  ModelDefined,
-  DataTypes,
-  HasManyGetAssociationsMixin,
-  HasManyAddAssociationMixin,
-  HasManyHasAssociationMixin,
-  Association,
-  HasManyCountAssociationsMixin,
-  HasManyCreateAssociationMixin,
-  Optional,
+</ul><h2>Usage</h2><p>Example of a minimal TypeScript project with strict type-checking for attributes.</p><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
+See <a href="./manual/./model-basics.html#caveat-with-public-class-fields">Caveat with Public Class Fields</a></p><p><strong>NOTE:</strong> Keep the following code in sync with <code>/types/test/typescriptDocs/ModelInit.ts</code> to ensure it typechecks correctly.</p><pre><code class="lang-typescript"><code class="source-code prettyprint">/**
+ * Keep this file in sync with the code in the "Usage" section in typescript.md
+ */
+import {
+  Association, DataTypes, HasManyAddAssociationMixin, HasManyCountAssociationsMixin,
+  HasManyCreateAssociationMixin, HasManyGetAssociationsMixin, HasManyHasAssociationMixin, Model,
+  ModelDefined, Optional, Sequelize
 } from "sequelize";
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
@@ -5462,28 +5507,28 @@ interface UserCreationAttributes extends Optional&lt;UserAttributes, "id"&gt; {}
 
 class User extends Model&lt;UserAttributes, UserCreationAttributes&gt;
   implements UserAttributes {
-  public id!: number; // Note that the `null assertion` `!` is required in strict mode.
-  public name!: string;
-  public preferredName!: string | null; // for nullable fields
+  declare id: number; // Note that the `null assertion` `!` is required in strict mode.
+  declare name: string;
+  declare preferredName: string | null; // for nullable fields
 
   // timestamps!
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 
   // Since TS cannot determine model association at compile time
   // we have to declare them here purely virtually
   // these will not exist until `Model.init` was called.
-  public getProjects!: HasManyGetAssociationsMixin&lt;Project&gt;; // Note the null assertions!
-  public addProject!: HasManyAddAssociationMixin&lt;Project, number&gt;;
-  public hasProject!: HasManyHasAssociationMixin&lt;Project, number&gt;;
-  public countProjects!: HasManyCountAssociationsMixin;
-  public createProject!: HasManyCreateAssociationMixin&lt;Project&gt;;
+  declare getProjects: HasManyGetAssociationsMixin&lt;Project&gt;; // Note the null assertions!
+  declare addProject: HasManyAddAssociationMixin&lt;Project, number&gt;;
+  declare hasProject: HasManyHasAssociationMixin&lt;Project, number&gt;;
+  declare countProjects: HasManyCountAssociationsMixin;
+  declare createProject: HasManyCreateAssociationMixin&lt;Project&gt;;
 
   // You can also pre-declare possible inclusions, these will only be populated if you
   // actively include a relation.
-  public readonly projects?: Project[]; // Note this is optional since it's only populated when explicitly requested in code
+  declare readonly projects?: Project[]; // Note this is optional since it's only populated when explicitly requested in code
 
-  public static associations: {
+  declare static associations: {
     projects: Association&lt;User, Project&gt;;
   };
 }
@@ -5492,18 +5537,19 @@ interface ProjectAttributes {
   id: number;
   ownerId: number;
   name: string;
+  description?: string;
 }
 
 interface ProjectCreationAttributes extends Optional&lt;ProjectAttributes, "id"&gt; {}
 
 class Project extends Model&lt;ProjectAttributes, ProjectCreationAttributes&gt;
   implements ProjectAttributes {
-  public id!: number;
-  public ownerId!: number;
-  public name!: string;
+  declare id: number;
+  declare ownerId: number;
+  declare name: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 interface AddressAttributes {
@@ -5514,11 +5560,11 @@ interface AddressAttributes {
 // You can write `extends Model&lt;AddressAttributes, AddressAttributes&gt;` instead,
 // but that will do the exact same thing as below
 class Address extends Model&lt;AddressAttributes&gt; implements AddressAttributes {
-  public userId!: number;
-  public address!: string;
+  declare userId: number;
+  declare address: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 // You can also define modules in a functional way
@@ -5529,7 +5575,8 @@ interface NoteAttributes {
 }
 
 // You can also set multiple attributes optional at once
-interface NoteCreationAttributes extends Optional&lt;NoteAttributes, 'id' | 'title'&gt; {};
+interface NoteCreationAttributes
+  extends Optional&lt;NoteAttributes, "id" | "title"&gt; {}
 
 Project.init(
   {
@@ -5545,6 +5592,10 @@ Project.init(
     name: {
       type: new DataTypes.STRING(128),
       allowNull: false,
+    },
+    description: {
+      type: new DataTypes.STRING(128),
+      allowNull: true,
     },
   },
   {
@@ -5596,7 +5647,7 @@ const Note: ModelDefined&lt;
   NoteAttributes,
   NoteCreationAttributes
 &gt; = sequelize.define(
-  'Note',
+  "Note",
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -5605,7 +5656,7 @@ const Note: ModelDefined&lt;
     },
     title: {
       type: new DataTypes.STRING(64),
-      defaultValue: 'Unnamed Note',
+      defaultValue: "Unnamed Note",
     },
     content: {
       type: new DataTypes.STRING(4096),
@@ -5613,7 +5664,7 @@ const Note: ModelDefined&lt;
     },
   },
   {
-    tableName: 'notes',
+    tableName: "notes",
   }
 );
 
@@ -5636,6 +5687,7 @@ async function doStuffWithUser() {
 
   const project = await newUser.createProject({
     name: "first!",
+    ownerId: 123,
   });
 
   const ourUser = await User.findByPk(1, {
@@ -5646,7 +5698,12 @@ async function doStuffWithUser() {
   // Note the `!` null assertion since TS can't know if we included
   // the model or not
   console.log(ourUser.projects![0].name);
-}</code>
+}
+
+(async () =&gt; {
+  await sequelize.sync();
+  await doStuffWithUser();
+})();</code>
 </code></pre><h3>Usage without strict types for attributes</h3><p>The typings for Sequelize v5 allowed you to define models without specifying types for the attributes. This is still possible for backwards compatibility and for cases where you feel strict typing for attributes isn't worth it.</p><p><strong>NOTE:</strong> Keep the following code in sync with <code>typescriptDocs/ModelInitNoAttributes.ts</code> to ensure
 it typechecks correctly.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from "sequelize";
 
@@ -6704,9 +6761,9 @@ Daher musst du dich bei Problemen an deren Betreiber wenden!</code>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
         <div data-ice="card"><h1>[MOVED] Models Definition</h1><p>The contents of this page were moved to <a href="./manual/model-basics.html">Model Basics</a>.</p><p>The only exception is the guide on <code>sequelize.import</code>, which is deprecated and was removed from the docs. However, if you really need it, it was kept here.</p><hr><h2>Deprecated: <code>sequelize.import</code></h2><blockquote>
-<p><em><strong>Note:</strong> You should not use <code>sequelize.import</code>. Please just use <code>require</code> instead.</em></p>
+<p>_<strong>Note:</strong> You should not use <code>sequelize.import</code>. Please just use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports"><code>import()</code></a>, or <a href="https://nodejs.org/api/modules.html#requireid"><code>require</code></a> instead._</p>
 <p><em>This documentation has been kept just in case you really need to maintain old code that uses it.</em></p>
-</blockquote><p>You can store your model definitions in a single file using the <code>sequelize.import</code> method. The returned object is exactly the same as defined in the imported file's function. The import is cached, just like <code>require</code>, so you won't run into trouble if importing a file more than once.</p><pre><code class="lang-js"><code class="source-code prettyprint">// in your server file - e.g. app.js
+</blockquote><p><code>sequelize.import</code> can only load <a href="https://nodejs.org/api/modules.html">CommonJS</a> files, and is not capable of loading <a href="https://nodejs.org/api/esm.html"><code>ecmascript modules</code></a>. Use native <code>import</code> if you need to load ecmascript modules.</p><p>You can store your model definitions in a single file using the <code>sequelize.import</code> method. The returned object is exactly the same as defined in the imported file's function. The import is cached, just like <code>require</code>, so you won't run into trouble if importing a file more than once.</p><pre><code class="lang-js"><code class="source-code prettyprint">// in your server file - e.g. app.js
 const Project = sequelize.import(__dirname + "/path/to/models/project");
 
 // The model definition is done in /path/to/models/project.js

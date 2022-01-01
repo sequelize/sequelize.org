@@ -57,6 +57,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#providing-the-table-name-directly" data-ice="link">Providing the table name directly</a></li>
@@ -638,6 +639,59 @@ User.init({
 console.log(User === sequelize.models.User); // true</code>
 </code></pre>
 <p>Internally, <code>sequelize.define</code> calls <code>Model.init</code>, so both approaches are essentially equivalent.</p>
+<h4 id="caveat-with-public-class-fields">Caveat with Public Class Fields</h4><p>Adding a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields">Public Class Field</a> with the same name as one of the model's attribute is going to cause issues.
+Sequelize adds a getter &amp; a setter for each attribute defined through <code>Model.init</code>.
+Adding a Public Class Field will shadow those getter and setters, blocking access to the model's actual data.</p>
+<pre><code class="lang-typescript"><code class="source-code prettyprint">// Invalid
+class User extends Model {
+  id; // this field will shadow sequelize's getter &amp; setter. It should be removed.
+  otherPublicField; // this field does not shadow anything. It is fine.
+}
+
+User.init({
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  }
+}, { sequelize });
+
+const user = new User({ id: 1 });
+user.id; // undefined</code>
+</code></pre>
+<pre><code class="lang-typescript"><code class="source-code prettyprint">// Valid
+class User extends Model {
+  otherPublicField;
+}
+
+User.init({
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  }
+}, { sequelize });
+
+const user = new User({ id: 1 });
+user.id; // 1</code>
+</code></pre>
+<p>In TypeScript, you can add typing information without adding an actual public class field by using the <code>declare</code> keyword:</p>
+<pre><code class="lang-typescript"><code class="source-code prettyprint">// Valid
+class User extends Model {
+  declare id: number; // this is ok! The 'declare' keyword ensures this field will not be emitted by TypeScript.
+}
+
+User.init({
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  }
+}, { sequelize });
+
+const user = new User({ id: 1 });
+user.id; // 1</code>
+</code></pre>
 <h2 id="table-name-inference">Table name inference</h2><p>Observe that, in both methods above, the table name (<code>Users</code>) was never explicitly defined. However, the model name was given (<code>User</code>).</p>
 <p>By default, when the table name is not given, Sequelize automatically pluralizes the model name and uses that as the table name. This pluralization is done under the hood by a library called <a href="https://www.npmjs.com/package/inflection">inflection</a>, so that irregular plurals (such as <code>person -&gt; people</code>) are computed correctly.</p>
 <p>Of course, this behavior is easily configurable.</p>
