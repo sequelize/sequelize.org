@@ -3769,27 +3769,36 @@ WHERE (
     // Your mysql2 options here
   }
 })</code>
-</code></pre><h3>MariaDB</h3><p>The underlying connector library used by Sequelize for MariaDB is the <a href="https://www.npmjs.com/package/mariadb">mariadb</a> npm package.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+</code></pre><p><code>dialectOptions</code> are passed directly to the MySQL connection constructor. A full list of options can be found in the <a href="https://www.npmjs.com/package/mysql#connection-options">MySQL docs</a>.</p><h3>MariaDB</h3><p>The underlying connector library used by Sequelize for MariaDB is the <a href="https://www.npmjs.com/package/mariadb">mariadb</a> npm package.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'mariadb',
   dialectOptions: {
     // Your mariadb options here
     // connectTimeout: 1000
   }
 });</code>
-</code></pre><h3>SQLite</h3><p>The underlying connector library used by Sequelize for SQLite is the <a href="https://www.npmjs.com/package/sqlite3">sqlite3</a> npm package (version 4.0.0 or above).</p><p>You specify the storage file in the Sequelize constructor with the <code>storage</code> option (use <code>:memory:</code> for an in-memory SQLite instance).</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+</code></pre><p><code>dialectOptions</code> are passed directly to the MariaDB connection constructor. A full list of options can be found in the <a href="https://mariadb.com/kb/en/nodejs-connection-options/">MariaDB docs</a>.</p><h3>SQLite</h3><p>The underlying connector library used by Sequelize for SQLite is the <a href="https://www.npmjs.com/package/sqlite3">sqlite3</a> npm package (version 4.0.0 or above).</p><p>You specify the storage file in the Sequelize constructor with the <code>storage</code> option (use <code>:memory:</code> for an in-memory SQLite instance).</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'sqlite',
   storage: 'path/to/database.sqlite' // or ':memory:'
   dialectOptions: {
     // Your sqlite3 options here
   }
 });</code>
-</code></pre><h3>PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> npm package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+</code></pre><p>The following fields may be passed to SQLite <code>dialectOptions</code>:</p><ul>
+<li><code>readWriteMode</code>: Set the opening mode for the SQLite connection. Potential values are provided by the sqlite3 package, and can include sqlite3.OPEN_READONLY, sqlite3.OPEN_READWRITE, or sqlite3.OPEN_CREATE. See the <a href="https://www.sqlite.org/c3ref/open.html">SQLite C interface documentation for more details</a>.</li>
+</ul><h3>PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> npm package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
   dialectOptions: {
     // Your pg options here
   }
 });</code>
-</code></pre><p>To connect over a unix domain socket, specify the path to the socket directory in the <code>host</code> option. The socket path must start with <code>/</code>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+</code></pre><p>The following fields may be passed to Postgres <code>dialectOptions</code>:</p><ul>
+<li><code>application_name</code>: Name of application in pg_stat_activity. See the <a href="https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-APPLICATION-NAME">Postgres docs</a> for details.</li>
+<li><code>ssl</code>: SSL options. See the <a href="https://node-postgres.com/features/ssl"><code>pg</code> docs</a> for details.</li>
+<li><code>client_encoding</code>: // Setting 'auto' determines locale based on the client LC_CTYPE environment variable. See the <a href="https://www.postgresql.org/docs/current/multibyte.html">Postgres docs</a> for details.</li>
+<li><code>keepAlive</code>: Boolean to enable TCP KeepAlive. See the <a href="https://github.com/brianc/node-postgres/blob/master/CHANGELOG.md#v600"><code>pg</code> changelog</a> for details.</li>
+<li><code>statement_timeout</code>: Times out queries after a set time in milliseconds. Added in pg v7.3. See the <a href="https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT">Postgres docs</a> for details.</li>
+<li><code>idle_in_transaction_session_timeout</code>: Terminate any session with an open transaction that has been idle for longer than the specified duration in milliseconds. See the <a href="https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT">Postgres docs</a> for details.</li>
+</ul><p>To connect over a unix domain socket, specify the path to the socket directory in the <code>host</code> option. The socket path must start with <code>/</code>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
   host: '/path/to/socket_directory'
 });</code>
@@ -3812,7 +3821,7 @@ WHERE (
     }
   }
 });</code>
-</code></pre><h4>MSSQL Domain Account</h4><p>In order to connect with a domain account, use the following format.</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
+</code></pre><p>A full list of options can be found in the <a href="https://tediousjs.github.io/tedious/api-connection.html#function_newConnection">tedious docs</a>.</p><h4>MSSQL Domain Account</h4><p>In order to connect with a domain account, use the following format.</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
   dialect: 'mssql',
   dialectOptions: {
     authentication: {
