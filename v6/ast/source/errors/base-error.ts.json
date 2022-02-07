@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 864,
+  "end": 867,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 25,
+      "line": 26,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 864,
+    "end": 867,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 25,
+        "line": 26,
         "column": 0
       }
     },
@@ -1052,16 +1052,16 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n * The Base Error all Sequelize Errors inherit from.\n ",
+            "value": "*\n * The Base Error all Sequelize Errors inherit from.\n *\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n ",
             "start": 331,
-            "end": 711,
+            "end": 714,
             "loc": {
               "start": {
                 "line": 11,
                 "column": 0
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 3
               }
             }
@@ -1070,29 +1070,29 @@
       },
       {
         "type": "ClassDeclaration",
-        "start": 712,
-        "end": 832,
+        "start": 715,
+        "end": 835,
         "loc": {
           "start": {
-            "line": 18,
+            "line": 19,
             "column": 0
           },
           "end": {
-            "line": 23,
+            "line": 24,
             "column": 1
           }
         },
         "id": {
           "type": "Identifier",
-          "start": 718,
-          "end": 727,
+          "start": 721,
+          "end": 730,
           "loc": {
             "start": {
-              "line": 18,
+              "line": 19,
               "column": 6
             },
             "end": {
-              "line": 18,
+              "line": 19,
               "column": 15
             },
             "identifierName": "BaseError"
@@ -1102,15 +1102,15 @@
         },
         "superClass": {
           "type": "Identifier",
-          "start": 736,
-          "end": 741,
+          "start": 739,
+          "end": 744,
           "loc": {
             "start": {
-              "line": 18,
+              "line": 19,
               "column": 24
             },
             "end": {
-              "line": 18,
+              "line": 19,
               "column": 29
             },
             "identifierName": "Error"
@@ -1119,30 +1119,30 @@
         },
         "body": {
           "type": "ClassBody",
-          "start": 742,
-          "end": 832,
+          "start": 745,
+          "end": 835,
           "loc": {
             "start": {
-              "line": 18,
+              "line": 19,
               "column": 30
             },
             "end": {
-              "line": 23,
+              "line": 24,
               "column": 1
             }
           },
           "body": [
             {
               "type": "ClassMethod",
-              "start": 746,
-              "end": 830,
+              "start": 749,
+              "end": 833,
               "loc": {
                 "start": {
-                  "line": 19,
+                  "line": 20,
                   "column": 2
                 },
                 "end": {
-                  "line": 22,
+                  "line": 23,
                   "column": 3
                 }
               },
@@ -1150,15 +1150,15 @@
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 746,
-                "end": 757,
+                "start": 749,
+                "end": 760,
                 "loc": {
                   "start": {
-                    "line": 19,
+                    "line": 20,
                     "column": 2
                   },
                   "end": {
-                    "line": 19,
+                    "line": 20,
                     "column": 13
                   },
                   "identifierName": "constructor"
@@ -1173,15 +1173,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 758,
-                  "end": 765,
+                  "start": 761,
+                  "end": 768,
                   "loc": {
                     "start": {
-                      "line": 19,
+                      "line": 20,
                       "column": 14
                     },
                     "end": {
-                      "line": 19,
+                      "line": 20,
                       "column": 21
                     },
                     "identifierName": "message"
@@ -1191,58 +1191,58 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 767,
-                "end": 830,
+                "start": 770,
+                "end": 833,
                 "loc": {
                   "start": {
-                    "line": 19,
+                    "line": 20,
                     "column": 23
                   },
                   "end": {
-                    "line": 22,
+                    "line": 23,
                     "column": 3
                   }
                 },
                 "body": [
                   {
                     "type": "ExpressionStatement",
-                    "start": 773,
-                    "end": 788,
+                    "start": 776,
+                    "end": 791,
                     "loc": {
                       "start": {
-                        "line": 20,
+                        "line": 21,
                         "column": 4
                       },
                       "end": {
-                        "line": 20,
+                        "line": 21,
                         "column": 19
                       }
                     },
                     "expression": {
                       "type": "CallExpression",
-                      "start": 773,
-                      "end": 787,
+                      "start": 776,
+                      "end": 790,
                       "loc": {
                         "start": {
-                          "line": 20,
+                          "line": 21,
                           "column": 4
                         },
                         "end": {
-                          "line": 20,
+                          "line": 21,
                           "column": 18
                         }
                       },
                       "callee": {
                         "type": "Super",
-                        "start": 773,
-                        "end": 778,
+                        "start": 776,
+                        "end": 781,
                         "loc": {
                           "start": {
-                            "line": 20,
+                            "line": 21,
                             "column": 4
                           },
                           "end": {
-                            "line": 20,
+                            "line": 21,
                             "column": 9
                           }
                         }
@@ -1250,15 +1250,15 @@
                       "arguments": [
                         {
                           "type": "Identifier",
-                          "start": 779,
-                          "end": 786,
+                          "start": 782,
+                          "end": 789,
                           "loc": {
                             "start": {
-                              "line": 20,
+                              "line": 21,
                               "column": 10
                             },
                             "end": {
-                              "line": 20,
+                              "line": 21,
                               "column": 17
                             },
                             "identifierName": "message"
@@ -1270,73 +1270,73 @@
                   },
                   {
                     "type": "ExpressionStatement",
-                    "start": 793,
-                    "end": 826,
+                    "start": 796,
+                    "end": 829,
                     "loc": {
                       "start": {
-                        "line": 21,
+                        "line": 22,
                         "column": 4
                       },
                       "end": {
-                        "line": 21,
+                        "line": 22,
                         "column": 37
                       }
                     },
                     "expression": {
                       "type": "AssignmentExpression",
-                      "start": 793,
-                      "end": 825,
+                      "start": 796,
+                      "end": 828,
                       "loc": {
                         "start": {
-                          "line": 21,
+                          "line": 22,
                           "column": 4
                         },
                         "end": {
-                          "line": 21,
+                          "line": 22,
                           "column": 36
                         }
                       },
                       "operator": "=",
                       "left": {
                         "type": "MemberExpression",
-                        "start": 793,
-                        "end": 802,
+                        "start": 796,
+                        "end": 805,
                         "loc": {
                           "start": {
-                            "line": 21,
+                            "line": 22,
                             "column": 4
                           },
                           "end": {
-                            "line": 21,
+                            "line": 22,
                             "column": 13
                           }
                         },
                         "object": {
                           "type": "ThisExpression",
-                          "start": 793,
-                          "end": 797,
+                          "start": 796,
+                          "end": 800,
                           "loc": {
                             "start": {
-                              "line": 21,
+                              "line": 22,
                               "column": 4
                             },
                             "end": {
-                              "line": 21,
+                              "line": 22,
                               "column": 8
                             }
                           }
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 798,
-                          "end": 802,
+                          "start": 801,
+                          "end": 805,
                           "loc": {
                             "start": {
-                              "line": 21,
+                              "line": 22,
                               "column": 9
                             },
                             "end": {
-                              "line": 21,
+                              "line": 22,
                               "column": 13
                             },
                             "identifierName": "name"
@@ -1347,15 +1347,15 @@
                       },
                       "right": {
                         "type": "StringLiteral",
-                        "start": 805,
-                        "end": 825,
+                        "start": 808,
+                        "end": 828,
                         "loc": {
                           "start": {
-                            "line": 21,
+                            "line": 22,
                             "column": 16
                           },
                           "end": {
-                            "line": 21,
+                            "line": 22,
                             "column": 36
                           }
                         },
@@ -1376,16 +1376,16 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n * The Base Error all Sequelize Errors inherit from.\n ",
+            "value": "*\n * The Base Error all Sequelize Errors inherit from.\n *\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n ",
             "start": 331,
-            "end": 711,
+            "end": 714,
             "loc": {
               "start": {
                 "line": 11,
                 "column": 0
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 3
               }
             }
@@ -1394,44 +1394,44 @@
       },
       {
         "type": "VariableDeclaration",
-        "start": 833,
-        "end": 863,
+        "start": 836,
+        "end": 866,
         "loc": {
           "start": {
-            "line": 24,
+            "line": 25,
             "column": 0
           },
           "end": {
-            "line": 24,
+            "line": 25,
             "column": 30
           }
         },
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 837,
-            "end": 862,
+            "start": 840,
+            "end": 865,
             "loc": {
               "start": {
-                "line": 24,
+                "line": 25,
                 "column": 4
               },
               "end": {
-                "line": 24,
+                "line": 25,
                 "column": 29
               }
             },
             "id": {
               "type": "Identifier",
-              "start": 837,
-              "end": 850,
+              "start": 840,
+              "end": 853,
               "loc": {
                 "start": {
-                  "line": 24,
+                  "line": 25,
                   "column": 4
                 },
                 "end": {
-                  "line": 24,
+                  "line": 25,
                   "column": 17
                 },
                 "identifierName": "stdin_default"
@@ -1440,15 +1440,15 @@
             },
             "init": {
               "type": "Identifier",
-              "start": 853,
-              "end": 862,
+              "start": 856,
+              "end": 865,
               "loc": {
                 "start": {
-                  "line": 24,
+                  "line": 25,
                   "column": 20
                 },
                 "end": {
-                  "line": 24,
+                  "line": 25,
                   "column": 29
                 },
                 "identifierName": "BaseError"
@@ -1465,16 +1465,16 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n * The Base Error all Sequelize Errors inherit from.\n ",
+      "value": "*\n * The Base Error all Sequelize Errors inherit from.\n *\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n ",
       "start": 331,
-      "end": 711,
+      "end": 714,
       "loc": {
         "start": {
           "line": 11,
           "column": 0
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 3
         }
       }
@@ -3691,16 +3691,16 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n * The Base Error all Sequelize Errors inherit from.\n ",
+      "value": "*\n * The Base Error all Sequelize Errors inherit from.\n *\n * Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.\n * All sequelize errors inherit from the base JS error object.\n *\n * This means that errors can be accessed using `Sequelize.ValidationError`\n ",
       "start": 331,
-      "end": 711,
+      "end": 714,
       "loc": {
         "start": {
           "line": 11,
           "column": 0
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 3
         }
       }
@@ -3720,15 +3720,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 712,
-      "end": 717,
+      "start": 715,
+      "end": 720,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 5
         }
       }
@@ -3746,15 +3746,15 @@
         "binop": null
       },
       "value": "BaseError",
-      "start": 718,
-      "end": 727,
+      "start": 721,
+      "end": 730,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 6
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 15
         }
       }
@@ -3774,15 +3774,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 728,
-      "end": 735,
+      "start": 731,
+      "end": 738,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 16
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 23
         }
       }
@@ -3800,15 +3800,15 @@
         "binop": null
       },
       "value": "Error",
-      "start": 736,
-      "end": 741,
+      "start": 739,
+      "end": 744,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 24
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 29
         }
       }
@@ -3825,15 +3825,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 742,
-      "end": 743,
+      "start": 745,
+      "end": 746,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 30
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 31
         }
       }
@@ -3851,15 +3851,15 @@
         "binop": null
       },
       "value": "constructor",
-      "start": 746,
-      "end": 757,
+      "start": 749,
+      "end": 760,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 2
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 13
         }
       }
@@ -3876,15 +3876,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 757,
-      "end": 758,
+      "start": 760,
+      "end": 761,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 13
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 14
         }
       }
@@ -3902,15 +3902,15 @@
         "binop": null
       },
       "value": "message",
-      "start": 758,
-      "end": 765,
+      "start": 761,
+      "end": 768,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 14
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 21
         }
       }
@@ -3927,15 +3927,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 765,
-      "end": 766,
+      "start": 768,
+      "end": 769,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 21
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 22
         }
       }
@@ -3952,15 +3952,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 767,
-      "end": 768,
+      "start": 770,
+      "end": 771,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 23
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 24
         }
       }
@@ -3980,15 +3980,15 @@
         "updateContext": null
       },
       "value": "super",
-      "start": 773,
-      "end": 778,
+      "start": 776,
+      "end": 781,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 4
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 9
         }
       }
@@ -4005,15 +4005,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 778,
-      "end": 779,
+      "start": 781,
+      "end": 782,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 9
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 10
         }
       }
@@ -4031,15 +4031,15 @@
         "binop": null
       },
       "value": "message",
-      "start": 779,
-      "end": 786,
+      "start": 782,
+      "end": 789,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 10
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 17
         }
       }
@@ -4056,15 +4056,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 786,
-      "end": 787,
+      "start": 789,
+      "end": 790,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 17
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 18
         }
       }
@@ -4082,15 +4082,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 787,
-      "end": 788,
+      "start": 790,
+      "end": 791,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 18
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 19
         }
       }
@@ -4110,15 +4110,15 @@
         "updateContext": null
       },
       "value": "this",
-      "start": 793,
-      "end": 797,
+      "start": 796,
+      "end": 800,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 4
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 8
         }
       }
@@ -4136,15 +4136,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 797,
-      "end": 798,
+      "start": 800,
+      "end": 801,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 8
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 9
         }
       }
@@ -4162,15 +4162,15 @@
         "binop": null
       },
       "value": "name",
-      "start": 798,
-      "end": 802,
+      "start": 801,
+      "end": 805,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 9
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 13
         }
       }
@@ -4189,15 +4189,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 803,
-      "end": 804,
+      "start": 806,
+      "end": 807,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 14
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 15
         }
       }
@@ -4216,15 +4216,15 @@
         "updateContext": null
       },
       "value": "SequelizeBaseError",
-      "start": 805,
-      "end": 825,
+      "start": 808,
+      "end": 828,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 16
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 36
         }
       }
@@ -4242,15 +4242,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 825,
-      "end": 826,
+      "start": 828,
+      "end": 829,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 36
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 37
         }
       }
@@ -4267,15 +4267,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 829,
-      "end": 830,
+      "start": 832,
+      "end": 833,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 3
         }
       }
@@ -4292,15 +4292,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 831,
-      "end": 832,
+      "start": 834,
+      "end": 835,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 0
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 1
         }
       }
@@ -4320,15 +4320,15 @@
         "updateContext": null
       },
       "value": "var",
-      "start": 833,
-      "end": 836,
+      "start": 836,
+      "end": 839,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 3
         }
       }
@@ -4346,15 +4346,15 @@
         "binop": null
       },
       "value": "stdin_default",
-      "start": 837,
-      "end": 850,
+      "start": 840,
+      "end": 853,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 4
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 17
         }
       }
@@ -4373,15 +4373,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 851,
-      "end": 852,
+      "start": 854,
+      "end": 855,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 18
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 19
         }
       }
@@ -4399,15 +4399,15 @@
         "binop": null
       },
       "value": "BaseError",
-      "start": 853,
-      "end": 862,
+      "start": 856,
+      "end": 865,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 20
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 29
         }
       }
@@ -4425,15 +4425,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 862,
-      "end": 863,
+      "start": 865,
+      "end": 866,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 29
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 30
         }
       }
@@ -4451,15 +4451,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 864,
-      "end": 864,
+      "start": 867,
+      "end": 867,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 0
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 0
         }
       }

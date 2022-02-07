@@ -310,6 +310,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#postgresql" data-ice="link">PostgreSQL</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
@@ -498,6 +499,9 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-without-strict-types-for-attributes" data-ice="link">Usage without strict types for attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-of--code-sequelize-define--code-" data-ice="link">Usage of sequelize.define</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#utility-types" data-ice="link">Utility Types</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#requesting-a-model-class" data-ice="link">Requesting a Model Class</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#getting-a-model--39-s-attributes" data-ice="link">Getting a Model's attributes</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -553,6 +557,9 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#changes-to--code-connectionmanager--code-" data-ice="link">Changes to ConnectionManager</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#microsoft-sql-server-support" data-ice="link">Microsoft SQL Server Support</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#overridden-model-methods-won--39-t-be-called-internally" data-ice="link">Overridden Model methods won't be called internally</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -595,11 +602,17 @@
 <p>You will need the <a href="https://github.com/sequelize/cli">Sequelize Command-Line Interface (CLI)</a>. The CLI ships support for migrations and project bootstrapping.</p>
 <p>A Migration in Sequelize is javascript file which exports two functions, <code>up</code> and <code>down</code>, that dictate how to perform the migration and undo it. You define those functions manually, but you don't call them manually; they will be called automatically by the CLI. In these functions, you should simply perform whatever queries you need, with the help of <code>sequelize.query</code> and whichever other methods Sequelize provides to you. There is no extra magic beyond that.</p>
 <h2 id="installing-the-cli">Installing the CLI</h2><p>To install the Sequelize CLI:</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npm install --save-dev sequelize-cli</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npm install --save-dev sequelize-cli
+# using yarn
+yarn add sequelize-cli --dev</code>
 </code></pre>
 <p>For details see the <a href="https://github.com/sequelize/cli">CLI GitHub repository</a>.</p>
 <h2 id="project-bootstrapping">Project bootstrapping</h2><p>To create an empty project you will need to execute <code>init</code> command</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli init</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli init
+# using yarn
+yarn sequelize-cli init</code>
 </code></pre>
 <p>This will create following folders</p>
 <ul>
@@ -644,7 +657,10 @@
 <li><code>attributes</code>: the list of model attributes.</li>
 </ul>
 <p>Let's create a model named <code>User</code>.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+# using yarn
+yarn sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string</code>
 </code></pre>
 <p>This will:</p>
 <ul>
@@ -653,7 +669,10 @@
 </ul>
 <p><strong>Note:</strong> <em>Sequelize will only use Model files, it's the table representation. On the other hand, the migration file is a change in that model or more specifically that table, used by CLI. Treat migrations like a commit or a log for some change in database.</em></p>
 <h2 id="running-migrations">Running Migrations</h2><p>Until this step, we haven't inserted anything into the database. We have just created the required model and migration files for our first model, <code>User</code>. Now to actually create that table in the database you need to run <code>db:migrate</code> command.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:migrate</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:migrate
+# using yarn
+yarn sequelize-cli db:migrate</code>
 </code></pre>
 <p>This command will execute these steps:</p>
 <ul>
@@ -663,15 +682,24 @@
 </ul>
 <h2 id="undoing-migrations">Undoing Migrations</h2><p>Now our table has been created and saved in the database. With migration you can revert to old state by just running a command.</p>
 <p>You can use <code>db:migrate:undo</code>, this command will revert most the recent migration.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:migrate:undo</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:migrate:undo
+# using yarn
+yarn sequelize-cli db:migrate:undo</code>
 </code></pre>
 <p>You can revert back to the initial state by undoing all migrations with the <code>db:migrate:undo:all</code> command. You can also revert back to a specific migration by passing its name with the <code>--to</code> option.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:migrate:undo:all --to XXXXXXXXXXXXXX-create-posts.js</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:migrate:undo:all --to XXXXXXXXXXXXXX-create-posts.js
+# using yarn
+yarn sequelize-cli db:migrate:undo:all --to XXXXXXXXXXXXXX-create-posts.js</code>
 </code></pre>
 <h3 id="creating-the-first-seed">Creating the first Seed</h3><p>Suppose we want to insert some data into a few tables by default. If we follow up on the previous example we can consider creating a demo user for the <code>User</code> table.</p>
 <p>To manage all data migrations you can use seeders. Seed files are some change in data that can be used to populate database tables with sample or test data.</p>
 <p>Let's create a seed file which will add a demo user to our <code>User</code> table.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli seed:generate --name demo-user</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli seed:generate --name demo-user
+# using yarn
+yarn sequelize-cli seed:generate --name demo-user</code>
 </code></pre>
 <p>This command will create a seed file in <code>seeders</code> folder. File name will look something like <code>XXXXXXXXXXXXXX-demo-user.js</code>. It follows the same <code>up / down</code> semantics as the migration files.</p>
 <p>Now we should edit this file to insert demo user to <code>User</code> table.</p>
@@ -691,19 +719,31 @@
 };</code>
 </code></pre>
 <h2 id="running-seeds">Running Seeds</h2><p>In last step you created a seed file; however, it has not been committed to the database. To do that we run a simple command.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:seed:all</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:seed:all
+# using yarn
+yarn sequelize-cli db:seed:all</code>
 </code></pre>
 <p>This will execute that seed file and a demo user will be inserted into the <code>User</code> table.</p>
 <p><strong>Note:</strong> <em>Seeder execution history is not stored anywhere, unlike migrations, which use the <code>SequelizeMeta</code> table. If you wish to change this behavior, please read the <code>Storage</code> section.</em></p>
 <h2 id="undoing-seeds">Undoing Seeds</h2><p>Seeders can be undone if they are using any storage. There are two commands available for that:</p>
 <p>If you wish to undo the most recent seed:</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:seed:undo</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:seed:undo
+# using yarn
+yarn sequelize-cli db:seed:undo</code>
 </code></pre>
 <p>If you wish to undo a specific seed:</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:seed:undo --seed name-of-seed-as-in-data</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:seed:undo --seed name-of-seed-as-in-data
+# using yarn
+yarn sequelize-cli db:seed:undo --seed name-of-seed-as-in-data</code>
 </code></pre>
 <p>If you wish to undo all seeds:</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:seed:undo:all</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:seed:undo:all
+# using yarn
+yarn sequelize-cli db:seed:undo:all</code>
 </code></pre>
 <h2 id="migration-skeleton">Migration Skeleton</h2><p>The following skeleton shows a typical migration file.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">module.exports = {
@@ -716,7 +756,10 @@
 }</code>
 </code></pre>
 <p>We can generate this file using <code>migration:generate</code>. This will create <code>xxx-migration-skeleton.js</code> in your migration folder.</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli migration:generate --name migration-skeleton</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli migration:generate --name migration-skeleton
+# using yarn
+yarn sequelize-cli migration:generate --name migration-skeleton</code>
 </code></pre>
 <p>The passed <code>queryInterface</code> object can be used to modify the database. The <code>Sequelize</code> object stores the available data types such as <code>STRING</code> or <code>INTEGER</code>. Function <code>up</code> or <code>down</code> should return a <code>Promise</code>. Let's look at an example:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">module.exports = {
@@ -941,7 +984,10 @@ module.exports = {
 </code></pre>
 <p>The example above also shows how to add custom dialect options to the configuration.</p>
 <h3 id="using-babel">Using Babel</h3><p>To enable more modern constructions in your migrations and seeders, you can simply install <code>babel-register</code> and require it at the beginning of <code>.sequelizerc</code>:</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npm i --save-dev babel-register</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npm i --save-dev babel-register
+# using yarn
+yarn add babel-register --dev</code>
 </code></pre>
 <pre><code class="lang-js"><code class="source-code prettyprint">// .sequelizerc
 
@@ -1006,7 +1052,10 @@ module.exports = {
 }</code>
 </code></pre>
 <h3 id="configuration-connection-string">Configuration Connection String</h3><p>As an alternative to the <code>--config</code> option with configuration files defining your database, you can use the <code>--url</code> option to pass in a connection string. For example:</p>
-<pre><code class="lang-text"><code class="source-code prettyprint">npx sequelize-cli db:migrate --url 'mysql://root:password@mysql_host.com/database_name'</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npx sequelize-cli db:migrate --url 'mysql://root:password@mysql_host.com/database_name'
+# using yarn
+yarn sequelize-cli db:migrate --url 'mysql://root:password@mysql_host.com/database_name'</code>
 </code></pre>
 <h3 id="programmatic-usage">Programmatic usage</h3><p>Sequelize has a sister library called <a href="https://github.com/sequelize/umzug">umzug</a> for programmatically handling execution and logging of migration tasks.</p>
 </div>
@@ -1029,23 +1078,21 @@ module.exports = {
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });

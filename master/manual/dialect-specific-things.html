@@ -310,6 +310,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#postgresql" data-ice="link">PostgreSQL</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
@@ -498,6 +499,9 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-without-strict-types-for-attributes" data-ice="link">Usage without strict types for attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-of--code-sequelize-define--code-" data-ice="link">Usage of sequelize.define</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#utility-types" data-ice="link">Utility Types</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#requesting-a-model-class" data-ice="link">Requesting a Model Class</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#getting-a-model--39-s-attributes" data-ice="link">Getting a Model's attributes</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -553,6 +557,9 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#changes-to--code-connectionmanager--code-" data-ice="link">Changes to ConnectionManager</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#microsoft-sql-server-support" data-ice="link">Microsoft SQL Server Support</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#overridden-model-methods-won--39-t-be-called-internally" data-ice="link">Overridden Model methods won't be called internally</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -591,7 +598,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="dialect-specific-things">Dialect-Specific Things</h1><h2 id="underlying-connector-libraries">Underlying Connector Libraries</h2><h3 id="mysql">MySQL</h3><p>The underlying connector library used by Sequelize for MySQL is the <a href="https://www.npmjs.com/package/mysql2">mysql2</a> npm package (version 1.5.2 or higher).</p>
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="dialect-specific-things">Dialect-Specific Things</h1><h2 id="underlying-connector-libraries">Underlying Connector Libraries</h2><h3 id="mysql">MySQL</h3><p>The underlying connector library used by Sequelize for MySQL is the <a href="https://www.npmjs.com/package/mysql2">mysql2</a> package (version 1.5.2 or higher).</p>
 <p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'mysql',
@@ -601,7 +608,7 @@
 })</code>
 </code></pre>
 <p><code>dialectOptions</code> are passed directly to the MySQL connection constructor. A full list of options can be found in the <a href="https://www.npmjs.com/package/mysql#connection-options">MySQL docs</a>.</p>
-<h3 id="mariadb">MariaDB</h3><p>The underlying connector library used by Sequelize for MariaDB is the <a href="https://www.npmjs.com/package/mariadb">mariadb</a> npm package.</p>
+<h3 id="mariadb">MariaDB</h3><p>The underlying connector library used by Sequelize for MariaDB is the <a href="https://www.npmjs.com/package/mariadb">mariadb</a> package.</p>
 <p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'mariadb',
@@ -612,7 +619,7 @@
 });</code>
 </code></pre>
 <p><code>dialectOptions</code> are passed directly to the MariaDB connection constructor. A full list of options can be found in the <a href="https://mariadb.com/kb/en/nodejs-connection-options/">MariaDB docs</a>.</p>
-<h3 id="sqlite">SQLite</h3><p>The underlying connector library used by Sequelize for SQLite is the <a href="https://www.npmjs.com/package/sqlite3">sqlite3</a> npm package (version 4.0.0 or above).</p>
+<h3 id="sqlite">SQLite</h3><p>The underlying connector library used by Sequelize for SQLite is the <a href="https://www.npmjs.com/package/sqlite3">sqlite3</a> package (version 4.0.0 or above).</p>
 <p>You specify the storage file in the Sequelize constructor with the <code>storage</code> option (use <code>:memory:</code> for an in-memory SQLite instance).</p>
 <p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
@@ -627,7 +634,7 @@
 <ul>
 <li><code>readWriteMode</code>: Set the opening mode for the SQLite connection. Potential values are provided by the sqlite3 package, and can include sqlite3.OPEN_READONLY, sqlite3.OPEN_READWRITE, or sqlite3.OPEN_CREATE. See the <a href="https://www.sqlite.org/c3ref/open.html">SQLite C interface documentation for more details</a>.</li>
 </ul>
-<h3 id="postgresql">PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> npm package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p>
+<h3 id="postgresql">PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p>
 <p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
@@ -663,7 +670,8 @@
   }
 });</code>
 </code></pre>
-<h3 id="mssql">MSSQL</h3><p>The underlying connector library used by Sequelize for MSSQL is the <a href="https://www.npmjs.com/package/tedious">tedious</a> npm package (version 6.0.0 or above).</p>
+<h3 id="mssql">MSSQL</h3><p>The supported versions of MS SQL are from MS SQL 2017 (version 14) up to the most recent version.</p>
+<h4 id="tedious">Tedious</h4><p>The default underlying connector library used by Sequelize for MSSQL is the <a href="https://www.npmjs.com/package/tedious">tedious</a> package.</p>
 <p>You can provide custom options to it using <code>dialectOptions.options</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'mssql',
@@ -696,7 +704,7 @@
   }
 })</code>
 </code></pre>
-<h3 id="snowflake--experiment-">Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> npm package.</p>
+<h3 id="snowflake--experiment-">Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> package.</p>
 <p>In order to connect with an account, use the following format:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
   dialect: 'snowflake',
@@ -717,7 +725,10 @@
 </code></pre>
 <p><strong>NOTE</strong> There is no test sandbox provided so the snowflake integration test is not part of the pipeline. Also it is difficult for core team to triage and debug. This dialect needs to be maintained by the snowflake user/community for now.</p>
 <p>For running integration test:</p>
-<pre><code class="lang-sh"><code class="source-code prettyprint">SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=myDatabaseName SEQ_SCHEMA=mySchema SEQ_WH=myWareHouse npm run test-integration-snowflake</code>
+<pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=myDatabaseName SEQ_SCHEMA=mySchema SEQ_WH=myWareHouse npm run test-integration-snowflake
+# using yarn
+SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=myDatabaseName SEQ_SCHEMA=mySchema SEQ_WH=myWareHouse yarn test-integration-snowflake</code>
 </code></pre>
 <h2 id="data-type--timestamp-without-time-zone---postgresql-only">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</h2><p>If you are working with the PostgreSQL <code>TIMESTAMP WITHOUT TIME ZONE</code> and you need to parse it to a different timezone, please use the pg library's own parser:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">require('pg').types.setTypeParser(1114, stringValue =&gt; {
@@ -797,23 +808,21 @@ Person.init({ /* attributes */ }, {
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });

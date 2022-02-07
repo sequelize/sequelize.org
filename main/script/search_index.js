@@ -258,9 +258,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/index-hints.js~indexhints",
+    "sequelize/lib/transaction.ts~isolation_levels",
+    "variable/index.html#static-variable-ISOLATION_LEVELS",
+    "<span>ISOLATION_LEVELS</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.ts</span>",
+    "variable"
+  ],
+  [
+    "sequelize/lib/index-hints.ts~indexhints",
     "variable/index.html#static-variable-IndexHints",
-    "<span>IndexHints</span> <span class=\"search-result-import-path\">sequelize/lib/index-hints.js</span>",
+    "<span>IndexHints</span> <span class=\"search-result-import-path\">sequelize/lib/index-hints.ts</span>",
     "variable"
   ],
   [
@@ -286,6 +292,12 @@ window.esdocSearchIndex = [
     "class/lib/data-types.js~JSONTYPE.html",
     "<span>JSONTYPE</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
     "class"
+  ],
+  [
+    "sequelize/lib/transaction.ts~lock",
+    "variable/index.html#static-variable-LOCK",
+    "<span>LOCK</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.ts</span>",
+    "variable"
   ],
   [
     "sequelize/lib/data-types.js~macaddr",
@@ -354,9 +366,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/query-types.js~querytypes",
+    "sequelize/lib/query-types.ts~querytypes",
     "variable/index.html#static-variable-QueryTypes",
-    "<span>QueryTypes</span> <span class=\"search-result-import-path\">sequelize/lib/query-types.js</span>",
+    "<span>QueryTypes</span> <span class=\"search-result-import-path\">sequelize/lib/query-types.ts</span>",
     "variable"
   ],
   [
@@ -387,12 +399,6 @@ window.esdocSearchIndex = [
     "sequelize/lib/data-types.js~string",
     "class/lib/data-types.js~STRING.html",
     "<span>STRING</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/sequelize.js~sequelize",
-    "class/lib/sequelize.js~Sequelize.html",
-    "<span>Sequelize</span> <span class=\"search-result-import-path\">sequelize/lib/sequelize.js</span>",
     "class"
   ],
   [
@@ -432,9 +438,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/table-hints.js~tablehints",
+    "sequelize/lib/table-hints.ts~tablehints",
     "variable/index.html#static-variable-TableHints",
-    "<span>TableHints</span> <span class=\"search-result-import-path\">sequelize/lib/table-hints.js</span>",
+    "<span>TableHints</span> <span class=\"search-result-import-path\">sequelize/lib/table-hints.ts</span>",
     "variable"
   ],
   [
@@ -444,9 +450,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "sequelize/lib/transaction.js~transaction",
-    "class/lib/transaction.js~Transaction.html",
-    "<span>Transaction</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.js</span>",
+    "sequelize/lib/transaction.ts~transaction",
+    "class/lib/transaction.ts~Transaction.html",
+    "<span>Transaction</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.ts</span>",
     "class"
   ],
   [
@@ -508,6 +514,12 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-ValidationErrorItemType",
     "<span>ValidationErrorItemType</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.ts</span>",
     "variable"
+  ],
+  [
+    "sequelize/lib/utils.js~safestringifyjson",
+    "function/index.html#static-function-safeStringifyJson",
+    "<span>safeStringifyJson</span> <span class=\"search-result-import-path\">sequelize/lib/utils.js</span>",
+    "function"
   ],
   [
     "lib/.external-ecmascript.js~array",
@@ -1086,21 +1098,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/abstract/connection-manager.js",
-    "file/lib/dialects/abstract/connection-manager.js.html",
-    "lib/dialects/abstract/connection-manager.js",
-    "file"
-  ],
-  [
-    "lib/dialects/abstract/index.js",
-    "file/lib/dialects/abstract/index.js.html",
-    "lib/dialects/abstract/index.js",
-    "file"
-  ],
-  [
-    "lib/dialects/abstract/query-generator.js",
-    "file/lib/dialects/abstract/query-generator.js.html",
-    "lib/dialects/abstract/query-generator.js",
+    "lib/dialects/abstract/index.ts",
+    "file/lib/dialects/abstract/index.ts.html",
+    "lib/dialects/abstract/index.ts",
     "file"
   ],
   [
@@ -1314,12 +1314,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/db2/data-types.js",
-    "file/lib/dialects/db2/data-types.js.html",
-    "lib/dialects/db2/data-types.js",
-    "file"
-  ],
-  [
     "lib/dialects/db2/index.js",
     "file/lib/dialects/db2/index.js.html",
     "lib/dialects/db2/index.js",
@@ -1365,12 +1359,6 @@ window.esdocSearchIndex = [
     "lib/dialects/mariadb/query-generator.js",
     "file/lib/dialects/mariadb/query-generator.js.html",
     "lib/dialects/mariadb/query-generator.js",
-    "file"
-  ],
-  [
-    "lib/dialects/mariadb/query.js",
-    "file/lib/dialects/mariadb/query.js.html",
-    "lib/dialects/mariadb/query.js",
     "file"
   ],
   [
@@ -1422,12 +1410,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/dialects/mssql/query.js",
-    "file/lib/dialects/mssql/query.js.html",
-    "lib/dialects/mssql/query.js",
-    "file"
-  ],
-  [
     "lib/dialects/mysql/connection-manager.js",
     "file/lib/dialects/mysql/connection-manager.js.html",
     "lib/dialects/mysql/connection-manager.js",
@@ -1474,12 +1456,6 @@ window.esdocSearchIndex = [
     "class/lib/dialects/mysql/query-interface.js~MySQLQueryInterface.html#instance-method-upsert",
     "lib/dialects/mysql/query-interface.js~MySQLQueryInterface#upsert",
     "method"
-  ],
-  [
-    "lib/dialects/mysql/query.js",
-    "file/lib/dialects/mysql/query.js.html",
-    "lib/dialects/mysql/query.js",
-    "file"
   ],
   [
     "lib/dialects/parserstore.js",
@@ -1612,12 +1588,6 @@ window.esdocSearchIndex = [
     "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-upsert",
     "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#upsert",
     "method"
-  ],
-  [
-    "lib/dialects/snowflake/query.js",
-    "file/lib/dialects/snowflake/query.js.html",
-    "lib/dialects/snowflake/query.js",
-    "file"
   ],
   [
     "lib/dialects/sqlite/connection-manager.js",
@@ -1878,9 +1848,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/index-hints.js",
-    "file/lib/index-hints.js.html",
-    "lib/index-hints.js",
+    "lib/index-hints.ts",
+    "file/lib/index-hints.ts.html",
+    "lib/index-hints.ts",
     "file"
   ],
   [
@@ -2262,202 +2232,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/query-types.js",
-    "file/lib/query-types.js.html",
-    "lib/query-types.js",
+    "lib/query-types.ts",
+    "file/lib/query-types.ts.html",
+    "lib/query-types.ts",
     "file"
-  ],
-  [
-    "lib/sequelize.js",
-    "file/lib/sequelize.js.html",
-    "lib/sequelize.js",
-    "file"
-  ],
-  [
-    "lib/sequelize.js~sequelize#authenticate",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-authenticate",
-    "lib/sequelize.js~Sequelize#authenticate",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#close",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-close",
-    "lib/sequelize.js~Sequelize#close",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#constructor",
-    "class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor",
-    "lib/sequelize.js~Sequelize#constructor",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#createschema",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-createSchema",
-    "lib/sequelize.js~Sequelize#createSchema",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#define",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-define",
-    "lib/sequelize.js~Sequelize#define",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#drop",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-drop",
-    "lib/sequelize.js~Sequelize#drop",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#dropallschemas",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-dropAllSchemas",
-    "lib/sequelize.js~Sequelize#dropAllSchemas",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#dropschema",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-dropSchema",
-    "lib/sequelize.js~Sequelize#dropSchema",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#escape",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-escape",
-    "lib/sequelize.js~Sequelize#escape",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#getdatabasename",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-getDatabaseName",
-    "lib/sequelize.js~Sequelize#getDatabaseName",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#getdialect",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-getDialect",
-    "lib/sequelize.js~Sequelize#getDialect",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#getqueryinterface",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-getQueryInterface",
-    "lib/sequelize.js~Sequelize#getQueryInterface",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#isdefined",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-isDefined",
-    "lib/sequelize.js~Sequelize#isDefined",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#model",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-model",
-    "lib/sequelize.js~Sequelize#model",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#models",
-    "class/lib/sequelize.js~Sequelize.html#instance-member-models",
-    "lib/sequelize.js~Sequelize#models",
-    "member"
-  ],
-  [
-    "lib/sequelize.js~sequelize#query",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-query",
-    "lib/sequelize.js~Sequelize#query",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#random",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-random",
-    "lib/sequelize.js~Sequelize#random",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#set",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-set",
-    "lib/sequelize.js~Sequelize#set",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#showallschemas",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-showAllSchemas",
-    "lib/sequelize.js~Sequelize#showAllSchemas",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#sync",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-sync",
-    "lib/sequelize.js~Sequelize#sync",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#transaction",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-transaction",
-    "lib/sequelize.js~Sequelize#transaction",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize#truncate",
-    "class/lib/sequelize.js~Sequelize.html#instance-method-truncate",
-    "lib/sequelize.js~Sequelize#truncate",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.and",
-    "class/lib/sequelize.js~Sequelize.html#static-method-and",
-    "lib/sequelize.js~Sequelize.and",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.cast",
-    "class/lib/sequelize.js~Sequelize.html#static-method-cast",
-    "lib/sequelize.js~Sequelize.cast",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.col",
-    "class/lib/sequelize.js~Sequelize.html#static-method-col",
-    "lib/sequelize.js~Sequelize.col",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.fn",
-    "class/lib/sequelize.js~Sequelize.html#static-method-fn",
-    "lib/sequelize.js~Sequelize.fn",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.json",
-    "class/lib/sequelize.js~Sequelize.html#static-method-json",
-    "lib/sequelize.js~Sequelize.json",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.literal",
-    "class/lib/sequelize.js~Sequelize.html#static-method-literal",
-    "lib/sequelize.js~Sequelize.literal",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.or",
-    "class/lib/sequelize.js~Sequelize.html#static-method-or",
-    "lib/sequelize.js~Sequelize.or",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.usecls",
-    "class/lib/sequelize.js~Sequelize.html#static-method-useCLS",
-    "lib/sequelize.js~Sequelize.useCLS",
-    "method"
-  ],
-  [
-    "lib/sequelize.js~sequelize.where",
-    "class/lib/sequelize.js~Sequelize.html#static-method-where",
-    "lib/sequelize.js~Sequelize.where",
-    "method"
   ],
   [
     "lib/sql-string.js",
@@ -2466,70 +2244,16 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/table-hints.js",
-    "file/lib/table-hints.js.html",
-    "lib/table-hints.js",
+    "lib/table-hints.ts",
+    "file/lib/table-hints.ts.html",
+    "lib/table-hints.ts",
     "file"
   ],
   [
-    "lib/transaction.js",
-    "file/lib/transaction.js.html",
-    "lib/transaction.js",
+    "lib/transaction.ts",
+    "file/lib/transaction.ts.html",
+    "lib/transaction.ts",
     "file"
-  ],
-  [
-    "lib/transaction.js~transaction#lock",
-    "class/lib/transaction.js~Transaction.html#instance-get-LOCK",
-    "lib/transaction.js~Transaction#LOCK",
-    "member"
-  ],
-  [
-    "lib/transaction.js~transaction#aftercommit",
-    "class/lib/transaction.js~Transaction.html#instance-method-afterCommit",
-    "lib/transaction.js~Transaction#afterCommit",
-    "method"
-  ],
-  [
-    "lib/transaction.js~transaction#commit",
-    "class/lib/transaction.js~Transaction.html#instance-method-commit",
-    "lib/transaction.js~Transaction#commit",
-    "method"
-  ],
-  [
-    "lib/transaction.js~transaction#constructor",
-    "class/lib/transaction.js~Transaction.html#instance-constructor-constructor",
-    "lib/transaction.js~Transaction#constructor",
-    "method"
-  ],
-  [
-    "lib/transaction.js~transaction#prepareenvironment",
-    "class/lib/transaction.js~Transaction.html#instance-method-prepareEnvironment",
-    "lib/transaction.js~Transaction#prepareEnvironment",
-    "method"
-  ],
-  [
-    "lib/transaction.js~transaction#rollback",
-    "class/lib/transaction.js~Transaction.html#instance-method-rollback",
-    "lib/transaction.js~Transaction#rollback",
-    "method"
-  ],
-  [
-    "lib/transaction.js~transaction.isolation_levels",
-    "class/lib/transaction.js~Transaction.html#static-get-ISOLATION_LEVELS",
-    "lib/transaction.js~Transaction.ISOLATION_LEVELS",
-    "member"
-  ],
-  [
-    "lib/transaction.js~transaction.lock",
-    "class/lib/transaction.js~Transaction.html#static-get-LOCK",
-    "lib/transaction.js~Transaction.LOCK",
-    "member"
-  ],
-  [
-    "lib/transaction.js~transaction.types",
-    "class/lib/transaction.js~Transaction.html#static-get-TYPES",
-    "lib/transaction.js~Transaction.TYPES",
-    "member"
   ],
   [
     "lib/utils.js",

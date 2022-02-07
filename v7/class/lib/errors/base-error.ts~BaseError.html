@@ -68,13 +68,15 @@
 
 
 <li data-ice="doc" style="margin-top: 15px;"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/model.js~Model.html">Model</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-safeStringifyJson">safeStringifyJson</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DataTypes">DataTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Deferrable">Deferrable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IndexHints">IndexHints</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-QueryTypes">QueryTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TableHints">TableHints</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ISOLATION_LEVELS">ISOLATION_LEVELS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOCK">LOCK</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#associations">associations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/base.js~Association.html">Association</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to-many.js~BelongsToMany.html">BelongsToMany</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to.js~BelongsTo.html">BelongsTo</a></span></span></li>
@@ -127,7 +129,7 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/errors/base-error.ts.html#lineNumber18">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/errors/base-error.ts.html#lineNumber35">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -147,10 +149,10 @@
 
   
   
-  <div class="description" data-ice="description"><p>Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.
+  <div class="description" data-ice="description"><p>The Base Error all Sequelize Errors inherit from.</p>
+<p>Sequelize provides a host of custom error classes, to allow you to do easier debugging. All of these errors are exposed on the sequelize object and the sequelize constructor.
 All sequelize errors inherit from the base JS error object.</p>
-<p>This means that errors can be accessed using <code>Sequelize.ValidationError</code>
-The Base Error all Sequelize Errors inherit from.</p>
+<p>This means that errors can be accessed using <code>Sequelize.ValidationError</code></p>
 </div>
   
 
@@ -195,23 +197,21 @@ The Base Error all Sequelize Errors inherit from.</p>
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });

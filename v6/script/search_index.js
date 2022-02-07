@@ -510,6 +510,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "sequelize/lib/utils.js~safestringifyjson",
+    "function/index.html#static-function-safeStringifyJson",
+    "<span>safeStringifyJson</span> <span class=\"search-result-import-path\">sequelize/lib/utils.js</span>",
+    "function"
+  ],
+  [
     "lib/.external-ecmascript.js~array",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "lib/.external-ecmascript.js~Array",

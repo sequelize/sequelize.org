@@ -310,6 +310,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#postgresql" data-ice="link">PostgreSQL</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#redshift" data-ice="link">Redshift</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
@@ -498,6 +499,9 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage" data-ice="link">Usage</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-without-strict-types-for-attributes" data-ice="link">Usage without strict types for attributes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#usage-of--code-sequelize-define--code-" data-ice="link">Usage of sequelize.define</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/typescript.html"><a href="manual/typescript.html#utility-types" data-ice="link">Utility Types</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#requesting-a-model-class" data-ice="link">Requesting a Model Class</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/typescript.html"><a href="manual/typescript.html#getting-a-model--39-s-attributes" data-ice="link">Getting a Model's attributes</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -553,6 +557,9 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#changes-to--code-connectionmanager--code-" data-ice="link">Changes to ConnectionManager</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#microsoft-sql-server-support" data-ice="link">Microsoft SQL Server Support</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#overridden-model-methods-won--39-t-be-called-internally" data-ice="link">Overridden Model methods won't be called internally</a></li>
 </ul>
   </div>
 <div data-ice="manual">
@@ -614,23 +621,21 @@
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });

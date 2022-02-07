@@ -68,13 +68,15 @@
 
 
 <li data-ice="doc" style="margin-top: 15px;"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/model.js~Model.html">Model</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-safeStringifyJson">safeStringifyJson</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DataTypes">DataTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Deferrable">Deferrable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IndexHints">IndexHints</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-QueryTypes">QueryTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TableHints">TableHints</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ISOLATION_LEVELS">ISOLATION_LEVELS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOCK">LOCK</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#associations">associations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/base.js~Association.html">Association</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to-many.js~BelongsToMany.html">BelongsToMany</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to.js~BelongsTo.html">BelongsTo</a></span></span></li>
@@ -488,7 +490,7 @@ If the association is aliased, use the alias instead, e.g. <code>User.hasMany(Pr
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber404">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber394">source</a></span></span>
     </span>
   </h3>
 
@@ -576,7 +578,7 @@ or a mixed array of Model / string / numbers to associate multiple rows.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber253">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber255">source</a></span></span>
     </span>
   </h3>
 
@@ -670,7 +672,7 @@ or a mixed array of Model / string / numbers to associate multiple rows.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber463">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber450">source</a></span></span>
     </span>
   </h3>
 
@@ -858,7 +860,7 @@ or a mixed array of Model / string / numbers to associate multiple rows.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber282">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber284">source</a></span></span>
     </span>
   </h3>
 
@@ -945,7 +947,7 @@ or a mixed array of Model / string / numbers to associate multiple rows.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber435">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber424">source</a></span></span>
     </span>
   </h3>
 
@@ -1032,7 +1034,7 @@ or a mixed array of Model / string / numbers to associate multiple rows.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber327">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/associations/has-many.js.html#lineNumber330">source</a></span></span>
     </span>
   </h3>
 
@@ -1134,23 +1136,21 @@ or a mixed array of Model / string / numbers to associate multiple rows.</p>
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });

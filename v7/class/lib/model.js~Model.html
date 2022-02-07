@@ -68,13 +68,15 @@
 
 
 <li data-ice="doc" style="margin-top: 15px;"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/model.js~Model.html">Model</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-safeStringifyJson">safeStringifyJson</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DataTypes">DataTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Deferrable">Deferrable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IndexHints">IndexHints</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-QueryTypes">QueryTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TableHints">TableHints</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ISOLATION_LEVELS">ISOLATION_LEVELS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOCK">LOCK</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#associations">associations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/base.js~Association.html">Association</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to-many.js~BelongsToMany.html">BelongsToMany</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to.js~BelongsTo.html">BelongsTo</a></span></span></li>
@@ -127,7 +129,7 @@
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/model.js.html#lineNumber53">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/model.js.html#lineNumber52">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -161,7 +163,7 @@ Accessing properties directly or using <code>get</code> is preferred for regular
 </div>
   
 
-  <div data-ice="see"><h4>See:</h4><ul><li><span><span><a href="class/lib/sequelize.js~Sequelize.html#instance-method-define">Sequelize#define</a></span> for more information about getters and setters</span></li></ul></div>
+  <div data-ice="see"><h4>See:</h4><ul><li><span><span>Sequelize#define</span> for more information about getters and setters</span></li></ul></div>
 
   
 
@@ -595,7 +597,7 @@ Accessing properties directly or using <code>get</code> is preferred for regular
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="class/lib/model.js~Model.html#static-method-findByPk">findByPk</a></span></span><span class="code" data-ice="signature">(param: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>Buffer</span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="class/lib/model.js~Model.html#static-method-findByPk">findByPk</a></span></span><span class="code" data-ice="signature">(param: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>Buffer</span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>|<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -1337,7 +1339,7 @@ The successful result of the promise will be (instance, created)</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/model.js~Model.html#instance-get-sequelize">sequelize</a></span></span><span class="code" data-ice="signature">: <span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/model.js~Model.html#instance-get-sequelize">sequelize</a></span></span><span class="code" data-ice="signature">: <span>Sequelize</span>: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -1932,7 +1934,7 @@ exact values passed to it, making it more atomic and safer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1497">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1561">source</a></span></span>
     </span>
   </h3>
 
@@ -2016,7 +2018,7 @@ exact values passed to it, making it more atomic and safer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1974">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2058">source</a></span></span>
     </span>
   </h3>
 
@@ -2096,7 +2098,7 @@ exact values passed to it, making it more atomic and safer.</p>
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -2155,7 +2157,7 @@ exact values passed to it, making it more atomic and safer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4560">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4758">source</a></span></span>
     </span>
   </h3>
 
@@ -2295,7 +2297,7 @@ exact values passed to it, making it more atomic and safer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4519">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4717">source</a></span></span>
     </span>
   </h3>
 
@@ -2488,7 +2490,7 @@ Project.belongsToMany(User, { through: UserProjects })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2196">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2285">source</a></span></span>
     </span>
   </h3>
 
@@ -2591,7 +2593,7 @@ Project.belongsToMany(User, { through: UserProjects })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2581">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2684">source</a></span></span>
     </span>
   </h3>
 
@@ -2677,7 +2679,7 @@ To obtain Instances for the newly created values, you will need to query for the
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -2760,7 +2762,7 @@ To obtain Instances for the newly created values, you will need to query for the
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2046">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2132">source</a></span></span>
     </span>
   </h3>
 
@@ -2840,7 +2842,7 @@ To obtain Instances for the newly created values, you will need to query for the
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -2915,7 +2917,7 @@ To obtain Instances for the newly created values, you will need to query for the
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2248">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2337">source</a></span></span>
     </span>
   </h3>
 
@@ -3021,7 +3023,7 @@ To obtain Instances for the newly created values, you will need to query for the
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -3089,7 +3091,7 @@ To obtain Instances for the newly created values, you will need to query for the
     <span class="right-info">
       
       <span class="since" data-ice="since">since 4.36.0</span>
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3459">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3596">source</a></span></span>
     </span>
   </h3>
 
@@ -3188,7 +3190,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3281">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3412">source</a></span></span>
     </span>
   </h3>
 
@@ -3269,7 +3271,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2943">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3062">source</a></span></span>
     </span>
   </h3>
 
@@ -3360,7 +3362,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -3428,7 +3430,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1421">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1485">source</a></span></span>
     </span>
   </h3>
 
@@ -3525,7 +3527,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1717">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1781">source</a></span></span>
     </span>
   </h3>
 
@@ -3717,7 +3719,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.order</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span> | <span><a href="class/lib/sequelize.js~Sequelize.html#static-method-fn">fn</a></span> | <span><a href="class/lib/sequelize.js~Sequelize.html#static-method-col">col</a></span> | <span><a href="class/lib/sequelize.js~Sequelize.html#static-method-literal">literal</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span> | <span>Sequelize.fn</span> | <span>Sequelize.col</span> | <span>Sequelize.literal</span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Specifies an ordering. Using an array, you can provide several columns / functions to order by. Each element can be further wrapped in a two-element array. The first element is the column / function to order by, the second is the direction. For example: <code>order: [['name', 'DESC']]</code>. In this way the column will be escaped, but the direction will not.</p>
 </td>
@@ -3738,7 +3740,7 @@ Model.decrement({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -3903,7 +3905,7 @@ Model.findAll({
 __Alias__: _all_
 
 The promise is resolved with an array of Model instances if the query succeeds._</span></li>
-<li><span><span><a href="class/lib/sequelize.js~Sequelize.html#instance-method-query">Sequelize#query</a></span></span></li></ul></div>
+<li><span><span>Sequelize#query</span></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -3918,7 +3920,7 @@ The promise is resolved with an array of Model instances if the query succeeds._
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2118">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2207">source</a></span></span>
     </span>
   </h3>
 
@@ -4014,11 +4016,11 @@ User.findAndCountAll({
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">findByPk</span><span class="code" data-ice="signature">(param: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>Buffer</span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>&gt;</span>
+    <span class="code" data-ice="name">findByPk</span><span class="code" data-ice="signature">(param: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>Buffer</span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>|<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1902">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1985">source</a></span></span>
     </span>
   </h3>
 
@@ -4054,7 +4056,7 @@ User.findAndCountAll({
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -4077,7 +4079,7 @@ User.findAndCountAll({
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>&gt;</td>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="class/lib/model.js~Model.html">Model</a></span>|<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>&gt;</td>
           
         </tr>
       </tbody>
@@ -4113,7 +4115,7 @@ User.findAndCountAll({
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2425">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2519">source</a></span></span>
     </span>
   </h3>
 
@@ -4201,7 +4203,7 @@ Will execute a find call, if empty then attempt to create, if unique constraint 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1934">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2017">source</a></span></span>
     </span>
   </h3>
 
@@ -4230,7 +4232,7 @@ Will execute a find call, if empty then attempt to create, if unique constraint 
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -4289,7 +4291,7 @@ Will execute a find call, if empty then attempt to create, if unique constraint 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2271">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2360">source</a></span></span>
     </span>
   </h3>
 
@@ -4384,7 +4386,7 @@ The successful result of the promise will be (instance, built)</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2314">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2403">source</a></span></span>
     </span>
   </h3>
 
@@ -4431,7 +4433,7 @@ If a transaction is created, a savepoint will be created instead, and any unique
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -4538,7 +4540,7 @@ If a transaction is created, a savepoint will be created instead, and any unique
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1474">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1538">source</a></span></span>
     </span>
   </h3>
 
@@ -4595,7 +4597,7 @@ or an object with <code>tableName</code>, <code>schema</code> and <code>delimite
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4484">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4682">source</a></span></span>
     </span>
   </h3>
 
@@ -4743,7 +4745,7 @@ The foreign key is added on the target.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4540">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4738">source</a></span></span>
     </span>
   </h3>
 
@@ -4890,7 +4892,7 @@ The foreign key is added on the target.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3351">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3483">source</a></span></span>
     </span>
   </h3>
 
@@ -4958,7 +4960,7 @@ The foreign key is added on the target.</p>
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -5034,7 +5036,7 @@ Model.increment({ answer: 42, tries: -1}, { by: 2, where: { foo: 'bar' } });</co
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber951">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber990">source</a></span></span>
     </span>
   </h3>
 
@@ -5513,7 +5515,7 @@ sequelize.models.modelName // The model will now be available in models under th
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2151">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2240">source</a></span></span>
     </span>
   </h3>
 
@@ -5593,7 +5595,7 @@ sequelize.models.modelName // The model will now be available in models under th
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2166">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2255">source</a></span></span>
     </span>
   </h3>
 
@@ -5673,7 +5675,7 @@ sequelize.models.modelName // The model will now be available in models under th
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1303">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1351">source</a></span></span>
     </span>
   </h3>
 
@@ -5734,7 +5736,7 @@ sequelize.models.modelName // The model will now be available in models under th
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3027">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3149">source</a></span></span>
     </span>
   </h3>
 
@@ -5809,7 +5811,7 @@ sequelize.models.modelName // The model will now be available in models under th
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -5860,7 +5862,7 @@ sequelize.models.modelName // The model will now be available in models under th
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1450">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1514">source</a></span></span>
     </span>
   </h3>
 
@@ -5954,7 +5956,7 @@ for the model.</p>
 
   
 
-  <div data-ice="see"><h4>See:</h4><ul><li><span><span><a href="class/lib/sequelize.js~Sequelize.html#instance-method-define">Sequelize#define</a></span> for more information about setting a default schema.</span></li></ul></div>
+  <div data-ice="see"><h4>See:</h4><ul><li><span><span>Sequelize#define</span> for more information about setting a default schema.</span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -5969,7 +5971,7 @@ for the model.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1556">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1620">source</a></span></span>
     </span>
   </h3>
 
@@ -6087,7 +6089,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2181">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2270">source</a></span></span>
     </span>
   </h3>
 
@@ -6167,7 +6169,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1318">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1366">source</a></span></span>
     </span>
   </h3>
 
@@ -6225,7 +6227,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
 
   
 
-  <div data-ice="see"><h4>See:</h4><ul><li><span><span><a href="class/lib/sequelize.js~Sequelize.html#instance-method-sync">Sequelize#sync</a></span> for options</span></li></ul></div>
+  <div data-ice="see"><h4>See:</h4><ul><li><span><span>Sequelize#sync</span> for options</span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -6240,7 +6242,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2919">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3037">source</a></span></span>
     </span>
   </h3>
 
@@ -6285,7 +6287,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -6359,7 +6361,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1483">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber1547">source</a></span></span>
     </span>
   </h3>
 
@@ -6415,7 +6417,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3098">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3225">source</a></span></span>
     </span>
   </h3>
 
@@ -6536,7 +6538,7 @@ Model.findAll({ where: { age: { [Op.gt]: 12 } } }) // WHERE age &gt; 12 AND user
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -6597,7 +6599,7 @@ of affected rows, while the second element is the actual affected rows (only sup
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2487">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber2584">source</a></span></span>
     </span>
   </h3>
 
@@ -6673,7 +6675,7 @@ of affected rows, while the second element is the actual affected rows (only sup
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -6759,7 +6761,7 @@ of affected rows, while the second element is the actual affected rows (only sup
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber85">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber84">source</a></span></span>
     </span>
   </h3>
 
@@ -6854,7 +6856,7 @@ of affected rows, while the second element is the actual affected rows (only sup
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber140">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber139">source</a></span></span>
     </span>
   </h3>
 
@@ -6938,11 +6940,11 @@ of affected rows, while the second element is the actual affected rows (only sup
     
     
     
-    <span class="code" data-ice="name">sequelize</span><span class="code" data-ice="signature">: <span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span>: <span>*</span></span>
+    <span class="code" data-ice="name">sequelize</span><span class="code" data-ice="signature">: <span>Sequelize</span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber72">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber71">source</a></span></span>
     </span>
   </h3>
 
@@ -6978,7 +6980,7 @@ of affected rows, while the second element is the actual affected rows (only sup
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span></td>
+          <td class="return-type code" data-ice="returnType"><span>Sequelize</span></td>
           
         </tr>
       </tbody>
@@ -7015,7 +7017,7 @@ of affected rows, while the second element is the actual affected rows (only sup
 
   
 
-  <div data-ice="see"><h4>See:</h4><ul><li><span><span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span></span></li></ul></div>
+  <div data-ice="see"><h4>See:</h4><ul><li><span><span>Sequelize</span></span></li></ul></div>
   
 </div>
 </div>
@@ -7033,7 +7035,7 @@ of affected rows, while the second element is the actual affected rows (only sup
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3794">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3948">source</a></span></span>
     </span>
   </h3>
 
@@ -7133,7 +7135,7 @@ mdl.save(); // will save
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4404">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4602">source</a></span></span>
     </span>
   </h3>
 
@@ -7196,7 +7198,7 @@ mdl.save(); // will save
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -7276,7 +7278,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4238">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4428">source</a></span></span>
     </span>
   </h3>
 
@@ -7322,7 +7324,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -7381,7 +7383,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4419">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4617">source</a></span></span>
     </span>
   </h3>
 
@@ -7454,7 +7456,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4438">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4636">source</a></span></span>
     </span>
   </h3>
 
@@ -7527,7 +7529,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3540">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3680">source</a></span></span>
     </span>
   </h3>
 
@@ -7624,7 +7626,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3507">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3647">source</a></span></span>
     </span>
   </h3>
 
@@ -7697,7 +7699,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       <span class="since" data-ice="since">since 4.0.0</span>
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4363">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4561">source</a></span></span>
     </span>
   </h3>
 
@@ -7760,7 +7762,7 @@ instance.decrement({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -7840,7 +7842,7 @@ instance.increment({ answer: 42, tries: 1}, { by: 2 })</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4283">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4476">source</a></span></span>
     </span>
   </h3>
 
@@ -7898,7 +7900,7 @@ to something different.  This method requires <code>paranoid</code> to be enable
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3821">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3981">source</a></span></span>
     </span>
   </h3>
 
@@ -7972,7 +7974,7 @@ to something different.  This method requires <code>paranoid</code> to be enable
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4147">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4334">source</a></span></span>
     </span>
   </h3>
 
@@ -8055,7 +8057,7 @@ all references to the Instance are updated with the new data and no new objects 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4305">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4498">source</a></span></span>
     </span>
   </h3>
 
@@ -8093,7 +8095,7 @@ all references to the Instance are updated with the new data and no new objects 
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -8144,7 +8146,7 @@ all references to the Instance are updated with the new data and no new objects 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3885">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4049">source</a></span></span>
     </span>
   </h3>
 
@@ -8215,7 +8217,7 @@ all references to the Instance are updated with the new data and no new objects 
     </tr>
 <tr data-ice="property" data-depth="1">
       <td data-ice="name" class="code" data-depth="1">options.transaction</td>
-      <td data-ice="type" class="code"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></td>
+      <td data-ice="type" class="code"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Transaction to run query under</p>
 </td>
@@ -8281,7 +8283,7 @@ all references to the Instance are updated with the new data and no new objects 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3631">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3773">source</a></span></span>
     </span>
   </h3>
 
@@ -8393,7 +8395,7 @@ while also making sure that the proper include options have been set (from .buil
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3518">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3658">source</a></span></span>
     </span>
   </h3>
 
@@ -8461,7 +8463,7 @@ while also making sure that the proper include options have been set (from .buil
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4456">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4654">source</a></span></span>
     </span>
   </h3>
 
@@ -8519,7 +8521,7 @@ This means get all values gotten from the DB, and apply all custom getters.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4201">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4389">source</a></span></span>
     </span>
   </h3>
 
@@ -8601,7 +8603,7 @@ exact values passed to it, making it more atomic and safer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4183">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber4371">source</a></span></span>
     </span>
   </h3>
 
@@ -8697,7 +8699,7 @@ exact values passed to it, making it more atomic and safer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3480">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/model.js.html#lineNumber3617">source</a></span></span>
     </span>
   </h3>
 
@@ -8779,23 +8781,21 @@ exact values passed to it, making it more atomic and safer.</p>
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });

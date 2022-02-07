@@ -68,13 +68,15 @@
 
 
 <li data-ice="doc" style="margin-top: 15px;"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/model.js~Model.html">Model</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/sequelize.js~Sequelize.html">Sequelize</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.js~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/transaction.ts~Transaction.html">Transaction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-safeStringifyJson">safeStringifyJson</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DataTypes">DataTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Deferrable">Deferrable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IndexHints">IndexHints</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-QueryTypes">QueryTypes</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TableHints">TableHints</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ISOLATION_LEVELS">ISOLATION_LEVELS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOCK">LOCK</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#associations">associations</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/base.js~Association.html">Association</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to-many.js~BelongsToMany.html">BelongsToMany</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/associations/belongs-to.js~BelongsTo.html">BelongsTo</a></span></span></li>
@@ -197,6 +199,35 @@
           
           
           
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-ISOLATION_LEVELS">ISOLATION_LEVELS</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Isolations levels can be set per-transaction by passing <code>options.isolationLevel</code> to <code>sequelize.transaction</code>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-IndexHints">IndexHints</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
         </p>
       </div>
@@ -204,6 +235,35 @@
         
         
         <div data-ice="description"><p>An enum of index hints to be used in mysql for querying with index hints</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-LOCK">LOCK</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Possible options for row locking.</p>
 </div>
       </div>
     </td>
@@ -347,7 +407,7 @@ our new <code>origin</code> values.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/data-types.js.html#lineNumber1005">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/data-types.js.html#lineNumber1097">source</a></span></span>
     </span>
   </h3>
 
@@ -528,6 +588,69 @@ to be checked at the very end of the transaction.</p>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-variable-ISOLATION_LEVELS">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">ISOLATION_LEVELS</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/transaction.ts.html#lineNumber219">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Isolations levels can be set per-transaction by passing <code>options.isolationLevel</code> to <code>sequelize.transaction</code>.
+Default to <code>REPEATABLE_READ</code> but you can override the default isolation level by passing <code>options.isolationLevel</code> in <code>new Sequelize</code>.</p>
+<p>The possible isolations levels to use when starting a transaction:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">{
+  READ_UNCOMMITTED: "READ UNCOMMITTED",
+  READ_COMMITTED: "READ COMMITTED",
+  REPEATABLE_READ: "REPEATABLE READ",
+  SERIALIZABLE: "SERIALIZABLE"
+}</code>
+</code></pre>
+<p>Pass in the desired level as the first argument:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">try {
+  await sequelize.transaction({isolationLevel: Sequelize.Transaction.SERIALIZABLE}, transaction =&gt; {
+     // your transactions
+  });
+  // transaction has been committed. Do something after the commit if required.
+} catch(err) {
+  // do something with the err.
+}</code>
+</code></pre>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-variable-IndexHints">
     <span class="access" data-ice="access">public</span>
     
@@ -539,7 +662,7 @@ to be checked at the very end of the transaction.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/index-hints.js.html#lineNumber10">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/index-hints.ts.html#lineNumber34">source</a></span></span>
     </span>
   </h3>
 
@@ -600,6 +723,76 @@ to be checked at the very end of the transaction.</p>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-variable-LOCK">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">LOCK</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/transaction.ts.html#lineNumber267">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Possible options for row locking. Used in conjunction with <code>find</code> calls:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">t1 // is a transaction
+t1.LOCK.UPDATE,
+t1.LOCK.SHARE,
+t1.LOCK.KEY_SHARE, // Postgres 9.3+ only
+t1.LOCK.NO_KEY_UPDATE // Postgres 9.3+ only</code>
+</code></pre>
+<p>Usage:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">t1 // is a transaction
+Model.findAll({
+  where: ...,
+  transaction: t1,
+  lock: t1.LOCK...
+});</code>
+</code></pre>
+<p>Postgres also supports specific locks while eager loading by using OF:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">UserModel.findAll({
+  where: ...,
+  include: [TaskModel, ...],
+  transaction: t1,
+  lock: {
+  level: t1.LOCK...,
+  of: UserModel
+  }
+});</code>
+</code></pre>
+<p>UserModel will be locked but TaskModel won't!</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-variable-QueryTypes">
     <span class="access" data-ice="access">public</span>
     
@@ -611,7 +804,7 @@ to be checked at the very end of the transaction.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/query-types.js.html#lineNumber23">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/query-types.ts.html#lineNumber47">source</a></span></span>
     </span>
   </h3>
 
@@ -734,7 +927,7 @@ to be checked at the very end of the transaction.</p>
 
   
 
-  <div data-ice="see"><h4>See:</h4><ul><li><span><span><a href="class/lib/sequelize.js~Sequelize.html#instance-method-query">Sequelize#query</a></span></span></li></ul></div>
+  <div data-ice="see"><h4>See:</h4><ul><li><span><span>Sequelize#query</span></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -749,7 +942,7 @@ to be checked at the very end of the transaction.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/table-hints.js.html#lineNumber22">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/table-hints.ts.html#lineNumber46">source</a></span></span>
     </span>
   </h3>
 
@@ -893,7 +1086,7 @@ to be checked at the very end of the transaction.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/errors/validation-error.ts.html#lineNumber46">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/errors/validation-error.ts.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
@@ -937,7 +1130,7 @@ to be checked at the very end of the transaction.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/errors/validation-error.ts.html#lineNumber36">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/errors/validation-error.ts.html#lineNumber41">source</a></span></span>
     </span>
   </h3>
 
@@ -991,23 +1184,21 @@ our new <code>origin</code> values.</p>
 
 (() => {
   function toggleNavigationBar() {
-    const navigationElements = document.getElementsByClassName('navigation');
-    for (let i = 0; i < navigationElements.length; ++i) {
-      const navigationElement = navigationElements[i];
+    const navigationElements = document.querySelectorAll('.navigation');
+    for (const navigationElement of navigationElements) {
       navigationElement.classList.toggle('open');
     }
   }
 
   // Hamburger button - toggles the navigation bar
-  const hamburger = document.getElementById('navigationHamburger');
+  const hamburger = document.querySelector('#navigationHamburger');
   hamburger.addEventListener('click', () => {
     toggleNavigationBar();
   });
 
   // Each link in the navigation bar - closes the navigation bar
   const navigationLinks = document.querySelectorAll('.navigation a');
-  for (let i = 0; i < navigationLinks.length; ++i) {
-    const linkElement = navigationLinks[i];
+  for (const linkElement of navigationLinks) {
     linkElement.addEventListener('click', () => {
       toggleNavigationBar();
     });
