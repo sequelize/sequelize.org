@@ -1068,9 +1068,51 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/dialects/abstract/query-interface.js",
+    "file/lib/dialects/abstract/query-interface.js.html",
+    "lib/dialects/abstract/query-interface.js",
+    "file"
+  ],
+  [
     "lib/dialects/abstract/query.js",
     "file/lib/dialects/abstract/query.js.html",
     "lib/dialects/abstract/query.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/connection-manager.js",
+    "file/lib/dialects/db2/connection-manager.js.html",
+    "lib/dialects/db2/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/data-types.js",
+    "file/lib/dialects/db2/data-types.js.html",
+    "lib/dialects/db2/data-types.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/index.js",
+    "file/lib/dialects/db2/index.js.html",
+    "lib/dialects/db2/index.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query-generator.js",
+    "file/lib/dialects/db2/query-generator.js.html",
+    "lib/dialects/db2/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query-interface.js",
+    "file/lib/dialects/db2/query-interface.js.html",
+    "lib/dialects/db2/query-interface.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query.js",
+    "file/lib/dialects/db2/query.js.html",
+    "lib/dialects/db2/query.js",
     "file"
   ],
   [
@@ -1101,6 +1143,12 @@ window.esdocSearchIndex = [
     "lib/dialects/mariadb/query.js",
     "file/lib/dialects/mariadb/query.js.html",
     "lib/dialects/mariadb/query.js",
+    "file"
+  ],
+  [
+    "lib/dialects/mssql/async-queue.js",
+    "file/lib/dialects/mssql/async-queue.js.html",
+    "lib/dialects/mssql/async-queue.js",
     "file"
   ],
   [
@@ -1236,6 +1284,42 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/dialects/snowflake/connection-manager.js",
+    "file/lib/dialects/snowflake/connection-manager.js.html",
+    "lib/dialects/snowflake/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/data-types.js",
+    "file/lib/dialects/snowflake/data-types.js.html",
+    "lib/dialects/snowflake/data-types.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/index.js",
+    "file/lib/dialects/snowflake/index.js.html",
+    "lib/dialects/snowflake/index.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-generator.js",
+    "file/lib/dialects/snowflake/query-generator.js.html",
+    "lib/dialects/snowflake/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-interface.js",
+    "file/lib/dialects/snowflake/query-interface.js.html",
+    "lib/dialects/snowflake/query-interface.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query.js",
+    "file/lib/dialects/snowflake/query.js.html",
+    "lib/dialects/snowflake/query.js",
+    "file"
+  ],
+  [
     "lib/dialects/sqlite/connection-manager.js",
     "file/lib/dialects/sqlite/connection-manager.js.html",
     "lib/dialects/sqlite/connection-manager.js",
@@ -1269,6 +1353,12 @@ window.esdocSearchIndex = [
     "lib/dialects/sqlite/query.js",
     "file/lib/dialects/sqlite/query.js.html",
     "lib/dialects/sqlite/query.js",
+    "file"
+  ],
+  [
+    "lib/errors/aggregate-error.js",
+    "file/lib/errors/aggregate-error.js.html",
+    "lib/errors/aggregate-error.js",
     "file"
   ],
   [
@@ -1536,6 +1626,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/generic/falsy.js",
+    "file/lib/generic/falsy.js.html",
+    "lib/generic/falsy.js",
+    "file"
+  ],
+  [
+    "lib/generic/sql-fragment.js",
+    "file/lib/generic/sql-fragment.js.html",
+    "lib/generic/sql-fragment.js",
+    "file"
+  ],
+  [
     "lib/hooks.js",
     "file/lib/hooks.js.html",
     "lib/hooks.js",
@@ -1545,6 +1647,12 @@ window.esdocSearchIndex = [
     "lib/index-hints.js",
     "file/lib/index-hints.js.html",
     "lib/index-hints.js",
+    "file"
+  ],
+  [
+    "lib/index.js",
+    "file/lib/index.js.html",
+    "lib/index.js",
     "file"
   ],
   [
@@ -2370,6 +2478,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/utils/class-to-invokable.js",
+    "file/lib/utils/class-to-invokable.js.html",
+    "lib/utils/class-to-invokable.js",
+    "file"
+  ],
+  [
     "lib/utils/classtoinvokable.js",
     "file/lib/utils/classToInvokable.js.html",
     "lib/utils/classToInvokable.js",
@@ -2379,6 +2493,12 @@ window.esdocSearchIndex = [
     "lib/utils/deprecations.js",
     "file/lib/utils/deprecations.js.html",
     "lib/utils/deprecations.js",
+    "file"
+  ],
+  [
+    "lib/utils/join-sql-fragments.js",
+    "file/lib/utils/join-sql-fragments.js.html",
+    "lib/utils/join-sql-fragments.js",
     "file"
   ],
   [

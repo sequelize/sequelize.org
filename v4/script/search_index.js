@@ -450,9 +450,57 @@
     "file"
   ],
   [
+    "lib/dialects/abstract/query-interface.js",
+    "file/lib/dialects/abstract/query-interface.js.html",
+    "lib/dialects/abstract/query-interface.js",
+    "file"
+  ],
+  [
     "lib/dialects/abstract/query.js",
     "file/lib/dialects/abstract/query.js.html",
     "lib/dialects/abstract/query.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/connection-manager.js",
+    "file/lib/dialects/db2/connection-manager.js.html",
+    "lib/dialects/db2/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/data-types.js",
+    "file/lib/dialects/db2/data-types.js.html",
+    "lib/dialects/db2/data-types.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/index.js",
+    "file/lib/dialects/db2/index.js.html",
+    "lib/dialects/db2/index.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query-generator.js",
+    "file/lib/dialects/db2/query-generator.js.html",
+    "lib/dialects/db2/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query-interface.js",
+    "file/lib/dialects/db2/query-interface.js.html",
+    "lib/dialects/db2/query-interface.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/query.js",
+    "file/lib/dialects/db2/query.js.html",
+    "lib/dialects/db2/query.js",
+    "file"
+  ],
+  [
+    "lib/dialects/mssql/async-queue.js",
+    "file/lib/dialects/mssql/async-queue.js.html",
+    "lib/dialects/mssql/async-queue.js",
     "file"
   ],
   [
@@ -582,6 +630,42 @@
     "file"
   ],
   [
+    "lib/dialects/snowflake/connection-manager.js",
+    "file/lib/dialects/snowflake/connection-manager.js.html",
+    "lib/dialects/snowflake/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/data-types.js",
+    "file/lib/dialects/snowflake/data-types.js.html",
+    "lib/dialects/snowflake/data-types.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/index.js",
+    "file/lib/dialects/snowflake/index.js.html",
+    "lib/dialects/snowflake/index.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-generator.js",
+    "file/lib/dialects/snowflake/query-generator.js.html",
+    "lib/dialects/snowflake/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query-interface.js",
+    "file/lib/dialects/snowflake/query-interface.js.html",
+    "lib/dialects/snowflake/query-interface.js",
+    "file"
+  ],
+  [
+    "lib/dialects/snowflake/query.js",
+    "file/lib/dialects/snowflake/query.js.html",
+    "lib/dialects/snowflake/query.js",
+    "file"
+  ],
+  [
     "lib/dialects/sqlite/connection-manager.js",
     "file/lib/dialects/sqlite/connection-manager.js.html",
     "lib/dialects/sqlite/connection-manager.js",
@@ -621,6 +705,12 @@
     "lib/errors.js",
     "file/lib/errors.js.html",
     "lib/errors.js",
+    "file"
+  ],
+  [
+    "lib/errors/aggregate-error.js",
+    "file/lib/errors/aggregate-error.js.html",
+    "lib/errors/aggregate-error.js",
     "file"
   ],
   [
@@ -732,9 +822,27 @@
     "member"
   ],
   [
+    "lib/generic/falsy.js",
+    "file/lib/generic/falsy.js.html",
+    "lib/generic/falsy.js",
+    "file"
+  ],
+  [
+    "lib/generic/sql-fragment.js",
+    "file/lib/generic/sql-fragment.js.html",
+    "lib/generic/sql-fragment.js",
+    "file"
+  ],
+  [
     "lib/hooks.js",
     "file/lib/hooks.js.html",
     "lib/hooks.js",
+    "file"
+  ],
+  [
+    "lib/index.js",
+    "file/lib/index.js.html",
+    "lib/index.js",
     "file"
   ],
   [
@@ -1536,9 +1644,21 @@
     "file"
   ],
   [
+    "lib/utils/class-to-invokable.js",
+    "file/lib/utils/class-to-invokable.js.html",
+    "lib/utils/class-to-invokable.js",
+    "file"
+  ],
+  [
     "lib/utils/inherits.js",
     "file/lib/utils/inherits.js.html",
     "lib/utils/inherits.js",
+    "file"
+  ],
+  [
+    "lib/utils/join-sql-fragments.js",
+    "file/lib/utils/join-sql-fragments.js.html",
+    "lib/utils/join-sql-fragments.js",
     "file"
   ],
   [

@@ -1098,6 +1098,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/dialects/abstract/index.js",
+    "file/lib/dialects/abstract/index.js.html",
+    "lib/dialects/abstract/index.js",
+    "file"
+  ],
+  [
     "lib/dialects/abstract/index.ts",
     "file/lib/dialects/abstract/index.ts.html",
     "lib/dialects/abstract/index.ts",
@@ -1359,6 +1365,12 @@ window.esdocSearchIndex = [
     "lib/dialects/mariadb/query-generator.js",
     "file/lib/dialects/mariadb/query-generator.js.html",
     "lib/dialects/mariadb/query-generator.js",
+    "file"
+  ],
+  [
+    "lib/dialects/mssql/async-queue.js",
+    "file/lib/dialects/mssql/async-queue.js.html",
+    "lib/dialects/mssql/async-queue.js",
     "file"
   ],
   [
@@ -1674,9 +1686,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/aggregate-error.js",
+    "file/lib/errors/aggregate-error.js.html",
+    "lib/errors/aggregate-error.js",
+    "file"
+  ],
+  [
     "lib/errors/aggregate-error.ts",
     "file/lib/errors/aggregate-error.ts.html",
     "lib/errors/aggregate-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/association-error.js",
+    "file/lib/errors/association-error.js.html",
+    "lib/errors/association-error.js",
     "file"
   ],
   [
@@ -1686,9 +1710,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/base-error.js",
+    "file/lib/errors/base-error.js.html",
+    "lib/errors/base-error.js",
+    "file"
+  ],
+  [
     "lib/errors/base-error.ts",
     "file/lib/errors/base-error.ts.html",
     "lib/errors/base-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/bulk-record-error.js",
+    "file/lib/errors/bulk-record-error.js.html",
+    "lib/errors/bulk-record-error.js",
     "file"
   ],
   [
@@ -1698,9 +1734,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/connection-error.js",
+    "file/lib/errors/connection-error.js.html",
+    "lib/errors/connection-error.js",
+    "file"
+  ],
+  [
     "lib/errors/connection-error.ts",
     "file/lib/errors/connection-error.ts.html",
     "lib/errors/connection-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/connection/access-denied-error.js",
+    "file/lib/errors/connection/access-denied-error.js.html",
+    "lib/errors/connection/access-denied-error.js",
     "file"
   ],
   [
@@ -1710,9 +1758,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/connection/connection-acquire-timeout-error.js",
+    "file/lib/errors/connection/connection-acquire-timeout-error.js.html",
+    "lib/errors/connection/connection-acquire-timeout-error.js",
+    "file"
+  ],
+  [
     "lib/errors/connection/connection-acquire-timeout-error.ts",
     "file/lib/errors/connection/connection-acquire-timeout-error.ts.html",
     "lib/errors/connection/connection-acquire-timeout-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/connection/connection-refused-error.js",
+    "file/lib/errors/connection/connection-refused-error.js.html",
+    "lib/errors/connection/connection-refused-error.js",
     "file"
   ],
   [
@@ -1722,9 +1782,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/connection/connection-timed-out-error.js",
+    "file/lib/errors/connection/connection-timed-out-error.js.html",
+    "lib/errors/connection/connection-timed-out-error.js",
+    "file"
+  ],
+  [
     "lib/errors/connection/connection-timed-out-error.ts",
     "file/lib/errors/connection/connection-timed-out-error.ts.html",
     "lib/errors/connection/connection-timed-out-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/connection/host-not-found-error.js",
+    "file/lib/errors/connection/host-not-found-error.js.html",
+    "lib/errors/connection/host-not-found-error.js",
     "file"
   ],
   [
@@ -1734,9 +1806,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/connection/host-not-reachable-error.js",
+    "file/lib/errors/connection/host-not-reachable-error.js.html",
+    "lib/errors/connection/host-not-reachable-error.js",
+    "file"
+  ],
+  [
     "lib/errors/connection/host-not-reachable-error.ts",
     "file/lib/errors/connection/host-not-reachable-error.ts.html",
     "lib/errors/connection/host-not-reachable-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/connection/invalid-connection-error.js",
+    "file/lib/errors/connection/invalid-connection-error.js.html",
+    "lib/errors/connection/invalid-connection-error.js",
     "file"
   ],
   [
@@ -1746,9 +1830,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/database-error.js",
+    "file/lib/errors/database-error.js.html",
+    "lib/errors/database-error.js",
+    "file"
+  ],
+  [
     "lib/errors/database-error.ts",
     "file/lib/errors/database-error.ts.html",
     "lib/errors/database-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/database/exclusion-constraint-error.js",
+    "file/lib/errors/database/exclusion-constraint-error.js.html",
+    "lib/errors/database/exclusion-constraint-error.js",
     "file"
   ],
   [
@@ -1758,9 +1854,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/database/foreign-key-constraint-error.js",
+    "file/lib/errors/database/foreign-key-constraint-error.js.html",
+    "lib/errors/database/foreign-key-constraint-error.js",
+    "file"
+  ],
+  [
     "lib/errors/database/foreign-key-constraint-error.ts",
     "file/lib/errors/database/foreign-key-constraint-error.ts.html",
     "lib/errors/database/foreign-key-constraint-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/database/timeout-error.js",
+    "file/lib/errors/database/timeout-error.js.html",
+    "lib/errors/database/timeout-error.js",
     "file"
   ],
   [
@@ -1770,9 +1878,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/database/unknown-constraint-error.js",
+    "file/lib/errors/database/unknown-constraint-error.js.html",
+    "lib/errors/database/unknown-constraint-error.js",
+    "file"
+  ],
+  [
     "lib/errors/database/unknown-constraint-error.ts",
     "file/lib/errors/database/unknown-constraint-error.ts.html",
     "lib/errors/database/unknown-constraint-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/eager-loading-error.js",
+    "file/lib/errors/eager-loading-error.js.html",
+    "lib/errors/eager-loading-error.js",
     "file"
   ],
   [
@@ -1782,9 +1902,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/empty-result-error.js",
+    "file/lib/errors/empty-result-error.js.html",
+    "lib/errors/empty-result-error.js",
+    "file"
+  ],
+  [
     "lib/errors/empty-result-error.ts",
     "file/lib/errors/empty-result-error.ts.html",
     "lib/errors/empty-result-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/index.js",
+    "file/lib/errors/index.js.html",
+    "lib/errors/index.js",
     "file"
   ],
   [
@@ -1794,9 +1926,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/instance-error.js",
+    "file/lib/errors/instance-error.js.html",
+    "lib/errors/instance-error.js",
+    "file"
+  ],
+  [
     "lib/errors/instance-error.ts",
     "file/lib/errors/instance-error.ts.html",
     "lib/errors/instance-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/optimistic-lock-error.js",
+    "file/lib/errors/optimistic-lock-error.js.html",
+    "lib/errors/optimistic-lock-error.js",
     "file"
   ],
   [
@@ -1806,9 +1950,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/query-error.js",
+    "file/lib/errors/query-error.js.html",
+    "lib/errors/query-error.js",
+    "file"
+  ],
+  [
     "lib/errors/query-error.ts",
     "file/lib/errors/query-error.ts.html",
     "lib/errors/query-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/sequelize-scope-error.js",
+    "file/lib/errors/sequelize-scope-error.js.html",
+    "lib/errors/sequelize-scope-error.js",
     "file"
   ],
   [
@@ -1818,9 +1974,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/errors/validation-error.js",
+    "file/lib/errors/validation-error.js.html",
+    "lib/errors/validation-error.js",
+    "file"
+  ],
+  [
     "lib/errors/validation-error.ts",
     "file/lib/errors/validation-error.ts.html",
     "lib/errors/validation-error.ts",
+    "file"
+  ],
+  [
+    "lib/errors/validation/unique-constraint-error.js",
+    "file/lib/errors/validation/unique-constraint-error.js.html",
+    "lib/errors/validation/unique-constraint-error.js",
     "file"
   ],
   [
@@ -1830,9 +1998,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/generic/falsy.js",
+    "file/lib/generic/falsy.js.html",
+    "lib/generic/falsy.js",
+    "file"
+  ],
+  [
     "lib/generic/falsy.ts",
     "file/lib/generic/falsy.ts.html",
     "lib/generic/falsy.ts",
+    "file"
+  ],
+  [
+    "lib/generic/sql-fragment.js",
+    "file/lib/generic/sql-fragment.js.html",
+    "lib/generic/sql-fragment.js",
     "file"
   ],
   [
@@ -1848,9 +2028,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/index-hints.js",
+    "file/lib/index-hints.js.html",
+    "lib/index-hints.js",
+    "file"
+  ],
+  [
     "lib/index-hints.ts",
     "file/lib/index-hints.ts.html",
     "lib/index-hints.ts",
+    "file"
+  ],
+  [
+    "lib/index.js",
+    "file/lib/index.js.html",
+    "lib/index.js",
     "file"
   ],
   [
@@ -2226,9 +2418,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/operators.js",
+    "file/lib/operators.js.html",
+    "lib/operators.js",
+    "file"
+  ],
+  [
     "lib/operators.ts",
     "file/lib/operators.ts.html",
     "lib/operators.ts",
+    "file"
+  ],
+  [
+    "lib/query-types.js",
+    "file/lib/query-types.js.html",
+    "lib/query-types.js",
     "file"
   ],
   [
@@ -2244,9 +2448,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/table-hints.js",
+    "file/lib/table-hints.js.html",
+    "lib/table-hints.js",
+    "file"
+  ],
+  [
     "lib/table-hints.ts",
     "file/lib/table-hints.ts.html",
     "lib/table-hints.ts",
+    "file"
+  ],
+  [
+    "lib/transaction.js",
+    "file/lib/transaction.js.html",
+    "lib/transaction.js",
     "file"
   ],
   [
@@ -2262,9 +2478,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/utils/class-to-invokable.js",
+    "file/lib/utils/class-to-invokable.js.html",
+    "lib/utils/class-to-invokable.js",
+    "file"
+  ],
+  [
     "lib/utils/class-to-invokable.ts",
     "file/lib/utils/class-to-invokable.ts.html",
     "lib/utils/class-to-invokable.ts",
+    "file"
+  ],
+  [
+    "lib/utils/deprecations.js",
+    "file/lib/utils/deprecations.js.html",
+    "lib/utils/deprecations.js",
     "file"
   ],
   [
@@ -2274,9 +2502,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/utils/join-sql-fragments.js",
+    "file/lib/utils/join-sql-fragments.js.html",
+    "lib/utils/join-sql-fragments.js",
+    "file"
+  ],
+  [
     "lib/utils/join-sql-fragments.ts",
     "file/lib/utils/join-sql-fragments.ts.html",
     "lib/utils/join-sql-fragments.ts",
+    "file"
+  ],
+  [
+    "lib/utils/logger.js",
+    "file/lib/utils/logger.js.html",
+    "lib/utils/logger.js",
     "file"
   ],
   [

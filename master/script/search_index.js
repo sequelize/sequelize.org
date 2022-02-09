@@ -1,527 +1,5 @@
 window.esdocSearchIndex = [
   [
-    "sequelize/lib/data-types.js~array",
-    "class/lib/data-types.js~ARRAY.html",
-    "<span>ARRAY</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/access-denied-error.ts~accessdeniederror",
-    "class/lib/errors/connection/access-denied-error.ts~AccessDeniedError.html",
-    "<span>AccessDeniedError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/access-denied-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/aggregate-error.ts~aggregateerror",
-    "class/lib/errors/aggregate-error.ts~AggregateError.html",
-    "<span>AggregateError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/aggregate-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/associations/base.js~association",
-    "class/lib/associations/base.js~Association.html",
-    "<span>Association</span> <span class=\"search-result-import-path\">sequelize/lib/associations/base.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/association-error.ts~associationerror",
-    "class/lib/errors/association-error.ts~AssociationError.html",
-    "<span>AssociationError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/association-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/mssql/async-queue.ts~asyncqueueerror",
-    "class/lib/dialects/mssql/async-queue.ts~AsyncQueueError.html",
-    "<span>AsyncQueueError</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/mssql/async-queue.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~bigint",
-    "class/lib/data-types.js~BIGINT.html",
-    "<span>BIGINT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~blob",
-    "class/lib/data-types.js~BLOB.html",
-    "<span>BLOB</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~boolean",
-    "class/lib/data-types.js~BOOLEAN.html",
-    "<span>BOOLEAN</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/base-error.ts~baseerror",
-    "class/lib/errors/base-error.ts~BaseError.html",
-    "<span>BaseError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/base-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/associations/belongs-to.js~belongsto",
-    "class/lib/associations/belongs-to.js~BelongsTo.html",
-    "<span>BelongsTo</span> <span class=\"search-result-import-path\">sequelize/lib/associations/belongs-to.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/associations/belongs-to-many.js~belongstomany",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html",
-    "<span>BelongsToMany</span> <span class=\"search-result-import-path\">sequelize/lib/associations/belongs-to-many.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/bulk-record-error.ts~bulkrecorderror",
-    "class/lib/errors/bulk-record-error.ts~BulkRecordError.html",
-    "<span>BulkRecordError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/bulk-record-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~char",
-    "class/lib/data-types.js~CHAR.html",
-    "<span>CHAR</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~cidr",
-    "class/lib/data-types.js~CIDR.html",
-    "<span>CIDR</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~citext",
-    "class/lib/data-types.js~CITEXT.html",
-    "<span>CITEXT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/connection-acquire-timeout-error.ts~connectionacquiretimeouterror",
-    "class/lib/errors/connection/connection-acquire-timeout-error.ts~ConnectionAcquireTimeoutError.html",
-    "<span>ConnectionAcquireTimeoutError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/connection-acquire-timeout-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection-error.ts~connectionerror",
-    "class/lib/errors/connection-error.ts~ConnectionError.html",
-    "<span>ConnectionError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/connection-refused-error.ts~connectionrefusederror",
-    "class/lib/errors/connection/connection-refused-error.ts~ConnectionRefusedError.html",
-    "<span>ConnectionRefusedError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/connection-refused-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/connection-timed-out-error.ts~connectiontimedouterror",
-    "class/lib/errors/connection/connection-timed-out-error.ts~ConnectionTimedOutError.html",
-    "<span>ConnectionTimedOutError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/connection-timed-out-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~date",
-    "class/lib/data-types.js~DATE.html",
-    "<span>DATE</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~dateonly",
-    "class/lib/data-types.js~DATEONLY.html",
-    "<span>DATEONLY</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~decimal",
-    "class/lib/data-types.js~DECIMAL.html",
-    "<span>DECIMAL</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~double",
-    "class/lib/data-types.js~DOUBLE.html",
-    "<span>DOUBLE</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~datatypes",
-    "variable/index.html#static-variable-DataTypes",
-    "<span>DataTypes</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/errors/database-error.ts~databaseerror",
-    "class/lib/errors/database-error.ts~DatabaseError.html",
-    "<span>DatabaseError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/db2/query-interface.js~db2queryinterface",
-    "class/lib/dialects/db2/query-interface.js~Db2QueryInterface.html",
-    "<span>Db2QueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/db2/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/deferrable.js~deferrable",
-    "variable/index.html#static-variable-Deferrable",
-    "<span>Deferrable</span> <span class=\"search-result-import-path\">sequelize/lib/deferrable.js</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/data-types.js~enum",
-    "class/lib/data-types.js~ENUM.html",
-    "<span>ENUM</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/eager-loading-error.ts~eagerloadingerror",
-    "class/lib/errors/eager-loading-error.ts~EagerLoadingError.html",
-    "<span>EagerLoadingError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/eager-loading-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/empty-result-error.ts~emptyresulterror",
-    "class/lib/errors/empty-result-error.ts~EmptyResultError.html",
-    "<span>EmptyResultError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/empty-result-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/database/exclusion-constraint-error.ts~exclusionconstrainterror",
-    "class/lib/errors/database/exclusion-constraint-error.ts~ExclusionConstraintError.html",
-    "<span>ExclusionConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/exclusion-constraint-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~float",
-    "class/lib/data-types.js~FLOAT.html",
-    "<span>FLOAT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/database/foreign-key-constraint-error.ts~foreignkeyconstrainterror",
-    "class/lib/errors/database/foreign-key-constraint-error.ts~ForeignKeyConstraintError.html",
-    "<span>ForeignKeyConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/foreign-key-constraint-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~geography",
-    "class/lib/data-types.js~GEOGRAPHY.html",
-    "<span>GEOGRAPHY</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~geometry",
-    "class/lib/data-types.js~GEOMETRY.html",
-    "<span>GEOMETRY</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~hstore",
-    "class/lib/data-types.js~HSTORE.html",
-    "<span>HSTORE</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/associations/has-many.js~hasmany",
-    "class/lib/associations/has-many.js~HasMany.html",
-    "<span>HasMany</span> <span class=\"search-result-import-path\">sequelize/lib/associations/has-many.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/associations/has-one.js~hasone",
-    "class/lib/associations/has-one.js~HasOne.html",
-    "<span>HasOne</span> <span class=\"search-result-import-path\">sequelize/lib/associations/has-one.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/host-not-found-error.ts~hostnotfounderror",
-    "class/lib/errors/connection/host-not-found-error.ts~HostNotFoundError.html",
-    "<span>HostNotFoundError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/host-not-found-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/host-not-reachable-error.ts~hostnotreachableerror",
-    "class/lib/errors/connection/host-not-reachable-error.ts~HostNotReachableError.html",
-    "<span>HostNotReachableError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/host-not-reachable-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~inet",
-    "class/lib/data-types.js~INET.html",
-    "<span>INET</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~integer",
-    "class/lib/data-types.js~INTEGER.html",
-    "<span>INTEGER</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/transaction.ts~isolation_levels",
-    "variable/index.html#static-variable-ISOLATION_LEVELS",
-    "<span>ISOLATION_LEVELS</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/index-hints.ts~indexhints",
-    "variable/index.html#static-variable-IndexHints",
-    "<span>IndexHints</span> <span class=\"search-result-import-path\">sequelize/lib/index-hints.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/errors/instance-error.ts~instanceerror",
-    "class/lib/errors/instance-error.ts~InstanceError.html",
-    "<span>InstanceError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/instance-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/connection/invalid-connection-error.ts~invalidconnectionerror",
-    "class/lib/errors/connection/invalid-connection-error.ts~InvalidConnectionError.html",
-    "<span>InvalidConnectionError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/connection/invalid-connection-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~jsonb",
-    "class/lib/data-types.js~JSONB.html",
-    "<span>JSONB</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~jsontype",
-    "class/lib/data-types.js~JSONTYPE.html",
-    "<span>JSONTYPE</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/transaction.ts~lock",
-    "variable/index.html#static-variable-LOCK",
-    "<span>LOCK</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/data-types.js~macaddr",
-    "class/lib/data-types.js~MACADDR.html",
-    "<span>MACADDR</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~mediumint",
-    "class/lib/data-types.js~MEDIUMINT.html",
-    "<span>MEDIUMINT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/mssql/query-interface.js~mssqlqueryinterface",
-    "class/lib/dialects/mssql/query-interface.js~MSSqlQueryInterface.html",
-    "<span>MSSqlQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/mssql/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/model.js~model",
-    "class/lib/model.js~Model.html",
-    "<span>Model</span> <span class=\"search-result-import-path\">sequelize/lib/model.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/mysql/query-interface.js~mysqlqueryinterface",
-    "class/lib/dialects/mysql/query-interface.js~MySQLQueryInterface.html",
-    "<span>MySQLQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/mysql/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~now",
-    "class/lib/data-types.js~NOW.html",
-    "<span>NOW</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~number",
-    "class/lib/data-types.js~NUMBER.html",
-    "<span>NUMBER</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/optimistic-lock-error.ts~optimisticlockerror",
-    "class/lib/errors/optimistic-lock-error.ts~OptimisticLockError.html",
-    "<span>OptimisticLockError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/optimistic-lock-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/postgres/query-interface.js~postgresqueryinterface",
-    "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html",
-    "<span>PostgresQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/postgres/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/query-error.ts~queryerror",
-    "class/lib/errors/query-error.ts~QueryError.html",
-    "<span>QueryError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/query-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/abstract/query-interface.js~queryinterface",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html",
-    "<span>QueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/abstract/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/query-types.ts~querytypes",
-    "variable/index.html#static-variable-QueryTypes",
-    "<span>QueryTypes</span> <span class=\"search-result-import-path\">sequelize/lib/query-types.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/data-types.js~range",
-    "class/lib/data-types.js~RANGE.html",
-    "<span>RANGE</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~real",
-    "class/lib/data-types.js~REAL.html",
-    "<span>REAL</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~smallint",
-    "class/lib/data-types.js~SMALLINT.html",
-    "<span>SMALLINT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/sqlite/query-interface.js~sqlitequeryinterface",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html",
-    "<span>SQLiteQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/sqlite/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~string",
-    "class/lib/data-types.js~STRING.html",
-    "<span>STRING</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/sequelize-scope-error.ts~sequelizescopeerror",
-    "class/lib/errors/sequelize-scope-error.ts~SequelizeScopeError.html",
-    "<span>SequelizeScopeError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/sequelize-scope-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/dialects/snowflake/query-interface.js~snowflakequeryinterface",
-    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html",
-    "<span>SnowflakeQueryInterface</span> <span class=\"search-result-import-path\">sequelize/lib/dialects/snowflake/query-interface.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~text",
-    "class/lib/data-types.js~TEXT.html",
-    "<span>TEXT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~time",
-    "class/lib/data-types.js~TIME.html",
-    "<span>TIME</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~tinyint",
-    "class/lib/data-types.js~TINYINT.html",
-    "<span>TINYINT</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~tsvector",
-    "class/lib/data-types.js~TSVECTOR.html",
-    "<span>TSVECTOR</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/table-hints.ts~tablehints",
-    "variable/index.html#static-variable-TableHints",
-    "<span>TableHints</span> <span class=\"search-result-import-path\">sequelize/lib/table-hints.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/errors/database/timeout-error.ts~timeouterror",
-    "class/lib/errors/database/timeout-error.ts~TimeoutError.html",
-    "<span>TimeoutError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/timeout-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/transaction.ts~transaction",
-    "class/lib/transaction.ts~Transaction.html",
-    "<span>Transaction</span> <span class=\"search-result-import-path\">sequelize/lib/transaction.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~uuid",
-    "class/lib/data-types.js~UUID.html",
-    "<span>UUID</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~uuidv1",
-    "class/lib/data-types.js~UUIDV1.html",
-    "<span>UUIDV1</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~uuidv4",
-    "class/lib/data-types.js~UUIDV4.html",
-    "<span>UUIDV4</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/validation/unique-constraint-error.ts~uniqueconstrainterror",
-    "class/lib/errors/validation/unique-constraint-error.ts~UniqueConstraintError.html",
-    "<span>UniqueConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation/unique-constraint-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/database/unknown-constraint-error.ts~unknownconstrainterror",
-    "class/lib/errors/database/unknown-constraint-error.ts~UnknownConstraintError.html",
-    "<span>UnknownConstraintError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/database/unknown-constraint-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/data-types.js~virtual",
-    "class/lib/data-types.js~VIRTUAL.html",
-    "<span>VIRTUAL</span> <span class=\"search-result-import-path\">sequelize/lib/data-types.js</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/validation-error.ts~validationerror",
-    "class/lib/errors/validation-error.ts~ValidationError.html",
-    "<span>ValidationError</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/validation-error.ts~validationerroritem",
-    "class/lib/errors/validation-error.ts~ValidationErrorItem.html",
-    "<span>ValidationErrorItem</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.ts</span>",
-    "class"
-  ],
-  [
-    "sequelize/lib/errors/validation-error.ts~validationerroritemorigin",
-    "variable/index.html#static-variable-ValidationErrorItemOrigin",
-    "<span>ValidationErrorItemOrigin</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/errors/validation-error.ts~validationerroritemtype",
-    "variable/index.html#static-variable-ValidationErrorItemType",
-    "<span>ValidationErrorItemType</span> <span class=\"search-result-import-path\">sequelize/lib/errors/validation-error.ts</span>",
-    "variable"
-  ],
-  [
-    "sequelize/lib/utils.js~safestringifyjson",
-    "function/index.html#static-function-safeStringifyJson",
-    "<span>safeStringifyJson</span> <span class=\"search-result-import-path\">sequelize/lib/utils.js</span>",
-    "function"
-  ],
-  [
     "lib/.external-ecmascript.js~array",
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "lib/.external-ecmascript.js~Array",
@@ -810,70 +288,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/associations/base.js~association#associationtype",
-    "class/lib/associations/base.js~Association.html#instance-member-associationType",
-    "lib/associations/base.js~Association#associationType",
-    "member"
-  ],
-  [
-    "lib/associations/base.js~association#source",
-    "class/lib/associations/base.js~Association.html#instance-member-source",
-    "lib/associations/base.js~Association#source",
-    "member"
-  ],
-  [
-    "lib/associations/base.js~association#target",
-    "class/lib/associations/base.js~Association.html#instance-member-target",
-    "lib/associations/base.js~Association#target",
-    "member"
-  ],
-  [
     "lib/associations/belongs-to-many.js",
     "file/lib/associations/belongs-to-many.js.html",
     "lib/associations/belongs-to-many.js",
     "file"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#add",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-add",
-    "lib/associations/belongs-to-many.js~BelongsToMany#add",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#count",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-count",
-    "lib/associations/belongs-to-many.js~BelongsToMany#count",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#create",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-create",
-    "lib/associations/belongs-to-many.js~BelongsToMany#create",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#get",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-get",
-    "lib/associations/belongs-to-many.js~BelongsToMany#get",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#has",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-has",
-    "lib/associations/belongs-to-many.js~BelongsToMany#has",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#remove",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-remove",
-    "lib/associations/belongs-to-many.js~BelongsToMany#remove",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to-many.js~belongstomany#set",
-    "class/lib/associations/belongs-to-many.js~BelongsToMany.html#instance-method-set",
-    "lib/associations/belongs-to-many.js~BelongsToMany#set",
-    "method"
   ],
   [
     "lib/associations/belongs-to.js",
@@ -882,94 +300,16 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/associations/belongs-to.js~belongsto#create",
-    "class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-create",
-    "lib/associations/belongs-to.js~BelongsTo#create",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to.js~belongsto#get",
-    "class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-get",
-    "lib/associations/belongs-to.js~BelongsTo#get",
-    "method"
-  ],
-  [
-    "lib/associations/belongs-to.js~belongsto#set",
-    "class/lib/associations/belongs-to.js~BelongsTo.html#instance-method-set",
-    "lib/associations/belongs-to.js~BelongsTo#set",
-    "method"
-  ],
-  [
     "lib/associations/has-many.js",
     "file/lib/associations/has-many.js.html",
     "lib/associations/has-many.js",
     "file"
   ],
   [
-    "lib/associations/has-many.js~hasmany#add",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-add",
-    "lib/associations/has-many.js~HasMany#add",
-    "method"
-  ],
-  [
-    "lib/associations/has-many.js~hasmany#count",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-count",
-    "lib/associations/has-many.js~HasMany#count",
-    "method"
-  ],
-  [
-    "lib/associations/has-many.js~hasmany#create",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-create",
-    "lib/associations/has-many.js~HasMany#create",
-    "method"
-  ],
-  [
-    "lib/associations/has-many.js~hasmany#get",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-get",
-    "lib/associations/has-many.js~HasMany#get",
-    "method"
-  ],
-  [
-    "lib/associations/has-many.js~hasmany#has",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-has",
-    "lib/associations/has-many.js~HasMany#has",
-    "method"
-  ],
-  [
-    "lib/associations/has-many.js~hasmany#remove",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-remove",
-    "lib/associations/has-many.js~HasMany#remove",
-    "method"
-  ],
-  [
-    "lib/associations/has-many.js~hasmany#set",
-    "class/lib/associations/has-many.js~HasMany.html#instance-method-set",
-    "lib/associations/has-many.js~HasMany#set",
-    "method"
-  ],
-  [
     "lib/associations/has-one.js",
     "file/lib/associations/has-one.js.html",
     "lib/associations/has-one.js",
     "file"
-  ],
-  [
-    "lib/associations/has-one.js~hasone#create",
-    "class/lib/associations/has-one.js~HasOne.html#instance-method-create",
-    "lib/associations/has-one.js~HasOne#create",
-    "method"
-  ],
-  [
-    "lib/associations/has-one.js~hasone#get",
-    "class/lib/associations/has-one.js~HasOne.html#instance-method-get",
-    "lib/associations/has-one.js~HasOne#get",
-    "method"
-  ],
-  [
-    "lib/associations/has-one.js~hasone#set",
-    "class/lib/associations/has-one.js~HasOne.html#instance-method-set",
-    "lib/associations/has-one.js~HasOne#set",
-    "method"
   ],
   [
     "lib/associations/helpers.js",
@@ -996,111 +336,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/data-types.js~array#constructor",
-    "class/lib/data-types.js~ARRAY.html#instance-constructor-constructor",
-    "lib/data-types.js~ARRAY#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~blob#constructor",
-    "class/lib/data-types.js~BLOB.html#instance-constructor-constructor",
-    "lib/data-types.js~BLOB#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~char#constructor",
-    "class/lib/data-types.js~CHAR.html#instance-constructor-constructor",
-    "lib/data-types.js~CHAR#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~date#constructor",
-    "class/lib/data-types.js~DATE.html#instance-constructor-constructor",
-    "lib/data-types.js~DATE#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~decimal#constructor",
-    "class/lib/data-types.js~DECIMAL.html#instance-constructor-constructor",
-    "lib/data-types.js~DECIMAL#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~double#constructor",
-    "class/lib/data-types.js~DOUBLE.html#instance-constructor-constructor",
-    "lib/data-types.js~DOUBLE#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~enum#constructor",
-    "class/lib/data-types.js~ENUM.html#instance-constructor-constructor",
-    "lib/data-types.js~ENUM#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~float#constructor",
-    "class/lib/data-types.js~FLOAT.html#instance-constructor-constructor",
-    "lib/data-types.js~FLOAT#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~geography#constructor",
-    "class/lib/data-types.js~GEOGRAPHY.html#instance-constructor-constructor",
-    "lib/data-types.js~GEOGRAPHY#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~geometry#constructor",
-    "class/lib/data-types.js~GEOMETRY.html#instance-constructor-constructor",
-    "lib/data-types.js~GEOMETRY#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~number#constructor",
-    "class/lib/data-types.js~NUMBER.html#instance-constructor-constructor",
-    "lib/data-types.js~NUMBER#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~range#constructor",
-    "class/lib/data-types.js~RANGE.html#instance-constructor-constructor",
-    "lib/data-types.js~RANGE#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~real#constructor",
-    "class/lib/data-types.js~REAL.html#instance-constructor-constructor",
-    "lib/data-types.js~REAL#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~string#constructor",
-    "class/lib/data-types.js~STRING.html#instance-constructor-constructor",
-    "lib/data-types.js~STRING#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~text#constructor",
-    "class/lib/data-types.js~TEXT.html#instance-constructor-constructor",
-    "lib/data-types.js~TEXT#constructor",
-    "method"
-  ],
-  [
-    "lib/data-types.js~virtual#constructor",
-    "class/lib/data-types.js~VIRTUAL.html#instance-constructor-constructor",
-    "lib/data-types.js~VIRTUAL#constructor",
-    "method"
-  ],
-  [
     "lib/deferrable.js",
     "file/lib/deferrable.js.html",
     "lib/deferrable.js",
     "file"
   ],
   [
-    "lib/dialects/abstract/index.ts",
-    "file/lib/dialects/abstract/index.ts.html",
-    "lib/dialects/abstract/index.ts",
+    "lib/dialects/abstract/connection-manager.js",
+    "file/lib/dialects/abstract/connection-manager.js.html",
+    "lib/dialects/abstract/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/abstract/index.js",
+    "file/lib/dialects/abstract/index.js.html",
+    "lib/dialects/abstract/index.js",
     "file"
   ],
   [
@@ -1122,186 +372,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/abstract/query-interface.js~queryinterface#addcolumn",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-addColumn",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#addColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#addconstraint",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-addConstraint",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#addConstraint",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#addindex",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-addIndex",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#addIndex",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#bulkdelete",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-bulkDelete",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#bulkDelete",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#bulkinsert",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-bulkInsert",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#bulkInsert",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#bulkupdate",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-bulkUpdate",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#bulkUpdate",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#changecolumn",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-changeColumn",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#changeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#createdatabase",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-createDatabase",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#createDatabase",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#createfunction",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-createFunction",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#createFunction",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#createschema",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-createSchema",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#createSchema",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#createtable",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-createTable",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#createTable",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#describetable",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-describeTable",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#describeTable",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#dropallschemas",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-dropAllSchemas",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#dropAllSchemas",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#dropalltables",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-dropAllTables",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#dropAllTables",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#dropdatabase",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-dropDatabase",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#dropDatabase",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#dropfunction",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-dropFunction",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#dropFunction",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#dropschema",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-dropSchema",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#dropSchema",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#droptable",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-dropTable",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#dropTable",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#getforeignkeyreferencesfortable",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-getForeignKeyReferencesForTable",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#getForeignKeyReferencesForTable",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#getforeignkeysfortables",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-getForeignKeysForTables",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#getForeignKeysForTables",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#quoteidentifier",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-quoteIdentifier",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#quoteIdentifier",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#quoteidentifiers",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-quoteIdentifiers",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#quoteIdentifiers",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#removecolumn",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-removeColumn",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#removeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#removeconstraint",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-removeConstraint",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#removeConstraint",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#removeindex",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-removeIndex",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#removeIndex",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#renamecolumn",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-renameColumn",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#renameColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#renamefunction",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-renameFunction",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#renameFunction",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#renametable",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-renameTable",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#renameTable",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#showallschemas",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-showAllSchemas",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#showAllSchemas",
-    "method"
-  ],
-  [
-    "lib/dialects/abstract/query-interface.js~queryinterface#upsert",
-    "class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-upsert",
-    "lib/dialects/abstract/query-interface.js~QueryInterface#upsert",
-    "method"
-  ],
-  [
     "lib/dialects/abstract/query.js",
     "file/lib/dialects/abstract/query.js.html",
     "lib/dialects/abstract/query.js",
@@ -1311,6 +381,12 @@ window.esdocSearchIndex = [
     "lib/dialects/db2/connection-manager.js",
     "file/lib/dialects/db2/connection-manager.js.html",
     "lib/dialects/db2/connection-manager.js",
+    "file"
+  ],
+  [
+    "lib/dialects/db2/data-types.js",
+    "file/lib/dialects/db2/data-types.js.html",
+    "lib/dialects/db2/data-types.js",
     "file"
   ],
   [
@@ -1362,9 +438,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/mssql/async-queue.ts",
-    "file/lib/dialects/mssql/async-queue.ts.html",
-    "lib/dialects/mssql/async-queue.ts",
+    "lib/dialects/mssql/async-queue.js",
+    "file/lib/dialects/mssql/async-queue.js.html",
+    "lib/dialects/mssql/async-queue.js",
     "file"
   ],
   [
@@ -1398,16 +474,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/mssql/query-interface.js~mssqlqueryinterface#removecolumn",
-    "class/lib/dialects/mssql/query-interface.js~MSSqlQueryInterface.html#instance-method-removeColumn",
-    "lib/dialects/mssql/query-interface.js~MSSqlQueryInterface#removeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/mssql/query-interface.js~mssqlqueryinterface#upsert",
-    "class/lib/dialects/mssql/query-interface.js~MSSqlQueryInterface.html#instance-method-upsert",
-    "lib/dialects/mssql/query-interface.js~MSSqlQueryInterface#upsert",
-    "method"
+    "lib/dialects/mssql/query.js",
+    "file/lib/dialects/mssql/query.js.html",
+    "lib/dialects/mssql/query.js",
+    "file"
   ],
   [
     "lib/dialects/mysql/connection-manager.js",
@@ -1438,24 +508,6 @@ window.esdocSearchIndex = [
     "file/lib/dialects/mysql/query-interface.js.html",
     "lib/dialects/mysql/query-interface.js",
     "file"
-  ],
-  [
-    "lib/dialects/mysql/query-interface.js~mysqlqueryinterface#removecolumn",
-    "class/lib/dialects/mysql/query-interface.js~MySQLQueryInterface.html#instance-method-removeColumn",
-    "lib/dialects/mysql/query-interface.js~MySQLQueryInterface#removeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/mysql/query-interface.js~mysqlqueryinterface#removeconstraint",
-    "class/lib/dialects/mysql/query-interface.js~MySQLQueryInterface.html#instance-method-removeConstraint",
-    "lib/dialects/mysql/query-interface.js~MySQLQueryInterface#removeConstraint",
-    "method"
-  ],
-  [
-    "lib/dialects/mysql/query-interface.js~mysqlqueryinterface#upsert",
-    "class/lib/dialects/mysql/query-interface.js~MySQLQueryInterface.html#instance-method-upsert",
-    "lib/dialects/mysql/query-interface.js~MySQLQueryInterface#upsert",
-    "method"
   ],
   [
     "lib/dialects/parserstore.js",
@@ -1500,36 +552,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/postgres/query-interface.js~postgresqueryinterface#dropallenums",
-    "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html#instance-method-dropAllEnums",
-    "lib/dialects/postgres/query-interface.js~PostgresQueryInterface#dropAllEnums",
-    "method"
-  ],
-  [
-    "lib/dialects/postgres/query-interface.js~postgresqueryinterface#dropenum",
-    "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html#instance-method-dropEnum",
-    "lib/dialects/postgres/query-interface.js~PostgresQueryInterface#dropEnum",
-    "method"
-  ],
-  [
-    "lib/dialects/postgres/query-interface.js~postgresqueryinterface#droptable",
-    "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html#instance-method-dropTable",
-    "lib/dialects/postgres/query-interface.js~PostgresQueryInterface#dropTable",
-    "method"
-  ],
-  [
-    "lib/dialects/postgres/query-interface.js~postgresqueryinterface#getforeignkeyreferencesfortable",
-    "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html#instance-method-getForeignKeyReferencesForTable",
-    "lib/dialects/postgres/query-interface.js~PostgresQueryInterface#getForeignKeyReferencesForTable",
-    "method"
-  ],
-  [
-    "lib/dialects/postgres/query-interface.js~postgresqueryinterface#pglistenums",
-    "class/lib/dialects/postgres/query-interface.js~PostgresQueryInterface.html#instance-method-pgListEnums",
-    "lib/dialects/postgres/query-interface.js~PostgresQueryInterface#pgListEnums",
-    "method"
-  ],
-  [
     "lib/dialects/postgres/query.js",
     "file/lib/dialects/postgres/query.js.html",
     "lib/dialects/postgres/query.js",
@@ -1572,24 +594,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/snowflake/query-interface.js~snowflakequeryinterface#removecolumn",
-    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-removeColumn",
-    "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#removeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/snowflake/query-interface.js~snowflakequeryinterface#removeconstraint",
-    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-removeConstraint",
-    "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#removeConstraint",
-    "method"
-  ],
-  [
-    "lib/dialects/snowflake/query-interface.js~snowflakequeryinterface#upsert",
-    "class/lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html#instance-method-upsert",
-    "lib/dialects/snowflake/query-interface.js~SnowflakeQueryInterface#upsert",
-    "method"
-  ],
-  [
     "lib/dialects/sqlite/connection-manager.js",
     "file/lib/dialects/sqlite/connection-manager.js.html",
     "lib/dialects/sqlite/connection-manager.js",
@@ -1620,225 +624,177 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#addconstraint",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-addConstraint",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#addConstraint",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#changecolumn",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-changeColumn",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#changeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#describetable",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-describeTable",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#describeTable",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#dropalltables",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-dropAllTables",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#dropAllTables",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#getforeignkeyreferencesfortable",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-getForeignKeyReferencesForTable",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#getForeignKeyReferencesForTable",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#removecolumn",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-removeColumn",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#removeColumn",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#removeconstraint",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-removeConstraint",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#removeConstraint",
-    "method"
-  ],
-  [
-    "lib/dialects/sqlite/query-interface.js~sqlitequeryinterface#renamecolumn",
-    "class/lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html#instance-method-renameColumn",
-    "lib/dialects/sqlite/query-interface.js~SQLiteQueryInterface#renameColumn",
-    "method"
-  ],
-  [
     "lib/dialects/sqlite/query.js",
     "file/lib/dialects/sqlite/query.js.html",
     "lib/dialects/sqlite/query.js",
     "file"
   ],
   [
-    "lib/errors/aggregate-error.ts",
-    "file/lib/errors/aggregate-error.ts.html",
-    "lib/errors/aggregate-error.ts",
+    "lib/errors/aggregate-error.js",
+    "file/lib/errors/aggregate-error.js.html",
+    "lib/errors/aggregate-error.js",
     "file"
   ],
   [
-    "lib/errors/association-error.ts",
-    "file/lib/errors/association-error.ts.html",
-    "lib/errors/association-error.ts",
+    "lib/errors/association-error.js",
+    "file/lib/errors/association-error.js.html",
+    "lib/errors/association-error.js",
     "file"
   ],
   [
-    "lib/errors/base-error.ts",
-    "file/lib/errors/base-error.ts.html",
-    "lib/errors/base-error.ts",
+    "lib/errors/base-error.js",
+    "file/lib/errors/base-error.js.html",
+    "lib/errors/base-error.js",
     "file"
   ],
   [
-    "lib/errors/bulk-record-error.ts",
-    "file/lib/errors/bulk-record-error.ts.html",
-    "lib/errors/bulk-record-error.ts",
+    "lib/errors/bulk-record-error.js",
+    "file/lib/errors/bulk-record-error.js.html",
+    "lib/errors/bulk-record-error.js",
     "file"
   ],
   [
-    "lib/errors/connection-error.ts",
-    "file/lib/errors/connection-error.ts.html",
-    "lib/errors/connection-error.ts",
+    "lib/errors/connection-error.js",
+    "file/lib/errors/connection-error.js.html",
+    "lib/errors/connection-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/access-denied-error.ts",
-    "file/lib/errors/connection/access-denied-error.ts.html",
-    "lib/errors/connection/access-denied-error.ts",
+    "lib/errors/connection/access-denied-error.js",
+    "file/lib/errors/connection/access-denied-error.js.html",
+    "lib/errors/connection/access-denied-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/connection-acquire-timeout-error.ts",
-    "file/lib/errors/connection/connection-acquire-timeout-error.ts.html",
-    "lib/errors/connection/connection-acquire-timeout-error.ts",
+    "lib/errors/connection/connection-acquire-timeout-error.js",
+    "file/lib/errors/connection/connection-acquire-timeout-error.js.html",
+    "lib/errors/connection/connection-acquire-timeout-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/connection-refused-error.ts",
-    "file/lib/errors/connection/connection-refused-error.ts.html",
-    "lib/errors/connection/connection-refused-error.ts",
+    "lib/errors/connection/connection-refused-error.js",
+    "file/lib/errors/connection/connection-refused-error.js.html",
+    "lib/errors/connection/connection-refused-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/connection-timed-out-error.ts",
-    "file/lib/errors/connection/connection-timed-out-error.ts.html",
-    "lib/errors/connection/connection-timed-out-error.ts",
+    "lib/errors/connection/connection-timed-out-error.js",
+    "file/lib/errors/connection/connection-timed-out-error.js.html",
+    "lib/errors/connection/connection-timed-out-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/host-not-found-error.ts",
-    "file/lib/errors/connection/host-not-found-error.ts.html",
-    "lib/errors/connection/host-not-found-error.ts",
+    "lib/errors/connection/host-not-found-error.js",
+    "file/lib/errors/connection/host-not-found-error.js.html",
+    "lib/errors/connection/host-not-found-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/host-not-reachable-error.ts",
-    "file/lib/errors/connection/host-not-reachable-error.ts.html",
-    "lib/errors/connection/host-not-reachable-error.ts",
+    "lib/errors/connection/host-not-reachable-error.js",
+    "file/lib/errors/connection/host-not-reachable-error.js.html",
+    "lib/errors/connection/host-not-reachable-error.js",
     "file"
   ],
   [
-    "lib/errors/connection/invalid-connection-error.ts",
-    "file/lib/errors/connection/invalid-connection-error.ts.html",
-    "lib/errors/connection/invalid-connection-error.ts",
+    "lib/errors/connection/invalid-connection-error.js",
+    "file/lib/errors/connection/invalid-connection-error.js.html",
+    "lib/errors/connection/invalid-connection-error.js",
     "file"
   ],
   [
-    "lib/errors/database-error.ts",
-    "file/lib/errors/database-error.ts.html",
-    "lib/errors/database-error.ts",
+    "lib/errors/database-error.js",
+    "file/lib/errors/database-error.js.html",
+    "lib/errors/database-error.js",
     "file"
   ],
   [
-    "lib/errors/database/exclusion-constraint-error.ts",
-    "file/lib/errors/database/exclusion-constraint-error.ts.html",
-    "lib/errors/database/exclusion-constraint-error.ts",
+    "lib/errors/database/exclusion-constraint-error.js",
+    "file/lib/errors/database/exclusion-constraint-error.js.html",
+    "lib/errors/database/exclusion-constraint-error.js",
     "file"
   ],
   [
-    "lib/errors/database/foreign-key-constraint-error.ts",
-    "file/lib/errors/database/foreign-key-constraint-error.ts.html",
-    "lib/errors/database/foreign-key-constraint-error.ts",
+    "lib/errors/database/foreign-key-constraint-error.js",
+    "file/lib/errors/database/foreign-key-constraint-error.js.html",
+    "lib/errors/database/foreign-key-constraint-error.js",
     "file"
   ],
   [
-    "lib/errors/database/timeout-error.ts",
-    "file/lib/errors/database/timeout-error.ts.html",
-    "lib/errors/database/timeout-error.ts",
+    "lib/errors/database/timeout-error.js",
+    "file/lib/errors/database/timeout-error.js.html",
+    "lib/errors/database/timeout-error.js",
     "file"
   ],
   [
-    "lib/errors/database/unknown-constraint-error.ts",
-    "file/lib/errors/database/unknown-constraint-error.ts.html",
-    "lib/errors/database/unknown-constraint-error.ts",
+    "lib/errors/database/unknown-constraint-error.js",
+    "file/lib/errors/database/unknown-constraint-error.js.html",
+    "lib/errors/database/unknown-constraint-error.js",
     "file"
   ],
   [
-    "lib/errors/eager-loading-error.ts",
-    "file/lib/errors/eager-loading-error.ts.html",
-    "lib/errors/eager-loading-error.ts",
+    "lib/errors/eager-loading-error.js",
+    "file/lib/errors/eager-loading-error.js.html",
+    "lib/errors/eager-loading-error.js",
     "file"
   ],
   [
-    "lib/errors/empty-result-error.ts",
-    "file/lib/errors/empty-result-error.ts.html",
-    "lib/errors/empty-result-error.ts",
+    "lib/errors/empty-result-error.js",
+    "file/lib/errors/empty-result-error.js.html",
+    "lib/errors/empty-result-error.js",
     "file"
   ],
   [
-    "lib/errors/index.ts",
-    "file/lib/errors/index.ts.html",
-    "lib/errors/index.ts",
+    "lib/errors/index.js",
+    "file/lib/errors/index.js.html",
+    "lib/errors/index.js",
     "file"
   ],
   [
-    "lib/errors/instance-error.ts",
-    "file/lib/errors/instance-error.ts.html",
-    "lib/errors/instance-error.ts",
+    "lib/errors/instance-error.js",
+    "file/lib/errors/instance-error.js.html",
+    "lib/errors/instance-error.js",
     "file"
   ],
   [
-    "lib/errors/optimistic-lock-error.ts",
-    "file/lib/errors/optimistic-lock-error.ts.html",
-    "lib/errors/optimistic-lock-error.ts",
+    "lib/errors/optimistic-lock-error.js",
+    "file/lib/errors/optimistic-lock-error.js.html",
+    "lib/errors/optimistic-lock-error.js",
     "file"
   ],
   [
-    "lib/errors/query-error.ts",
-    "file/lib/errors/query-error.ts.html",
-    "lib/errors/query-error.ts",
+    "lib/errors/query-error.js",
+    "file/lib/errors/query-error.js.html",
+    "lib/errors/query-error.js",
     "file"
   ],
   [
-    "lib/errors/sequelize-scope-error.ts",
-    "file/lib/errors/sequelize-scope-error.ts.html",
-    "lib/errors/sequelize-scope-error.ts",
+    "lib/errors/sequelize-scope-error.js",
+    "file/lib/errors/sequelize-scope-error.js.html",
+    "lib/errors/sequelize-scope-error.js",
     "file"
   ],
   [
-    "lib/errors/validation-error.ts",
-    "file/lib/errors/validation-error.ts.html",
-    "lib/errors/validation-error.ts",
+    "lib/errors/validation-error.js",
+    "file/lib/errors/validation-error.js.html",
+    "lib/errors/validation-error.js",
     "file"
   ],
   [
-    "lib/errors/validation/unique-constraint-error.ts",
-    "file/lib/errors/validation/unique-constraint-error.ts.html",
-    "lib/errors/validation/unique-constraint-error.ts",
+    "lib/errors/validation/unique-constraint-error.js",
+    "file/lib/errors/validation/unique-constraint-error.js.html",
+    "lib/errors/validation/unique-constraint-error.js",
     "file"
   ],
   [
-    "lib/generic/falsy.ts",
-    "file/lib/generic/falsy.ts.html",
-    "lib/generic/falsy.ts",
+    "lib/generic/falsy.js",
+    "file/lib/generic/falsy.js.html",
+    "lib/generic/falsy.js",
     "file"
   ],
   [
-    "lib/generic/sql-fragment.ts",
-    "file/lib/generic/sql-fragment.ts.html",
-    "lib/generic/sql-fragment.ts",
+    "lib/generic/sql-fragment.js",
+    "file/lib/generic/sql-fragment.js.html",
+    "lib/generic/sql-fragment.js",
     "file"
   ],
   [
@@ -1848,9 +804,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/index-hints.ts",
-    "file/lib/index-hints.ts.html",
-    "lib/index-hints.ts",
+    "lib/index-hints.js",
+    "file/lib/index-hints.js.html",
+    "lib/index-hints.js",
+    "file"
+  ],
+  [
+    "lib/index.js",
+    "file/lib/index.js.html",
+    "lib/index.js",
     "file"
   ],
   [
@@ -1872,369 +834,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/model.js~model#changed",
-    "class/lib/model.js~Model.html#instance-method-changed",
-    "lib/model.js~Model#changed",
-    "method"
-  ],
-  [
-    "lib/model.js~model#constructor",
-    "class/lib/model.js~Model.html#instance-constructor-constructor",
-    "lib/model.js~Model#constructor",
-    "method"
-  ],
-  [
-    "lib/model.js~model#decrement",
-    "class/lib/model.js~Model.html#instance-method-decrement",
-    "lib/model.js~Model#decrement",
-    "method"
-  ],
-  [
-    "lib/model.js~model#destroy",
-    "class/lib/model.js~Model.html#instance-method-destroy",
-    "lib/model.js~Model#destroy",
-    "method"
-  ],
-  [
-    "lib/model.js~model#equals",
-    "class/lib/model.js~Model.html#instance-method-equals",
-    "lib/model.js~Model#equals",
-    "method"
-  ],
-  [
-    "lib/model.js~model#equalsoneof",
-    "class/lib/model.js~Model.html#instance-method-equalsOneOf",
-    "lib/model.js~Model#equalsOneOf",
-    "method"
-  ],
-  [
-    "lib/model.js~model#get",
-    "class/lib/model.js~Model.html#instance-method-get",
-    "lib/model.js~Model#get",
-    "method"
-  ],
-  [
-    "lib/model.js~model#getdatavalue",
-    "class/lib/model.js~Model.html#instance-method-getDataValue",
-    "lib/model.js~Model#getDataValue",
-    "method"
-  ],
-  [
-    "lib/model.js~model#increment",
-    "class/lib/model.js~Model.html#instance-method-increment",
-    "lib/model.js~Model#increment",
-    "method"
-  ],
-  [
-    "lib/model.js~model#isnewrecord",
-    "class/lib/model.js~Model.html#instance-member-isNewRecord",
-    "lib/model.js~Model#isNewRecord",
-    "member"
-  ],
-  [
-    "lib/model.js~model#issoftdeleted",
-    "class/lib/model.js~Model.html#instance-method-isSoftDeleted",
-    "lib/model.js~Model#isSoftDeleted",
-    "method"
-  ],
-  [
-    "lib/model.js~model#previous",
-    "class/lib/model.js~Model.html#instance-method-previous",
-    "lib/model.js~Model#previous",
-    "method"
-  ],
-  [
-    "lib/model.js~model#reload",
-    "class/lib/model.js~Model.html#instance-method-reload",
-    "lib/model.js~Model#reload",
-    "method"
-  ],
-  [
-    "lib/model.js~model#restore",
-    "class/lib/model.js~Model.html#instance-method-restore",
-    "lib/model.js~Model#restore",
-    "method"
-  ],
-  [
-    "lib/model.js~model#save",
-    "class/lib/model.js~Model.html#instance-method-save",
-    "lib/model.js~Model#save",
-    "method"
-  ],
-  [
-    "lib/model.js~model#sequelize",
-    "class/lib/model.js~Model.html#instance-get-sequelize",
-    "lib/model.js~Model#sequelize",
-    "member"
-  ],
-  [
-    "lib/model.js~model#set",
-    "class/lib/model.js~Model.html#instance-method-set",
-    "lib/model.js~Model#set",
-    "method"
-  ],
-  [
-    "lib/model.js~model#setdatavalue",
-    "class/lib/model.js~Model.html#instance-method-setDataValue",
-    "lib/model.js~Model#setDataValue",
-    "method"
-  ],
-  [
-    "lib/model.js~model#tojson",
-    "class/lib/model.js~Model.html#instance-method-toJSON",
-    "lib/model.js~Model#toJSON",
-    "method"
-  ],
-  [
-    "lib/model.js~model#update",
-    "class/lib/model.js~Model.html#instance-method-update",
-    "lib/model.js~Model#update",
-    "method"
-  ],
-  [
-    "lib/model.js~model#validate",
-    "class/lib/model.js~Model.html#instance-method-validate",
-    "lib/model.js~Model#validate",
-    "method"
-  ],
-  [
-    "lib/model.js~model#where",
-    "class/lib/model.js~Model.html#instance-method-where",
-    "lib/model.js~Model#where",
-    "method"
-  ],
-  [
-    "lib/model.js~model.addscope",
-    "class/lib/model.js~Model.html#static-method-addScope",
-    "lib/model.js~Model.addScope",
-    "method"
-  ],
-  [
-    "lib/model.js~model.aggregate",
-    "class/lib/model.js~Model.html#static-method-aggregate",
-    "lib/model.js~Model.aggregate",
-    "method"
-  ],
-  [
-    "lib/model.js~model.belongsto",
-    "class/lib/model.js~Model.html#static-method-belongsTo",
-    "lib/model.js~Model.belongsTo",
-    "method"
-  ],
-  [
-    "lib/model.js~model.belongstomany",
-    "class/lib/model.js~Model.html#static-method-belongsToMany",
-    "lib/model.js~Model.belongsToMany",
-    "method"
-  ],
-  [
-    "lib/model.js~model.build",
-    "class/lib/model.js~Model.html#static-method-build",
-    "lib/model.js~Model.build",
-    "method"
-  ],
-  [
-    "lib/model.js~model.bulkcreate",
-    "class/lib/model.js~Model.html#static-method-bulkCreate",
-    "lib/model.js~Model.bulkCreate",
-    "method"
-  ],
-  [
-    "lib/model.js~model.count",
-    "class/lib/model.js~Model.html#static-method-count",
-    "lib/model.js~Model.count",
-    "method"
-  ],
-  [
-    "lib/model.js~model.create",
-    "class/lib/model.js~Model.html#static-method-create",
-    "lib/model.js~Model.create",
-    "method"
-  ],
-  [
-    "lib/model.js~model.decrement",
-    "class/lib/model.js~Model.html#static-method-decrement",
-    "lib/model.js~Model.decrement",
-    "method"
-  ],
-  [
-    "lib/model.js~model.describe",
-    "class/lib/model.js~Model.html#static-method-describe",
-    "lib/model.js~Model.describe",
-    "method"
-  ],
-  [
-    "lib/model.js~model.destroy",
-    "class/lib/model.js~Model.html#static-method-destroy",
-    "lib/model.js~Model.destroy",
-    "method"
-  ],
-  [
-    "lib/model.js~model.drop",
-    "class/lib/model.js~Model.html#static-method-drop",
-    "lib/model.js~Model.drop",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findall",
-    "class/lib/model.js~Model.html#static-method-findAll",
-    "lib/model.js~Model.findAll",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findandcountall",
-    "class/lib/model.js~Model.html#static-method-findAndCountAll",
-    "lib/model.js~Model.findAndCountAll",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findbypk",
-    "class/lib/model.js~Model.html#static-method-findByPk",
-    "lib/model.js~Model.findByPk",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findcreatefind",
-    "class/lib/model.js~Model.html#static-method-findCreateFind",
-    "lib/model.js~Model.findCreateFind",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findone",
-    "class/lib/model.js~Model.html#static-method-findOne",
-    "lib/model.js~Model.findOne",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findorbuild",
-    "class/lib/model.js~Model.html#static-method-findOrBuild",
-    "lib/model.js~Model.findOrBuild",
-    "method"
-  ],
-  [
-    "lib/model.js~model.findorcreate",
-    "class/lib/model.js~Model.html#static-method-findOrCreate",
-    "lib/model.js~Model.findOrCreate",
-    "method"
-  ],
-  [
-    "lib/model.js~model.getattributes",
-    "class/lib/model.js~Model.html#static-method-getAttributes",
-    "lib/model.js~Model.getAttributes",
-    "method"
-  ],
-  [
-    "lib/model.js~model.gettablename",
-    "class/lib/model.js~Model.html#static-method-getTableName",
-    "lib/model.js~Model.getTableName",
-    "method"
-  ],
-  [
-    "lib/model.js~model.hasmany",
-    "class/lib/model.js~Model.html#static-method-hasMany",
-    "lib/model.js~Model.hasMany",
-    "method"
-  ],
-  [
-    "lib/model.js~model.hasone",
-    "class/lib/model.js~Model.html#static-method-hasOne",
-    "lib/model.js~Model.hasOne",
-    "method"
-  ],
-  [
-    "lib/model.js~model.increment",
-    "class/lib/model.js~Model.html#static-method-increment",
-    "lib/model.js~Model.increment",
-    "method"
-  ],
-  [
-    "lib/model.js~model.init",
-    "class/lib/model.js~Model.html#static-method-init",
-    "lib/model.js~Model.init",
-    "method"
-  ],
-  [
-    "lib/model.js~model.max",
-    "class/lib/model.js~Model.html#static-method-max",
-    "lib/model.js~Model.max",
-    "method"
-  ],
-  [
-    "lib/model.js~model.min",
-    "class/lib/model.js~Model.html#static-method-min",
-    "lib/model.js~Model.min",
-    "method"
-  ],
-  [
-    "lib/model.js~model.removeattribute",
-    "class/lib/model.js~Model.html#static-method-removeAttribute",
-    "lib/model.js~Model.removeAttribute",
-    "method"
-  ],
-  [
-    "lib/model.js~model.restore",
-    "class/lib/model.js~Model.html#static-method-restore",
-    "lib/model.js~Model.restore",
-    "method"
-  ],
-  [
-    "lib/model.js~model.schema",
-    "class/lib/model.js~Model.html#static-method-schema",
-    "lib/model.js~Model.schema",
-    "method"
-  ],
-  [
-    "lib/model.js~model.scope",
-    "class/lib/model.js~Model.html#static-method-scope",
-    "lib/model.js~Model.scope",
-    "method"
-  ],
-  [
-    "lib/model.js~model.sum",
-    "class/lib/model.js~Model.html#static-method-sum",
-    "lib/model.js~Model.sum",
-    "method"
-  ],
-  [
-    "lib/model.js~model.sync",
-    "class/lib/model.js~Model.html#static-method-sync",
-    "lib/model.js~Model.sync",
-    "method"
-  ],
-  [
-    "lib/model.js~model.truncate",
-    "class/lib/model.js~Model.html#static-method-truncate",
-    "lib/model.js~Model.truncate",
-    "method"
-  ],
-  [
-    "lib/model.js~model.unscoped",
-    "class/lib/model.js~Model.html#static-method-unscoped",
-    "lib/model.js~Model.unscoped",
-    "method"
-  ],
-  [
-    "lib/model.js~model.update",
-    "class/lib/model.js~Model.html#static-method-update",
-    "lib/model.js~Model.update",
-    "method"
-  ],
-  [
-    "lib/model.js~model.upsert",
-    "class/lib/model.js~Model.html#static-method-upsert",
-    "lib/model.js~Model.upsert",
-    "method"
-  ],
-  [
-    "lib/operators.ts",
-    "file/lib/operators.ts.html",
-    "lib/operators.ts",
+    "lib/operators.js",
+    "file/lib/operators.js.html",
+    "lib/operators.js",
     "file"
   ],
   [
-    "lib/query-types.ts",
-    "file/lib/query-types.ts.html",
-    "lib/query-types.ts",
+    "lib/query-types.js",
+    "file/lib/query-types.js.html",
+    "lib/query-types.js",
     "file"
   ],
   [
@@ -2244,15 +852,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/table-hints.ts",
-    "file/lib/table-hints.ts.html",
-    "lib/table-hints.ts",
+    "lib/table-hints.js",
+    "file/lib/table-hints.js.html",
+    "lib/table-hints.js",
     "file"
   ],
   [
-    "lib/transaction.ts",
-    "file/lib/transaction.ts.html",
-    "lib/transaction.ts",
+    "lib/transaction.js",
+    "file/lib/transaction.js.html",
+    "lib/transaction.js",
     "file"
   ],
   [
@@ -2262,27 +870,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/utils/class-to-invokable.ts",
-    "file/lib/utils/class-to-invokable.ts.html",
-    "lib/utils/class-to-invokable.ts",
+    "lib/utils/class-to-invokable.js",
+    "file/lib/utils/class-to-invokable.js.html",
+    "lib/utils/class-to-invokable.js",
     "file"
   ],
   [
-    "lib/utils/deprecations.ts",
-    "file/lib/utils/deprecations.ts.html",
-    "lib/utils/deprecations.ts",
+    "lib/utils/deprecations.js",
+    "file/lib/utils/deprecations.js.html",
+    "lib/utils/deprecations.js",
     "file"
   ],
   [
-    "lib/utils/join-sql-fragments.ts",
-    "file/lib/utils/join-sql-fragments.ts.html",
-    "lib/utils/join-sql-fragments.ts",
+    "lib/utils/join-sql-fragments.js",
+    "file/lib/utils/join-sql-fragments.js.html",
+    "lib/utils/join-sql-fragments.js",
     "file"
   ],
   [
-    "lib/utils/logger.ts",
-    "file/lib/utils/logger.ts.html",
-    "lib/utils/logger.ts",
+    "lib/utils/logger.js",
+    "file/lib/utils/logger.js.html",
+    "lib/utils/logger.js",
     "file"
   ],
   [
