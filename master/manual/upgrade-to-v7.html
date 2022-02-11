@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -557,6 +557,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#changes-to--code-connectionmanager--code-" data-ice="link">Changes to ConnectionManager</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#microsoft-sql-server-support" data-ice="link">Microsoft SQL Server Support</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#overridden-model-methods-won--39-t-be-called-internally" data-ice="link">Overridden Model methods won't be called internally</a></li>
@@ -605,6 +606,57 @@ namingly version 12 and upwards <a href="https://github.com/sequelize/meetings/i
 As a result, the manual typings that were formerly best-effort guesses on top of the JavaScript code base,
 have been removed and all typings are now directly retrieved from the actual TypeScript code.
 You'll likely find many tiny differences which however should be easy to fix.</p>
+<h3 id="attributes-cannot-start-and-end-with--code----code---or-include--code----code-">Attributes cannot start and end with <code>$</code>, or include <code>.</code></h3><p><code>$attribute$</code> &amp; <code>$nested.attribute$</code> is a special syntax used to reference nested attributes in Queries.
+The <code>.</code> character also has special meaning, being used to reference nested JSON object keys,
+the <code>$nested.attribute$</code> syntax, and in output names of eager-loaded associations in SQL queries.</p>
+<p>In Sequelize 6, it was possible to create an attribute that matched this special syntax, leading to subtle bugs.
+Starting with Sequelize 7, this is now considered reserved syntax, and it is no longer possible to
+use a string that both starts and ends with a <code>$</code> as the attribute name, or includes the <code>.</code> character.</p>
+<p>This only affects the attribute name, it is still possible to do this for the column name.</p>
+<p>Instead of doing this:</p>
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from 'sequelize';
+
+class User extends Model {
+  $myAttribute$: string;
+  'another.attribute': string;
+}
+
+User.init({
+  // this key sets the JavaScript name.
+  // It's not allowed to start &amp; end with $ anymore.
+  '$myAttribute$': {
+    type: DataTypes.STRING,
+    // 'field' sets the column name
+    field: '$myAttribute$'
+  },
+  // The JavaScript name is not allowed to include a dot anymore.
+  'another.attribute': {
+    type: DataTypes.STRING,
+    field: 'another.attribute'
+  }
+}, { sequelize });</code>
+</code></pre>
+<p>Do this:</p>
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from 'sequelize';
+
+class User extends Model {
+  $myAttribute$: string;
+  'another.attribute': string;
+}
+
+User.init({
+  'myAttribute': {
+    type: DataTypes.STRING,
+    // Column names are still allowed to start &amp; end with $
+    field: '$myAttribute$'
+  },
+  'anotherAttribute': {
+    type: DataTypes.STRING,
+    // Column names are still allowed to include dots
+    field: 'another.attribute' // this sets the column name
+  }
+}, { sequelize });</code>
+</code></pre>
 <h3 id="changes-to--code-connectionmanager--code-">Changes to <code>ConnectionManager</code></h3><p><em>This only impacts you if you used <code>ConnectionManager</code> directly.</em></p>
 <p><code>ConnectionManager#getConnection</code>: The <code>type</code> option now accepts <code>'read' | 'write'</code> instead of <code>'SELECT' | any</code>.
 It was already documented as such in v6, but the implementation did not match the documentation.</p>

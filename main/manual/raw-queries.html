@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -557,6 +557,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#changes-to--code-connectionmanager--code-" data-ice="link">Changes to ConnectionManager</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#microsoft-sql-server-support" data-ice="link">Microsoft SQL Server Support</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#overridden-model-methods-won--39-t-be-called-internally" data-ice="link">Overridden Model methods won't be called internally</a></li>
@@ -598,7 +599,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="raw-queries">Raw Queries</h1><p>As there are often use cases in which it is just easier to execute raw / already prepared SQL queries, you can use the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-query"><code>sequelize.query</code></a> method.</p>
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="raw-queries">Raw Queries</h1><p>As there are often use cases in which it is just easier to execute raw / already prepared SQL queries, you can use the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query"><code>sequelize.query</code></a> method.</p>
 <p>By default the function will return two arguments - a results array, and an object containing metadata (such as amount of affected rows, etc). Note that since this is a raw query, the metadata are dialect specific. Some dialects return the metadata "within" the results object (as properties on an array). However, two arguments will always be returned, but for MSSQL and MySQL it will be two references to the same object.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const [results, metadata] = await sequelize.query("UPDATE users SET y = 42 WHERE x = 12");
 // Results will be an empty array and metadata will contain the number of affected rows.</code>
@@ -617,7 +618,7 @@ const projects = await sequelize.query('SELECT * FROM projects', {
 });
 // Each element of `projects` is now an instance of Project</code>
 </code></pre>
-<p>See more options in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p>
+<p>See more options in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
 await sequelize.query('SELECT 1', {
   // A function (or false) for logging your queries

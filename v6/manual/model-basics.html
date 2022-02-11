@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -586,18 +586,18 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="model-basics">Model Basics</h1><p>In this tutorial you will learn what models are in Sequelize and how to use them.</p>
-<h2 id="concept">Concept</h2><p>Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends <a href="./manual/../class/lib/model.js~Model.html">Model</a>.</p>
+<h2 id="concept">Concept</h2><p>Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends <a href="./manual/../class/src/model.js~Model.html">Model</a>.</p>
 <p>The model tells Sequelize several things about the entity it represents, such as the name of the table in the database and which columns it has (and their data types).</p>
 <p>A model in Sequelize has a name. This name does not have to be the same name of the table it represents in the database. Usually, models have singular names (such as <code>User</code>) while tables have pluralized names (such as <code>Users</code>), although this is fully configurable.</p>
 <h2 id="model-definition">Model Definition</h2><p>Models can be defined in two equivalent ways in Sequelize:</p>
 <ul>
-<li>Calling <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define(modelName, attributes, options)</code></a></li>
-<li>Extending <a href="./manual/../class/lib/model.js~Model.html">Model</a> and calling <a href="./manual/../class/lib/model.js~Model.html#static-method-init"><code>init(attributes, options)</code></a></li>
+<li>Calling <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define(modelName, attributes, options)</code></a></li>
+<li>Extending <a href="./manual/../class/src/model.js~Model.html">Model</a> and calling <a href="./manual/../class/src/model.js~Model.html#static-method-init"><code>init(attributes, options)</code></a></li>
 </ul>
 <p>After a model is defined, it is available within <code>sequelize.models</code> by its model name.</p>
 <p>To learn with an example, we will consider that we want to create a model to represent users, which have a <code>firstName</code> and a <code>lastName</code>. We want our model to be called <code>User</code>, and the table it represents is called <code>Users</code> in the database.</p>
 <p>Both ways to define this model are shown below. After being defined, we can access our model with <code>sequelize.models.User</code>.</p>
-<h3 id="using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--">Using <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+<h3 id="using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--">Using <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('User', {
@@ -617,7 +617,7 @@ const User = sequelize.define('User', {
 // `sequelize.define` also returns the model
 console.log(User === sequelize.models.User); // true</code>
 </code></pre>
-<h3 id="extending--a-href-----class-lib-model-js-model-html--model--a-">Extending <a href="./manual/../class/lib/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('sequelize');
+<h3 id="extending--a-href-----class-src-model-js-model-html--model--a-">Extending <a href="./manual/../class/src/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 
 class User extends Model {}
@@ -722,7 +722,7 @@ user.id; // 1</code>
 });</code>
 </code></pre>
 <h2 id="model-synchronization">Model synchronization</h2><p>When you define a model, you're telling Sequelize a few things about its table in the database. However, what if the table actually doesn't even exist in the database? What if it exists, but it has different columns, less columns, or any other difference?</p>
-<p>This is where model synchronization comes in. A model can be synchronized with the database by calling <a href="https://sequelize.org/master/class/lib/model.js~Model.html#static-method-sync"><code>model.sync(options)</code></a>, an asynchronous function (that returns a Promise). With this call, Sequelize will automatically perform an SQL query to the database. Note that this changes only the table in the database, not the model in the JavaScript side.</p>
+<p>This is where model synchronization comes in. A model can be synchronized with the database by calling <a href="https://sequelize.org/master/class/src/model.js~Model.html#static-method-sync"><code>model.sync(options)</code></a>, an asynchronous function (that returns a Promise). With this call, Sequelize will automatically perform an SQL query to the database. Note that this changes only the table in the database, not the model in the JavaScript side.</p>
 <ul>
 <li><code>User.sync()</code> - This creates the table if it doesn't exist (and does nothing if it already exists)</li>
 <li><code>User.sync({ force: true })</code> - This creates the table, dropping it first if it already existed</li>
@@ -732,7 +732,7 @@ user.id; // 1</code>
 <pre><code class="lang-js"><code class="source-code prettyprint">await User.sync({ force: true });
 console.log("The table for the User model was just (re)created!");</code>
 </code></pre>
-<h3 id="synchronizing-all-models-at-once">Synchronizing all models at once</h3><p>You can use <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-sync"><code>sequelize.sync()</code></a> to automatically synchronize all models. Example:</p>
+<h3 id="synchronizing-all-models-at-once">Synchronizing all models at once</h3><p>You can use <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-sync"><code>sequelize.sync()</code></a> to automatically synchronize all models. Example:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">await sequelize.sync({ force: true });
 console.log("All models were synchronized successfully.");</code>
 </code></pre>
@@ -801,7 +801,7 @@ sequelize.define('User', { name: DataTypes.STRING });</code>
   }
 });</code>
 </code></pre>
-<h2 id="data-types">Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/lib/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p>
+<h2 id="data-types">Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/src/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize"); // Import the built-in data types</code>
 </code></pre>
 <h3 id="strings">Strings</h3><pre><code class="lang-js"><code class="source-code prettyprint">DataTypes.STRING             // VARCHAR(255)

@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -557,6 +557,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#changes-to--code-connectionmanager--code-" data-ice="link">Changes to ConnectionManager</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#microsoft-sql-server-support" data-ice="link">Microsoft SQL Server Support</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#overridden-model-methods-won--39-t-be-called-internally" data-ice="link">Overridden Model methods won't be called internally</a></li>
@@ -606,7 +607,7 @@
 const jane = await User.create({ firstName: "Jane", lastName: "Doe" });
 console.log("Jane's auto-generated ID:", jane.id);</code>
 </code></pre>
-<p>The <a href="./manual/../class/lib/model.js~Model.html#static-method-create"><code>Model.create()</code></a> method is a shorthand for building an unsaved instance with <a href="./manual/../class/lib/model.js~Model.html#static-method-build"><code>Model.build()</code></a> and saving the instance with <a href="./manual/../class/lib/model.js~Model.html#instance-method-save"><code>instance.save()</code></a>.</p>
+<p>The <a href="./manual/../class/src/model.js~Model.html#static-method-create"><code>Model.create()</code></a> method is a shorthand for building an unsaved instance with <a href="./manual/../class/src/model.js~Model.html#static-method-build"><code>Model.build()</code></a> and saving the instance with <a href="./manual/../class/src/model.js~Model.html#instance-method-save"><code>instance.save()</code></a>.</p>
 <p>It is also possible to define which attributes can be set in the <code>create</code> method. This can be especially useful if you create database entries based on a form which can be filled by a user. Using that would, for example, allow you to restrict the <code>User</code> model to set only an username but not an admin flag (i.e., <code>isAdmin</code>):</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const user = await User.create({
   username: 'alice123',
@@ -616,7 +617,7 @@ console.log("Jane's auto-generated ID:", jane.id);</code>
 console.log(user.username); // 'alice123'
 console.log(user.isAdmin); // false</code>
 </code></pre>
-<h2 id="simple-select-queries">Simple SELECT queries</h2><p>You can read the whole table from the database with the <a href="./manual/../class/lib/model.js~Model.html#static-method-findAll"><code>findAll</code></a> method:</p>
+<h2 id="simple-select-queries">Simple SELECT queries</h2><p>You can read the whole table from the database with the <a href="./manual/../class/src/model.js~Model.html#static-method-findAll"><code>findAll</code></a> method:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">// Find all users
 const users = await User.findAll();
 console.log(users.every(user =&gt; user instanceof User)); // true
@@ -638,7 +639,7 @@ console.log("All users:", JSON.stringify(users, null, 2));</code>
 </code></pre>
 <pre><code class="lang-sql"><code class="source-code prettyprint">SELECT foo, bar AS baz, qux FROM ...</code>
 </code></pre>
-<p>You can use <a href="./manual/../class/lib/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> to do aggregations:</p>
+<p>You can use <a href="./manual/../class/src/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> to do aggregations:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Model.findAll({
   attributes: [
     'foo',
@@ -875,7 +876,7 @@ WHERE (
 });
 // SELECT ... FROM "posts" AS "post" WHERE char_length("content") = 7</code>
 </code></pre>
-<p>Note the usage of the  <a href="./manual/../class/lib/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> and <a href="./manual/../class/lib/sequelize.js~Sequelize.html#static-method-col"><code>sequelize.col</code></a> methods, which should be used to specify an SQL function call and a table column, respectively. These methods should be used instead of passing a plain string (such as <code>char_length(content)</code>) because Sequelize needs to treat this situation differently (for example, using other symbol escaping approaches).</p>
+<p>Note the usage of the  <a href="./manual/../class/src/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> and <a href="./manual/../class/src/sequelize.js~Sequelize.html#static-method-col"><code>sequelize.col</code></a> methods, which should be used to specify an SQL function call and a table column, respectively. These methods should be used instead of passing a plain string (such as <code>char_length(content)</code>) because Sequelize needs to treat this situation differently (for example, using other symbol escaping approaches).</p>
 <p>What if you need something even more complex?</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">Post.findAll({
   where: {

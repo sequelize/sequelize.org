@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -848,7 +848,7 @@ Bar.create({
 <li><p>Or use the <em><a href="#special-methods-mixins-added-to-instances">special methods/mixins</a></em> available for associated models, which are explained later on this page.</p>
 </li>
 </ul>
-<p><strong>Note:</strong> The <a href="./manual/../class/lib/model.js~Model.html#instance-method-save"><code>save()</code> instance method</a> is not aware of associations. In other words, if you change a value from a <em>child</em> object that was eager loaded along a <em>parent</em> object, calling <code>save()</code> on the parent will completely ignore the change that happened on the child.</p>
+<p><strong>Note:</strong> The <a href="./manual/../class/src/model.js~Model.html#instance-method-save"><code>save()</code> instance method</a> is not aware of associations. In other words, if you change a value from a <em>child</em> object that was eager loaded along a <em>parent</em> object, calling <code>save()</code> on the parent will completely ignore the change that happened on the child.</p>
 <h2 id="association-aliases--amp--custom-foreign-keys">Association Aliases &amp; Custom Foreign Keys</h2><p>In all the above examples, Sequelize automatically defined the foreign key names. For example, in the Ship and Captain example, Sequelize automatically defined a <code>captainId</code> field on the Ship model. However, it is easy to specify a custom foreign key.</p>
 <p>Let's consider the models Ship and Captain in a simplified form, just to focus on the current topic, as shown below (less fields):</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const Ship = sequelize.define('ship', { name: DataTypes.TEXT }, { timestamps: false });

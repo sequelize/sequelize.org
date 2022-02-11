@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -605,17 +605,17 @@ const User = sequelize.define("user", {
   // Code here
 })();</code>
 </code></pre>
-<h2 id="creating-an-instance">Creating an instance</h2><p>Although a model is a class, you should not create instances by using the <code>new</code> operator directly. Instead, the <a href="./manual/../class/lib/model.js~Model.html#static-method-build"><code>build</code></a> method should be used:</p>
+<h2 id="creating-an-instance">Creating an instance</h2><p>Although a model is a class, you should not create instances by using the <code>new</code> operator directly. Instead, the <a href="./manual/../class/src/model.js~Model.html#static-method-build"><code>build</code></a> method should be used:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = User.build({ name: "Jane" });
 console.log(jane instanceof User); // true
 console.log(jane.name); // "Jane"</code>
 </code></pre>
-<p>However, the code above does not communicate with the database at all (note that it is not even asynchronous)! This is because the <a href="./manual/../class/lib/model.js~Model.html#static-method-build"><code>build</code></a> method only creates an object that <em>represents</em> data that <em>can</em> be mapped to a database. In order to really save (i.e. persist) this instance in the database, the <a href="./manual/../class/lib/model.js~Model.html#instance-method-save"><code>save</code></a> method should be used:</p>
+<p>However, the code above does not communicate with the database at all (note that it is not even asynchronous)! This is because the <a href="./manual/../class/src/model.js~Model.html#static-method-build"><code>build</code></a> method only creates an object that <em>represents</em> data that <em>can</em> be mapped to a database. In order to really save (i.e. persist) this instance in the database, the <a href="./manual/../class/src/model.js~Model.html#instance-method-save"><code>save</code></a> method should be used:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">await jane.save();
 console.log('Jane was saved to the database!');</code>
 </code></pre>
 <p>Note, from the usage of <code>await</code> in the snippet above, that <code>save</code> is an asynchronous method. In fact, almost every Sequelize method is asynchronous; <code>build</code> is one of the very few exceptions.</p>
-<h3 id="a-very-useful-shortcut--the--code-create--code--method">A very useful shortcut: the <code>create</code> method</h3><p>Sequelize provides the <a href="./manual/../class/lib/model.js~Model.html#static-method-create"><code>create</code></a> method, which combines the <code>build</code> and <code>save</code> methods shown above into a single method:</p>
+<h3 id="a-very-useful-shortcut--the--code-create--code--method">A very useful shortcut: the <code>create</code> method</h3><p>Sequelize provides the <a href="./manual/../class/src/model.js~Model.html#static-method-create"><code>create</code></a> method, which combines the <code>build</code> and <code>save</code> methods shown above into a single method:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 // Jane exists in the database now!
 console.log(jane instanceof User); // true
@@ -639,7 +639,7 @@ jane.name = "Ada";
 await jane.save();
 // Now the name was updated to "Ada" in the database!</code>
 </code></pre>
-<p>You can update several fields at once with the <a href="./manual/../class/lib/model.js~Model.html#instance-method-set"><code>set</code></a> method:</p>
+<p>You can update several fields at once with the <a href="./manual/../class/src/model.js~Model.html#instance-method-set"><code>set</code></a> method:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 
 jane.set({
@@ -650,7 +650,7 @@ jane.set({
 await jane.save();
 // The database now has "Ada" and "blue" for name and favorite color</code>
 </code></pre>
-<p>Note that the <code>save()</code> here will also persist any other changes that have been made on this instance, not just those in the previous <code>set</code> call. If you want to update a specific set of fields, you can use <a href="./manual/../class/lib/model.js~Model.html#instance-method-update"><code>update</code></a>:</p>
+<p>Note that the <code>save()</code> here will also persist any other changes that have been made on this instance, not just those in the previous <code>set</code> call. If you want to update a specific set of fields, you can use <a href="./manual/../class/src/model.js~Model.html#instance-method-update"><code>update</code></a>:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 jane.favoriteColor = "blue"
 await jane.update({ name: "Ada" })
@@ -658,13 +658,13 @@ await jane.update({ name: "Ada" })
 await jane.save()
 // Now the database has "Ada" for name and "blue" for favorite color</code>
 </code></pre>
-<h2 id="deleting-an-instance">Deleting an instance</h2><p>You can delete an instance by calling <a href="./manual/../class/lib/model.js~Model.html#instance-method-destroy"><code>destroy</code></a>:</p>
+<h2 id="deleting-an-instance">Deleting an instance</h2><p>You can delete an instance by calling <a href="./manual/../class/src/model.js~Model.html#instance-method-destroy"><code>destroy</code></a>:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 console.log(jane.name); // "Jane"
 await jane.destroy();
 // Now this entry was removed from the database</code>
 </code></pre>
-<h2 id="reloading-an-instance">Reloading an instance</h2><p>You can reload an instance from the database by calling <a href="./manual/../class/lib/model.js~Model.html#instance-method-reload"><code>reload</code></a>:</p>
+<h2 id="reloading-an-instance">Reloading an instance</h2><p>You can reload an instance from the database by calling <a href="./manual/../class/src/model.js~Model.html#instance-method-reload"><code>reload</code></a>:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 console.log(jane.name); // "Jane"
 jane.name = "Ada";
@@ -691,7 +691,7 @@ console.log(jane.favoriteColor); // "green"</code>
 </code></pre>
 <h2 id="change-awareness-of-save">Change-awareness of save</h2><p>The <code>save</code> method is optimized internally to only update fields that really changed. This means that if you don't change anything and call <code>save</code>, Sequelize will know that the save is superfluous and do nothing, i.e., no query will be generated (it will still return a Promise, but it will resolve immediately).</p>
 <p>Also, if only a few attributes have changed when you call <code>save</code>, only those fields will be sent in the <code>UPDATE</code> query, to improve performance.</p>
-<h2 id="incrementing-and-decrementing-integer-values">Incrementing and decrementing integer values</h2><p>In order to increment/decrement values of an instance without running into concurrency issues, Sequelize provides the <a href="./manual/../class/lib/model.js~Model.html#instance-method-increment"><code>increment</code></a> and <a href="./manual/../class/lib/model.js~Model.html#instance-method-decrement"><code>decrement</code></a> instance methods.</p>
+<h2 id="incrementing-and-decrementing-integer-values">Incrementing and decrementing integer values</h2><p>In order to increment/decrement values of an instance without running into concurrency issues, Sequelize provides the <a href="./manual/../class/src/model.js~Model.html#instance-method-increment"><code>increment</code></a> and <a href="./manual/../class/src/model.js~Model.html#instance-method-decrement"><code>decrement</code></a> instance methods.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane", age: 100 });
 const incrementResult = await jane.increment('age', { by: 2 });
 // Note: to increment by 1 you can omit the `by` option and just do `user.increment('age')`

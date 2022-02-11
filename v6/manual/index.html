@@ -55,8 +55,8 @@
     <li data-ice="manualNav" class="indent-h1" data-link="manual/model-basics.html"><a href="manual/model-basics.html" data-ice="link">Model Basics</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#concept" data-ice="link">Concept</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#model-definition" data-ice="link">Model Definition</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-lib-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
-<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-lib-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--" data-ice="link">Using sequelize.define:</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#extending--a-href-----class-src-model-js-model-html--model--a-" data-ice="link">Extending Model</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/model-basics.html"><a href="manual/model-basics.html#caveat-with-public-class-fields" data-ice="link">Caveat with Public Class Fields</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/model-basics.html"><a href="manual/model-basics.html#table-name-inference" data-ice="link">Table name inference</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/model-basics.html"><a href="manual/model-basics.html#enforcing-the-table-name-to-be-equal-to-the-model-name" data-ice="link">Enforcing the table name to be equal to the model name</a></li>
@@ -659,7 +659,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
   host: 'localhost',
   dialect: /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
 });</code>
-</code></pre><p>The Sequelize constructor accepts a lot of options. They are documented in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference</a>.</p><h3>Testing the connection</h3><p>You can use the <code>.authenticate()</code> function to test if the connection is OK:</p><pre><code class="lang-js"><code class="source-code prettyprint">try {
+</code></pre><p>The Sequelize constructor accepts a lot of options. They are documented in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference</a>.</p><h3>Testing the connection</h3><p>You can use the <code>.authenticate()</code> function to test if the connection is OK:</p><pre><code class="lang-js"><code class="source-code prettyprint">try {
   await sequelize.authenticate();
   console.log('Connection has been established successfully.');
 } catch (error) {
@@ -683,10 +683,10 @@ const sequelize = new Sequelize("sqlite::memory:");
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Model Basics</h1><p>In this tutorial you will learn what models are in Sequelize and how to use them.</p><h2>Concept</h2><p>Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends <a href="./manual/../class/lib/model.js~Model.html">Model</a>.</p><p>The model tells Sequelize several things about the entity it represents, such as the name of the table in the database and which columns it has (and their data types).</p><p>A model in Sequelize has a name. This name does not have to be the same name of the table it represents in the database. Usually, models have singular names (such as <code>User</code>) while tables have pluralized names (such as <code>Users</code>), although this is fully configurable.</p><h2>Model Definition</h2><p>Models can be defined in two equivalent ways in Sequelize:</p><ul>
-<li>Calling <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define(modelName, attributes, options)</code></a></li>
-<li>Extending <a href="./manual/../class/lib/model.js~Model.html">Model</a> and calling <a href="./manual/../class/lib/model.js~Model.html#static-method-init"><code>init(attributes, options)</code></a></li>
-</ul><p>After a model is defined, it is available within <code>sequelize.models</code> by its model name.</p><p>To learn with an example, we will consider that we want to create a model to represent users, which have a <code>firstName</code> and a <code>lastName</code>. We want our model to be called <code>User</code>, and the table it represents is called <code>Users</code> in the database.</p><p>Both ways to define this model are shown below. After being defined, we can access our model with <code>sequelize.models.User</code>.</p><h3>Using <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+        <div data-ice="card"><h1>Model Basics</h1><p>In this tutorial you will learn what models are in Sequelize and how to use them.</p><h2>Concept</h2><p>Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends <a href="./manual/../class/src/model.js~Model.html">Model</a>.</p><p>The model tells Sequelize several things about the entity it represents, such as the name of the table in the database and which columns it has (and their data types).</p><p>A model in Sequelize has a name. This name does not have to be the same name of the table it represents in the database. Usually, models have singular names (such as <code>User</code>) while tables have pluralized names (such as <code>Users</code>), although this is fully configurable.</p><h2>Model Definition</h2><p>Models can be defined in two equivalent ways in Sequelize:</p><ul>
+<li>Calling <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define(modelName, attributes, options)</code></a></li>
+<li>Extending <a href="./manual/../class/src/model.js~Model.html">Model</a> and calling <a href="./manual/../class/src/model.js~Model.html#static-method-init"><code>init(attributes, options)</code></a></li>
+</ul><p>After a model is defined, it is available within <code>sequelize.models</code> by its model name.</p><p>To learn with an example, we will consider that we want to create a model to represent users, which have a <code>firstName</code> and a <code>lastName</code>. We want our model to be called <code>User</code>, and the table it represents is called <code>Users</code> in the database.</p><p>Both ways to define this model are shown below. After being defined, we can access our model with <code>sequelize.models.User</code>.</p><h3>Using <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('User', {
@@ -705,7 +705,7 @@ const User = sequelize.define('User', {
 
 // `sequelize.define` also returns the model
 console.log(User === sequelize.models.User); // true</code>
-</code></pre><h3>Extending <a href="./manual/../class/lib/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('sequelize');
+</code></pre><h3>Extending <a href="./manual/../class/src/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize('sqlite::memory:');
 
 class User extends Model {}
@@ -791,13 +791,13 @@ user.id; // 1</code>
 }, {
   tableName: 'Employees'
 });</code>
-</code></pre><h2>Model synchronization</h2><p>When you define a model, you're telling Sequelize a few things about its table in the database. However, what if the table actually doesn't even exist in the database? What if it exists, but it has different columns, less columns, or any other difference?</p><p>This is where model synchronization comes in. A model can be synchronized with the database by calling <a href="https://sequelize.org/master/class/lib/model.js~Model.html#static-method-sync"><code>model.sync(options)</code></a>, an asynchronous function (that returns a Promise). With this call, Sequelize will automatically perform an SQL query to the database. Note that this changes only the table in the database, not the model in the JavaScript side.</p><ul>
+</code></pre><h2>Model synchronization</h2><p>When you define a model, you're telling Sequelize a few things about its table in the database. However, what if the table actually doesn't even exist in the database? What if it exists, but it has different columns, less columns, or any other difference?</p><p>This is where model synchronization comes in. A model can be synchronized with the database by calling <a href="https://sequelize.org/master/class/src/model.js~Model.html#static-method-sync"><code>model.sync(options)</code></a>, an asynchronous function (that returns a Promise). With this call, Sequelize will automatically perform an SQL query to the database. Note that this changes only the table in the database, not the model in the JavaScript side.</p><ul>
 <li><code>User.sync()</code> - This creates the table if it doesn't exist (and does nothing if it already exists)</li>
 <li><code>User.sync({ force: true })</code> - This creates the table, dropping it first if it already existed</li>
 <li><code>User.sync({ alter: true })</code> - This checks what is the current state of the table in the database (which columns it has, what are their data types, etc), and then performs the necessary changes in the table to make it match the model.</li>
 </ul><p>Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">await User.sync({ force: true });
 console.log("The table for the User model was just (re)created!");</code>
-</code></pre><h3>Synchronizing all models at once</h3><p>You can use <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-sync"><code>sequelize.sync()</code></a> to automatically synchronize all models. Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">await sequelize.sync({ force: true });
+</code></pre><h3>Synchronizing all models at once</h3><p>You can use <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-sync"><code>sequelize.sync()</code></a> to automatically synchronize all models. Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">await sequelize.sync({ force: true });
 console.log("All models were synchronized successfully.");</code>
 </code></pre><h3>Dropping tables</h3><p>To drop the table related to a model:</p><pre><code class="lang-js"><code class="source-code prettyprint">await User.drop();
 console.log("User table dropped!");</code>
@@ -845,7 +845,7 @@ sequelize.define('User', { name: DataTypes.STRING });</code>
     // This way, the current date/time will be used to populate this column (at the moment of insertion)
   }
 });</code>
-</code></pre><h2>Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/lib/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize"); // Import the built-in data types</code>
+</code></pre><h2>Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/src/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize"); // Import the built-in data types</code>
 </code></pre><h3>Strings</h3><pre><code class="lang-js"><code class="source-code prettyprint">DataTypes.STRING             // VARCHAR(255)
 DataTypes.STRING(1234)       // VARCHAR(1234)
 DataTypes.STRING.BINARY      // VARCHAR BINARY
@@ -992,12 +992,12 @@ const User = sequelize.define("user", {
   await sequelize.sync({ force: true });
   // Code here
 })();</code>
-</code></pre><h2>Creating an instance</h2><p>Although a model is a class, you should not create instances by using the <code>new</code> operator directly. Instead, the <a href="./manual/../class/lib/model.js~Model.html#static-method-build"><code>build</code></a> method should be used:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = User.build({ name: "Jane" });
+</code></pre><h2>Creating an instance</h2><p>Although a model is a class, you should not create instances by using the <code>new</code> operator directly. Instead, the <a href="./manual/../class/src/model.js~Model.html#static-method-build"><code>build</code></a> method should be used:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = User.build({ name: "Jane" });
 console.log(jane instanceof User); // true
 console.log(jane.name); // "Jane"</code>
-</code></pre><p>However, the code above does not communicate with the database at all (note that it is not even asynchronous)! This is because the <a href="./manual/../class/lib/model.js~Model.html#static-method-build"><code>build</code></a> method only creates an object that <em>represents</em> data that <em>can</em> be mapped to a database. In order to really save (i.e. persist) this instance in the database, the <a href="./manual/../class/lib/model.js~Model.html#instance-method-save"><code>save</code></a> method should be used:</p><pre><code class="lang-js"><code class="source-code prettyprint">await jane.save();
+</code></pre><p>However, the code above does not communicate with the database at all (note that it is not even asynchronous)! This is because the <a href="./manual/../class/src/model.js~Model.html#static-method-build"><code>build</code></a> method only creates an object that <em>represents</em> data that <em>can</em> be mapped to a database. In order to really save (i.e. persist) this instance in the database, the <a href="./manual/../class/src/model.js~Model.html#instance-method-save"><code>save</code></a> method should be used:</p><pre><code class="lang-js"><code class="source-code prettyprint">await jane.save();
 console.log('Jane was saved to the database!');</code>
-</code></pre><p>Note, from the usage of <code>await</code> in the snippet above, that <code>save</code> is an asynchronous method. In fact, almost every Sequelize method is asynchronous; <code>build</code> is one of the very few exceptions.</p><h3>A very useful shortcut: the <code>create</code> method</h3><p>Sequelize provides the <a href="./manual/../class/lib/model.js~Model.html#static-method-create"><code>create</code></a> method, which combines the <code>build</code> and <code>save</code> methods shown above into a single method:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
+</code></pre><p>Note, from the usage of <code>await</code> in the snippet above, that <code>save</code> is an asynchronous method. In fact, almost every Sequelize method is asynchronous; <code>build</code> is one of the very few exceptions.</p><h3>A very useful shortcut: the <code>create</code> method</h3><p>Sequelize provides the <a href="./manual/../class/src/model.js~Model.html#static-method-create"><code>create</code></a> method, which combines the <code>build</code> and <code>save</code> methods shown above into a single method:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 // Jane exists in the database now!
 console.log(jane instanceof User); // true
 console.log(jane.name); // "Jane"</code>
@@ -1013,7 +1013,7 @@ jane.name = "Ada";
 // the name is still "Jane" in the database
 await jane.save();
 // Now the name was updated to "Ada" in the database!</code>
-</code></pre><p>You can update several fields at once with the <a href="./manual/../class/lib/model.js~Model.html#instance-method-set"><code>set</code></a> method:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
+</code></pre><p>You can update several fields at once with the <a href="./manual/../class/src/model.js~Model.html#instance-method-set"><code>set</code></a> method:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 
 jane.set({
   name: "Ada",
@@ -1022,17 +1022,17 @@ jane.set({
 // As above, the database still has "Jane" and "green"
 await jane.save();
 // The database now has "Ada" and "blue" for name and favorite color</code>
-</code></pre><p>Note that the <code>save()</code> here will also persist any other changes that have been made on this instance, not just those in the previous <code>set</code> call. If you want to update a specific set of fields, you can use <a href="./manual/../class/lib/model.js~Model.html#instance-method-update"><code>update</code></a>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
+</code></pre><p>Note that the <code>save()</code> here will also persist any other changes that have been made on this instance, not just those in the previous <code>set</code> call. If you want to update a specific set of fields, you can use <a href="./manual/../class/src/model.js~Model.html#instance-method-update"><code>update</code></a>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 jane.favoriteColor = "blue"
 await jane.update({ name: "Ada" })
 // The database now has "Ada" for name, but still has the default "green" for favorite color
 await jane.save()
 // Now the database has "Ada" for name and "blue" for favorite color</code>
-</code></pre><h2>Deleting an instance</h2><p>You can delete an instance by calling <a href="./manual/../class/lib/model.js~Model.html#instance-method-destroy"><code>destroy</code></a>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
+</code></pre><h2>Deleting an instance</h2><p>You can delete an instance by calling <a href="./manual/../class/src/model.js~Model.html#instance-method-destroy"><code>destroy</code></a>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 console.log(jane.name); // "Jane"
 await jane.destroy();
 // Now this entry was removed from the database</code>
-</code></pre><h2>Reloading an instance</h2><p>You can reload an instance from the database by calling <a href="./manual/../class/lib/model.js~Model.html#instance-method-reload"><code>reload</code></a>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
+</code></pre><h2>Reloading an instance</h2><p>You can reload an instance from the database by calling <a href="./manual/../class/src/model.js~Model.html#instance-method-reload"><code>reload</code></a>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane" });
 console.log(jane.name); // "Jane"
 jane.name = "Ada";
 // the name is still "Jane" in the database
@@ -1051,7 +1051,7 @@ console.log(jane.favoriteColor); // "blue"
 await jane.reload();
 console.log(jane.name); // "Jane II"
 console.log(jane.favoriteColor); // "green"</code>
-</code></pre><h2>Change-awareness of save</h2><p>The <code>save</code> method is optimized internally to only update fields that really changed. This means that if you don't change anything and call <code>save</code>, Sequelize will know that the save is superfluous and do nothing, i.e., no query will be generated (it will still return a Promise, but it will resolve immediately).</p><p>Also, if only a few attributes have changed when you call <code>save</code>, only those fields will be sent in the <code>UPDATE</code> query, to improve performance.</p><h2>Incrementing and decrementing integer values</h2><p>In order to increment/decrement values of an instance without running into concurrency issues, Sequelize provides the <a href="./manual/../class/lib/model.js~Model.html#instance-method-increment"><code>increment</code></a> and <a href="./manual/../class/lib/model.js~Model.html#instance-method-decrement"><code>decrement</code></a> instance methods.</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane", age: 100 });
+</code></pre><h2>Change-awareness of save</h2><p>The <code>save</code> method is optimized internally to only update fields that really changed. This means that if you don't change anything and call <code>save</code>, Sequelize will know that the save is superfluous and do nothing, i.e., no query will be generated (it will still return a Promise, but it will resolve immediately).</p><p>Also, if only a few attributes have changed when you call <code>save</code>, only those fields will be sent in the <code>UPDATE</code> query, to improve performance.</p><h2>Incrementing and decrementing integer values</h2><p>In order to increment/decrement values of an instance without running into concurrency issues, Sequelize provides the <a href="./manual/../class/src/model.js~Model.html#instance-method-increment"><code>increment</code></a> and <a href="./manual/../class/src/model.js~Model.html#instance-method-decrement"><code>decrement</code></a> instance methods.</p><pre><code class="lang-js"><code class="source-code prettyprint">const jane = await User.create({ name: "Jane", age: 100 });
 const incrementResult = await jane.increment('age', { by: 2 });
 // Note: to increment by 1 you can omit the `by` option and just do `user.increment('age')`
 
@@ -1076,14 +1076,14 @@ await jane.increment(['age', 'cash'], { by: 2 });</code>
         <div data-ice="card"><h1>Model Querying - Basics</h1><p>Sequelize provides various methods to assist querying your database for data.</p><p><em>Important notice: to perform production-ready queries with Sequelize, make sure you have read the <a href="./manual/transactions.html">Transactions guide</a> as well. Transactions are important to ensure data integrity and to provide other benefits.</em></p><p>This guide will show how to make the standard <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> queries.</p><h2>Simple INSERT queries</h2><p>First, a simple example:</p><pre><code class="lang-js"><code class="source-code prettyprint">// Create a new user
 const jane = await User.create({ firstName: "Jane", lastName: "Doe" });
 console.log("Jane's auto-generated ID:", jane.id);</code>
-</code></pre><p>The <a href="./manual/../class/lib/model.js~Model.html#static-method-create"><code>Model.create()</code></a> method is a shorthand for building an unsaved instance with <a href="./manual/../class/lib/model.js~Model.html#static-method-build"><code>Model.build()</code></a> and saving the instance with <a href="./manual/../class/lib/model.js~Model.html#instance-method-save"><code>instance.save()</code></a>.</p><p>It is also possible to define which attributes can be set in the <code>create</code> method. This can be especially useful if you create database entries based on a form which can be filled by a user. Using that would, for example, allow you to restrict the <code>User</code> model to set only an username but not an admin flag (i.e., <code>isAdmin</code>):</p><pre><code class="lang-js"><code class="source-code prettyprint">const user = await User.create({
+</code></pre><p>The <a href="./manual/../class/src/model.js~Model.html#static-method-create"><code>Model.create()</code></a> method is a shorthand for building an unsaved instance with <a href="./manual/../class/src/model.js~Model.html#static-method-build"><code>Model.build()</code></a> and saving the instance with <a href="./manual/../class/src/model.js~Model.html#instance-method-save"><code>instance.save()</code></a>.</p><p>It is also possible to define which attributes can be set in the <code>create</code> method. This can be especially useful if you create database entries based on a form which can be filled by a user. Using that would, for example, allow you to restrict the <code>User</code> model to set only an username but not an admin flag (i.e., <code>isAdmin</code>):</p><pre><code class="lang-js"><code class="source-code prettyprint">const user = await User.create({
   username: 'alice123',
   isAdmin: true
 }, { fields: ['username'] });
 // let's assume the default of isAdmin is false
 console.log(user.username); // 'alice123'
 console.log(user.isAdmin); // false</code>
-</code></pre><h2>Simple SELECT queries</h2><p>You can read the whole table from the database with the <a href="./manual/../class/lib/model.js~Model.html#static-method-findAll"><code>findAll</code></a> method:</p><pre><code class="lang-js"><code class="source-code prettyprint">// Find all users
+</code></pre><h2>Simple SELECT queries</h2><p>You can read the whole table from the database with the <a href="./manual/../class/src/model.js~Model.html#static-method-findAll"><code>findAll</code></a> method:</p><pre><code class="lang-js"><code class="source-code prettyprint">// Find all users
 const users = await User.findAll();
 console.log(users.every(user =&gt; user instanceof User)); // true
 console.log("All users:", JSON.stringify(users, null, 2));</code>
@@ -1096,7 +1096,7 @@ console.log("All users:", JSON.stringify(users, null, 2));</code>
   attributes: ['foo', ['bar', 'baz'], 'qux']
 });</code>
 </code></pre><pre><code class="lang-sql"><code class="source-code prettyprint">SELECT foo, bar AS baz, qux FROM ...</code>
-</code></pre><p>You can use <a href="./manual/../class/lib/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> to do aggregations:</p><pre><code class="lang-js"><code class="source-code prettyprint">Model.findAll({
+</code></pre><p>You can use <a href="./manual/../class/src/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> to do aggregations:</p><pre><code class="lang-js"><code class="source-code prettyprint">Model.findAll({
   attributes: [
     'foo',
     [sequelize.fn('COUNT', sequelize.col('hats')), 'n_hats'],
@@ -1300,7 +1300,7 @@ WHERE (
   where: sequelize.where(sequelize.fn('char_length', sequelize.col('content')), 7)
 });
 // SELECT ... FROM "posts" AS "post" WHERE char_length("content") = 7</code>
-</code></pre><p>Note the usage of the  <a href="./manual/../class/lib/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> and <a href="./manual/../class/lib/sequelize.js~Sequelize.html#static-method-col"><code>sequelize.col</code></a> methods, which should be used to specify an SQL function call and a table column, respectively. These methods should be used instead of passing a plain string (such as <code>char_length(content)</code>) because Sequelize needs to treat this situation differently (for example, using other symbol escaping approaches).</p><p>What if you need something even more complex?</p><pre><code class="lang-js"><code class="source-code prettyprint">Post.findAll({
+</code></pre><p>Note the usage of the  <a href="./manual/../class/src/sequelize.js~Sequelize.html#static-method-fn"><code>sequelize.fn</code></a> and <a href="./manual/../class/src/sequelize.js~Sequelize.html#static-method-col"><code>sequelize.col</code></a> methods, which should be used to specify an SQL function call and a table column, respectively. These methods should be used instead of passing a plain string (such as <code>char_length(content)</code>) because Sequelize needs to treat this situation differently (for example, using other symbol escaping approaches).</p><p>What if you need something even more complex?</p><pre><code class="lang-js"><code class="source-code prettyprint">Post.findAll({
   where: {
     [Op.or]: [
       sequelize.where(sequelize.fn('char_length', sequelize.col('content')), 7),
@@ -1861,7 +1861,7 @@ Place.init({
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Raw Queries</h1><p>As there are often use cases in which it is just easier to execute raw / already prepared SQL queries, you can use the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-query"><code>sequelize.query</code></a> method.</p><p>By default the function will return two arguments - a results array, and an object containing metadata (such as amount of affected rows, etc). Note that since this is a raw query, the metadata are dialect specific. Some dialects return the metadata "within" the results object (as properties on an array). However, two arguments will always be returned, but for MSSQL and MySQL it will be two references to the same object.</p><pre><code class="lang-js"><code class="source-code prettyprint">const [results, metadata] = await sequelize.query("UPDATE users SET y = 42 WHERE x = 12");
+        <div data-ice="card"><h1>Raw Queries</h1><p>As there are often use cases in which it is just easier to execute raw / already prepared SQL queries, you can use the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query"><code>sequelize.query</code></a> method.</p><p>By default the function will return two arguments - a results array, and an object containing metadata (such as amount of affected rows, etc). Note that since this is a raw query, the metadata are dialect specific. Some dialects return the metadata "within" the results object (as properties on an array). However, two arguments will always be returned, but for MSSQL and MySQL it will be two references to the same object.</p><pre><code class="lang-js"><code class="source-code prettyprint">const [results, metadata] = await sequelize.query("UPDATE users SET y = 42 WHERE x = 12");
 // Results will be an empty array and metadata will contain the number of affected rows.</code>
 </code></pre><p>In cases where you don't need to access the metadata you can pass in a query type to tell sequelize how to format the results. For example, for a simple select query you could do:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
 const users = await sequelize.query("SELECT * FROM `users`", { type: QueryTypes.SELECT });
@@ -1872,7 +1872,7 @@ const projects = await sequelize.query('SELECT * FROM projects', {
   mapToModel: true // pass true here if you have any mapped fields
 });
 // Each element of `projects` is now an instance of Project</code>
-</code></pre><p>See more options in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</code></pre><p>See more options in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
 await sequelize.query('SELECT 1', {
   // A function (or false) for logging your queries
   // Will get called for every SQL query that gets sent
@@ -2175,7 +2175,7 @@ Bar.create({
 </li>
 <li><p>Or use the <em><a href="#special-methods-mixins-added-to-instances">special methods/mixins</a></em> available for associated models, which are explained later on this page.</p>
 </li>
-</ul><p><strong>Note:</strong> The <a href="./manual/../class/lib/model.js~Model.html#instance-method-save"><code>save()</code> instance method</a> is not aware of associations. In other words, if you change a value from a <em>child</em> object that was eager loaded along a <em>parent</em> object, calling <code>save()</code> on the parent will completely ignore the change that happened on the child.</p><h2>Association Aliases &amp; Custom Foreign Keys</h2><p>In all the above examples, Sequelize automatically defined the foreign key names. For example, in the Ship and Captain example, Sequelize automatically defined a <code>captainId</code> field on the Ship model. However, it is easy to specify a custom foreign key.</p><p>Let's consider the models Ship and Captain in a simplified form, just to focus on the current topic, as shown below (less fields):</p><pre><code class="lang-js"><code class="source-code prettyprint">const Ship = sequelize.define('ship', { name: DataTypes.TEXT }, { timestamps: false });
+</ul><p><strong>Note:</strong> The <a href="./manual/../class/src/model.js~Model.html#instance-method-save"><code>save()</code> instance method</a> is not aware of associations. In other words, if you change a value from a <em>child</em> object that was eager loaded along a <em>parent</em> object, calling <code>save()</code> on the parent will completely ignore the change that happened on the child.</p><h2>Association Aliases &amp; Custom Foreign Keys</h2><p>In all the above examples, Sequelize automatically defined the foreign key names. For example, in the Ship and Captain example, Sequelize automatically defined a <code>captainId</code> field on the Ship model. However, it is easy to specify a custom foreign key.</p><p>Let's consider the models Ship and Captain in a simplified form, just to focus on the current topic, as shown below (less fields):</p><pre><code class="lang-js"><code class="source-code prettyprint">const Ship = sequelize.define('ship', { name: DataTypes.TEXT }, { timestamps: false });
 const Captain = sequelize.define('captain', { name: DataTypes.TEXT }, { timestamps: false });</code>
 </code></pre><p>There are three ways to specify a different name for the foreign key:</p><ul>
 <li>By providing the foreign key name directly</li>
@@ -4093,7 +4093,7 @@ await t.commit();</code>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Hooks</h1><p>Hooks (also known as lifecycle events), are functions which are called before and after calls in sequelize are executed. For example, if you want to always set a value on a model before saving it, you can add a <code>beforeUpdate</code> hook.</p><p><strong>Note:</strong> <em>You can't use hooks with instances. Hooks are used with models.</em></p><h2>Available hooks</h2><p>Sequelize provides a lot of hooks. The full list can be found in directly in the <a href="https://github.com/sequelize/sequelize/blob/v6/lib/hooks.js#L7">source code - lib/hooks.js</a>.</p><h2>Hooks firing order</h2><p>The diagram below shows the firing order for the most common hooks.</p><p><em><strong>Note:</strong> this list is not exhaustive.</em></p><pre><code class="lang-text"><code class="source-code prettyprint">(1)
+        <div data-ice="card"><h1>Hooks</h1><p>Hooks (also known as lifecycle events), are functions which are called before and after calls in sequelize are executed. For example, if you want to always set a value on a model before saving it, you can add a <code>beforeUpdate</code> hook.</p><p><strong>Note:</strong> <em>You can't use hooks with instances. Hooks are used with models.</em></p><h2>Available hooks</h2><p>Sequelize provides a lot of hooks. The full list can be found in directly in the <a href="https://github.com/sequelize/sequelize/blob/v6/src/hooks.js#L7">source code - src/hooks.js</a>.</p><h2>Hooks firing order</h2><p>The diagram below shows the firing order for the most common hooks.</p><p><em><strong>Note:</strong> this list is not exhaustive.</em></p><pre><code class="lang-text"><code class="source-code prettyprint">(1)
   beforeBulkCreate(instances, options)
   beforeBulkDestroy(options)
   beforeBulkUpdate(options)
@@ -4375,7 +4375,7 @@ await sequelize.transaction(async t =&gt; {
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Query Interface</h1><p>An instance of Sequelize uses something called <strong>Query Interface</strong> to communicate to the database in a dialect-agnostic way. Most of the methods you've learned in this manual are implemented with the help of several methods from the query interface.</p><p>The methods from the query interface are therefore lower-level methods; you should use them only if you do not find another way to do it with higher-level APIs from Sequelize. They are, of course, still higher-level than running raw queries directly (i.e., writing SQL by hand).</p><p>This guide shows a few examples, but for the full list of what it can do, and for detailed usage of each method, check the <a href="./manual/../class/lib/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface API</a>.</p><h2>Obtaining the query interface</h2><p>From now on, we will call <code>queryInterface</code> the singleton instance of the <a href="./manual/../class/lib/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface</a> class, which is available on your Sequelize instance:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+        <div data-ice="card"><h1>Query Interface</h1><p>An instance of Sequelize uses something called <strong>Query Interface</strong> to communicate to the database in a dialect-agnostic way. Most of the methods you've learned in this manual are implemented with the help of several methods from the query interface.</p><p>The methods from the query interface are therefore lower-level methods; you should use them only if you do not find another way to do it with higher-level APIs from Sequelize. They are, of course, still higher-level than running raw queries directly (i.e., writing SQL by hand).</p><p>This guide shows a few examples, but for the full list of what it can do, and for detailed usage of each method, check the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface API</a>.</p><h2>Obtaining the query interface</h2><p>From now on, we will call <code>queryInterface</code> the singleton instance of the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface</a> class, which is available on your Sequelize instance:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize(/* ... */);
 const queryInterface = sequelize.getQueryInterface();</code>
 </code></pre><h2>Creating a table</h2><pre><code class="lang-js"><code class="source-code prettyprint">queryInterface.createTable('Person', {
@@ -4453,7 +4453,7 @@ INSERT INTO `Person`
   FROM `Person_backup`;
 
 DROP TABLE `Person_backup`;</code>
-</code></pre><h2>Other</h2><p>As mentioned in the beginning of this guide, there is a lot more to the Query Interface available in Sequelize! Check the <a href="./manual/../class/lib/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface API</a> for a full list of what can be done.</p></div>
+</code></pre><h2>Other</h2><p>As mentioned in the beginning of this guide, there is a lot more to the Query Interface available in Sequelize! Check the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface API</a> for a full list of what can be done.</p></div>
         <a data-ice="link" href="manual/query-interface.html"></a>
       </div>
     </div>
@@ -4582,7 +4582,7 @@ Project.init({
     modelName: 'project'
   }
 });</code>
-</code></pre><p>You can also add scopes after a model has been defined by calling <a href="./manual/../class/lib/model.js~Model.html#static-method-addScope"><code>YourModel.addScope</code></a>. This is especially useful for scopes with includes, where the model in the include might not be defined at the time the other model is being defined.</p><p>The default scope is always applied. This means, that with the model definition above, <code>Project.findAll()</code> will create the following query:</p><pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE active = true</code>
+</code></pre><p>You can also add scopes after a model has been defined by calling <a href="./manual/../class/src/model.js~Model.html#static-method-addScope"><code>YourModel.addScope</code></a>. This is especially useful for scopes with includes, where the model in the include might not be defined at the time the other model is being defined.</p><p>The default scope is always applied. This means, that with the model definition above, <code>Project.findAll()</code> will create the following query:</p><pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE active = true</code>
 </code></pre><p>The default scope can be removed by calling <code>.unscoped()</code>, <code>.scope(null)</code>, or by invoking another scope:</p><pre><code class="lang-js"><code class="source-code prettyprint">await Project.scope('deleted').findAll(); // Removes the default scope</code>
 </code></pre><pre><code class="lang-sql"><code class="source-code prettyprint">SELECT * FROM projects WHERE deleted = true</code>
 </code></pre><p>It is also possible to include scoped models in a scope definition. This allows you to avoid duplicating <code>include</code>, <code>attributes</code> or <code>where</code> definitions. Using the above example, and invoking the <code>active</code> scope on the included User model (rather than specifying the condition directly in that include object):</p><pre><code class="lang-js"><code class="source-code prettyprint">// The `activeUsers` scope defined in the example above could also have been defined this way:
@@ -5040,7 +5040,7 @@ Trainer.hasMany(Series);</code>
 
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Indexes</h1><p>Sequelize supports adding indexes to the model definition which will be created on <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-sync"><code>sequelize.sync()</code></a>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define('User', { /* attributes */ }, {
+        <div data-ice="card"><h1>Indexes</h1><p>Sequelize supports adding indexes to the model definition which will be created on <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-sync"><code>sequelize.sync()</code></a>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const User = sequelize.define('User', { /* attributes */ }, {
   indexes: [
     // Create a unique index on email
     {
@@ -5072,7 +5072,7 @@ Trainer.hasMany(Series);</code>
       fields: [
         'author',
         {
-          attribute: 'title',
+          name: 'title',
           collate: 'en_US',
           order: 'DESC',
           length: 5
@@ -5123,7 +5123,7 @@ Trainer.hasMany(Series);</code>
     idle: 10000
   }
 });</code>
-</code></pre><p>Learn more in the <a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference for the Sequelize constructor</a>. If you're connecting to the database from multiple processes, you'll have to create one instance per process, but each instance should have a maximum connection pool size of such that the total maximum size is respected. For example, if you want a max connection pool size of 90 and you have three processes, the Sequelize instance of each process should have a max connection pool size of 30.</p></div>
+</code></pre><p>Learn more in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-constructor-constructor">API Reference for the Sequelize constructor</a>. If you're connecting to the database from multiple processes, you'll have to create one instance per process, but each instance should have a maximum connection pool size of such that the total maximum size is respected. For example, if you want a max connection pool size of 90 and you have three processes, the Sequelize instance of each process should have a max connection pool size of 30.</p></div>
         <a data-ice="link" href="manual/connection-pool.html"></a>
       </div>
     </div>
@@ -6576,20 +6576,20 @@ need to be re-established when the Lambda container is re-used. Unfortunately, t
 presents a set of issues:</p><ol>
 <li>Lambdas that wait for the event loop to be empty will always time out. <code>sequelize</code> connection
 pools schedule a <code>setTimeout</code> every
-<a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor"><code>options.pool.evict</code></a>
+<a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-constructor-constructor"><code>options.pool.evict</code></a>
 ms until <strong>all idle connections have been closed</strong>. However, since <code>min</code> is set to <code>1</code>, there
 will always be at least one idle connection in the pool, resulting in an infinite event loop.</li>
 <li>Some operations like
-<a href="./manual/../class/lib/model.js~Model.html#static-method-findAndCountAll"><code>Model.findAndCountAll()</code></a>
+<a href="./manual/../class/src/model.js~Model.html#static-method-findAndCountAll"><code>Model.findAndCountAll()</code></a>
 execute multiple queries asynchronously (e.g.
-<a href="./manual/..class/lib/model.js~Model.html#static-method-count"><code>Model.count()</code></a> and
-<a href="./manual/../class/lib/model.js~Model.html#static-method-findAll"><code>Model.findAll()</code></a>). Using a maximum of
+<a href="./manual/..class/src/model.js~Model.html#static-method-count"><code>Model.count()</code></a> and
+<a href="./manual/../class/src/model.js~Model.html#static-method-findAll"><code>Model.findAll()</code></a>). Using a maximum of
 one connection forces the queries to be exectued serially (rather than in parallel using two
 connections). While this may be an acceptable performance compromise in order to
 maintain a manageable number of database connections, long running queries may result in
-<a href="./manual/../class/lib/errors/connection/connection-acquire-timeout-error.js~ConnectionAcquireTimeoutError.html"><code>ConnectionAcquireTimeoutError</code></a>
+<a href="./manual/../class/src/errors/connection/connection-acquire-timeout-error.js~ConnectionAcquireTimeoutError.html"><code>ConnectionAcquireTimeoutError</code></a>
 if a query takes more than the default or configured
-<a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor"><code>options.pool.acquire</code></a>
+<a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-constructor-constructor"><code>options.pool.acquire</code></a>
 timeout to complete. This is because the serialized query will be stuck waiting on the pool until
 the connection used by the other query is released.</li>
 <li>If the AWS Lambda function times out (i.e. the configured AWS Lambda timeout is exceeded), the
@@ -6664,7 +6664,7 @@ function. The relevant subset of the code is as follows:</p><p><strong>runtime/R
 
 new Runtime(client, handler, errorCallbacks).scheduleIteration();</code>
 </code></pre><p>All SQL queries invoked by a Lambda handler using <code>sequelize</code> are ultimately executed using
-<a href="./manual/../class/lib/sequelize.js~Sequelize.html#instance-method-query">Sequelize.prototype.query()</a>.
+<a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query">Sequelize.prototype.query()</a>.
 This method is responsible for obtaining a connection from the pool, executing the query, and
 releasing the connection back to the pool when the query completes. The following snippet shows
 a simplification of the method's logic for queries without transactions:</p><p><strong>sequelize.js</strong></p><pre><code class="lang-js"><code class="source-code prettyprint">class Sequelize {
