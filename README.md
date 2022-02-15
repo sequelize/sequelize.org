@@ -2,10 +2,10 @@
 
 *NOTE: Do not send pull requests to this repository. Send them to the [main repository](https://github.com/sequelize/sequelize) instead.*
 
-### v7 docs (latest):
+### v7 docs (alpha):
 https://sequelize.org/v7
 
-### v6 docs:
+### v6 docs (latest stable):
 https://sequelize.org/v6
 
 ### v5 docs:
