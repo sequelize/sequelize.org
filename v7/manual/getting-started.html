@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -600,11 +602,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="getting-started">Getting Started</h1><p>In this tutorial you will learn to make a simple setup of Sequelize.</p>
-<h2 id="installing">Installing</h2><p>Sequelize is available via <a href="https://www.npmjs.com/package/sequelize">npm</a> (or <a href="https://yarnpkg.com/package/sequelize">yarn</a>).</p>
+<h2 id="installing">Installing</h2><p>Sequelize is available via <a href="https://www.npmjs.com/package/@sequelize/core">npm</a> (or <a href="https://yarnpkg.com/package/@sequelize/core">yarn</a>).</p>
 <pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
-npm i sequelize # This will install latest version of Sequelize
+npm i sequelize # This will install v6, the latest stable release of Sequelize
+npm i @sequelize/core # This will install v7, the latest alpha release of Sequelize
 # using yarn
-yarn add sequelize</code>
+yarn add sequelize # This will install v6, the latest stable release of Sequelize
+yarn add @sequelize/core # This will install v7, the latest alpha release of Sequelize</code>
 </code></pre>
 <p>You'll also have to manually install the driver for your database of choice:</p>
 <pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
@@ -614,16 +618,18 @@ npm i mariadb # MariaDB
 npm i sqlite3 # SQLite
 npm i tedious # Microsoft SQL Server
 npm i ibm_db # DB2
+npm i odbc # IBM i
 # using yarn
 yarn add pg pg-hstore # PostgreSQL
 yarn add mysql2 # MySQL
 yarn add mariadb # MariaDB
 yarn add sqlite3 # SQLite
 yarn add tedious # Microsoft SQL Server
-yarn add ibm_db # DB2</code>
+yarn add ibm_db # DB2
+yarn add odbc # IBM i</code>
 </code></pre>
 <h2 id="connecting-to-a-database">Connecting to a database</h2><p>To connect to the database, you must create a Sequelize instance. This can be done by either passing the connection parameters separately to the Sequelize constructor or by passing a single connection URI:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('@sequelize/core');
 
 // Option 1: Passing a connection URI
 const sequelize = new Sequelize('sqlite::memory:') // Example for sqlite
@@ -653,7 +659,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 <h3 id="closing-the-connection">Closing the connection</h3><p>Sequelize will keep the connection open by default, and use the same connection for all queries. If you need to close the connection, call <code>sequelize.close()</code> (which is asynchronous and returns a Promise).</p>
 <h2 id="terminology-convention">Terminology convention</h2><p>Observe that, in the examples above, <code>Sequelize</code> refers to the library itself while <code>sequelize</code> refers to an instance of Sequelize, which represents a connection to one database. This is the recommended convention and it will be followed throughout the documentation.</p>
 <h2 id="tip-for-reading-the-docs">Tip for reading the docs</h2><p>You are encouraged to run code examples locally while reading the Sequelize docs. This will help you learn faster. The easiest way to do this is using the SQLite dialect:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize("sqlite::memory:");
 
 // Code here! It works!</code>

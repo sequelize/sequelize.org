@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -690,7 +692,7 @@ console.log(post.getDataValue('content'));
 <p>For example, let's say we have the <code>firstName</code> and <code>lastName</code> attributes for a User.</p>
 <p><em>Again, this is <a href="https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">only for the sake of an example</a>.</em></p>
 <p>It would be nice to have a simple way to obtain the <em>full name</em> directly! We can combine the idea of <code>getters</code> with the special data type Sequelize provides for this kind of situation: <code>DataTypes.VIRTUAL</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require('@sequelize/core');
 
 const User = sequelize.define('user', {
   firstName: DataTypes.TEXT,
@@ -712,7 +714,7 @@ console.log(user.fullName); // 'John Doe'</code>
 </code></pre>
 <h2 id="deprecated-in-sequelize-v7---code-gettermethods--code--and--code-settermethods--code-">Deprecated in Sequelize v7: <code>getterMethods</code> and <code>setterMethods</code></h2><p>Sequelize also provides the <code>getterMethods</code> and <code>setterMethods</code> options in the model definition to specify things that look like, but aren't exactly the same as, virtual attributes. This usage is discouraged and likely to be <strong>deprecated</strong> in the future (in favor of using virtual attributes directly).</p>
 <p>Example:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('user', {

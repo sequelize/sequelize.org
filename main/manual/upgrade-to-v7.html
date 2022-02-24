@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -600,7 +602,17 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="upgrade-to-v7">Upgrade to v7</h1><p>Sequelize v7 is the next major release after v6. Below is a list of breaking changes to help you upgrade.</p>
-<h2 id="breaking-changes">Breaking Changes</h2><h3 id="support-for-node-12-and-up">Support for Node 12 and up</h3><p>Sequelize v7 will only support those versions of Node.js that are compatible with the ES module specification,
+<h2 id="breaking-changes">Breaking Changes</h2><h3 id="main-project-renamed-to--sequelize-core">Main project renamed to @sequelize/core</h3><p>Starting with Sequelize v7, we are introducing scoped modules and renamed the following projects:</p>
+<ul>
+<li>The former <code>sequelize</code> module is now available under <code>@sequelize/core</code>.</li>
+</ul>
+<p>As a result, you now use Sequelize as follows:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">const { Sequelize } = require('@sequelize/core');
+const sequelize = new Sequelize({ dialect: 'sqlite' });
+
+await sequelize.authenticate();</code>
+</code></pre>
+<h3 id="support-for-node-12-and-up">Support for Node 12 and up</h3><p>Sequelize v7 will only support those versions of Node.js that are compatible with the ES module specification,
 namingly version 12 and upwards <a href="https://github.com/sequelize/meetings/issues/5">#5</a>.</p>
 <h3 id="typescript-conversion">TypeScript conversion</h3><p>One of the major foundational code changes of v7 is the migration to TypeScript.
 As a result, the manual typings that were formerly best-effort guesses on top of the JavaScript code base,
@@ -614,7 +626,7 @@ Starting with Sequelize 7, this is now considered reserved syntax, and it is no 
 use a string that both starts and ends with a <code>$</code> as the attribute name, or includes the <code>.</code> character.</p>
 <p>This only affects the attribute name, it is still possible to do this for the column name.</p>
 <p>Instead of doing this:</p>
-<pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from 'sequelize';
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from '@sequelize/core';
 
 class User extends Model {
   $myAttribute$: string;
@@ -637,7 +649,7 @@ User.init({
 }, { sequelize });</code>
 </code></pre>
 <p>Do this:</p>
-<pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from 'sequelize';
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from '@sequelize/core';
 
 class User extends Model {
   $myAttribute$: string;

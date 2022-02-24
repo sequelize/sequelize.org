@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -635,7 +637,7 @@
 <ul>
 <li><code>readWriteMode</code>: Set the opening mode for the SQLite connection. Potential values are provided by the sqlite3 package, and can include sqlite3.OPEN_READONLY, sqlite3.OPEN_READWRITE, or sqlite3.OPEN_CREATE. See the <a href="https://www.sqlite.org/c3ref/open.html">SQLite C interface documentation for more details</a>.</li>
 </ul>
-<h3 id="postgresql">PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p>
+<h3 id="postgresql">PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package. For usage in Node 14 and above you need to use pg version 8.2.x or above, as per <a href="https://node-postgres.com/#version-compatibility">the documentation</a>. The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p>
 <p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
@@ -705,6 +707,17 @@
   }
 })</code>
 </code></pre>
+<h3 id="ibm-i">IBM i</h3><p>The underlying connector library used by Sequelize for IBM i is the <a href="https://www.npmjs.com/package/odbc">odbc</a> npm package (version 2.4.1 or higher).</p>
+<p>To learn more about using ODBC with IBM i, consult the <a href="https://ibmi-oss-docs.readthedocs.io/en/latest/odbc/README.html">IBM i and ODBC documentation</a>.</p>
+<p>When passing options to the constructor, the concept of <code>database</code> is mapped to the ODBC <code>DSN</code>. You can provide additional connection string options to Sequelize using the <code>dialectOptions.odbcConnectionString</code>. This connection string is then appended with the values found in the <code>database</code>, <code>username</code>, and <code>password</code> parameters:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('MY_DSN', 'username', 'password', {
+  dialect: 'ibmi',
+  dialectOptions: {
+    odbcConnectionString: 'CMT=1;NAM=0;...'
+  }
+})</code>
+</code></pre>
+<p>The final connection string generated by the above configuration would look like <code>CMT=1;NAMING=0;...;DSN=MY_DSN;UID=username;PWD=password;</code>. Additionally, the <code>host</code> option will map the the <code>SYSTEM=</code> connection string key.</p>
 <h3 id="snowflake--experiment-">Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> package.</p>
 <p>In order to connect with an account, use the following format:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
@@ -741,7 +754,7 @@ SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=m
 <p>So this enum name must follow this pattern <code>enum_&lt;table_name&gt;_&lt;col_name&gt;</code>. If you are using <code>sync</code> then correct name will automatically be generated.</p>
 <h2 id="table-hints---mssql-only">Table Hints - MSSQL only</h2><p>The <code>tableHint</code> option can be used to define a table hint. The hint must be a value from <code>TableHints</code> and should only be used when absolutely necessary. Only a single table hint is currently supported per query.</p>
 <p>Table hints override the default behavior of MSSQL query optimizer by specifing certain options. They only affect the table or view referenced in that clause.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { TableHints } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { TableHints } = require('@sequelize/core');
 Project.findAll({
   // adding the table hint NOLOCK
   tableHint: TableHints.NOLOCK
@@ -750,7 +763,7 @@ Project.findAll({
 </code></pre>
 <h2 id="index-hints---mysql-mariadb-only">Index Hints - MySQL/MariaDB only</h2><p>The <code>indexHints</code> option can be used to define index hints. The hint type must be a value from <code>IndexHints</code> and the values should reference existing indexes.</p>
 <p>Index hints <a href="https://dev.mysql.com/doc/refman/5.7/en/index-hints.html">override the default behavior of the MySQL query optimizer</a>.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { IndexHints } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { IndexHints } = require('@sequelize/core');
 Project.findAll({
   indexHints: [
     { type: IndexHints.USE, values: ['index_project_on_name'] }

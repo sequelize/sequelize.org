@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -611,7 +613,7 @@
 <p>After a model is defined, it is available within <code>sequelize.models</code> by its model name.</p>
 <p>To learn with an example, we will consider that we want to create a model to represent users, which have a <code>firstName</code> and a <code>lastName</code>. We want our model to be called <code>User</code>, and the table it represents is called <code>Users</code> in the database.</p>
 <p>Both ways to define this model are shown below. After being defined, we can access our model with <code>sequelize.models.User</code>.</p>
-<h3 id="using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--">Using <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+<h3 id="using--a-href-----class-src-sequelize-js-sequelize-html-instance-method-define---code-sequelize-define--code---a--">Using <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('User', {
@@ -631,7 +633,7 @@ const User = sequelize.define('User', {
 // `sequelize.define` also returns the model
 console.log(User === sequelize.models.User); // true</code>
 </code></pre>
-<h3 id="extending--a-href-----class-src-model-js-model-html--model--a-">Extending <a href="./manual/../class/src/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('sequelize');
+<h3 id="extending--a-href-----class-src-model-js-model-html--model--a-">Extending <a href="./manual/../class/src/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 class User extends Model {}
@@ -816,7 +818,7 @@ sequelize.define('User', { name: DataTypes.STRING });</code>
 });</code>
 </code></pre>
 <h2 id="data-types">Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/src/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize"); // Import the built-in data types</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require('@sequelize/core'); // Import the built-in data types</code>
 </code></pre>
 <h3 id="strings">Strings</h3><pre><code class="lang-js"><code class="source-code prettyprint">DataTypes.STRING             // VARCHAR(255)
 DataTypes.STRING(1234)       // VARCHAR(1234)
@@ -866,7 +868,7 @@ DataTypes.DATEONLY   // DATE without time</code>
 </code></pre>
 <h3 id="others">Others</h3><p>There are other data types, covered in a <a href="./manual/other-data-types.html">separate guide</a>.</p>
 <h2 id="column-options">Column Options</h2><p>When defining a column, apart from specifying the <code>type</code> of the column, and the <code>allowNull</code> and <code>defaultValue</code> options mentioned above, there are a lot more options that can be used. Some examples are below.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Model, DataTypes, Deferrable } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Model, DataTypes, Deferrable } = require('@sequelize/core');
 
 class Foo extends Model {}
 Foo.init({

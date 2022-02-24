@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -605,7 +607,7 @@
 // Results will be an empty array and metadata will contain the number of affected rows.</code>
 </code></pre>
 <p>In cases where you don't need to access the metadata you can pass in a query type to tell sequelize how to format the results. For example, for a simple select query you could do:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 const users = await sequelize.query("SELECT * FROM `users`", { type: QueryTypes.SELECT });
 // We didn't need to destructure the result here - the results were returned directly</code>
 </code></pre>
@@ -619,7 +621,7 @@ const projects = await sequelize.query('SELECT * FROM projects', {
 // Each element of `projects` is now an instance of Project</code>
 </code></pre>
 <p>See more options in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 await sequelize.query('SELECT 1', {
   // A function (or false) for logging your queries
   // Will get called for every SQL query that gets sent
@@ -645,7 +647,7 @@ console.log(await sequelize.query('SELECT * FROM projects', { raw: true }));</co
 <h2 id="-quot-dotted-quot--attributes-and-the--code-nest--code--option">"Dotted" attributes and the <code>nest</code> option</h2><p>If an attribute name of the table contains dots, the resulting objects can become nested objects by setting the <code>nest: true</code> option. This is achieved with <a href="https://github.com/mickhansen/dottie.js/">dottie.js</a> under the hood. See below:</p>
 <ul>
 <li><p>Without <code>nest: true</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 const records = await sequelize.query('select 1 as `foo.bar.baz`', {
   type: QueryTypes.SELECT
 });
@@ -657,7 +659,7 @@ console.log(JSON.stringify(records[0], null, 2));</code>
 </code></pre>
 </li>
 <li><p>With <code>nest: true</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 const records = await sequelize.query('select 1 as `foo.bar.baz`', {
   nest: true,
   type: QueryTypes.SELECT
@@ -679,7 +681,7 @@ console.log(JSON.stringify(records[0], null, 2));</code>
 <li>If an array is passed, <code>?</code> will be replaced in the order that they appear in the array</li>
 <li>If an object is passed, <code>:key</code> will be replaced with the keys from that object. If the object contains keys not found in the query or vice versa, an exception will be thrown.</li>
 </ul>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT * FROM projects WHERE status = ?',
@@ -698,7 +700,7 @@ await sequelize.query(
 );</code>
 </code></pre>
 <p>Array replacements will automatically be handled, the following query searches for projects where the status matches an array of values.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT * FROM projects WHERE status IN(:status)',
@@ -709,7 +711,7 @@ await sequelize.query(
 );</code>
 </code></pre>
 <p>To use the wildcard operator <code>%</code>, append it to your replacement. The following query matches users with names that start with 'ben'.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT * FROM users WHERE name LIKE :search_name',
@@ -727,7 +729,7 @@ await sequelize.query(
 </ul>
 <p>The array or object must contain all bound values or Sequelize will throw an exception. This applies even to cases in which the database may ignore the bound parameter.</p>
 <p>The database may add further restrictions to this. Bind parameters cannot be SQL keywords, nor table or column names. They are also ignored in quoted text or data. In PostgreSQL it may also be needed to typecast them, if the type cannot be inferred from the context <code>$1::varchar</code>.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT *, "text with literal $$1 and literal $$status" as t FROM projects WHERE status = $1',

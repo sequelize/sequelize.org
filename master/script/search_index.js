@@ -1,530 +1,530 @@
 window.esdocSearchIndex = [
   [
-    "sequelize/src/data-types.js~array",
+    "@sequelize/core/src/data-types.js~array",
     "class/src/data-types.js~ARRAY.html",
-    "<span>ARRAY</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>ARRAY</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/access-denied-error.ts~accessdeniederror",
+    "@sequelize/core/src/errors/connection/access-denied-error.ts~accessdeniederror",
     "class/src/errors/connection/access-denied-error.ts~AccessDeniedError.html",
-    "<span>AccessDeniedError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/access-denied-error.ts</span>",
+    "<span>AccessDeniedError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/access-denied-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/aggregate-error.ts~aggregateerror",
+    "@sequelize/core/src/errors/aggregate-error.ts~aggregateerror",
     "class/src/errors/aggregate-error.ts~AggregateError.html",
-    "<span>AggregateError</span> <span class=\"search-result-import-path\">sequelize/src/errors/aggregate-error.ts</span>",
+    "<span>AggregateError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/aggregate-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/associations/base.js~association",
+    "@sequelize/core/src/associations/base.js~association",
     "class/src/associations/base.js~Association.html",
-    "<span>Association</span> <span class=\"search-result-import-path\">sequelize/src/associations/base.js</span>",
+    "<span>Association</span> <span class=\"search-result-import-path\">@sequelize/core/src/associations/base.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/association-error.ts~associationerror",
+    "@sequelize/core/src/errors/association-error.ts~associationerror",
     "class/src/errors/association-error.ts~AssociationError.html",
-    "<span>AssociationError</span> <span class=\"search-result-import-path\">sequelize/src/errors/association-error.ts</span>",
+    "<span>AssociationError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/association-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/mssql/async-queue.ts~asyncqueueerror",
+    "@sequelize/core/src/dialects/mssql/async-queue.ts~asyncqueueerror",
     "class/src/dialects/mssql/async-queue.ts~AsyncQueueError.html",
-    "<span>AsyncQueueError</span> <span class=\"search-result-import-path\">sequelize/src/dialects/mssql/async-queue.ts</span>",
+    "<span>AsyncQueueError</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/mssql/async-queue.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~bigint",
+    "@sequelize/core/src/data-types.js~bigint",
     "class/src/data-types.js~BIGINT.html",
-    "<span>BIGINT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>BIGINT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~blob",
+    "@sequelize/core/src/data-types.js~blob",
     "class/src/data-types.js~BLOB.html",
-    "<span>BLOB</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>BLOB</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~boolean",
+    "@sequelize/core/src/data-types.js~boolean",
     "class/src/data-types.js~BOOLEAN.html",
-    "<span>BOOLEAN</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>BOOLEAN</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/base-error.ts~baseerror",
+    "@sequelize/core/src/errors/base-error.ts~baseerror",
     "class/src/errors/base-error.ts~BaseError.html",
-    "<span>BaseError</span> <span class=\"search-result-import-path\">sequelize/src/errors/base-error.ts</span>",
+    "<span>BaseError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/base-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/associations/belongs-to.js~belongsto",
+    "@sequelize/core/src/associations/belongs-to.js~belongsto",
     "class/src/associations/belongs-to.js~BelongsTo.html",
-    "<span>BelongsTo</span> <span class=\"search-result-import-path\">sequelize/src/associations/belongs-to.js</span>",
+    "<span>BelongsTo</span> <span class=\"search-result-import-path\">@sequelize/core/src/associations/belongs-to.js</span>",
     "class"
   ],
   [
-    "sequelize/src/associations/belongs-to-many.js~belongstomany",
+    "@sequelize/core/src/associations/belongs-to-many.js~belongstomany",
     "class/src/associations/belongs-to-many.js~BelongsToMany.html",
-    "<span>BelongsToMany</span> <span class=\"search-result-import-path\">sequelize/src/associations/belongs-to-many.js</span>",
+    "<span>BelongsToMany</span> <span class=\"search-result-import-path\">@sequelize/core/src/associations/belongs-to-many.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/bulk-record-error.ts~bulkrecorderror",
+    "@sequelize/core/src/errors/bulk-record-error.ts~bulkrecorderror",
     "class/src/errors/bulk-record-error.ts~BulkRecordError.html",
-    "<span>BulkRecordError</span> <span class=\"search-result-import-path\">sequelize/src/errors/bulk-record-error.ts</span>",
+    "<span>BulkRecordError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/bulk-record-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~char",
+    "@sequelize/core/src/data-types.js~char",
     "class/src/data-types.js~CHAR.html",
-    "<span>CHAR</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>CHAR</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~cidr",
+    "@sequelize/core/src/data-types.js~cidr",
     "class/src/data-types.js~CIDR.html",
-    "<span>CIDR</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>CIDR</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~citext",
+    "@sequelize/core/src/data-types.js~citext",
     "class/src/data-types.js~CITEXT.html",
-    "<span>CITEXT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>CITEXT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/connection-acquire-timeout-error.ts~connectionacquiretimeouterror",
+    "@sequelize/core/src/errors/connection/connection-acquire-timeout-error.ts~connectionacquiretimeouterror",
     "class/src/errors/connection/connection-acquire-timeout-error.ts~ConnectionAcquireTimeoutError.html",
-    "<span>ConnectionAcquireTimeoutError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/connection-acquire-timeout-error.ts</span>",
+    "<span>ConnectionAcquireTimeoutError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/connection-acquire-timeout-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection-error.ts~connectionerror",
+    "@sequelize/core/src/errors/connection-error.ts~connectionerror",
     "class/src/errors/connection-error.ts~ConnectionError.html",
-    "<span>ConnectionError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection-error.ts</span>",
+    "<span>ConnectionError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/connection-refused-error.ts~connectionrefusederror",
+    "@sequelize/core/src/errors/connection/connection-refused-error.ts~connectionrefusederror",
     "class/src/errors/connection/connection-refused-error.ts~ConnectionRefusedError.html",
-    "<span>ConnectionRefusedError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/connection-refused-error.ts</span>",
+    "<span>ConnectionRefusedError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/connection-refused-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/connection-timed-out-error.ts~connectiontimedouterror",
+    "@sequelize/core/src/errors/connection/connection-timed-out-error.ts~connectiontimedouterror",
     "class/src/errors/connection/connection-timed-out-error.ts~ConnectionTimedOutError.html",
-    "<span>ConnectionTimedOutError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/connection-timed-out-error.ts</span>",
+    "<span>ConnectionTimedOutError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/connection-timed-out-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~date",
+    "@sequelize/core/src/data-types.js~date",
     "class/src/data-types.js~DATE.html",
-    "<span>DATE</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>DATE</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~dateonly",
+    "@sequelize/core/src/data-types.js~dateonly",
     "class/src/data-types.js~DATEONLY.html",
-    "<span>DATEONLY</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>DATEONLY</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~decimal",
+    "@sequelize/core/src/data-types.js~decimal",
     "class/src/data-types.js~DECIMAL.html",
-    "<span>DECIMAL</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>DECIMAL</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~double",
+    "@sequelize/core/src/data-types.js~double",
     "class/src/data-types.js~DOUBLE.html",
-    "<span>DOUBLE</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>DOUBLE</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~datatypes",
+    "@sequelize/core/src/data-types.js~datatypes",
     "variable/index.html#static-variable-DataTypes",
-    "<span>DataTypes</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>DataTypes</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "variable"
   ],
   [
-    "sequelize/src/errors/database-error.ts~databaseerror",
+    "@sequelize/core/src/errors/database-error.ts~databaseerror",
     "class/src/errors/database-error.ts~DatabaseError.html",
-    "<span>DatabaseError</span> <span class=\"search-result-import-path\">sequelize/src/errors/database-error.ts</span>",
+    "<span>DatabaseError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/database-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/db2/query-interface.js~db2queryinterface",
+    "@sequelize/core/src/dialects/db2/query-interface.js~db2queryinterface",
     "class/src/dialects/db2/query-interface.js~Db2QueryInterface.html",
-    "<span>Db2QueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/db2/query-interface.js</span>",
+    "<span>Db2QueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/db2/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/deferrable.js~deferrable",
+    "@sequelize/core/src/deferrable.js~deferrable",
     "variable/index.html#static-variable-Deferrable",
-    "<span>Deferrable</span> <span class=\"search-result-import-path\">sequelize/src/deferrable.js</span>",
+    "<span>Deferrable</span> <span class=\"search-result-import-path\">@sequelize/core/src/deferrable.js</span>",
     "variable"
   ],
   [
-    "sequelize/src/data-types.js~enum",
+    "@sequelize/core/src/data-types.js~enum",
     "class/src/data-types.js~ENUM.html",
-    "<span>ENUM</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>ENUM</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/eager-loading-error.ts~eagerloadingerror",
+    "@sequelize/core/src/errors/eager-loading-error.ts~eagerloadingerror",
     "class/src/errors/eager-loading-error.ts~EagerLoadingError.html",
-    "<span>EagerLoadingError</span> <span class=\"search-result-import-path\">sequelize/src/errors/eager-loading-error.ts</span>",
+    "<span>EagerLoadingError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/eager-loading-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/empty-result-error.ts~emptyresulterror",
+    "@sequelize/core/src/errors/empty-result-error.ts~emptyresulterror",
     "class/src/errors/empty-result-error.ts~EmptyResultError.html",
-    "<span>EmptyResultError</span> <span class=\"search-result-import-path\">sequelize/src/errors/empty-result-error.ts</span>",
+    "<span>EmptyResultError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/empty-result-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/database/exclusion-constraint-error.ts~exclusionconstrainterror",
+    "@sequelize/core/src/errors/database/exclusion-constraint-error.ts~exclusionconstrainterror",
     "class/src/errors/database/exclusion-constraint-error.ts~ExclusionConstraintError.html",
-    "<span>ExclusionConstraintError</span> <span class=\"search-result-import-path\">sequelize/src/errors/database/exclusion-constraint-error.ts</span>",
+    "<span>ExclusionConstraintError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/database/exclusion-constraint-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~float",
+    "@sequelize/core/src/data-types.js~float",
     "class/src/data-types.js~FLOAT.html",
-    "<span>FLOAT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>FLOAT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/database/foreign-key-constraint-error.ts~foreignkeyconstrainterror",
+    "@sequelize/core/src/errors/database/foreign-key-constraint-error.ts~foreignkeyconstrainterror",
     "class/src/errors/database/foreign-key-constraint-error.ts~ForeignKeyConstraintError.html",
-    "<span>ForeignKeyConstraintError</span> <span class=\"search-result-import-path\">sequelize/src/errors/database/foreign-key-constraint-error.ts</span>",
+    "<span>ForeignKeyConstraintError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/database/foreign-key-constraint-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~geography",
+    "@sequelize/core/src/data-types.js~geography",
     "class/src/data-types.js~GEOGRAPHY.html",
-    "<span>GEOGRAPHY</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>GEOGRAPHY</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~geometry",
+    "@sequelize/core/src/data-types.js~geometry",
     "class/src/data-types.js~GEOMETRY.html",
-    "<span>GEOMETRY</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>GEOMETRY</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~hstore",
+    "@sequelize/core/src/data-types.js~hstore",
     "class/src/data-types.js~HSTORE.html",
-    "<span>HSTORE</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>HSTORE</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/associations/has-many.js~hasmany",
+    "@sequelize/core/src/associations/has-many.js~hasmany",
     "class/src/associations/has-many.js~HasMany.html",
-    "<span>HasMany</span> <span class=\"search-result-import-path\">sequelize/src/associations/has-many.js</span>",
+    "<span>HasMany</span> <span class=\"search-result-import-path\">@sequelize/core/src/associations/has-many.js</span>",
     "class"
   ],
   [
-    "sequelize/src/associations/has-one.js~hasone",
+    "@sequelize/core/src/associations/has-one.js~hasone",
     "class/src/associations/has-one.js~HasOne.html",
-    "<span>HasOne</span> <span class=\"search-result-import-path\">sequelize/src/associations/has-one.js</span>",
+    "<span>HasOne</span> <span class=\"search-result-import-path\">@sequelize/core/src/associations/has-one.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/host-not-found-error.ts~hostnotfounderror",
+    "@sequelize/core/src/errors/connection/host-not-found-error.ts~hostnotfounderror",
     "class/src/errors/connection/host-not-found-error.ts~HostNotFoundError.html",
-    "<span>HostNotFoundError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/host-not-found-error.ts</span>",
+    "<span>HostNotFoundError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/host-not-found-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/host-not-reachable-error.ts~hostnotreachableerror",
+    "@sequelize/core/src/errors/connection/host-not-reachable-error.ts~hostnotreachableerror",
     "class/src/errors/connection/host-not-reachable-error.ts~HostNotReachableError.html",
-    "<span>HostNotReachableError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/host-not-reachable-error.ts</span>",
+    "<span>HostNotReachableError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/host-not-reachable-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~inet",
+    "@sequelize/core/src/data-types.js~inet",
     "class/src/data-types.js~INET.html",
-    "<span>INET</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>INET</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~integer",
+    "@sequelize/core/src/data-types.js~integer",
     "class/src/data-types.js~INTEGER.html",
-    "<span>INTEGER</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>INTEGER</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/transaction.ts~isolation_levels",
+    "@sequelize/core/src/transaction.ts~isolation_levels",
     "variable/index.html#static-variable-ISOLATION_LEVELS",
-    "<span>ISOLATION_LEVELS</span> <span class=\"search-result-import-path\">sequelize/src/transaction.ts</span>",
+    "<span>ISOLATION_LEVELS</span> <span class=\"search-result-import-path\">@sequelize/core/src/transaction.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/index-hints.ts~indexhints",
+    "@sequelize/core/src/index-hints.ts~indexhints",
     "variable/index.html#static-variable-IndexHints",
-    "<span>IndexHints</span> <span class=\"search-result-import-path\">sequelize/src/index-hints.ts</span>",
+    "<span>IndexHints</span> <span class=\"search-result-import-path\">@sequelize/core/src/index-hints.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/errors/instance-error.ts~instanceerror",
+    "@sequelize/core/src/errors/instance-error.ts~instanceerror",
     "class/src/errors/instance-error.ts~InstanceError.html",
-    "<span>InstanceError</span> <span class=\"search-result-import-path\">sequelize/src/errors/instance-error.ts</span>",
+    "<span>InstanceError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/instance-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/connection/invalid-connection-error.ts~invalidconnectionerror",
+    "@sequelize/core/src/errors/connection/invalid-connection-error.ts~invalidconnectionerror",
     "class/src/errors/connection/invalid-connection-error.ts~InvalidConnectionError.html",
-    "<span>InvalidConnectionError</span> <span class=\"search-result-import-path\">sequelize/src/errors/connection/invalid-connection-error.ts</span>",
+    "<span>InvalidConnectionError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/connection/invalid-connection-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~jsonb",
+    "@sequelize/core/src/data-types.js~jsonb",
     "class/src/data-types.js~JSONB.html",
-    "<span>JSONB</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>JSONB</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~jsontype",
+    "@sequelize/core/src/data-types.js~jsontype",
     "class/src/data-types.js~JSONTYPE.html",
-    "<span>JSONTYPE</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>JSONTYPE</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/transaction.ts~lock",
+    "@sequelize/core/src/transaction.ts~lock",
     "variable/index.html#static-variable-LOCK",
-    "<span>LOCK</span> <span class=\"search-result-import-path\">sequelize/src/transaction.ts</span>",
+    "<span>LOCK</span> <span class=\"search-result-import-path\">@sequelize/core/src/transaction.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/data-types.js~macaddr",
+    "@sequelize/core/src/data-types.js~macaddr",
     "class/src/data-types.js~MACADDR.html",
-    "<span>MACADDR</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>MACADDR</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~mediumint",
+    "@sequelize/core/src/data-types.js~mediumint",
     "class/src/data-types.js~MEDIUMINT.html",
-    "<span>MEDIUMINT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>MEDIUMINT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/mssql/query-interface.js~mssqlqueryinterface",
+    "@sequelize/core/src/dialects/mssql/query-interface.js~mssqlqueryinterface",
     "class/src/dialects/mssql/query-interface.js~MSSqlQueryInterface.html",
-    "<span>MSSqlQueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/mssql/query-interface.js</span>",
+    "<span>MSSqlQueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/mssql/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/model.js~model",
+    "@sequelize/core/src/model.js~model",
     "class/src/model.js~Model.html",
-    "<span>Model</span> <span class=\"search-result-import-path\">sequelize/src/model.js</span>",
+    "<span>Model</span> <span class=\"search-result-import-path\">@sequelize/core/src/model.js</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/mysql/query-interface.js~mysqlqueryinterface",
+    "@sequelize/core/src/dialects/mysql/query-interface.js~mysqlqueryinterface",
     "class/src/dialects/mysql/query-interface.js~MySQLQueryInterface.html",
-    "<span>MySQLQueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/mysql/query-interface.js</span>",
+    "<span>MySQLQueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/mysql/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~now",
+    "@sequelize/core/src/data-types.js~now",
     "class/src/data-types.js~NOW.html",
-    "<span>NOW</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>NOW</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~number",
+    "@sequelize/core/src/data-types.js~number",
     "class/src/data-types.js~NUMBER.html",
-    "<span>NUMBER</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>NUMBER</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/optimistic-lock-error.ts~optimisticlockerror",
+    "@sequelize/core/src/errors/optimistic-lock-error.ts~optimisticlockerror",
     "class/src/errors/optimistic-lock-error.ts~OptimisticLockError.html",
-    "<span>OptimisticLockError</span> <span class=\"search-result-import-path\">sequelize/src/errors/optimistic-lock-error.ts</span>",
+    "<span>OptimisticLockError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/optimistic-lock-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/postgres/query-interface.js~postgresqueryinterface",
+    "@sequelize/core/src/dialects/postgres/query-interface.js~postgresqueryinterface",
     "class/src/dialects/postgres/query-interface.js~PostgresQueryInterface.html",
-    "<span>PostgresQueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/postgres/query-interface.js</span>",
+    "<span>PostgresQueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/postgres/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/query-error.ts~queryerror",
+    "@sequelize/core/src/errors/query-error.ts~queryerror",
     "class/src/errors/query-error.ts~QueryError.html",
-    "<span>QueryError</span> <span class=\"search-result-import-path\">sequelize/src/errors/query-error.ts</span>",
+    "<span>QueryError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/query-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/abstract/query-interface.js~queryinterface",
+    "@sequelize/core/src/dialects/abstract/query-interface.js~queryinterface",
     "class/src/dialects/abstract/query-interface.js~QueryInterface.html",
-    "<span>QueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/abstract/query-interface.js</span>",
+    "<span>QueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/abstract/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/query-types.ts~querytypes",
+    "@sequelize/core/src/query-types.ts~querytypes",
     "variable/index.html#static-variable-QueryTypes",
-    "<span>QueryTypes</span> <span class=\"search-result-import-path\">sequelize/src/query-types.ts</span>",
+    "<span>QueryTypes</span> <span class=\"search-result-import-path\">@sequelize/core/src/query-types.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/data-types.js~range",
+    "@sequelize/core/src/data-types.js~range",
     "class/src/data-types.js~RANGE.html",
-    "<span>RANGE</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>RANGE</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~real",
+    "@sequelize/core/src/data-types.js~real",
     "class/src/data-types.js~REAL.html",
-    "<span>REAL</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>REAL</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~smallint",
+    "@sequelize/core/src/data-types.js~smallint",
     "class/src/data-types.js~SMALLINT.html",
-    "<span>SMALLINT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>SMALLINT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/sqlite/query-interface.js~sqlitequeryinterface",
+    "@sequelize/core/src/dialects/sqlite/query-interface.js~sqlitequeryinterface",
     "class/src/dialects/sqlite/query-interface.js~SQLiteQueryInterface.html",
-    "<span>SQLiteQueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/sqlite/query-interface.js</span>",
+    "<span>SQLiteQueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/sqlite/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~string",
+    "@sequelize/core/src/data-types.js~string",
     "class/src/data-types.js~STRING.html",
-    "<span>STRING</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>STRING</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/sequelize-scope-error.ts~sequelizescopeerror",
+    "@sequelize/core/src/errors/sequelize-scope-error.ts~sequelizescopeerror",
     "class/src/errors/sequelize-scope-error.ts~SequelizeScopeError.html",
-    "<span>SequelizeScopeError</span> <span class=\"search-result-import-path\">sequelize/src/errors/sequelize-scope-error.ts</span>",
+    "<span>SequelizeScopeError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/sequelize-scope-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/dialects/snowflake/query-interface.js~snowflakequeryinterface",
+    "@sequelize/core/src/dialects/snowflake/query-interface.js~snowflakequeryinterface",
     "class/src/dialects/snowflake/query-interface.js~SnowflakeQueryInterface.html",
-    "<span>SnowflakeQueryInterface</span> <span class=\"search-result-import-path\">sequelize/src/dialects/snowflake/query-interface.js</span>",
+    "<span>SnowflakeQueryInterface</span> <span class=\"search-result-import-path\">@sequelize/core/src/dialects/snowflake/query-interface.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~text",
+    "@sequelize/core/src/data-types.js~text",
     "class/src/data-types.js~TEXT.html",
-    "<span>TEXT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>TEXT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~time",
+    "@sequelize/core/src/data-types.js~time",
     "class/src/data-types.js~TIME.html",
-    "<span>TIME</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>TIME</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~tinyint",
+    "@sequelize/core/src/data-types.js~tinyint",
     "class/src/data-types.js~TINYINT.html",
-    "<span>TINYINT</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>TINYINT</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~tsvector",
+    "@sequelize/core/src/data-types.js~tsvector",
     "class/src/data-types.js~TSVECTOR.html",
-    "<span>TSVECTOR</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>TSVECTOR</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/table-hints.ts~tablehints",
+    "@sequelize/core/src/table-hints.ts~tablehints",
     "variable/index.html#static-variable-TableHints",
-    "<span>TableHints</span> <span class=\"search-result-import-path\">sequelize/src/table-hints.ts</span>",
+    "<span>TableHints</span> <span class=\"search-result-import-path\">@sequelize/core/src/table-hints.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/errors/database/timeout-error.ts~timeouterror",
+    "@sequelize/core/src/errors/database/timeout-error.ts~timeouterror",
     "class/src/errors/database/timeout-error.ts~TimeoutError.html",
-    "<span>TimeoutError</span> <span class=\"search-result-import-path\">sequelize/src/errors/database/timeout-error.ts</span>",
+    "<span>TimeoutError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/database/timeout-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/transaction.ts~transaction",
+    "@sequelize/core/src/transaction.ts~transaction",
     "class/src/transaction.ts~Transaction.html",
-    "<span>Transaction</span> <span class=\"search-result-import-path\">sequelize/src/transaction.ts</span>",
+    "<span>Transaction</span> <span class=\"search-result-import-path\">@sequelize/core/src/transaction.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~uuid",
+    "@sequelize/core/src/data-types.js~uuid",
     "class/src/data-types.js~UUID.html",
-    "<span>UUID</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>UUID</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~uuidv1",
+    "@sequelize/core/src/data-types.js~uuidv1",
     "class/src/data-types.js~UUIDV1.html",
-    "<span>UUIDV1</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>UUIDV1</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~uuidv4",
+    "@sequelize/core/src/data-types.js~uuidv4",
     "class/src/data-types.js~UUIDV4.html",
-    "<span>UUIDV4</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>UUIDV4</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/validation/unique-constraint-error.ts~uniqueconstrainterror",
+    "@sequelize/core/src/errors/validation/unique-constraint-error.ts~uniqueconstrainterror",
     "class/src/errors/validation/unique-constraint-error.ts~UniqueConstraintError.html",
-    "<span>UniqueConstraintError</span> <span class=\"search-result-import-path\">sequelize/src/errors/validation/unique-constraint-error.ts</span>",
+    "<span>UniqueConstraintError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/validation/unique-constraint-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/database/unknown-constraint-error.ts~unknownconstrainterror",
+    "@sequelize/core/src/errors/database/unknown-constraint-error.ts~unknownconstrainterror",
     "class/src/errors/database/unknown-constraint-error.ts~UnknownConstraintError.html",
-    "<span>UnknownConstraintError</span> <span class=\"search-result-import-path\">sequelize/src/errors/database/unknown-constraint-error.ts</span>",
+    "<span>UnknownConstraintError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/database/unknown-constraint-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/data-types.js~virtual",
+    "@sequelize/core/src/data-types.js~virtual",
     "class/src/data-types.js~VIRTUAL.html",
-    "<span>VIRTUAL</span> <span class=\"search-result-import-path\">sequelize/src/data-types.js</span>",
+    "<span>VIRTUAL</span> <span class=\"search-result-import-path\">@sequelize/core/src/data-types.js</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/validation-error.ts~validationerror",
+    "@sequelize/core/src/errors/validation-error.ts~validationerror",
     "class/src/errors/validation-error.ts~ValidationError.html",
-    "<span>ValidationError</span> <span class=\"search-result-import-path\">sequelize/src/errors/validation-error.ts</span>",
+    "<span>ValidationError</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/validation-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/validation-error.ts~validationerroritem",
+    "@sequelize/core/src/errors/validation-error.ts~validationerroritem",
     "class/src/errors/validation-error.ts~ValidationErrorItem.html",
-    "<span>ValidationErrorItem</span> <span class=\"search-result-import-path\">sequelize/src/errors/validation-error.ts</span>",
+    "<span>ValidationErrorItem</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/validation-error.ts</span>",
     "class"
   ],
   [
-    "sequelize/src/errors/validation-error.ts~validationerroritemorigin",
+    "@sequelize/core/src/errors/validation-error.ts~validationerroritemorigin",
     "variable/index.html#static-variable-ValidationErrorItemOrigin",
-    "<span>ValidationErrorItemOrigin</span> <span class=\"search-result-import-path\">sequelize/src/errors/validation-error.ts</span>",
+    "<span>ValidationErrorItemOrigin</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/validation-error.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/errors/validation-error.ts~validationerroritemtype",
+    "@sequelize/core/src/errors/validation-error.ts~validationerroritemtype",
     "variable/index.html#static-variable-ValidationErrorItemType",
-    "<span>ValidationErrorItemType</span> <span class=\"search-result-import-path\">sequelize/src/errors/validation-error.ts</span>",
+    "<span>ValidationErrorItemType</span> <span class=\"search-result-import-path\">@sequelize/core/src/errors/validation-error.ts</span>",
     "variable"
   ],
   [
-    "sequelize/src/utils.js~iscolstring",
+    "@sequelize/core/src/utils.js~iscolstring",
     "function/index.html#static-function-isColString",
-    "<span>isColString</span> <span class=\"search-result-import-path\">sequelize/src/utils.js</span>",
+    "<span>isColString</span> <span class=\"search-result-import-path\">@sequelize/core/src/utils.js</span>",
     "function"
   ],
   [
-    "sequelize/src/utils.js~safestringifyjson",
+    "@sequelize/core/src/utils.js~safestringifyjson",
     "function/index.html#static-function-safeStringifyJson",
-    "<span>safeStringifyJson</span> <span class=\"search-result-import-path\">sequelize/src/utils.js</span>",
+    "<span>safeStringifyJson</span> <span class=\"search-result-import-path\">@sequelize/core/src/utils.js</span>",
     "function"
   ],
   [
@@ -1341,6 +1341,36 @@ window.esdocSearchIndex = [
     "src/dialects/db2/query.js",
     "file/src/dialects/db2/query.js.html",
     "src/dialects/db2/query.js",
+    "file"
+  ],
+  [
+    "src/dialects/ibmi/connection-manager.js",
+    "file/src/dialects/ibmi/connection-manager.js.html",
+    "src/dialects/ibmi/connection-manager.js",
+    "file"
+  ],
+  [
+    "src/dialects/ibmi/index.js",
+    "file/src/dialects/ibmi/index.js.html",
+    "src/dialects/ibmi/index.js",
+    "file"
+  ],
+  [
+    "src/dialects/ibmi/query-generator.js",
+    "file/src/dialects/ibmi/query-generator.js.html",
+    "src/dialects/ibmi/query-generator.js",
+    "file"
+  ],
+  [
+    "src/dialects/ibmi/query-interface.js",
+    "file/src/dialects/ibmi/query-interface.js.html",
+    "src/dialects/ibmi/query-interface.js",
+    "file"
+  ],
+  [
+    "src/dialects/ibmi/query.js",
+    "file/src/dialects/ibmi/query.js.html",
+    "src/dialects/ibmi/query.js",
     "file"
   ],
   [

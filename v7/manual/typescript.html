@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -612,7 +614,7 @@ A decent amount of manual type declarations are needed to make models workable.<
 <h2 id="usage">Usage</h2><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
 See <a href="./manual/./model-basics.html#caveat-with-public-class-fields">Caveat with Public Class Fields</a></p>
 <p>Sequelize Models accept two generic types to define what the model's Attributes &amp; Creation Attributes are like:</p>
-<pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, Optional } from 'sequelize';
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, Optional } from '@sequelize/core';
 
 // We don't recommend doing this. Read on for the new way of declaring Model typings.
 
@@ -635,7 +637,7 @@ class User extends Model&lt;UserAttributes, UserCreationAttributes&gt; {
 <p>This solution is verbose. Sequelize &gt;=6.14.0 provides new utility types that will drastically reduce the amount
 of boilerplate necessary: <code>InferAttributes</code>, and <code>InferCreationAttributes</code>. They will extract Attribute typings
 directly from the Model:</p>
-<pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, InferAttributes, InferCreationAttributes, CreationOptional } from '@sequelize/core';
 
 // order of InferAttributes &amp; InferCreationAttributes is important.
 class User extends Model&lt;InferAttributes&lt;User&gt;, InferCreationAttributes&lt;User&gt;&gt; {
@@ -668,7 +670,7 @@ will be marked as optional.</p>
   HasManySetAssociationsMixin, HasManyAddAssociationsMixin, HasManyHasAssociationsMixin,
   HasManyRemoveAssociationMixin, HasManyRemoveAssociationsMixin, Model, ModelDefined, Optional,
   Sequelize, InferAttributes, InferCreationAttributes, CreationOptional, NonAttribute
-} from 'sequelize';
+} from '@sequelize/core';
 
 const sequelize = new Sequelize('mysql://root:asd123@localhost:3306/mydb');
 
@@ -885,7 +887,7 @@ async function doStuffWithUser() {
 })();</code>
 </code></pre>
 <h3 id="usage-without-strict-types-for-attributes">Usage without strict types for attributes</h3><p>The typings for Sequelize v5 allowed you to define models without specifying types for the attributes. This is still possible for backwards compatibility and for cases where you feel strict typing for attributes isn't worth it.</p>
-<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from "sequelize";
+<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from '@sequelize/core';
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
 
@@ -930,7 +932,7 @@ async function doStuffWithUserModel() {
 }</code>
 </code></pre>
 <h2 id="usage-of--code-sequelize-define--code-">Usage of <code>sequelize.define</code></h2><p>In Sequelize versions before v5, the default way of defining a model involved using <code>sequelize.define</code>. It's still possible to define models with that, and you can also add typings to these models using interfaces.</p>
-<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes, Optional } from "sequelize";
+<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes, Optional } from '@sequelize/core';
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
 
@@ -966,7 +968,7 @@ async function doStuff() {
 }</code>
 </code></pre>
 <p>If you're comfortable with somewhat less strict typing for the attributes on a model, you can save some code by defining the Instance to just extend <code>Model</code> without any attributes in the generic types.</p>
-<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from "sequelize";
+<pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from '@sequelize/core';
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
 
@@ -995,7 +997,7 @@ async function doStuff() {
 </code></pre>
 <h2 id="utility-types">Utility Types</h2><h3 id="requesting-a-model-class">Requesting a Model Class</h3><p><code>ModelStatic</code> is designed to be used to type a Model <em>class</em>.</p>
 <p>Here is an example of a utility method that requests a Model Class, and returns the list of primary keys defined in that class:</p>
-<pre><code class="lang-typescript"><code class="source-code prettyprint">import { ModelStatic, ModelAttributeColumnOptions, Model, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
+<pre><code class="lang-typescript"><code class="source-code prettyprint">import { ModelStatic, ModelAttributeColumnOptions, Model, InferAttributes, InferCreationAttributes, CreationOptional } from '@sequelize/core';
 
 /**
  * Returns the list of attributes that are part of the model's primary key.
@@ -1042,7 +1044,7 @@ with class-based model definitions (When using <code>Model.init</code>).</p>
   InferCreationAttributes,
   CreationOptional,
   Attributes
-} from 'sequelize';
+} from '@sequelize/core';
 
 export function getAttributeMetadata&lt;M extends Model&gt;(model: ModelStatic&lt;M&gt;, attributeName: keyof Attributes&lt;M&gt;): ModelAttributeColumnOptions {
   const attribute = model.rawAttributes[attributeName];

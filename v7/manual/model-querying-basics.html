@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -688,7 +690,7 @@ SELECT id, foo, bar, qux FROM ...</code>
 // SELECT * FROM post WHERE authorId = 2;</code>
 </code></pre>
 <p>Observe that no operator (from <code>Op</code>) was explicitly passed, so Sequelize assumed an equality comparison by default. The above code is equivalent to:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     authorId: {
@@ -708,7 +710,7 @@ Post.findAll({
 // SELECT * FROM post WHERE authorId = 12 AND status = 'active';</code>
 </code></pre>
 <p>Just like Sequelize inferred the <code>Op.eq</code> operator in the first example, here Sequelize inferred that the caller wanted an <code>AND</code> for the two checks. The code above is equivalent to:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     [Op.and]: [
@@ -720,7 +722,7 @@ Post.findAll({
 // SELECT * FROM post WHERE authorId = 12 AND status = 'active';</code>
 </code></pre>
 <p>An <code>OR</code> can be easily performed in a similar way:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     [Op.or]: [
@@ -732,7 +734,7 @@ Post.findAll({
 // SELECT * FROM post WHERE authorId = 12 OR authorId = 13;</code>
 </code></pre>
 <p>Since the above was an <code>OR</code> involving the same field, Sequelize allows you to use a slightly different structure which is more readable and generates the same behavior:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.destroy({
   where: {
     authorId: {
@@ -743,7 +745,7 @@ Post.destroy({
 // DELETE FROM post WHERE authorId = 12 OR authorId = 13;</code>
 </code></pre>
 <h3 id="operators">Operators</h3><p>Sequelize provides several operators.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     [Op.and]: [{ a: 5 }, { b: 6 }],            // (a = 5) AND (b = 6)
@@ -806,7 +808,7 @@ Post.findAll({
 // SELECT ... FROM "posts" AS "post" WHERE "post"."id" IN (1, 2, 3);</code>
 </code></pre>
 <h3 id="logical-combinations-with-operators">Logical combinations with operators</h3><p>The operators <code>Op.and</code>, <code>Op.or</code> and <code>Op.not</code> can be used to create arbitrarily complex nested logical comparisons.</p>
-<h4 id="examples-with--code-op-and--code--and--code-op-or--code-">Examples with <code>Op.and</code> and <code>Op.or</code></h4><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+<h4 id="examples-with--code-op-and--code--and--code-op-or--code-">Examples with <code>Op.and</code> and <code>Op.or</code></h4><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 
 Foo.findAll({
   where: {
@@ -928,7 +930,7 @@ WHERE (
 </code></pre>
 <h3 id="deprecated--operator-aliases">Deprecated: Operator Aliases</h3><p>In Sequelize v4, it was possible to specify strings to refer to operators, instead of using Symbols. This is now deprecated and heavily discouraged, and will probably be removed in the next major version. If you really need it, you can pass the <code>operatorAliases</code> option in the Sequelize constructor.</p>
 <p>For example:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op } = require("sequelize");
+<pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:', {
   operatorsAliases: {
     $gt: Op.gt

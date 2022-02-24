@@ -312,6 +312,7 @@
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql" data-ice="link">MSSQL</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#tedious" data-ice="link">Tedious</a></li>
 <li data-ice="manualNav" class="indent-h4" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#mssql-domain-account" data-ice="link">MSSQL Domain Account</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#ibm-i" data-ice="link">IBM i</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#snowflake--experiment-" data-ice="link">Snowflake (Experiment)</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--timestamp-without-time-zone---postgresql-only" data-ice="link">Data type: TIMESTAMP WITHOUT TIME ZONE - PostgreSQL only</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/dialect-specific-things.html"><a href="manual/dialect-specific-things.html#data-type--array-enum----postgresql-only" data-ice="link">Data type: ARRAY(ENUM) - PostgreSQL only</a></li>
@@ -555,6 +556,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html" data-ice="link">Upgrade to v7</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#breaking-changes" data-ice="link">Breaking Changes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#main-project-renamed-to--sequelize-core" data-ice="link">Main project renamed to @sequelize/core</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#support-for-node-12-and-up" data-ice="link">Support for Node 12 and up</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#typescript-conversion" data-ice="link">TypeScript conversion</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/upgrade-to-v7.html"><a href="manual/upgrade-to-v7.html#attributes-cannot-start-and-end-with--code----code---or-include--code----code-" data-ice="link">Attributes cannot start and end with $, or include .</a></li>
@@ -606,21 +608,21 @@
 </div>
 
 <p></p>
-<p><a href="https://www.npmjs.com/package/sequelize"><img src="https://badgen.net/npm/v/sequelize" alt="npm version"></a>
+<p><a href="https://www.npmjs.com/package/@sequelize/core"><img src="https://badgen.net/npm/v/@sequelize/core" alt="npm version"></a>
 <a href="https://github.com/sequelize/sequelize/actions?query=workflow%3ACI"><img src="https://github.com/sequelize/sequelize/workflows/CI/badge.svg" alt="Build Status"></a>
-<a href="https://www.npmjs.com/package/sequelize"><img src="https://badgen.net/npm/dm/sequelize" alt="npm downloads"></a>
+<a href="https://www.npmjs.com/package/@sequelize/core"><img src="https://badgen.net/npm/dm/@sequelize/core" alt="npm downloads"></a>
 <a href="https://opencollective.com/sequelize"><img src="https://img.shields.io/opencollective/all/sequelize?label=sponsors" alt="sponsor"></a>
 <a href="https://github.com/sequelize/sequelize"><img src="https://badgen.net/github/last-commit/sequelize/sequelize" alt="Last commit"></a>
 <a href="https://github.com/sequelize/sequelize"><img src="https://badgen.net/github/merged-prs/sequelize/sequelize" alt="Merged PRs"></a>
 <a href="https://github.com/sequelize/sequelize"><img src="https://badgen.net/github/stars/sequelize/sequelize" alt="GitHub stars"></a>
 <a href="http://sequelize-slack.herokuapp.com/"><img src="http://sequelize-slack.herokuapp.com/badge.svg" alt="Slack Status"></a>
-<a href="https://www.npmjs.com/package/sequelize"><img src="https://badgen.net/npm/node/sequelize" alt="node"></a>
+<a href="https://www.npmjs.com/package/@sequelize/core"><img src="https://badgen.net/npm/node/@sequelize/core" alt="node"></a>
 <a href="https://github.com/sequelize/sequelize/blob/main/LICENSE"><img src="https://badgen.net/github/license/sequelize/sequelize" alt="License"></a>
 <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
-<p>Sequelize is a promise-based <a href="https://nodejs.org/en/about/">Node.js</a> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM tool</a> for <a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a>, <a href="https://en.wikipedia.org/wiki/MySQL">MySQL</a>, <a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a>, <a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server">Microsoft SQL Server</a>, <a href="https://docs.aws.amazon.com/redshift/index.html">Amazon Redshift</a> and <a href="https://docs.snowflake.com/en/user-guide/intro-key-concepts.html">Snowflake’s Data Cloud</a>. It features solid transaction support, relations, eager and lazy loading, read replication and more.</p>
-<p>Sequelize follows <a href="http://semver.org">Semantic Versioning</a> and the <a href="https://nodejs.org/en/about/releases/">official Node.js LTS schedule</a>. Version 7 of Sequelize officially supports the Node.js versions <code>^12.22.0</code>, <code>^14.17,0</code>, <code>^16.0.0</code>. Other version might be working as well.</p>
+<p>Sequelize is a promise-based <a href="https://nodejs.org/en/about/">Node.js</a> <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM tool</a> for <a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a>, <a href="https://en.wikipedia.org/wiki/MySQL">MySQL</a>, <a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a>, <a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server">Microsoft SQL Server</a>, <a href="https://docs.aws.amazon.com/redshift/index.html">Amazon Redshift</a>, <a href="https://docs.snowflake.com/en/user-guide/intro-key-concepts.html">Snowflake’s Data Cloud</a>, <a href="https://en.wikipedia.org/wiki/IBM_Db2_Family">DB2</a>, and <a href="https://www.ibm.com/support/pages/db2-ibm-i">IBM i</a>. It features solid transaction support, relations, eager and lazy loading, read replication and more.</p>
+<p>Sequelize follows <a href="http://semver.org">Semantic Versioning</a> and the <a href="https://nodejs.org/en/about/releases/">official Node.js LTS schedule</a>. Version 7 of Sequelize officially supports the Node.js versions <code>^12.22.0</code>, <code>^14.17,0</code>, <code>^16.0.0</code>. Other versions might be working as well.</p>
 <p>You are currently looking at the <strong>Tutorials and Guides</strong> for Sequelize. You might also be interested in the <a href="identifiers.html">API Reference</a>.</p>
-<h2 id="quick-example">Quick example</h2><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require('sequelize');
+<h2 id="quick-example">Quick example</h2><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 class User extends Model {}
@@ -649,10 +651,12 @@ User.init({
     
   <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Getting Started</h1><p>In this tutorial you will learn to make a simple setup of Sequelize.</p><h2>Installing</h2><p>Sequelize is available via <a href="https://www.npmjs.com/package/sequelize">npm</a> (or <a href="https://yarnpkg.com/package/sequelize">yarn</a>).</p><pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
-npm i sequelize # This will install latest version of Sequelize
+        <div data-ice="card"><h1>Getting Started</h1><p>In this tutorial you will learn to make a simple setup of Sequelize.</p><h2>Installing</h2><p>Sequelize is available via <a href="https://www.npmjs.com/package/@sequelize/core">npm</a> (or <a href="https://yarnpkg.com/package/@sequelize/core">yarn</a>).</p><pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
+npm i sequelize # This will install v6, the latest stable release of Sequelize
+npm i @sequelize/core # This will install v7, the latest alpha release of Sequelize
 # using yarn
-yarn add sequelize</code>
+yarn add sequelize # This will install v6, the latest stable release of Sequelize
+yarn add @sequelize/core # This will install v7, the latest alpha release of Sequelize</code>
 </code></pre><p>You'll also have to manually install the driver for your database of choice:</p><pre><code class="lang-sh"><code class="source-code prettyprint"># using npm
 npm i pg pg-hstore # PostgreSQL
 npm i mysql2 # MySQL
@@ -660,14 +664,16 @@ npm i mariadb # MariaDB
 npm i sqlite3 # SQLite
 npm i tedious # Microsoft SQL Server
 npm i ibm_db # DB2
+npm i odbc # IBM i
 # using yarn
 yarn add pg pg-hstore # PostgreSQL
 yarn add mysql2 # MySQL
 yarn add mariadb # MariaDB
 yarn add sqlite3 # SQLite
 yarn add tedious # Microsoft SQL Server
-yarn add ibm_db # DB2</code>
-</code></pre><h2>Connecting to a database</h2><p>To connect to the database, you must create a Sequelize instance. This can be done by either passing the connection parameters separately to the Sequelize constructor or by passing a single connection URI:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('sequelize');
+yarn add ibm_db # DB2
+yarn add odbc # IBM i</code>
+</code></pre><h2>Connecting to a database</h2><p>To connect to the database, you must create a Sequelize instance. This can be done by either passing the connection parameters separately to the Sequelize constructor or by passing a single connection URI:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('@sequelize/core');
 
 // Option 1: Passing a connection URI
 const sequelize = new Sequelize('sqlite::memory:') // Example for sqlite
@@ -690,7 +696,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }</code>
-</code></pre><h3>Closing the connection</h3><p>Sequelize will keep the connection open by default, and use the same connection for all queries. If you need to close the connection, call <code>sequelize.close()</code> (which is asynchronous and returns a Promise).</p><h2>Terminology convention</h2><p>Observe that, in the examples above, <code>Sequelize</code> refers to the library itself while <code>sequelize</code> refers to an instance of Sequelize, which represents a connection to one database. This is the recommended convention and it will be followed throughout the documentation.</p><h2>Tip for reading the docs</h2><p>You are encouraged to run code examples locally while reading the Sequelize docs. This will help you learn faster. The easiest way to do this is using the SQLite dialect:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require("sequelize");
+</code></pre><h3>Closing the connection</h3><p>Sequelize will keep the connection open by default, and use the same connection for all queries. If you need to close the connection, call <code>sequelize.close()</code> (which is asynchronous and returns a Promise).</p><h2>Terminology convention</h2><p>Observe that, in the examples above, <code>Sequelize</code> refers to the library itself while <code>sequelize</code> refers to an instance of Sequelize, which represents a connection to one database. This is the recommended convention and it will be followed throughout the documentation.</p><h2>Tip for reading the docs</h2><p>You are encouraged to run code examples locally while reading the Sequelize docs. This will help you learn faster. The easiest way to do this is using the SQLite dialect:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize("sqlite::memory:");
 
 // Code here! It works!</code>
@@ -711,7 +717,7 @@ const sequelize = new Sequelize("sqlite::memory:");
         <div data-ice="card"><h1>Model Basics</h1><p>In this tutorial you will learn what models are in Sequelize and how to use them.</p><h2>Concept</h2><p>Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends <a href="./manual/../class/src/model.js~Model.html">Model</a>.</p><p>The model tells Sequelize several things about the entity it represents, such as the name of the table in the database and which columns it has (and their data types).</p><p>A model in Sequelize has a name. This name does not have to be the same name of the table it represents in the database. Usually, models have singular names (such as <code>User</code>) while tables have pluralized names (such as <code>Users</code>), although this is fully configurable.</p><h2>Model Definition</h2><p>Models can be defined in two equivalent ways in Sequelize:</p><ul>
 <li>Calling <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define(modelName, attributes, options)</code></a></li>
 <li>Extending <a href="./manual/../class/src/model.js~Model.html">Model</a> and calling <a href="./manual/../class/src/model.js~Model.html#static-method-init"><code>init(attributes, options)</code></a></li>
-</ul><p>After a model is defined, it is available within <code>sequelize.models</code> by its model name.</p><p>To learn with an example, we will consider that we want to create a model to represent users, which have a <code>firstName</code> and a <code>lastName</code>. We want our model to be called <code>User</code>, and the table it represents is called <code>Users</code> in the database.</p><p>Both ways to define this model are shown below. After being defined, we can access our model with <code>sequelize.models.User</code>.</p><h3>Using <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+</ul><p>After a model is defined, it is available within <code>sequelize.models</code> by its model name.</p><p>To learn with an example, we will consider that we want to create a model to represent users, which have a <code>firstName</code> and a <code>lastName</code>. We want our model to be called <code>User</code>, and the table it represents is called <code>Users</code> in the database.</p><p>Both ways to define this model are shown below. After being defined, we can access our model with <code>sequelize.models.User</code>.</p><h3>Using <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-define"><code>sequelize.define</code></a>:</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('User', {
@@ -730,7 +736,7 @@ const User = sequelize.define('User', {
 
 // `sequelize.define` also returns the model
 console.log(User === sequelize.models.User); // true</code>
-</code></pre><h3>Extending <a href="./manual/../class/src/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('sequelize');
+</code></pre><h3>Extending <a href="./manual/../class/src/model.js~Model.html">Model</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes, Model } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 class User extends Model {}
@@ -870,7 +876,7 @@ sequelize.define('User', { name: DataTypes.STRING });</code>
     // This way, the current date/time will be used to populate this column (at the moment of insertion)
   }
 });</code>
-</code></pre><h2>Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/src/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize"); // Import the built-in data types</code>
+</code></pre><h2>Data Types</h2><p>Every column you define in your model must have a data type. Sequelize provides <a href="https://github.com/sequelize/sequelize/blob/main/src/data-types.js">a lot of built-in data types</a>. To access a built-in data type, you must import <code>DataTypes</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require('@sequelize/core'); // Import the built-in data types</code>
 </code></pre><h3>Strings</h3><pre><code class="lang-js"><code class="source-code prettyprint">DataTypes.STRING             // VARCHAR(255)
 DataTypes.STRING(1234)       // VARCHAR(1234)
 DataTypes.STRING.BINARY      // VARCHAR BINARY
@@ -909,7 +915,7 @@ DataTypes.DATEONLY   // DATE without time</code>
   type: DataTypes.UUID,
   defaultValue: DataTypes.UUIDV4 // Or DataTypes.UUIDV1
 }</code>
-</code></pre><h3>Others</h3><p>There are other data types, covered in a <a href="./manual/other-data-types.html">separate guide</a>.</p><h2>Column Options</h2><p>When defining a column, apart from specifying the <code>type</code> of the column, and the <code>allowNull</code> and <code>defaultValue</code> options mentioned above, there are a lot more options that can be used. Some examples are below.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Model, DataTypes, Deferrable } = require("sequelize");
+</code></pre><h3>Others</h3><p>There are other data types, covered in a <a href="./manual/other-data-types.html">separate guide</a>.</p><h2>Column Options</h2><p>When defining a column, apart from specifying the <code>type</code> of the column, and the <code>allowNull</code> and <code>defaultValue</code> options mentioned above, there are a lot more options that can be used. Some examples are below.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Model, DataTypes, Deferrable } = require('@sequelize/core');
 
 class Foo extends Model {}
 Foo.init({
@@ -1000,7 +1006,7 @@ console.log(user.getFullname()); // 'Jane Doe'</code>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Model Instances</h1><p>As you already know, a model is an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">ES6 class</a>. An instance of the class represents one object from that model (which maps to one row of the table in the database). This way, model instances are <a href="https://en.wikipedia.org/wiki/Data_access_object">DAOs</a>.</p><p>For this guide, the following setup will be assumed:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require("sequelize");
+        <div data-ice="card"><h1>Model Instances</h1><p>As you already know, a model is an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">ES6 class</a>. An instance of the class represents one object from that model (which maps to one row of the table in the database). This way, model instances are <a href="https://en.wikipedia.org/wiki/Data_access_object">DAOs</a>.</p><p>For this guide, the following setup will be assumed:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize("sqlite::memory:");
 
 const User = sequelize.define("user", {
@@ -1157,7 +1163,7 @@ SELECT id, foo, bar, qux FROM ...</code>
   }
 });
 // SELECT * FROM post WHERE authorId = 2;</code>
-</code></pre><p>Observe that no operator (from <code>Op</code>) was explicitly passed, so Sequelize assumed an equality comparison by default. The above code is equivalent to:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+</code></pre><p>Observe that no operator (from <code>Op</code>) was explicitly passed, so Sequelize assumed an equality comparison by default. The above code is equivalent to:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     authorId: {
@@ -1173,7 +1179,7 @@ Post.findAll({
   }
 });
 // SELECT * FROM post WHERE authorId = 12 AND status = 'active';</code>
-</code></pre><p>Just like Sequelize inferred the <code>Op.eq</code> operator in the first example, here Sequelize inferred that the caller wanted an <code>AND</code> for the two checks. The code above is equivalent to:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+</code></pre><p>Just like Sequelize inferred the <code>Op.eq</code> operator in the first example, here Sequelize inferred that the caller wanted an <code>AND</code> for the two checks. The code above is equivalent to:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     [Op.and]: [
@@ -1183,7 +1189,7 @@ Post.findAll({
   }
 });
 // SELECT * FROM post WHERE authorId = 12 AND status = 'active';</code>
-</code></pre><p>An <code>OR</code> can be easily performed in a similar way:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+</code></pre><p>An <code>OR</code> can be easily performed in a similar way:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     [Op.or]: [
@@ -1193,7 +1199,7 @@ Post.findAll({
   }
 });
 // SELECT * FROM post WHERE authorId = 12 OR authorId = 13;</code>
-</code></pre><p>Since the above was an <code>OR</code> involving the same field, Sequelize allows you to use a slightly different structure which is more readable and generates the same behavior:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+</code></pre><p>Since the above was an <code>OR</code> involving the same field, Sequelize allows you to use a slightly different structure which is more readable and generates the same behavior:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.destroy({
   where: {
     authorId: {
@@ -1202,7 +1208,7 @@ Post.destroy({
   }
 });
 // DELETE FROM post WHERE authorId = 12 OR authorId = 13;</code>
-</code></pre><h3>Operators</h3><p>Sequelize provides several operators.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+</code></pre><h3>Operators</h3><p>Sequelize provides several operators.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 Post.findAll({
   where: {
     [Op.and]: [{ a: 5 }, { b: 6 }],            // (a = 5) AND (b = 6)
@@ -1261,7 +1267,7 @@ Post.findAll({
   }
 });
 // SELECT ... FROM "posts" AS "post" WHERE "post"."id" IN (1, 2, 3);</code>
-</code></pre><h3>Logical combinations with operators</h3><p>The operators <code>Op.and</code>, <code>Op.or</code> and <code>Op.not</code> can be used to create arbitrarily complex nested logical comparisons.</p><h4>Examples with <code>Op.and</code> and <code>Op.or</code></h4><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require("sequelize");
+</code></pre><h3>Logical combinations with operators</h3><p>The operators <code>Op.and</code>, <code>Op.or</code> and <code>Op.not</code> can be used to create arbitrarily complex nested logical comparisons.</p><h4>Examples with <code>Op.and</code> and <code>Op.or</code></h4><pre><code class="lang-js"><code class="source-code prettyprint">const { Op } = require('@sequelize/core');
 
 Foo.findAll({
   where: {
@@ -1367,7 +1373,7 @@ WHERE (
 [Op.strictRight]: [1, 2],    // &gt;&gt; [1, 2)        (PG range strictly right of operator)
 [Op.noExtendRight]: [1, 2],  // &amp;&lt; [1, 2)        (PG range does not extend to the right of operator)
 [Op.noExtendLeft]: [1, 2],   // &amp;&gt; [1, 2)        (PG range does not extend to the left of operator)</code>
-</code></pre><h3>Deprecated: Operator Aliases</h3><p>In Sequelize v4, it was possible to specify strings to refer to operators, instead of using Symbols. This is now deprecated and heavily discouraged, and will probably be removed in the next major version. If you really need it, you can pass the <code>operatorAliases</code> option in the Sequelize constructor.</p><p>For example:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op } = require("sequelize");
+</code></pre><h3>Deprecated: Operator Aliases</h3><p>In Sequelize v4, it was possible to specify strings to refer to operators, instead of using Symbols. This is now deprecated and heavily discouraged, and will probably be removed in the next major version. If you really need it, you can pass the <code>operatorAliases</code> option in the Sequelize constructor.</p><p>For example:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:', {
   operatorsAliases: {
     $gt: Op.gt
@@ -1656,7 +1662,7 @@ console.log(post.content); // 'Hello everyone!'
 // However, if we are really curious, we can get the 'raw' data...
 console.log(post.getDataValue('content'));
 // Output: 'H4sIAAAAAAAACvNIzcnJV0gtSy2qzM9LVQQAUuk9jQ8AAAA='</code>
-</code></pre><h2>Virtual fields</h2><p>Virtual fields are fields that Sequelize populates under the hood, but in reality they don't even exist in the database.</p><p>For example, let's say we have the <code>firstName</code> and <code>lastName</code> attributes for a User.</p><p><em>Again, this is <a href="https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">only for the sake of an example</a>.</em></p><p>It would be nice to have a simple way to obtain the <em>full name</em> directly! We can combine the idea of <code>getters</code> with the special data type Sequelize provides for this kind of situation: <code>DataTypes.VIRTUAL</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("sequelize");
+</code></pre><h2>Virtual fields</h2><p>Virtual fields are fields that Sequelize populates under the hood, but in reality they don't even exist in the database.</p><p>For example, let's say we have the <code>firstName</code> and <code>lastName</code> attributes for a User.</p><p><em>Again, this is <a href="https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">only for the sake of an example</a>.</em></p><p>It would be nice to have a simple way to obtain the <em>full name</em> directly! We can combine the idea of <code>getters</code> with the special data type Sequelize provides for this kind of situation: <code>DataTypes.VIRTUAL</code>:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require('@sequelize/core');
 
 const User = sequelize.define('user', {
   firstName: DataTypes.TEXT,
@@ -1673,7 +1679,7 @@ const User = sequelize.define('user', {
 });</code>
 </code></pre><p>The <code>VIRTUAL</code> field does not cause a column in the table to exist. In other words, the model above will not have a <code>fullName</code> column. However, it will appear to have it!</p><pre><code class="lang-js"><code class="source-code prettyprint">const user = await User.create({ firstName: 'John', lastName: 'Doe' });
 console.log(user.fullName); // 'John Doe'</code>
-</code></pre><h2>Deprecated in Sequelize v7: <code>getterMethods</code> and <code>setterMethods</code></h2><p>Sequelize also provides the <code>getterMethods</code> and <code>setterMethods</code> options in the model definition to specify things that look like, but aren't exactly the same as, virtual attributes. This usage is discouraged and likely to be <strong>deprecated</strong> in the future (in favor of using virtual attributes directly).</p><p>Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+</code></pre><h2>Deprecated in Sequelize v7: <code>getterMethods</code> and <code>setterMethods</code></h2><p>Sequelize also provides the <code>getterMethods</code> and <code>setterMethods</code> options in the model definition to specify things that look like, but aren't exactly the same as, virtual attributes. This usage is discouraged and likely to be <strong>deprecated</strong> in the future (in favor of using virtual attributes directly).</p><p>Example:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:');
 
 const User = sequelize.define('user', {
@@ -1714,7 +1720,7 @@ const User = sequelize.define('user', {
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Validations &amp; Constraints</h1><p>In this tutorial you will learn how to setup validations and constraints for your models in Sequelize.</p><p>For this tutorial, the following setup will be assumed:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require("sequelize");
+        <div data-ice="card"><h1>Validations &amp; Constraints</h1><p>In this tutorial you will learn how to setup validations and constraints for your models in Sequelize.</p><p>For this tutorial, the following setup will be assumed:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize("sqlite::memory:");
 
 const User = sequelize.define("user", {
@@ -1888,7 +1894,7 @@ Place.init({
       <div class="manual-card">
         <div data-ice="card"><h1>Raw Queries</h1><p>As there are often use cases in which it is just easier to execute raw / already prepared SQL queries, you can use the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query"><code>sequelize.query</code></a> method.</p><p>By default the function will return two arguments - a results array, and an object containing metadata (such as amount of affected rows, etc). Note that since this is a raw query, the metadata are dialect specific. Some dialects return the metadata "within" the results object (as properties on an array). However, two arguments will always be returned, but for MSSQL and MySQL it will be two references to the same object.</p><pre><code class="lang-js"><code class="source-code prettyprint">const [results, metadata] = await sequelize.query("UPDATE users SET y = 42 WHERE x = 12");
 // Results will be an empty array and metadata will contain the number of affected rows.</code>
-</code></pre><p>In cases where you don't need to access the metadata you can pass in a query type to tell sequelize how to format the results. For example, for a simple select query you could do:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</code></pre><p>In cases where you don't need to access the metadata you can pass in a query type to tell sequelize how to format the results. For example, for a simple select query you could do:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 const users = await sequelize.query("SELECT * FROM `users`", { type: QueryTypes.SELECT });
 // We didn't need to destructure the result here - the results were returned directly</code>
 </code></pre><p>Several other query types are available. <a href="https://github.com/sequelize/sequelize/blob/main/src/query-types.ts">Peek into the source for details</a>.</p><p>A second option is the model. If you pass a model the returned data will be instances of that model.</p><pre><code class="lang-js"><code class="source-code prettyprint">// Callee is the model definition. This allows you to easily map a query to a predefined model
@@ -1897,7 +1903,7 @@ const projects = await sequelize.query('SELECT * FROM projects', {
   mapToModel: true // pass true here if you have any mapped fields
 });
 // Each element of `projects` is now an instance of Project</code>
-</code></pre><p>See more options in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</code></pre><p>See more options in the <a href="./manual/../class/src/sequelize.js~Sequelize.html#instance-method-query">query API reference</a>. Some examples:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 await sequelize.query('SELECT 1', {
   // A function (or false) for logging your queries
   // Will get called for every SQL query that gets sent
@@ -1921,7 +1927,7 @@ await sequelize.query('SELECT 1', {
 console.log(await sequelize.query('SELECT * FROM projects', { raw: true }));</code>
 </code></pre><h2>"Dotted" attributes and the <code>nest</code> option</h2><p>If an attribute name of the table contains dots, the resulting objects can become nested objects by setting the <code>nest: true</code> option. This is achieved with <a href="https://github.com/mickhansen/dottie.js/">dottie.js</a> under the hood. See below:</p><ul>
 <li><p>Without <code>nest: true</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 const records = await sequelize.query('select 1 as `foo.bar.baz`', {
   type: QueryTypes.SELECT
 });
@@ -1933,7 +1939,7 @@ console.log(JSON.stringify(records[0], null, 2));</code>
 </code></pre>
 </li>
 <li><p>With <code>nest: true</code>:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+<pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 const records = await sequelize.query('select 1 as `foo.bar.baz`', {
   nest: true,
   type: QueryTypes.SELECT
@@ -1952,7 +1958,7 @@ console.log(JSON.stringify(records[0], null, 2));</code>
 </ul><h2>Replacements</h2><p>Replacements in a query can be done in two different ways, either using named parameters (starting with <code>:</code>), or unnamed, represented by a <code>?</code>. Replacements are passed in the options object.</p><ul>
 <li>If an array is passed, <code>?</code> will be replaced in the order that they appear in the array</li>
 <li>If an object is passed, <code>:key</code> will be replaced with the keys from that object. If the object contains keys not found in the query or vice versa, an exception will be thrown.</li>
-</ul><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</ul><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT * FROM projects WHERE status = ?',
@@ -1969,7 +1975,7 @@ await sequelize.query(
     type: QueryTypes.SELECT
   }
 );</code>
-</code></pre><p>Array replacements will automatically be handled, the following query searches for projects where the status matches an array of values.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</code></pre><p>Array replacements will automatically be handled, the following query searches for projects where the status matches an array of values.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT * FROM projects WHERE status IN(:status)',
@@ -1978,7 +1984,7 @@ await sequelize.query(
     type: QueryTypes.SELECT
   }
 );</code>
-</code></pre><p>To use the wildcard operator <code>%</code>, append it to your replacement. The following query matches users with names that start with 'ben'.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</code></pre><p>To use the wildcard operator <code>%</code>, append it to your replacement. The following query matches users with names that start with 'ben'.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT * FROM users WHERE name LIKE :search_name',
@@ -1991,7 +1997,7 @@ await sequelize.query(
 <li>If an array is passed, <code>$1</code> is bound to the 1st element in the array (<code>bind[0]</code>)</li>
 <li>If an object is passed, <code>$key</code> is bound to <code>object['key']</code>. Each key must begin with a non-numeric char. <code>$1</code> is not a valid key, even if <code>object['1']</code> exists.</li>
 <li>In either case <code>$$</code> can be used to escape a literal <code>$</code> sign.</li>
-</ul><p>The array or object must contain all bound values or Sequelize will throw an exception. This applies even to cases in which the database may ignore the bound parameter.</p><p>The database may add further restrictions to this. Bind parameters cannot be SQL keywords, nor table or column names. They are also ignored in quoted text or data. In PostgreSQL it may also be needed to typecast them, if the type cannot be inferred from the context <code>$1::varchar</code>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('sequelize');
+</ul><p>The array or object must contain all bound values or Sequelize will throw an exception. This applies even to cases in which the database may ignore the bound parameter.</p><p>The database may add further restrictions to this. Bind parameters cannot be SQL keywords, nor table or column names. They are also ignored in quoted text or data. In PostgreSQL it may also be needed to typecast them, if the type cannot be inferred from the context <code>$1::varchar</code>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { QueryTypes } = require('@sequelize/core');
 
 await sequelize.query(
   'SELECT *, "text with literal $$1 and literal $$status" as t FROM projects WHERE status = $1',
@@ -2079,7 +2085,7 @@ Bar.belongsTo(Foo, {
     name: 'myFooId'
   }
 });</code>
-</code></pre><p>As shown above, the <code>foreignKey</code> option accepts a string or an object. When receiving an object, this object will be used as the definition for the column just like it would do in a standard <code>sequelize.define</code> call. Therefore, specifying options such as <code>type</code>, <code>allowNull</code>, <code>defaultValue</code>, etc, just  work.</p><p>For example, to use <code>UUID</code> as the foreign key data type instead of the default (<code>INTEGER</code>), you can simply do:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require("Sequelize");
+</code></pre><p>As shown above, the <code>foreignKey</code> option accepts a string or an object. When receiving an object, this object will be used as the definition for the column just like it would do in a standard <code>sequelize.define</code> call. Therefore, specifying options such as <code>type</code>, <code>allowNull</code>, <code>defaultValue</code>, etc, just  work.</p><p>For example, to use <code>UUID</code> as the foreign key data type instead of the default (<code>INTEGER</code>), you can simply do:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { DataTypes } = require('@sequelize/core');
 
 Foo.hasOne(Bar, {
   foreignKey: {
@@ -3319,7 +3325,7 @@ PlayerGameTeam.belongsTo(Player);
 PlayerGameTeam.belongsTo(GameTeam);
 Player.hasMany(PlayerGameTeam);
 GameTeam.hasMany(PlayerGameTeam);</code>
-</code></pre><p>The above associations achieve precisely what we want. Here is a full runnable example of this:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require('sequelize');
+</code></pre><p>The above associations achieve precisely what we want. Here is a full runnable example of this:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Op, Model, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize('sqlite::memory:', {
   define: { timestamps: false } // Just for less clutter in this example
 });
@@ -3826,7 +3832,7 @@ WHERE (
 });</code>
 </code></pre><p>The following fields may be passed to SQLite <code>dialectOptions</code>:</p><ul>
 <li><code>readWriteMode</code>: Set the opening mode for the SQLite connection. Potential values are provided by the sqlite3 package, and can include sqlite3.OPEN_READONLY, sqlite3.OPEN_READWRITE, or sqlite3.OPEN_CREATE. See the <a href="https://www.sqlite.org/c3ref/open.html">SQLite C interface documentation for more details</a>.</li>
-</ul><h3>PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+</ul><h3>PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package. For usage in Node 14 and above you need to use pg version 8.2.x or above, as per <a href="https://node-postgres.com/#version-compatibility">the documentation</a>. The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
   dialectOptions: {
     // Your pg options here
@@ -3878,7 +3884,13 @@ WHERE (
     }
   }
 })</code>
-</code></pre><h3>Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> package.</p><p>In order to connect with an account, use the following format:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
+</code></pre><h3>IBM i</h3><p>The underlying connector library used by Sequelize for IBM i is the <a href="https://www.npmjs.com/package/odbc">odbc</a> npm package (version 2.4.1 or higher).</p><p>To learn more about using ODBC with IBM i, consult the <a href="https://ibmi-oss-docs.readthedocs.io/en/latest/odbc/README.html">IBM i and ODBC documentation</a>.</p><p>When passing options to the constructor, the concept of <code>database</code> is mapped to the ODBC <code>DSN</code>. You can provide additional connection string options to Sequelize using the <code>dialectOptions.odbcConnectionString</code>. This connection string is then appended with the values found in the <code>database</code>, <code>username</code>, and <code>password</code> parameters:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('MY_DSN', 'username', 'password', {
+  dialect: 'ibmi',
+  dialectOptions: {
+    odbcConnectionString: 'CMT=1;NAM=0;...'
+  }
+})</code>
+</code></pre><p>The final connection string generated by the above configuration would look like <code>CMT=1;NAMING=0;...;DSN=MY_DSN;UID=username;PWD=password;</code>. Additionally, the <code>host</code> option will map the the <code>SYSTEM=</code> connection string key.</p><h3>Snowflake (Experiment)</h3><p>The underlying connector library used by Sequelize for Snowflake is the <a href="https://www.npmjs.com/package/snowflake-sdk">snowflake-sdk</a> package.</p><p>In order to connect with an account, use the following format:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', null, null, {
   dialect: 'snowflake',
   dialectOptions: {
     // put your snowflake account here,
@@ -3902,13 +3914,13 @@ SEQ_ACCOUNT=myAccount SEQ_USER=myUser SEQ_PW=myPassword SEQ_ROLE=myRole SEQ_DB=m
   return new Date(stringValue + '+0000');
   // e.g., UTC offset. Use any offset that you would like.
 });</code>
-</code></pre><h2>Data type: ARRAY(ENUM) - PostgreSQL only</h2><p>Array(Enum) type requireS special treatment. Whenever Sequelize will talk to the database, it has to typecast array values with ENUM name.</p><p>So this enum name must follow this pattern <code>enum_&lt;table_name&gt;_&lt;col_name&gt;</code>. If you are using <code>sync</code> then correct name will automatically be generated.</p><h2>Table Hints - MSSQL only</h2><p>The <code>tableHint</code> option can be used to define a table hint. The hint must be a value from <code>TableHints</code> and should only be used when absolutely necessary. Only a single table hint is currently supported per query.</p><p>Table hints override the default behavior of MSSQL query optimizer by specifing certain options. They only affect the table or view referenced in that clause.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { TableHints } = require('sequelize');
+</code></pre><h2>Data type: ARRAY(ENUM) - PostgreSQL only</h2><p>Array(Enum) type requireS special treatment. Whenever Sequelize will talk to the database, it has to typecast array values with ENUM name.</p><p>So this enum name must follow this pattern <code>enum_&lt;table_name&gt;_&lt;col_name&gt;</code>. If you are using <code>sync</code> then correct name will automatically be generated.</p><h2>Table Hints - MSSQL only</h2><p>The <code>tableHint</code> option can be used to define a table hint. The hint must be a value from <code>TableHints</code> and should only be used when absolutely necessary. Only a single table hint is currently supported per query.</p><p>Table hints override the default behavior of MSSQL query optimizer by specifing certain options. They only affect the table or view referenced in that clause.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { TableHints } = require('@sequelize/core');
 Project.findAll({
   // adding the table hint NOLOCK
   tableHint: TableHints.NOLOCK
   // this will generate the SQL 'WITH (NOLOCK)'
 })</code>
-</code></pre><h2>Index Hints - MySQL/MariaDB only</h2><p>The <code>indexHints</code> option can be used to define index hints. The hint type must be a value from <code>IndexHints</code> and the values should reference existing indexes.</p><p>Index hints <a href="https://dev.mysql.com/doc/refman/5.7/en/index-hints.html">override the default behavior of the MySQL query optimizer</a>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { IndexHints } = require("sequelize");
+</code></pre><h2>Index Hints - MySQL/MariaDB only</h2><p>The <code>indexHints</code> option can be used to define index hints. The hint type must be a value from <code>IndexHints</code> and the values should reference existing indexes.</p><p>Index hints <a href="https://dev.mysql.com/doc/refman/5.7/en/index-hints.html">override the default behavior of the MySQL query optimizer</a>.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { IndexHints } = require('@sequelize/core');
 Project.findAll({
   indexHints: [
     { type: IndexHints.USE, values: ['index_project_on_name'] }
@@ -4022,7 +4034,7 @@ try {
 });</code>
 </code></pre><h3>Automatically pass transactions to all queries</h3><p>In the examples above, the transaction is still manually passed, by passing <code>{ transaction: t }</code> as the second argument. To automatically pass the transaction to all queries you must install the <a href="https://github.com/Jeff-Lewis/cls-hooked">cls-hooked</a> (CLS) module and instantiate a namespace in your own code:</p><pre><code class="lang-js"><code class="source-code prettyprint">const cls = require('cls-hooked');
 const namespace = cls.createNamespace('my-very-own-namespace');</code>
-</code></pre><p>To enable CLS you must tell sequelize which namespace to use by using a static method of the sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const Sequelize = require('sequelize');
+</code></pre><p>To enable CLS you must tell sequelize which namespace to use by using a static method of the sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const Sequelize = require('@sequelize/core');
 Sequelize.useCLS(namespace);
 
 new Sequelize(....);</code>
@@ -4048,21 +4060,21 @@ sequelize.transaction((t2) =&gt; {
     ]);
   });
 });</code>
-</code></pre><h2>Passing options</h2><p>The <code>sequelize.transaction</code> method accepts options.</p><p>For unmanaged transactions, just use <code>sequelize.transaction(options)</code>.</p><p>For managed transactions, use <code>sequelize.transaction(options, callback)</code>.</p><h2>Isolation levels</h2><p>The possible isolations levels to use when starting a transaction:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Transaction } = require('sequelize');
+</code></pre><h2>Passing options</h2><p>The <code>sequelize.transaction</code> method accepts options.</p><p>For unmanaged transactions, just use <code>sequelize.transaction(options)</code>.</p><p>For managed transactions, use <code>sequelize.transaction(options, callback)</code>.</p><h2>Isolation levels</h2><p>The possible isolations levels to use when starting a transaction:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Transaction } = require('@sequelize/core');
 
 // The following are valid isolation levels:
 Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"
 Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"
 Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"
 Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"</code>
-</code></pre><p>By default, sequelize uses the isolation level of the database. If you want to use a different isolation level, pass in the desired level as the first argument:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Transaction } = require('sequelize');
+</code></pre><p>By default, sequelize uses the isolation level of the database. If you want to use a different isolation level, pass in the desired level as the first argument:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Transaction } = require('@sequelize/core');
 
 await sequelize.transaction({
   isolationLevel: Transaction.ISOLATION_LEVELS.SERIALIZABLE
 }, async (t) =&gt; {
   // Your code
 });</code>
-</code></pre><p>You can also overwrite the <code>isolationLevel</code> setting globally with an option in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Transaction } = require('sequelize');
+</code></pre><p>You can also overwrite the <code>isolationLevel</code> setting globally with an option in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Transaction } = require('@sequelize/core');
 
 const sequelize = new Sequelize('sqlite::memory:', {
   isolationLevel: Transaction.ISOLATION_LEVELS.SERIALIZABLE
@@ -4403,7 +4415,7 @@ await sequelize.transaction(async t =&gt; {
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Query Interface</h1><p>An instance of Sequelize uses something called <strong>Query Interface</strong> to communicate to the database in a dialect-agnostic way. Most of the methods you've learned in this manual are implemented with the help of several methods from the query interface.</p><p>The methods from the query interface are therefore lower-level methods; you should use them only if you do not find another way to do it with higher-level APIs from Sequelize. They are, of course, still higher-level than running raw queries directly (i.e., writing SQL by hand).</p><p>This guide shows a few examples, but for the full list of what it can do, and for detailed usage of each method, check the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface API</a>.</p><h2>Obtaining the query interface</h2><p>From now on, we will call <code>queryInterface</code> the singleton instance of the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface</a> class, which is available on your Sequelize instance:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('sequelize');
+        <div data-ice="card"><h1>Query Interface</h1><p>An instance of Sequelize uses something called <strong>Query Interface</strong> to communicate to the database in a dialect-agnostic way. Most of the methods you've learned in this manual are implemented with the help of several methods from the query interface.</p><p>The methods from the query interface are therefore lower-level methods; you should use them only if you do not find another way to do it with higher-level APIs from Sequelize. They are, of course, still higher-level than running raw queries directly (i.e., writing SQL by hand).</p><p>This guide shows a few examples, but for the full list of what it can do, and for detailed usage of each method, check the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface API</a>.</p><h2>Obtaining the query interface</h2><p>From now on, we will call <code>queryInterface</code> the singleton instance of the <a href="./manual/../class/src/dialects/abstract/query-interface.js~QueryInterface.html">QueryInterface</a> class, which is available on your Sequelize instance:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, DataTypes } = require('@sequelize/core');
 const sequelize = new Sequelize(/* ... */);
 const queryInterface = sequelize.getQueryInterface();</code>
 </code></pre><h2>Creating a table</h2><pre><code class="lang-js"><code class="source-code prettyprint">queryInterface.createTable('Person', {
@@ -4976,7 +4988,7 @@ DataTypes.GEOMETRY('POINT', 4326)     // Spatial column with geometry type and S
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Constraints &amp; Circularities</h1><p>Adding constraints between tables means that tables must be created in the database in a certain order, when using <code>sequelize.sync</code>. If <code>Task</code> has a reference to <code>User</code>, the <code>User</code> table must be created before the <code>Task</code> table can be created. This can sometimes lead to circular references, where Sequelize cannot find an order in which to sync. Imagine a scenario of documents and versions. A document can have multiple versions, and for convenience, a document has a reference to its current version.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require("sequelize");
+        <div data-ice="card"><h1>Constraints &amp; Circularities</h1><p>Adding constraints between tables means that tables must be created in the database in a certain order, when using <code>sequelize.sync</code>. If <code>Task</code> has a reference to <code>User</code>, the <code>User</code> table must be created before the <code>Task</code> table can be created. This can sometimes lead to circular references, where Sequelize cannot find an order in which to sync. Imagine a scenario of documents and versions. A document can have multiple versions, and for convenience, a document has a reference to its current version.</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize, Model, DataTypes } = require('@sequelize/core');
 
 class Document extends Model {}
 Document.init({
@@ -5581,7 +5593,7 @@ A decent amount of manual type declarations are needed to make models workable.<
 <li><code>@types/node</code> (this is universally required in node projects)</li>
 <li><code>@types/validator</code></li>
 </ul><h2>Usage</h2><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
-See <a href="./manual/./model-basics.html#caveat-with-public-class-fields">Caveat with Public Class Fields</a></p><p>Sequelize Models accept two generic types to define what the model's Attributes &amp; Creation Attributes are like:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, Optional } from 'sequelize';
+See <a href="./manual/./model-basics.html#caveat-with-public-class-fields">Caveat with Public Class Fields</a></p><p>Sequelize Models accept two generic types to define what the model's Attributes &amp; Creation Attributes are like:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, Optional } from '@sequelize/core';
 
 // We don't recommend doing this. Read on for the new way of declaring Model typings.
 
@@ -5602,7 +5614,7 @@ class User extends Model&lt;UserAttributes, UserCreationAttributes&gt; {
 }</code>
 </code></pre><p>This solution is verbose. Sequelize &gt;=6.14.0 provides new utility types that will drastically reduce the amount
 of boilerplate necessary: <code>InferAttributes</code>, and <code>InferCreationAttributes</code>. They will extract Attribute typings
-directly from the Model:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
+directly from the Model:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, InferAttributes, InferCreationAttributes, CreationOptional } from '@sequelize/core';
 
 // order of InferAttributes &amp; InferCreationAttributes is important.
 class User extends Model&lt;InferAttributes&lt;User&gt;, InferCreationAttributes&lt;User&gt;&gt; {
@@ -5629,7 +5641,7 @@ will be marked as optional.</p><p>You only need to use <code>CreationOptional</c
   HasManySetAssociationsMixin, HasManyAddAssociationsMixin, HasManyHasAssociationsMixin,
   HasManyRemoveAssociationMixin, HasManyRemoveAssociationsMixin, Model, ModelDefined, Optional,
   Sequelize, InferAttributes, InferCreationAttributes, CreationOptional, NonAttribute
-} from 'sequelize';
+} from '@sequelize/core';
 
 const sequelize = new Sequelize('mysql://root:asd123@localhost:3306/mydb');
 
@@ -5844,7 +5856,7 @@ async function doStuffWithUser() {
   await sequelize.sync();
   await doStuffWithUser();
 })();</code>
-</code></pre><h3>Usage without strict types for attributes</h3><p>The typings for Sequelize v5 allowed you to define models without specifying types for the attributes. This is still possible for backwards compatibility and for cases where you feel strict typing for attributes isn't worth it.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from "sequelize";
+</code></pre><h3>Usage without strict types for attributes</h3><p>The typings for Sequelize v5 allowed you to define models without specifying types for the attributes. This is still possible for backwards compatibility and for cases where you feel strict typing for attributes isn't worth it.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from '@sequelize/core';
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
 
@@ -5887,7 +5899,7 @@ async function doStuffWithUserModel() {
   if (foundUser === null) return;
   console.log(foundUser.name);
 }</code>
-</code></pre><h2>Usage of <code>sequelize.define</code></h2><p>In Sequelize versions before v5, the default way of defining a model involved using <code>sequelize.define</code>. It's still possible to define models with that, and you can also add typings to these models using interfaces.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes, Optional } from "sequelize";
+</code></pre><h2>Usage of <code>sequelize.define</code></h2><p>In Sequelize versions before v5, the default way of defining a model involved using <code>sequelize.define</code>. It's still possible to define models with that, and you can also add typings to these models using interfaces.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes, Optional } from '@sequelize/core';
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
 
@@ -5921,7 +5933,7 @@ async function doStuff() {
   });
   console.log(instance.id);
 }</code>
-</code></pre><p>If you're comfortable with somewhat less strict typing for the attributes on a model, you can save some code by defining the Instance to just extend <code>Model</code> without any attributes in the generic types.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from "sequelize";
+</code></pre><p>If you're comfortable with somewhat less strict typing for the attributes on a model, you can save some code by defining the Instance to just extend <code>Model</code> without any attributes in the generic types.</p><pre><code class="lang-ts"><code class="source-code prettyprint">import { Sequelize, Model, DataTypes } from '@sequelize/core';
 
 const sequelize = new Sequelize("mysql://root:asd123@localhost:3306/mydb");
 
@@ -5947,7 +5959,7 @@ async function doStuff() {
   });
   console.log(instance.id);
 }</code>
-</code></pre><h2>Utility Types</h2><h3>Requesting a Model Class</h3><p><code>ModelStatic</code> is designed to be used to type a Model <em>class</em>.</p><p>Here is an example of a utility method that requests a Model Class, and returns the list of primary keys defined in that class:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { ModelStatic, ModelAttributeColumnOptions, Model, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
+</code></pre><h2>Utility Types</h2><h3>Requesting a Model Class</h3><p><code>ModelStatic</code> is designed to be used to type a Model <em>class</em>.</p><p>Here is an example of a utility method that requests a Model Class, and returns the list of primary keys defined in that class:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { ModelStatic, ModelAttributeColumnOptions, Model, InferAttributes, InferCreationAttributes, CreationOptional } from '@sequelize/core';
 
 /**
  * Returns the list of attributes that are part of the model's primary key.
@@ -5988,7 +6000,7 @@ with class-based model definitions (When using <code>Model.init</code>).</p><p><
   InferCreationAttributes,
   CreationOptional,
   Attributes
-} from 'sequelize';
+} from '@sequelize/core';
 
 export function getAttributeMetadata&lt;M extends Model&gt;(model: ModelStatic&lt;M&gt;, attributeName: keyof Attributes&lt;M&gt;): ModelAttributeColumnOptions {
   const attribute = model.rawAttributes[attributeName];
@@ -6066,9 +6078,9 @@ const nameAttributeMeta = getAttributeMetadata(User, 'name'); // fails because '
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Upgrade to v6</h1><p>Sequelize v6 is the next major release after v5. Below is a list of breaking changes to help you upgrade.</p><h2>Breaking Changes</h2><h3>Support for Node 10 and up</h3><p>Sequelize v6 will only support Node 10 and up <a href="https://github.com/sequelize/sequelize/issues/10821">#10821</a>.</p><h3>CLS</h3><p>You should now use <a href="https://github.com/Jeff-Lewis/cls-hooked">cls-hooked</a> package for CLS support.</p><pre><code class="lang-js"><code class="source-code prettyprint">const cls = require("cls-hooked");
-const namespace = cls.createNamespace("....");
-const Sequelize = require("sequelize");
+        <div data-ice="card"><h1>Upgrade to v6</h1><p>Sequelize v6 is the next major release after v5. Below is a list of breaking changes to help you upgrade.</p><h2>Breaking Changes</h2><h3>Support for Node 10 and up</h3><p>Sequelize v6 will only support Node 10 and up <a href="https://github.com/sequelize/sequelize/issues/10821">#10821</a>.</p><h3>CLS</h3><p>You should now use <a href="https://github.com/Jeff-Lewis/cls-hooked">cls-hooked</a> package for CLS support.</p><pre><code class="lang-js"><code class="source-code prettyprint">const cls = require('cls-hooked');
+const namespace = cls.createNamespace('....');
+const Sequelize = require('sequelize');
 
 Sequelize.useCLS(namespace);</code>
 </code></pre><h3>Database Engine Support</h3><p>We have updated our minimum supported database engine versions. Using older database engine will show <code>SEQUELIZE0006</code> deprecation warning. Please check <a href="https://github.com/sequelize/sequelize/blob/main/ENGINE.md">ENGINE.md</a> for version table.</p><h3>Sequelize</h3><ul>
@@ -6238,7 +6250,13 @@ await instance.save(); // will save</code>
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Upgrade to v7</h1><p>Sequelize v7 is the next major release after v6. Below is a list of breaking changes to help you upgrade.</p><h2>Breaking Changes</h2><h3>Support for Node 12 and up</h3><p>Sequelize v7 will only support those versions of Node.js that are compatible with the ES module specification,
+        <div data-ice="card"><h1>Upgrade to v7</h1><p>Sequelize v7 is the next major release after v6. Below is a list of breaking changes to help you upgrade.</p><h2>Breaking Changes</h2><h3>Main project renamed to @sequelize/core</h3><p>Starting with Sequelize v7, we are introducing scoped modules and renamed the following projects:</p><ul>
+<li>The former <code>sequelize</code> module is now available under <code>@sequelize/core</code>.</li>
+</ul><p>As a result, you now use Sequelize as follows:</p><pre><code class="lang-javascript"><code class="source-code prettyprint">const { Sequelize } = require('@sequelize/core');
+const sequelize = new Sequelize({ dialect: 'sqlite' });
+
+await sequelize.authenticate();</code>
+</code></pre><h3>Support for Node 12 and up</h3><p>Sequelize v7 will only support those versions of Node.js that are compatible with the ES module specification,
 namingly version 12 and upwards <a href="https://github.com/sequelize/meetings/issues/5">#5</a>.</p><h3>TypeScript conversion</h3><p>One of the major foundational code changes of v7 is the migration to TypeScript.
 As a result, the manual typings that were formerly best-effort guesses on top of the JavaScript code base,
 have been removed and all typings are now directly retrieved from the actual TypeScript code.
@@ -6246,7 +6264,7 @@ You'll likely find many tiny differences which however should be easy to fix.</p
 The <code>.</code> character also has special meaning, being used to reference nested JSON object keys,
 the <code>$nested.attribute$</code> syntax, and in output names of eager-loaded associations in SQL queries.</p><p>In Sequelize 6, it was possible to create an attribute that matched this special syntax, leading to subtle bugs.
 Starting with Sequelize 7, this is now considered reserved syntax, and it is no longer possible to
-use a string that both starts and ends with a <code>$</code> as the attribute name, or includes the <code>.</code> character.</p><p>This only affects the attribute name, it is still possible to do this for the column name.</p><p>Instead of doing this:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from 'sequelize';
+use a string that both starts and ends with a <code>$</code> as the attribute name, or includes the <code>.</code> character.</p><p>This only affects the attribute name, it is still possible to do this for the column name.</p><p>Instead of doing this:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from '@sequelize/core';
 
 class User extends Model {
   $myAttribute$: string;
@@ -6267,7 +6285,7 @@ User.init({
     field: 'another.attribute'
   }
 }, { sequelize });</code>
-</code></pre><p>Do this:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from 'sequelize';
+</code></pre><p>Do this:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { DataTypes, Model } from '@sequelize/core';
 
 class User extends Model {
   $myAttribute$: string;
@@ -6341,7 +6359,7 @@ configure <code>sequelize</code> for AWS Lambda and troubleshoot issues.</p><h2>
 <code>sequelize</code> connection pooling does not get along well with AWS Lambda's Node.js runtime and it ends
 up causing more problems than it solves. Therefore, the most appropriate configuration is to <strong>use
 pooling within the same invocation</strong> and <strong>avoid pooling across invocations</strong> (i.e. close all
-connections at the end):</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require("sequelize");
+connections at the end):</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('@sequelize/core');
 
 let sequelize = null;
 
@@ -6705,7 +6723,7 @@ module.exports.handler = function (event, context, callback) {
 </code></pre><h2>Sequelize connection pooling in AWS Lambda</h2><p><code>sequelize</code> uses connection pooling for optimizing usage of database connections. The connection
 pool used by <code>sequelize</code> is implemented using <code>setTimeout()</code> callbacks (which are processed by the
 Node.js event loop).</p><p>Given the fact that AWS Lambda containers process one request at a time, one would be tempted to
-configure <code>sequelize</code> as follows:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('sequelize');
+configure <code>sequelize</code> as follows:</p><pre><code class="lang-js"><code class="source-code prettyprint">const { Sequelize } = require('@sequelize/core');
 
 const sequelize = new Sequelize(/* (...) */, {
   // (...)
