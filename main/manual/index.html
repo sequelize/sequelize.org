@@ -5589,10 +5589,7 @@ yarn sequelize-cli db:migrate --url 'mysql://root:password@mysql_host.com/databa
       <div class="manual-card">
         <div data-ice="card"><h1>TypeScript</h1><p>Sequelize provides its own TypeScript definitions.</p><p>Please note that only <strong>TypeScript &gt;= 4.1</strong> is supported.
 Our TypeScript support does not follow SemVer. We will support TypeScript releases for at least one year, after which they may be dropped in a SemVer MINOR release.</p><p>As Sequelize heavily relies on runtime property assignments, TypeScript won't be very useful out of the box.
-A decent amount of manual type declarations are needed to make models workable.</p><h2>Installation</h2><p>In order to avoid installation bloat for non TS users, you must install the following typing packages manually:</p><ul>
-<li><code>@types/node</code> (this is universally required in node projects)</li>
-<li><code>@types/validator</code></li>
-</ul><h2>Usage</h2><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
+A decent amount of manual type declarations are needed to make models workable.</p><h2>Installation</h2><p>In order to avoid clashes with different Node versions, the typings for Node are not included. You must install <code>@types/node</code> manually.</p><h2>Usage</h2><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
 See <a href="./manual/./model-basics.html#caveat-with-public-class-fields">Caveat with Public Class Fields</a></p><p>Sequelize Models accept two generic types to define what the model's Attributes &amp; Creation Attributes are like:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, Optional } from '@sequelize/core';
 
 // We don't recommend doing this. Read on for the new way of declaring Model typings.
