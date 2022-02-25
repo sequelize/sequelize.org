@@ -3801,7 +3801,7 @@ WHERE (
 });</code>
 </code></pre><p>The following fields may be passed to SQLite <code>dialectOptions</code>:</p><ul>
 <li><code>readWriteMode</code>: Set the opening mode for the SQLite connection. Potential values are provided by the sqlite3 package, and can include sqlite3.OPEN_READONLY, sqlite3.OPEN_READWRITE, or sqlite3.OPEN_CREATE. See the <a href="https://www.sqlite.org/c3ref/open.html">SQLite C interface documentation for more details</a>.</li>
-</ul><h3>PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> npm package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
+</ul><h3>PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package (for Node 10 &amp; 12, use pg version 7.0.0 or above. For Node 14 and above you need to use pg version 8.2.x or above, as per <a href="https://node-postgres.com/#version-compatibility">the pg documentation</a>). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p><p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p><pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
   dialectOptions: {
     // Your pg options here
@@ -5507,10 +5507,7 @@ module.exports = {
       <div class="manual-card">
         <div data-ice="card"><h1>TypeScript</h1><p>Sequelize provides its own TypeScript definitions.</p><p>Please note that only <strong>TypeScript &gt;= 4.1</strong> is supported.
 Our TypeScript support does not follow SemVer. We will support TypeScript releases for at least one year, after which they may be dropped in a SemVer MINOR release.</p><p>As Sequelize heavily relies on runtime property assignments, TypeScript won't be very useful out of the box.
-A decent amount of manual type declarations are needed to make models workable.</p><h2>Installation</h2><p>In order to avoid installation bloat for non TS users, you must install the following typing packages manually:</p><ul>
-<li><code>@types/node</code> (this is universally required in node projects)</li>
-<li><code>@types/validator</code></li>
-</ul><h2>Usage</h2><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
+A decent amount of manual type declarations are needed to make models workable.</p><h2>Installation</h2><p>In order to avoid clashes with different Node versions, the typings for Node are not included. You must install <code>@types/node</code> manually.</p><h2>Usage</h2><p><strong>Important</strong>: You must use <code>declare</code> on your class properties typings to ensure TypeScript does not emit those class properties.
 See <a href="./manual/./model-basics.html#caveat-with-public-class-fields">Caveat with Public Class Fields</a></p><p>Sequelize Models accept two generic types to define what the model's Attributes &amp; Creation Attributes are like:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import { Model, Optional } from 'sequelize';
 
 // We don't recommend doing this. Read on for the new way of declaring Model typings.
@@ -5553,7 +5550,22 @@ Doing this is likely to cause issues anyway.</li>
 <li>Getter &amp; setters are not automatically excluded. Set their return / parameter type to <code>NonAttribute</code>,
 or add them to <code>omit</code> to exclude them.</li>
 </ul><p><code>InferCreationAttributes</code> works the same way as <code>AttributesOf</code> with one exception: Properties typed using the <code>CreationOptional</code> type
-will be marked as optional.</p><p>You only need to use <code>CreationOptional</code> &amp; <code>NonAttribute</code> on class instance fields or getters.</p><p>Example of a minimal TypeScript project with strict type-checking for attributes:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import {
+will be marked as optional.
+Note that attributes that accept <code>null</code>, or <code>undefined</code> do not need to use <code>CreationOptional</code>:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">class User extends Model&lt;InferAttributes&lt;User&gt;, InferCreationAttributes&lt;User&gt;&gt; {
+  declare firstName: string;
+
+  // there is no need to use CreationOptional on firstName because nullable attributes
+  // are always optional in User.create()
+  declare lastName: string | null;
+}
+
+// ...
+
+await User.create({
+  firstName: 'Zoé',
+  // last name omitted, but this is still valid!
+});</code>
+</code></pre><p>You only need to use <code>CreationOptional</code> &amp; <code>NonAttribute</code> on class instance fields or getters.</p><p>Example of a minimal TypeScript project with strict type-checking for attributes:</p><pre><code class="lang-typescript"><code class="source-code prettyprint">import {
   Association, DataTypes, HasManyAddAssociationMixin, HasManyCountAssociationsMixin,
   HasManyCreateAssociationMixin, HasManyGetAssociationsMixin, HasManyHasAssociationMixin,
   HasManySetAssociationsMixin, HasManyAddAssociationsMixin, HasManyHasAssociationsMixin,
@@ -5579,7 +5591,7 @@ class User extends Model&lt;InferAttributes&lt;User, { omit: 'projects' }&gt;, I
   // Since TS cannot determine model association at compile time
   // we have to declare them here purely virtually
   // these will not exist until `Model.init` was called.
-  declare getProjects: HasManyGetAssociationsMixin&lt;Project&gt;; // Note the null assertions!
+  declare getProjects: HasManyGetAssociationsMixin&lt;Project&gt;;
   declare addProject: HasManyAddAssociationMixin&lt;Project, number&gt;;
   declare addProjects: HasManyAddAssociationsMixin&lt;Project, number&gt;;
   declare setProjects: HasManySetAssociationsMixin&lt;Project, number&gt;;

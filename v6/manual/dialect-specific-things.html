@@ -621,7 +621,7 @@
 <ul>
 <li><code>readWriteMode</code>: Set the opening mode for the SQLite connection. Potential values are provided by the sqlite3 package, and can include sqlite3.OPEN_READONLY, sqlite3.OPEN_READWRITE, or sqlite3.OPEN_CREATE. See the <a href="https://www.sqlite.org/c3ref/open.html">SQLite C interface documentation for more details</a>.</li>
 </ul>
-<h3 id="postgresql">PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> npm package (version 7.0.0 or above). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p>
+<h3 id="postgresql">PostgreSQL</h3><p>The underlying connector library used by Sequelize for PostgreSQL is the <a href="https://www.npmjs.com/package/pg">pg</a> package (for Node 10 &amp; 12, use pg version 7.0.0 or above. For Node 14 and above you need to use pg version 8.2.x or above, as per <a href="https://node-postgres.com/#version-compatibility">the pg documentation</a>). The module <a href="https://www.npmjs.com/package/pg-hstore">pg-hstore</a> is also necessary.</p>
 <p>You can provide custom options to it using the <code>dialectOptions</code> in the Sequelize constructor:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'postgres',
